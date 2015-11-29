@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_vouli"
+            android:icon="@drawable/ic_menu_agenda"
+            android:title="Βουλή" />
+        <item
+            android:id="@+id/nav_organosi"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Οργάνωση" />
+        <item
+            android:id="@+id/nav_vouleutes"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Βουλευτές" />
+        <item
+            android:id="@+id/nav_sindesmoi"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Σύνδεσμοι" />
+    </group>
+    <item android:title="Πολυμέσα">
+        <menu>
+            <item
+                android:id="@+id/nav_ekdoseis"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Εκδόσεις" />
+            <item
+                android:id="@+id/nav_photo"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Φωτογραφίες" />
+            <item
+                android:id="@+id/nav_kanali"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Τηλεόραση" />
+        </menu>
+    </item>
+    <item android:title="Ενημέρωση">
+        <menu>
+            <item
+                android:id="@+id/nav_nea"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Δελτία τύπου" />
+            <item
+                android:id="@+id/nav_nomosxedia"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Νομοσχέδια" />
+        </menu>
+    </item>
+    <item android:title="Χρήστες">
+        <menu>
+            <item
+                android:id="@+id/nav_diktio"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Εντός Δικτύου" />
+            <item
+                android:id="@+id/nav_epikoinonia"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Επικοινωνία" />
+            <item
+                android:id="@+id/nav_peri"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Περί" />
+        </menu>
+    </item>
+</menu>
