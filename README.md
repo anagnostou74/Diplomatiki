@@ -1,5 +1,6 @@
 # Parliament
 An android app for Hellenic Parliament by Anagnostou Konstantinos.
+Target to be completed June 2016.
 
 A thesis for Hellenic Open University.
 School of Applied Arts /
