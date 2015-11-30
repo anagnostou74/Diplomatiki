@@ -1,8 +1,9 @@
 # Parliament
-An android app for Hellenic Parliament.
+An android app for Hellenic Parliament by Anagnostou Konstantinos.
 
 A thesis for Hellenic Open University.
-School of Applied Arts - Graphic Arts - Multimedia MA
+School of Applied Arts /
+Graphic Arts - Multimedia MA
 
 Supervisor Α’
 Styliaras Georgios
