@@ -204,4 +204,3 @@ public class DownloadPdfActivity extends MainActivity {
         context.startActivity(i);
     }
 }
-

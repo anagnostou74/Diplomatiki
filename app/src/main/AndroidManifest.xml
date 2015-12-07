@@ -51,42 +51,6 @@
                 android:value="gr.sextreme.MainActivity" />
         </activity>
         <activity
-            android:name=".web.DiafaneiaWeb"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
-            android:name=".web.DiasporaWeb"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
-            android:name=".web.EfivoiWeb"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
-            android:name=".web.IdrymaWeb"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
             android:name=".web.entos.MailWeb"
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
@@ -96,25 +60,7 @@
                 android:value="gr.sextreme.MainActivity" />
         </activity>
         <activity
-            android:name=".web.PboWeb"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
             android:name=".web.entos.PraktikaWeb"
-            android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
-            android:name=".web.YeepWeb"
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -194,5 +140,37 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="gr.sextreme.MainActivity" />
         </activity>
+
+        <activity
+            android:name=".images.ImageGridActivity"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/app_name"
+            android:parentActivityName="gr.sextreme.MainActivity">
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gr.sextreme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".images.ImagePagerActivity"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/app_name"
+            android:parentActivityName="gr.sextreme.MainActivity">
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gr.sextreme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".images.Image"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/app_name"
+            android:parentActivityName="gr.sextreme.MainActivity">
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gr.sextreme.MainActivity" />
+        </activity>
+
     </application>
 </manifest>

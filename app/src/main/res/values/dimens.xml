@@ -10,4 +10,10 @@
     <!--list activity wants it 200-->
     <dimen name="text_margin">16dp</dimen>
     <dimen name="item_width">200dp</dimen>
+
+    <dimen name="medium_photo_side">110dp</dimen>
+    <dimen name="small_photo_side">55dp</dimen>
+    <dimen name="flickr_list_item_height">170dp</dimen>
+    <dimen name="grid_margin">5dp</dimen>
+    <dimen name="page_margin">8dp</dimen>
 </resources>

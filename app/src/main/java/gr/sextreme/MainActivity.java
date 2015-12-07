@@ -16,10 +16,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.sextreme.ekdoseis.DownloadPdfActivity;
+import gr.sextreme.images.Image;
+import gr.sextreme.images.ImagePagerActivity;
 import gr.sextreme.main.BookFragment;
 import gr.sextreme.main.KanonismosFragment;
 import gr.sextreme.main.KtirioFragment;
@@ -52,8 +57,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
+
+        // Create global configuration and initialize ImageLoader with this config
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
+        .build();
+        ImageLoader.getInstance().init(config);
+    }
 
     @Override
     public void onBackPressed() {
@@ -108,7 +118,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, DownloadPdfActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_photo) {
-            Intent i = new Intent(MainActivity.this, ScrollingActivity.class);
+            Intent i = new Intent(MainActivity.this, Image.class);
             startActivity(i);
         } else if (id == R.id.nav_kanali) {
             Intent i = new Intent(MainActivity.this, ScrollingActivity.class);
@@ -145,7 +155,7 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
