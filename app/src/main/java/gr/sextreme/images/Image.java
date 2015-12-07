@@ -1,91 +1,99 @@
-/*******************************************************************************
- * Copyright 2011-2013 Sergey Tarasevich
- * <p/>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p/>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p/>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *******************************************************************************/
 package gr.sextreme.images;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.utils.L;
+import java.util.ArrayList;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import gr.sextreme.R;
 
-import gr.sextreme.images.Constants.Extra;
-
-import static gr.sextreme.images.Constants.IMAGES;
-
-/**
- * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
- */
 public class Image extends AppCompatActivity {
 
-    /**
-     * The serialization (saved instance state) Bundle key representing the
-     * current dropdown position.
-     */
+    GalleryAdapter mAdapter;
+    RecyclerView mRecyclerView;
 
-    private static final String TEST_FILE_NAME = "Universal Image Loader @#&=+-_.,!()~'%20.png";
+    ArrayList<ImageModel> data = new ArrayList<>();
+
+    public static final String[] titles = new String[]{"Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος",
+            "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος"};
+    public static String IMGS[] = {
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_18_014.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/1%20IMG_2008_02_22_9_63a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2008_10_21_030.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/Img2005-03-22_20.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_30_2a%20copy.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_02_17_9_6.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2012_06_28_9_102a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_18_014.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/1%20IMG_2008_02_22_9_63a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2008_10_21_030.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/Img2005-03-22_20.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_30_2a%20copy.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_02_17_9_6.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2012_06_28_9_102a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_18_014.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/1%20IMG_2008_02_22_9_63a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2008_10_21_030.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/Img2005-03-22_20.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_30_2a%20copy.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_02_17_9_6.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2012_06_28_9_102a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_18_014.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/1%20IMG_2008_02_22_9_63a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2008_10_21_030.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/Img2005-03-22_20.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_30_2a%20copy.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_02_17_9_6.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2012_06_28_9_102a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_18_014.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/1%20IMG_2008_02_22_9_63a.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2008_10_21_030.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/Img2005-03-22_20.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_30_2a%20copy.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_02_17_9_6.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2012_06_28_9_102a.jpg",
+    };
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_images);
 
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-                getApplicationContext()).build();
-        ImageLoader.getInstance().init(config);
+        for (int i = 0; i < IMGS.length; i++) {
 
-        File testImageOnSdCard = new File("/mnt/sdcard", TEST_FILE_NAME);
-        if (!testImageOnSdCard.exists()) {
-            copyTestImageToSdCard(testImageOnSdCard);
+            ImageModel imageModel = new ImageModel();
+            imageModel.setName("Φωτογραφία " + i);
+            imageModel.setUrl(IMGS[i]);
+            data.add(imageModel);
+
         }
 
-        Intent intent = new Intent(this, ImageGridActivity.class);
-        intent.putExtra(Extra.IMAGES, IMAGES);
-        startActivity(intent);
+        mRecyclerView = (RecyclerView) findViewById(R.id.list);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        mRecyclerView.setHasFixedSize(true);
 
-    }
 
-    private void copyTestImageToSdCard(final File testImageOnSdCard) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    InputStream is = getAssets().open(TEST_FILE_NAME);
-                    FileOutputStream fos = new FileOutputStream(
-                            testImageOnSdCard);
-                    byte[] buffer = new byte[8192];
-                    int read;
-                    try {
-                        while ((read = is.read(buffer)) != -1) {
-                            fos.write(buffer, 0, read);
-                        }
-                    } finally {
-                        fos.flush();
-                        fos.close();
-                        is.close();
+        mAdapter = new GalleryAdapter(Image.this, data);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,
+                new RecyclerItemClickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                        Intent intent = new Intent(Image.this, DetailActivity.class);
+                        intent.putParcelableArrayListExtra("data", data);
+                        intent.putExtra("pos", position);
+                        startActivity(intent);
+
                     }
-                } catch (IOException e) {
-                    L.w("Can't copy test image onto SD card");
-                }
-            }
-        }).start();
+                }));
+
     }
+
 }

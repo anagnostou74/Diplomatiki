@@ -140,27 +140,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="gr.sextreme.MainActivity" />
         </activity>
-
-        <activity
-            android:name=".images.ImageGridActivity"
-            android:finishOnTaskLaunch="true"
-            android:label="@string/app_name"
-            android:parentActivityName="gr.sextreme.MainActivity">
-            <!-- Parent activity meta-data to support API level 7+ -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
-        <activity
-            android:name=".images.ImagePagerActivity"
-            android:finishOnTaskLaunch="true"
-            android:label="@string/app_name"
-            android:parentActivityName="gr.sextreme.MainActivity">
-            <!-- Parent activity meta-data to support API level 7+ -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.sextreme.MainActivity" />
-        </activity>
         <activity
             android:name=".images.Image"
             android:finishOnTaskLaunch="true"
@@ -171,6 +150,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="gr.sextreme.MainActivity" />
         </activity>
-
+        <activity
+            android:name=".images.DetailActivity"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/app_name"
+            android:parentActivityName="gr.sextreme.MainActivity">
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="gr.sextreme.MainActivity" />
+        </activity>
     </application>
 </manifest>
