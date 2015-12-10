@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, Image.class);
             startActivity(i);
         } else if (id == R.id.nav_kanali) {
-            Intent i = new Intent(MainActivity.this, ScrollingActivity.class);
+            Intent i = new Intent(MainActivity.this, VideoActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
