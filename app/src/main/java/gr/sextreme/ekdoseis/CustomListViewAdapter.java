@@ -5,23 +5,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import gr.sextreme.R;
-
-import java.util.List;
-
-import gr.sextreme.ekdoseis.RowItem;
-
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.List;
+
+import gr.sextreme.R;
 
 public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
 
@@ -31,13 +21,6 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
                                  List<RowItem> items) {
         super(context, resourceId, items);
         this.context = context;
-    }
-
-    /*private view holder class*/
-    private class ViewHolder {
-        ImageView imageView;
-        TextView txtTitle;
-        TextView txtDesc;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -61,5 +44,12 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
         holder.imageView.setImageResource(rowItem.getImageId());
 
         return convertView;
+    }
+
+    /*private view holder class*/
+    private class ViewHolder {
+        ImageView imageView;
+        TextView txtTitle;
+        TextView txtDesc;
     }
 }

@@ -17,7 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.File;
@@ -27,13 +26,8 @@ import java.util.List;
 import gr.sextreme.MainActivity;
 import gr.sextreme.R;
 
-/**
- * Created by Gavin on 2015-04-05.
- */
+
 public class DownloadPdfActivity extends MainActivity {
-    private String TAG = "RegsActivity", pdfURL;
-    ListView listView;
-    List<RowItem> rowItems;
     // Defined Array values to show in ListView
     public static final String[] titles = new String[]{"Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος",
             "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος"};
@@ -55,6 +49,21 @@ public class DownloadPdfActivity extends MainActivity {
             R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
             R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
     };
+    ListView listView;
+    List<RowItem> rowItems;
+    private String TAG = "RegsActivity", pdfURL;
+
+    /**
+     * functoin to open the PDF using an Intent
+     *
+     * @param context
+     * @param localUri
+     */
+    public static final void openPDF(Context context, Uri localUri) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setDataAndType(localUri, "application/pdf");
+        context.startActivity(i);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,17 +199,5 @@ public class DownloadPdfActivity extends MainActivity {
 
         // Enqueue the request
         dm.enqueue(r);
-    }
-
-    /**
-     * functoin to open the PDF using an Intent
-     *
-     * @param context
-     * @param localUri
-     */
-    public static final void openPDF(Context context, Uri localUri) {
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setDataAndType(localUri, "application/pdf");
-        context.startActivity(i);
     }
 }

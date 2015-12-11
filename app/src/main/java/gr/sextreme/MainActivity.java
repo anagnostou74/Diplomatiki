@@ -21,9 +21,9 @@ import java.util.List;
 
 import gr.sextreme.ekdoseis.DownloadPdfActivity;
 import gr.sextreme.images.Image;
-import gr.sextreme.main.BookFragment;
-import gr.sextreme.main.KanonismosFragment;
+import gr.sextreme.main.EpitropesFragment;
 import gr.sextreme.main.KtirioFragment;
+import gr.sextreme.main.ProedreioFragment;
 import gr.sextreme.main.SimeraFragment;
 import gr.sextreme.main.SyntagmaFragment;
 import gr.sextreme.main.ThesmosFragment;
@@ -139,9 +139,9 @@ public class MainActivity extends AppCompatActivity
         adapter.addFrag(new SimeraFragment(), getString(R.string.simera));
         adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
         adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new KanonismosFragment(), getString(R.string.kanonismos));
         adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new BookFragment(), getString(R.string.book));
+        adapter.addFrag(new ProedreioFragment(), getString(R.string.proedreio));
+        adapter.addFrag(new EpitropesFragment(), getString(R.string.epitropes));
         viewPager.setAdapter(adapter);
     }
 

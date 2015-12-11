@@ -113,10 +113,12 @@
     <string name="simera">ΣΗΜΕΡΑ</string>
     <string name="vouli">ΒΟΥΛΗ</string>
     <string name="thesmos">ΘΕΣΜΟΣ</string>
-    <string name="syntagma">ΣΥΝΤΑΓΜΑ</string>
+    <string name="syntagma">ΣΥΝΤΑΓΜΑΤΙΚΗ ΙΣΤΟΡΙΑ</string>
     <string name="kanonismos">ΚΑΝΟΝΙΣΜΟΣ</string>
     <string name="ktirio">ΚΤΙΡΙΟ</string>
     <string name="book">ΒΙΒΛΙΟΘΗΚΗ</string>
+    <string name="epitropes">ΕΠΙΤΡΟΠΕΣ</string>
+
 
     <string name="proedreio">ΠΡΟΕΔΡΕΙΟ</string>
     <string name="proedros">ΠΡΟΕΔΡΟΣ</string>

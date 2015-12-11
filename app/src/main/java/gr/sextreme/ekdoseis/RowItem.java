@@ -1,8 +1,5 @@
 package gr.sextreme.ekdoseis;
 
-/**
- * Created by k.anagnostou on 20/11/2015.
- */
 public class RowItem {
     private int imageId;
     private String title;

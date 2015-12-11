@@ -16,9 +16,9 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.sextreme.main.BookFragment;
-import gr.sextreme.main.KanonismosFragment;
+import gr.sextreme.main.EpitropesFragment;
 import gr.sextreme.main.KtirioFragment;
+import gr.sextreme.main.ProedreioFragment;
 import gr.sextreme.main.SimeraFragment;
 import gr.sextreme.main.SyntagmaFragment;
 import gr.sextreme.main.ThesmosFragment;
@@ -69,9 +69,9 @@ public class OrganosiActivity extends MainActivity {
         adapter.addFrag(new SimeraFragment(), getString(R.string.proedros));
         adapter.addFrag(new ThesmosFragment(), getString(R.string.antiproedroi));
         adapter.addFrag(new SyntagmaFragment(), getString(R.string.grammateis));
-        adapter.addFrag(new KanonismosFragment(), getString(R.string.kosmitores));
+        adapter.addFrag(new EpitropesFragment(), getString(R.string.kosmitores));
         adapter.addFrag(new KtirioFragment(), getString(R.string.diaskepsi));
-        adapter.addFrag(new BookFragment(), getString(R.string.ypiresies));
+        adapter.addFrag(new ProedreioFragment(), getString(R.string.ypiresies));
         viewPager.setAdapter(adapter);
     }
 

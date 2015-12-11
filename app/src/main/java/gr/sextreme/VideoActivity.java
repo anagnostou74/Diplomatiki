@@ -18,7 +18,7 @@ public class VideoActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.video);
         VideoView vidView = (VideoView) findViewById(R.id.videoView);
-        String vidAddress1 = "http://streamer-cache.grnet.gr/parliament/hls/webtv2.m3u8";
+        String vidAddress1 = "http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8";
         Uri vidUri = Uri.parse(vidAddress1);
         vidView.setVideoURI(vidUri);
         MediaController vidControl = new MediaController(VideoActivity.this); /* Video controls */
