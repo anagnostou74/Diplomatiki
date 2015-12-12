@@ -1,4 +1,4 @@
-package gr.sextreme;
+package gr.sextreme.book;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,13 +16,15 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
+import gr.sextreme.MainActivity;
+import gr.sextreme.R;
 import gr.sextreme.vouli.EpitropesFragment;
 import gr.sextreme.vouli.KtirioFragment;
 import gr.sextreme.vouli.ProedreioFragment;
 import gr.sextreme.vouli.SyntagmaFragment;
 import gr.sextreme.vouli.ThesmosFragment;
 
-public class PeriActivity extends MainActivity {
+public class BookActivity extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,6 @@ public class PeriActivity extends MainActivity {
         setupViewPager(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -65,12 +66,13 @@ public class PeriActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.simera));
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.kanonismos));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.book));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.proedreio));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.proedros));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.antiproedroi));
+        adapter.addFrag(new SyntagmaFragment(), getString(R.string.grammateis));
+        adapter.addFrag(new EpitropesFragment(), getString(R.string.kosmitores));
+        adapter.addFrag(new KtirioFragment(), getString(R.string.diaskepsi));
+        adapter.addFrag(new ProedreioFragment(), getString(R.string.ypiresies));
         viewPager.setAdapter(adapter);
     }
 

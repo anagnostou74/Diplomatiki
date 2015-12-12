@@ -138,6 +138,9 @@
     <string name="idryma">ΙΔΡΥΜΑ</string>
     <string name="gpk">Γ.Π.Κ</string>
     <string name="yeep">Υ.Ε.Ε.Π</string>
+    <string name="collaboration">ΣΥΝΕΡΓΑΤΙΚΟ ΠΕΡΙΒΑΛΛΟΝ</string>
+    <string name="email">EMAIL</string>
+    <string name="praktika">ΠΡΑΚΤΙΚΑ</string>
 
     <string name="photo">Φωτογραφίες</string>
     <string name="descr_image" translatable="false">Φωτογραφία</string>

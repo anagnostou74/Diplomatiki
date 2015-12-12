@@ -1,4 +1,4 @@
-package gr.sextreme;
+package gr.sextreme.organosi;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,12 +16,13 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.sextreme.main.EpitropesFragment;
-import gr.sextreme.main.KtirioFragment;
-import gr.sextreme.main.ProedreioFragment;
-import gr.sextreme.main.SimeraFragment;
-import gr.sextreme.main.SyntagmaFragment;
-import gr.sextreme.main.ThesmosFragment;
+import gr.sextreme.MainActivity;
+import gr.sextreme.R;
+import gr.sextreme.vouli.EpitropesFragment;
+import gr.sextreme.vouli.KtirioFragment;
+import gr.sextreme.vouli.ProedreioFragment;
+import gr.sextreme.vouli.SyntagmaFragment;
+import gr.sextreme.vouli.ThesmosFragment;
 
 public class OrganosiActivity extends MainActivity {
 
@@ -65,8 +66,8 @@ public class OrganosiActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new SimeraFragment(), getString(R.string.proedreio));
-        adapter.addFrag(new SimeraFragment(), getString(R.string.proedros));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.proedreio));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.proedros));
         adapter.addFrag(new ThesmosFragment(), getString(R.string.antiproedroi));
         adapter.addFrag(new SyntagmaFragment(), getString(R.string.grammateis));
         adapter.addFrag(new EpitropesFragment(), getString(R.string.kosmitores));

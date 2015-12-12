@@ -21,15 +21,18 @@ import java.util.List;
 
 import gr.sextreme.ekdoseis.DownloadPdfActivity;
 import gr.sextreme.images.Image;
-import gr.sextreme.main.EpitropesFragment;
-import gr.sextreme.main.KtirioFragment;
-import gr.sextreme.main.ProedreioFragment;
-import gr.sextreme.main.SimeraFragment;
-import gr.sextreme.main.SyntagmaFragment;
-import gr.sextreme.main.ThesmosFragment;
+import gr.sextreme.organosi.OrganosiActivity;
 import gr.sextreme.rss.NeaActivity;
 import gr.sextreme.rss.NomosxediaActivity;
+import gr.sextreme.video.LiveVideoActivity;
+import gr.sextreme.vouleutes.VouleutesActivity;
+import gr.sextreme.vouli.EpitropesFragment;
+import gr.sextreme.vouli.KtirioFragment;
+import gr.sextreme.vouli.ProedreioFragment;
+import gr.sextreme.vouli.SyntagmaFragment;
+import gr.sextreme.vouli.ThesmosFragment;
 import gr.sextreme.web.SindesmoiActivity;
+import gr.sextreme.web.entos.DiktioActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, Image.class);
             startActivity(i);
         } else if (id == R.id.nav_kanali) {
-            Intent i = new Intent(MainActivity.this, VideoActivity.class);
+            Intent i = new Intent(MainActivity.this, LiveVideoActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
@@ -136,7 +139,6 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new SimeraFragment(), getString(R.string.simera));
         adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
         adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
         adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));

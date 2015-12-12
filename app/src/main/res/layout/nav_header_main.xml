@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Μενού Επιλογών"
+        android:text="Μ ε ν ο ύ  Ε π ι λ ο γ ώ ν"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textStyle="bold|italic" />

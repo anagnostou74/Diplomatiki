@@ -1,4 +1,4 @@
-package gr.sextreme.main;
+package gr.sextreme.vouli;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

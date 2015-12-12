@@ -16,12 +16,11 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.sextreme.main.EpitropesFragment;
-import gr.sextreme.main.KtirioFragment;
-import gr.sextreme.main.ProedreioFragment;
-import gr.sextreme.main.SimeraFragment;
-import gr.sextreme.main.SyntagmaFragment;
-import gr.sextreme.main.ThesmosFragment;
+import gr.sextreme.vouli.EpitropesFragment;
+import gr.sextreme.vouli.KtirioFragment;
+import gr.sextreme.vouli.ProedreioFragment;
+import gr.sextreme.vouli.SyntagmaFragment;
+import gr.sextreme.vouli.ThesmosFragment;
 
 public class EpikoinoniaActivity extends MainActivity {
 
@@ -66,7 +65,6 @@ public class EpikoinoniaActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new SimeraFragment(), getString(R.string.simera));
         adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
         adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
         adapter.addFrag(new EpitropesFragment(), getString(R.string.kanonismos));

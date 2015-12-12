@@ -92,7 +92,7 @@ public class DownloadPdfActivity extends MainActivity {
 
         listView = (ListView) findViewById(R.id.listEkd);
         CustomListViewAdapter adapter = new CustomListViewAdapter(this,
-                R.layout.list_item, rowItems);
+                R.layout.list_item_books, rowItems);
         listView.setAdapter(adapter);
 
         // ListView Item Click Listener

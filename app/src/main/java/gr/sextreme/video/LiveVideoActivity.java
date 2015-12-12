@@ -1,4 +1,4 @@
-package gr.sextreme;
+package gr.sextreme.video;
 // http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8
 // http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8
 // http://streamer-cache.grnet.gr/parliament/hls/webtv2.m3u8
@@ -10,7 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-public class VideoActivity extends AppCompatActivity {
+import gr.sextreme.R;
+
+public class LiveVideoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ public class VideoActivity extends AppCompatActivity {
         String vidAddress1 = "http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8";
         Uri vidUri = Uri.parse(vidAddress1);
         vidView.setVideoURI(vidUri);
-        MediaController vidControl = new MediaController(VideoActivity.this); /* Video controls */
+        MediaController vidControl = new MediaController(LiveVideoActivity.this); /* Video controls */
         vidControl.setAnchorView(vidView);
         vidView.setMediaController(vidControl);
         vidView.start();

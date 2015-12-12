@@ -1,4 +1,4 @@
-package gr.sextreme;
+package gr.sextreme.vouleutes;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,8 +16,9 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.sextreme.main.SimeraFragment;
-import gr.sextreme.main.ThesmosFragment;
+import gr.sextreme.MainActivity;
+import gr.sextreme.R;
+import gr.sextreme.vouli.ThesmosFragment;
 
 public class VouleutesActivity extends MainActivity {
 
@@ -62,8 +63,8 @@ public class VouleutesActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new SimeraFragment(), getString(R.string.omades));
-        adapter.addFrag(new SimeraFragment(), getString(R.string.vouleutes));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.omades));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.vouleutes));
         adapter.addFrag(new ThesmosFragment(), getString(R.string.nomothesia));
         viewPager.setAdapter(adapter);
     }

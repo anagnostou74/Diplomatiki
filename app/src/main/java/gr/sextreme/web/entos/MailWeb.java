@@ -1,53 +1,70 @@
 package gr.sextreme.web.entos;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
-import android.webkit.WebSettings;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
-import gr.sextreme.MainActivity;
 import gr.sextreme.R;
 
-public class MailWeb extends MainActivity {
+public class MailWeb extends Fragment {
+
+    private WebView webView;
+    private Bundle webViewBundle;
+    private ProgressDialog progress;
+
+    public MailWeb() {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        WebView myWebView = (WebView) findViewById(R.id.mainWebView);
-        myWebView.loadUrl("https://webmail.parliament.gr/owa");
-        myWebView.setWebViewClient(new MyWebViewClient());
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
     }
 
-    // Use When the user clicks a link from a web page in your WebView
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (Uri.parse(url).getHost().equals("https://webmail.parliament.gr/owa")) {
-                return false;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
+                container, false);
+
+        webView = (WebView) ll.findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().supportZoom();
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
+                "Φορτώνει η σελίδα", true);
+        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        webView.setWebViewClient(new WebViewClient() {
+
+            public void onPageFinished(WebView view, String url) {
+                if (progress != null)
+                    progress.dismiss();
             }
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(intent);
-            return true;
+        });
+        if (webViewBundle == null) {
+            webView.loadUrl("https://webmail.parliament.gr/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fwebmail.parliament.gr%2fowa%2f");
+        } else {
+            webView.restoreState(webViewBundle);
         }
+
+        return ll;
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        webViewBundle = new Bundle();
+        webView.saveState(webViewBundle);
+    }
+
 }

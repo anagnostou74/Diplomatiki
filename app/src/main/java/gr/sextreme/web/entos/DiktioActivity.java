@@ -1,4 +1,4 @@
-package gr.sextreme;
+package gr.sextreme.web.entos;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,12 +16,8 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.sextreme.main.EpitropesFragment;
-import gr.sextreme.main.KtirioFragment;
-import gr.sextreme.main.ProedreioFragment;
-import gr.sextreme.main.SimeraFragment;
-import gr.sextreme.main.SyntagmaFragment;
-import gr.sextreme.main.ThesmosFragment;
+import gr.sextreme.MainActivity;
+import gr.sextreme.R;
 
 public class DiktioActivity extends MainActivity {
 
@@ -66,12 +62,9 @@ public class DiktioActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new SimeraFragment(), getString(R.string.simera));
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.kanonismos));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.book));
+        adapter.addFrag(new CollaborationWeb(), getString(R.string.collaboration));
+        adapter.addFrag(new MailWeb(), getString(R.string.email));
+        adapter.addFrag(new PraktikaWeb(), getString(R.string.praktika));
         viewPager.setAdapter(adapter);
     }
 

@@ -31,7 +31,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         RecyclerView.ViewHolder viewHolder;
         View v;
             v = LayoutInflater.from(parent.getContext()).inflate(
-                    R.layout.list_item_image, parent, false);
+                    R.layout.content_images, parent, false);
             viewHolder = new MyItemHolder(v);
 
         return viewHolder;
