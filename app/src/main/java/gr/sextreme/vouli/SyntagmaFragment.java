@@ -3,6 +3,7 @@ package gr.sextreme.vouli;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class SyntagmaFragment extends Fragment {
 
         final String htmlText = getResources().getString(R.string.syntagmaKeim);
         TextView tv = (TextView) view.findViewById(R.id.textThesmos);
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
         tv.setText(Html.fromHtml(htmlText));
         // Inflate the layout for this fragment
         return view;
