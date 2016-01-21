@@ -18,11 +18,6 @@ import java.util.List;
 
 import gr.sextreme.MainActivity;
 import gr.sextreme.R;
-import gr.sextreme.vouli.EpitropesFragment;
-import gr.sextreme.vouli.KtirioFragment;
-import gr.sextreme.vouli.ProedreioFragment;
-import gr.sextreme.vouli.SyntagmaFragment;
-import gr.sextreme.vouli.ThesmosFragment;
 
 public class OrganosiActivity extends MainActivity {
 
@@ -66,13 +61,11 @@ public class OrganosiActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.proedreio));
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.proedros));
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.antiproedroi));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.grammateis));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.kosmitores));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.diaskepsi));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.ypiresies));
+        adapter.addFrag(new ProedrosFragment(), getString(R.string.proedros));
+        adapter.addFrag(new AntiProedroiFragment(), getString(R.string.antiproedroi));
+        adapter.addFrag(new GrammateisFragment(), getString(R.string.grammateis));
+        adapter.addFrag(new KosmitoresFragment(), getString(R.string.kosmitores));
+        adapter.addFrag(new YpiresiesFragment(), getString(R.string.ypiresies));
         viewPager.setAdapter(adapter);
     }
 

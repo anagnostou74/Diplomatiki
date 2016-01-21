@@ -51,11 +51,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".vouleutes.VouleutesActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".web.SindesmoiActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

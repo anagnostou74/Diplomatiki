@@ -15,7 +15,6 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Βουλευτές" />
         <item
-            android:id="@+id/nav_biblio"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Βιβλιοθήκη" />
         <item
