@@ -2,7 +2,6 @@ package gr.sextreme;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,24 +15,17 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.sextreme.vouli.EpitropesFragment;
-import gr.sextreme.vouli.KtirioFragment;
-import gr.sextreme.vouli.ProedreioFragment;
-import gr.sextreme.vouli.SyntagmaFragment;
-import gr.sextreme.vouli.ThesmosFragment;
-
 public class PeriActivity extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_peri);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -44,7 +36,6 @@ public class PeriActivity extends MainActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
 
     @Override
     public void onBackPressed() {
@@ -63,18 +54,14 @@ public class PeriActivity extends MainActivity {
         return true;
     }
 
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.simera));
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.kanonismos));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.book));
+        adapter.addFrag(new PeriFragment(), getString(R.string.peri));
         viewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 

@@ -19,4 +19,15 @@
 
     <style name="ProgressBarStyle" parent="@android:style/Widget.ProgressBar.Horizontal"></style>
 
+    <style name="ButtonStyle">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:layout_marginTop">2dip</item>
+        <item name="android:background">@drawable/login_selector</item>
+
+    </style>
+
+
 </resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".PeriActivity">
+
+    <Button
+        android:id="@+id/btnDevel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/ic_store_mall_directory_black_24dp"
+        android:text="@string/devel"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="@style/ButtonStyle"/>
+
+    <Button
+        android:id="@+id/btnVathm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDevel"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/ic_favorite_border_black_24dp"
+        android:text="@string/vathm"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="@style/ButtonStyle"/>
+
+    <Button
+        android:id="@+id/btnMail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnVathm"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+        android:text="@string/emailP"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        style="@style/ButtonStyle" />
+
+    <ScrollView
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnMail"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/sxetikaKeim2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/sxetikaKeim" />
+    </ScrollView>
+
+</RelativeLayout>
