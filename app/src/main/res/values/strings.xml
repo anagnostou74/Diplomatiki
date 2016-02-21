@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Βουλή των Ελλήνων</string>
+    <string name="app_name"><b>Βουλή των Ελλήνων</b></string>
     <!-- Description here -->
     <string name="imgdesc" translatable="false">περιγραφή φωτογραφίας</string>
     <!-- Description here -->
