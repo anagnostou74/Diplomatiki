@@ -4,66 +4,63 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_vouli"
-            android:icon="@drawable/ic_menu_agenda"
-            android:title="Βουλή" />
+            android:icon="@drawable/ic_account_balance_black_24dp"
+            android:title="@string/vouli" />
         <item
             android:id="@+id/nav_organosi"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Οργάνωση" />
+            android:icon="@drawable/ic_group_work_black_24dp"
+            android:title="@string/organosi" />
         <item
             android:id="@+id/nav_vouleutes"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Βουλευτές" />
-        <item
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Βιβλιοθήκη" />
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/mps" />
         <item
             android:id="@+id/nav_sindesmoi"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Σύνδεσμοι" />
+            android:icon="@drawable/ic_insert_link_black_24dp"
+            android:title="@string/links" />
     </group>
-    <item android:title="Πολυμέσα">
+    <item android:title="@string/polimesa">
         <menu>
             <item
                 android:id="@+id/nav_ekdoseis"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Εκδόσεις" />
+                android:icon="@drawable/ic_import_contacts_black_24dp"
+                android:title="@string/ekdoseis" />
             <item
                 android:id="@+id/nav_photo"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Φωτογραφίες" />
+                android:icon="@drawable/ic_filter_black_24dp"
+                android:title="@string/photos" />
             <item
                 android:id="@+id/nav_kanali"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Τηλεόραση" />
+                android:icon="@drawable/ic_ondemand_video_black_24dp"
+                android:title="@string/tv" />
         </menu>
     </item>
-    <item android:title="Ενημέρωση">
+    <item android:title="@string/enimerosi">
         <menu>
             <item
                 android:id="@+id/nav_nea"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Δελτία τύπου" />
+                android:icon="@mipmap/ic_rss_feed_black_24dp"
+                android:title="@string/deltia" />
             <item
                 android:id="@+id/nav_nomosxedia"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Νομοσχέδια" />
+                android:icon="@drawable/ic_library_books_black_24dp"
+                android:title="@string/nomosxedia" />
         </menu>
     </item>
-    <item android:title="Χρήστες">
+    <item android:title="@string/xristes">
         <menu>
             <item
                 android:id="@+id/nav_diktio"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Εντός Δικτύου" />
+                android:icon="@drawable/ic_verified_user_black_24dp"
+                android:title="@string/entos" />
             <item
                 android:id="@+id/nav_epikoinonia"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Επικοινωνία" />
+                android:icon="@drawable/ic_mail_outline_black_24dp"
+                android:title="@string/epikoinonia" />
             <item
                 android:id="@+id/nav_peri"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Περί" />
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                android:title="@string/peri" />
         </menu>
     </item>
 </menu>
