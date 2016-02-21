@@ -43,11 +43,11 @@ public class DownloadPdfActivity extends MainActivity {
             "Ευρω-Μεσογειακή Κοινοβουλευτική Συνέλευση (Μάρτιος 2007 - Μάρτιος 2008)",
             "Ο Λόγος του Θεόδωρου Κολοκοτρώνη στην Πνύκα",
     };
-    public static final Integer[] images = {R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
-            R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
-            R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
-            R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
-            R.drawable.ic_menu_agenda, R.drawable.ic_menu_agenda,
+    public static final Integer[] images = {R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
+            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
+            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
+            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
+            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
     };
     ListView listView;
     List<RowItem> rowItems;

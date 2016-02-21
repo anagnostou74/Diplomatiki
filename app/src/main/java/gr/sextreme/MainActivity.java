@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
-            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);
