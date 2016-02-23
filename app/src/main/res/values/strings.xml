@@ -28,13 +28,8 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="large_text">
-        Material is the metaphor. \n\n
-
-    </string>
-
-    <string name="simera">ΣΗΜΕΡΑ</string>
-    <string name="thesmos">ΘΕΣΜΟΣ</string>
+    <string name="simera">Σήμερα</string>
+    <string name="thesmos">Θεσμός</string>
     <string name="ypiresiesKeim"><![CDATA[
     ]]>
     </string>
@@ -215,7 +210,7 @@
 \n\n
 ]]>
     </string>
-    <string name="syntagma">ΣΥΝΤΑΓΜΑΤΙΚΗ ΙΣΤΟΡΙΑ</string>
+    <string name="syntagma">Συνταγματική Ιστορία</string>
     <string name="syntagmaKeim"><![CDATA[ <h3 style="text-apgn: center">Τα τοπικά πολιτεύματα της επαναστατικής περιόδου</h3>
 
 <div >Με την έναρξη του εθνικοαπελευθερωτικού αγώνα του 1821 στην Ελλάδα, ιδρύθηκαν τα πρώτα τοπικά πολιτεύματα: η «Μεσσηνιακή Γερουσία», ο «Οργανισμός της Πελοποννησιακής Γερουσίας», «η Βουλή της Θετταλομαγνησίας», ο «Οργανισμός της Γερουσίας της Δυτικής Ελλάδος» και η <a href="http://www.hellenicparpament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn04a.pdf" target="_self" title="«Νομική Διάταξις της Ανατολικής Χέρσου Ελλάδος»">«Νομική Διάταξις της Ανατολικής Χέρσου Ελλάδος»</a> ή «Οργανισμός του Αρείου Πάγου, Γερουσίας της Ανατολικής Ελλάδος». Τα πολιτεύματα αυτά, ψηφισμένα κατά το πρώτο έτος της επανάστασης, το 1821, από τοπικές Συνελεύσεις προκρίτων των επαρχιών, είχαν ως σκοπό την προσωρινή διοικητική και στρατιωτική οργάνωση, προέβλεπαν δε τη μελλοντική σύσταση «Βουλής του Έθνους», στην οποία θα ανήκε η νομοθετική εξουσία και από την οποία θα εξηρτώντο οι κατά τόπους ιδρυθείσες «Διοικήσεις», δηλαδή οι Γερουσίες της Πελοποννήσου και της Δυτικής Ελλάδας και ο Άρειος Πάγος της Ανατολικής Ελλάδας.<br />
@@ -303,8 +298,8 @@
 Συμπερασματικώς, το ισχύον Σύνταγμα θα μπορούσε να χαρακτηρισθεί ως Σύνταγμα με πολιτική και ιστορική νομιμοποίηση, σύγχρονο και προσαρμοσμένο στις διεθνείς εξελίξεις και παρέχον ένα πλήρες θεσμικό πλαίσιο για την Ελλάδα του 21ου αιώνα.</div>
  \n
     ]]></string>
-    <string name="kanonismos">ΚΑΝΟΝΙΣΜΟΣ</string>
-    <string name="ktirio">ΚΤΙΡΙΟ</string>
+    <string name="kanonismos">Κανονισμός</string>
+    <string name="ktirio">Κτίριο</string>
     <string name="ktirioKeim"><![CDATA[
 <div><b>Η ιστορία του Κτηρίου</b></div>
 <div>Το επιβλητικό κτήριο της Βουλής των Ελλήνων έχει μακρά ιστορία που συνδέεται άμεσα με την ιστορία του σύγχρονου ελληνικού κράτους.&nbsp;Αρχικά Ανάκτορα του Όθωνα και του Γεωργίου, μετατράπηκε έναν αιώνα μετά την κατασκευή του σε Κτήριο της Βουλής και της Γερουσίας. Σήμερα είναι η Βουλή των Ελλήνων, ένα διαχρονικό σύμβολο που αποτελεί μέρος της συλλογικής μνήμης. Το ίδιο το Κτήριο στο πέρασμα των χρόνων άλλαξε, προσαρμόστηκε, εκσυγχρονίστηκε.</div>
@@ -345,8 +340,8 @@
 <div>Μέσα από αρχειακά τεκμήρια και επιστημονική έρευνα, αναδύεται η εικόνα ενός κτηρίου με σταθερή εξωτερικά όψη, το οποίο απέδειξε απεριόριστες δυνατότητες ευελιξίας στις ανάγκες μίας πολύπλοκης οργάνωσης.</div>
 \n
 ]]></string>
-    <string name="book">ΒΙΒΛΙΟΘΗΚΗ</string>
-    <string name="epitropes">ΕΠΙΤΡΟΠΕΣ</string>
+    <string name="book">Βιβλιοθήκη</string>
+    <string name="epitropes">Επιτροπές</string>
     <string name="epitropesKeim"><![CDATA[                                 <h1>Κατηγορίες</h1>
 <p><strong><i>(<a href="http://www.hellenicparpament.gr/Voup-ton-Elpnon/To-Poptevma/Syntagma/article-70/">άρθρα 68 του Σ</a> και <a href="/Voup-ton-Elpnon/Kanonismos-tis-Voups/Arthra-31-48-Kanonismou-VtE">31-48</a> και&nbsp; </i></strong><a href="/Voup-ton-Elpnon/Kanonismos-tis-Voups/Arthra-89-91-Kanonismou-VtE"><strong><i>89-91</i></strong></a><strong><i> του ΚτΒ)</i></strong></p>
 <p>Η Βουλή των Ελλήνων ασκεί νομοθετικό  έργο και κοινοβουλευτικό έλεγχο. Για το σκοπό αυτό συνιστώνται επιτροπές  που συγκροτούνται από Bουλευτές, ανάλογα με τη δύναμη των  κοινοβουλευτικών ομάδων και των ανεξάρτητων Bουλευτών. Οι επιτροπές  επιλαμβάνονται του νομοθετικού έργου ή του κοινοβουλευτικού ελέγχου ή  ειδικών θεμάτων. Το Σύνταγμα και ο Κανονισμός της Βουλής προβλέπουν τις  ακόλουθες επιτροπές (<a href="#Energes_Epitropes_Sinodou">ενεργές επιτροπές τρέχουσας συνόδου</a> ):</p>
@@ -412,7 +407,7 @@
 <br />
 \n
    ]]> </string>
-    <string name="proedreio">ΠΡΟΕΔΡΕΙΟ</string>
+    <string name="proedreio">Προεδρείο</string>
     <string name="proedreioKeim"><![CDATA[
 <div >(<a href="/Voup-ton-Elpnon/Kanonismos-tis-Voups/Arthra-6-12-Kanonismou-VtE">άρθρα 6 &ndash; 12 του ΚτΒ</a>)<br />
 <br />
@@ -448,26 +443,26 @@
 <br />                        </div>
       /n
     ]]></string>
-    <string name="proedros">ΠΡΟΕΔΡΟΣ</string>
-    <string name="antiproedroi">ΑΝΤΙΠΡΟΕΔΡΟΙ</string>
-    <string name="grammateis">ΓΡΑΜΜΑΤΕΙΣ</string>
-    <string name="kosmitores">ΚΟΣΜΗΤΟΡΕΣ</string>
-    <string name="diaskepsi">ΔΙΑΣΚΕΨΗ</string>
-    <string name="ypiresies">ΥΠΗΡΕΣΙΕΣ</string>
+    <string name="proedros">Πρόεδρος</string>
+    <string name="antiproedroi">Αντιπρόεδροι</string>
+    <string name="grammateis">Γραμματείς</string>
+    <string name="kosmitores">Κοσμήτορες</string>
+    <string name="diaskepsi">Διάσκεψη</string>
+    <string name="ypiresies">Υπηρεσίες</string>
 
-    <string name="omades">ΟΜΑΔΕΣ</string>
-    <string name="vouleutes">ΒΟΥΛΕΥΤΕΣ</string>
-    <string name="nomothesia">ΝΟΜΟΘΕΣΙΑ</string>
+    <string name="omades">Ομάδες</string>
+    <string name="vouleutes">Βουλευτές</string>
+    <string name="nomothesia">Νομοθεσία</string>
 
-    <string name="diafaneia">ΔΙΑΦΑΝΕΙΑ</string>
-    <string name="diaspora">ΔΙΑΣΠΟΡΑ</string>
-    <string name="efivoi">ΕΦΗΒΟΙ</string>
-    <string name="idryma">ΙΔΡΥΜΑ</string>
+    <string name="diafaneia">Διαφάνεια</string>
+    <string name="diaspora">Διασπορά</string>
+    <string name="efivoi">Έφηβοι</string>
+    <string name="idryma">Ίδρυμα</string>
     <string name="gpk">Γ.Π.Κ</string>
     <string name="yeep">Υ.Ε.Ε.Π</string>
-    <string name="collaboration">ΣΥΝΕΡΓΑΤΙΚΟ ΠΕΡΙΒΑΛΛΟΝ</string>
-    <string name="email">EMAIL</string>
-    <string name="praktika">ΠΡΑΚΤΙΚΑ</string>
+    <string name="collaboration">Συνεργατικό Περιβάλλον</string>
+    <string name="email">eMail</string>
+    <string name="praktika">Πρακτικά</string>
 
     <string name="vouli">Βουλή - Ο Θεσμός</string>
     <string name="organosi">Οργάνωση</string>
