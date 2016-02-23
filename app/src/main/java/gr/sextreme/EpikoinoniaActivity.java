@@ -27,13 +27,13 @@ public class EpikoinoniaActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_epikoinonia);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+
+        ViewPager pagerepikoin = (ViewPager) findViewById(R.id.pagerepikoin);
+        setupViewPager(pagerepikoin);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -63,17 +63,14 @@ public class EpikoinoniaActivity extends MainActivity {
         return true;
     }
 
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.kanonismos));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.book));
+        adapter.addFrag(new EpikoinoniaFragment(), getString(R.string.epikoinonia));
         viewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 

@@ -3,9 +3,11 @@
     <!-- Description here -->
     <string name="imgdesc" translatable="false">περιγραφή φωτογραφίας</string>
     <!-- Description here -->
-    <string name="emailP" translatable="false"><b>Στείλτε Email\nγια τεχνικά θέματα</b></string>
+    <string name="emailP" translatable="false"><b>Στείλε Email\nγια τεχνικά θέματα</b></string>
     <!-- Description here -->
-    <string name="vathm" translatable="false"><b>Αξιολογήστε\nτην εφαρμογή</b></string>
+    <string name="emailParl" translatable="false"><b>Στείλε Email και\nπαρατηρήσεις στη Βουλή</b></string>
+    <!-- Description here -->
+    <string name="vathm" translatable="false"><b>Αξιολόγησε\nτην εφαρμογή</b></string>
     <!-- Description here -->
     <string name="sxetikaKeim" translatable="false">***ΧΡΗΣΙΜΕΣ ΠΛΗΡΟΦΟΡΙΕΣ***\n\nΈχεις να προτείνεις κάτι σχετικά με την εφαρμογή;
         Στείλε μου μήνυμα και η επόμενη έκδοση θα έχει το όνομα σου!\n\n
@@ -14,12 +16,20 @@
         Το ήξερες ότι ........;\n\n\n</string>
     <!-- Description here -->
     <string name="devel" translatable="false"><b>Άλλες εφαρμογές\nστο Google Play</b></string>
+    <!-- Description here -->
+    <string name="klisi" translatable="false"><b>Κλήση</b></string>
+    <!-- Description here -->
+    <string name="klisi_java" translatable="false">Καλείται τη Βουλή</string>
+    <!-- Description here -->
+    <string name="failed" translatable="false">Η κλήση απέτυχε</string>
     <string name="main_me" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θα ήθελα...</string>
     <string name="apostoli" translatable="false">Αποστολή email!</string>
     <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας!</string>
     <string name="failed2" translatable="false">Δεν μπόρεσα να επικοινωνήσω με το Google Play! Ελέγξτε τη σύνδεση σας στο διαδίκτυο.</string>
 
     <string name="sxetika_mail" translatable="false">Σχετικά με το πρόγραμμα για Android</string>
+    <string name="epikoinonia_mail" translatable="false">Σχόλια ή παρατηρήσεις</string>
+    <string name="main_epikoinonia" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θα ήθελα...</string>
 
     <string name="image">Thumbnail</string>
 
