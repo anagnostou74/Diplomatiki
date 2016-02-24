@@ -26,7 +26,6 @@ import gr.sextreme.images.Image;
 import gr.sextreme.organosi.OrganosiActivity;
 import gr.sextreme.rss.NeaActivity;
 import gr.sextreme.rss.NomosxediaActivity;
-import gr.sextreme.video.LiveVideoActivity;
 import gr.sextreme.vouli.EpitropesFragment;
 import gr.sextreme.vouli.KtirioFragment;
 import gr.sextreme.vouli.ProedreioFragment;
@@ -34,6 +33,7 @@ import gr.sextreme.vouli.SyntagmaFragment;
 import gr.sextreme.vouli.ThesmosFragment;
 import gr.sextreme.web.SindesmoiActivity;
 import gr.sextreme.web.entos.DiktioActivity;
+import gr.sextreme.youtube.YouTubeAPIDemoActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, Image.class);
             startActivity(i);
         } else if (id == R.id.nav_kanali) {
-            Intent i = new Intent(MainActivity.this, LiveVideoActivity.class);
+            Intent i = new Intent(MainActivity.this, YouTubeAPIDemoActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
