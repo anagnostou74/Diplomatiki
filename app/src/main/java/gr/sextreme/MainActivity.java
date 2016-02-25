@@ -33,7 +33,7 @@ import gr.sextreme.vouli.SyntagmaFragment;
 import gr.sextreme.vouli.ThesmosFragment;
 import gr.sextreme.web.SindesmoiActivity;
 import gr.sextreme.web.entos.DiktioActivity;
-import gr.sextreme.youtube.YouTubeAPIDemoActivity;
+import gr.sextreme.youtube.IntentsTvActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, Image.class);
             startActivity(i);
         } else if (id == R.id.nav_kanali) {
-            Intent i = new Intent(MainActivity.this, YouTubeAPIDemoActivity.class);
+            Intent i = new Intent(MainActivity.this, IntentsTvActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);

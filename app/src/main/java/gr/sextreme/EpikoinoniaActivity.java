@@ -2,7 +2,6 @@ package gr.sextreme;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,12 +14,6 @@ import android.view.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import gr.sextreme.vouli.EpitropesFragment;
-import gr.sextreme.vouli.KtirioFragment;
-import gr.sextreme.vouli.ProedreioFragment;
-import gr.sextreme.vouli.SyntagmaFragment;
-import gr.sextreme.vouli.ThesmosFragment;
 
 public class EpikoinoniaActivity extends MainActivity {
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package gr.sextreme.youtube.adapter;
+package gr.sextreme.youtube;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -32,11 +32,11 @@ import gr.sextreme.R;
 /**
  * A convenience class to make ListViews easier to use in the demo activities.
  */
-public final class DemoArrayAdapter extends ArrayAdapter<DemoListViewItem> {
+public final class TvArrayAdapter extends ArrayAdapter<TvListViewItem> {
 
   private final LayoutInflater inflater;
 
-  public DemoArrayAdapter(Context context, int textViewResourceId, List<DemoListViewItem> objects) {
+  public TvArrayAdapter(Context context, int textViewResourceId, List<TvListViewItem> objects) {
     super(context, textViewResourceId, objects);
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
@@ -54,7 +54,7 @@ public final class DemoArrayAdapter extends ArrayAdapter<DemoListViewItem> {
 
     if (isEnabled(position)) {
       disabledText.setVisibility(View.INVISIBLE);
-      textView.setTextColor(Color.WHITE);
+      textView.setTextColor(Color.BLACK);
     } else {
       disabledText.setVisibility(View.VISIBLE);
       textView.setTextColor(Color.GRAY);

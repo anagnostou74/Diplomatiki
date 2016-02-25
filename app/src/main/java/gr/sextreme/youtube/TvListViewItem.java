@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package gr.sextreme.youtube.adapter;
+package gr.sextreme.youtube;
 
 /**
- * A single list view item for use with {@link DemoArrayAdapter}.
+ * A single list view item for use with {@link TvArrayAdapter}.
  */
-public interface DemoListViewItem {
+public interface TvListViewItem {
 
-  public String getTitle();
+  String getTitle();
 
-  public boolean isEnabled();
+  boolean isEnabled();
 
-  public String getDisabledText();
+  String getDisabledText();
 
 }

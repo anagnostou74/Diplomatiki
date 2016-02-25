@@ -11,7 +11,7 @@
         android:layout_margin="16dp"
         android:padding="16dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/ic_splash" />
+        android:background="@drawable/logo_without_letters" />
 
     <TextView
         android:layout_width="match_parent"
