@@ -26,6 +26,7 @@ import gr.sextreme.images.Image;
 import gr.sextreme.organosi.OrganosiActivity;
 import gr.sextreme.rss.NeaActivity;
 import gr.sextreme.rss.NomosxediaActivity;
+import gr.sextreme.video.LiveVideoActivity;
 import gr.sextreme.vouli.EpitropesFragment;
 import gr.sextreme.vouli.KtirioFragment;
 import gr.sextreme.vouli.ProedreioFragment;
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
-            Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
+            Intent i = new Intent(MainActivity.this, LiveVideoActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);

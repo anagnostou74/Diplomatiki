@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="exomedia-2.5.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.devbrackets.android/exomedia/2.5.5/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.devbrackets.android/exomedia/2.5.5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.devbrackets.android/exomedia/2.5.5/e8e2008df7cf2764a681685b113814bd4933c3c7/exomedia-2.5.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

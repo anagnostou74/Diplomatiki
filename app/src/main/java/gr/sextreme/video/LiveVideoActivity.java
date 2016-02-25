@@ -7,8 +7,8 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.MediaController;
-import android.widget.VideoView;
+
+import com.devbrackets.android.exomedia.EMVideoView;
 
 import gr.sextreme.R;
 
@@ -19,14 +19,12 @@ public class LiveVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.video);
-        VideoView vidView = (VideoView) findViewById(R.id.videoView);
-        String vidAddress1 = "http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8";
-        Uri vidUri = Uri.parse(vidAddress1);
-        vidView.setVideoURI(vidUri);
-        MediaController vidControl = new MediaController(LiveVideoActivity.this); /* Video controls */
-        vidControl.setAnchorView(vidView);
-        vidView.setMediaController(vidControl);
-        vidView.start();
 
+        EMVideoView emVideoView = (EMVideoView) findViewById(R.id.video_play_activity_video_view);
+        //emVideoView.setOnPreparedListener(this);
+        //For now we just picked an arbitrary item to play.  More can be found at
+        //https://archive.org/details/more_animation
+        emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8"));
+        emVideoView.start();
     }
 }
