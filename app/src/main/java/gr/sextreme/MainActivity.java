@@ -27,6 +27,7 @@ import gr.sextreme.organosi.OrganosiActivity;
 import gr.sextreme.rss.NeaActivity;
 import gr.sextreme.rss.NomosxediaActivity;
 import gr.sextreme.video.LiveVideoActivity;
+import gr.sextreme.video.LiveVideoDioActivity;
 import gr.sextreme.vouli.EpitropesFragment;
 import gr.sextreme.vouli.KtirioFragment;
 import gr.sextreme.vouli.ProedreioFragment;
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
-            Intent i = new Intent(MainActivity.this, LiveVideoActivity.class);
+            Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);
@@ -126,7 +127,15 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_kanali) {
             Intent i = new Intent(MainActivity.this, IntentsTvActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_nea) {
+        }
+        else if (id == R.id.nav_live_ena) {
+            Intent i = new Intent(MainActivity.this, LiveVideoActivity.class);
+            startActivity(i);
+        }
+        else if (id == R.id.nav_live_dio) {
+            Intent i = new Intent(MainActivity.this, LiveVideoDioActivity.class);
+            startActivity(i);
+        }else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_nomosxedia) {

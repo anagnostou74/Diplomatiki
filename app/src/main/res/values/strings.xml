@@ -478,6 +478,8 @@
     <string name="ekdoseis">Εκδόσεις</string>
     <string name="photos">Φωτογραφίες</string>
     <string name="tv">Τηλεόραση</string>
+    <string name="nav_live_ena">Βουλή TV Live 1</string>
+    <string name="nav_live_dio">Βουλή TV Live 2</string>
     <string name="enimerosi">Ενημέρωση</string>
     <string name="deltia">Δελτία τύπου</string>
     <string name="nomosxedia">Νομοσχέδια</string>
