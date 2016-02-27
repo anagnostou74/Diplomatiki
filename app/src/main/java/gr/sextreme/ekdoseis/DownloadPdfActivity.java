@@ -29,9 +29,7 @@ import gr.sextreme.R;
 
 public class DownloadPdfActivity extends MainActivity {
     // Defined Array values to show in ListView
-    public static final String[] titles = new String[]{"Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος",
-            "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος"};
-    public static final String[] descriptions = new String[]{
+    public static final String[] titles = new String[]{
             "Σύνταγμα της Ελλάδος",
             "Πρόεδροι της Βουλής, Γερουσίας και Εθνοσυνελεύσεων, 1821-2008",
             "Βουλή των Εφήβων",
@@ -43,11 +41,23 @@ public class DownloadPdfActivity extends MainActivity {
             "Ευρω-Μεσογειακή Κοινοβουλευτική Συνέλευση (Μάρτιος 2007 - Μάρτιος 2008)",
             "Ο Λόγος του Θεόδωρου Κολοκοτρώνη στην Πνύκα",
     };
-    public static final Integer[] images = {R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
-            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
-            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
-            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
-            R.drawable.ic_picture_as_pdf_black_24dp, R.drawable.ic_picture_as_pdf_black_24dp,
+    public static final String[] descriptions = new String[]{
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+            "Σε μορφή pdf",
+    };
+    public static final Integer[] images = {R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
+            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
+            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
+            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
+            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
     };
     ListView listView;
     List<RowItem> rowItems;
