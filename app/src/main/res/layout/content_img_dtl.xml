@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context="gr.sextreme.images.DetailActivity">
 
-
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"

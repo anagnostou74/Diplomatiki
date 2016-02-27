@@ -41,18 +41,19 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_images);
+        setContentView(R.layout.content_img_dtl);
 
         data = getIntent().getParcelableArrayListExtra("data");
         pos = getIntent().getIntExtra("pos", 0);
 
-        //setTitle(data.get(pos).getName());
+        setTitle(data.get(pos).getName());
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -83,6 +84,8 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
 
@@ -143,8 +146,11 @@ public class DetailActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_image_dtls, container, false);
+
             final ImageView imageView = (ImageView) rootView.findViewById(R.id.detail_image);
+
             Glide.with(getActivity()).load(url).thumbnail(0.1f).into(imageView);
+
             return rootView;
         }
 
