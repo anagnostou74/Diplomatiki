@@ -1,9 +1,15 @@
 package gr.sextreme;
 
+import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.RequiresPermission;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,10 +19,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,17 +96,60 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_klisi:
+                // User chose the "Settings" item, show the app settings UI...
+                klisi();
+                return true;
+            case R.id.action_mail:
+                // User chose the "Settings" item, show the app settings UI...
+                mail();
+                return true;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    private void klisi() {
+        try {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:21037070000"));
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                startActivity(callIntent);
+                return;
+            }
+        } catch (ActivityNotFoundException activityException) {
+            Log.e(getString(R.string.klisi_java), getString(R.string.failed),
+                    activityException);
+        }
+    }
+
+    private void mail() {
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL,
+                new String[]{"infopar@parliament.gr"});
+        i.putExtra(Intent.EXTRA_SUBJECT,
+                getString(R.string.epikoinonia_mail));
+        i.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_epikoinonia));
+        try {
+            startActivity(Intent.createChooser(i,
+                    getString(R.string.apostoli)));
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(this, getString(R.string.aneu),
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -143,9 +194,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.nav_diktio) {
             Intent i = new Intent(MainActivity.this, DiktioActivity.class);
-            startActivity(i);
-        } else if (id == R.id.nav_epikoinonia) {
-            Intent i = new Intent(MainActivity.this, EpikoinoniaActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_peri) {
             Intent i = new Intent(MainActivity.this, PeriActivity.class);

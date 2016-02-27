@@ -10,15 +10,8 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
         android:padding="16dp"
+        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:background="@drawable/logo_without_letters" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/image_splash"
-        android:textSize="22sp"
-        android:text="@string/app_name" />
 </RelativeLayout>

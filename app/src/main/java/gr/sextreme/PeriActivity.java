@@ -1,19 +1,20 @@
 package gr.sextreme;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class PeriActivity extends MainActivity {
 
@@ -25,17 +26,39 @@ public class PeriActivity extends MainActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pagerperi);
-        setupViewPager(viewPager);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Button button = (Button) findViewById(R.id.btnDevel);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shop();
+            }
+        });
+
+        Button button2 = (Button) findViewById(R.id.btnMail);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mail();
+            }
+        });
+
+        Button button3 = (Button) findViewById(R.id.btnVathm);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchMarket();
+            }
+        });
+
     }
 
     @Override
@@ -55,39 +78,43 @@ public class PeriActivity extends MainActivity {
         return true;
     }
 
-
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new PeriFragment(), getString(R.string.peri));
-        viewPager.setAdapter(adapter);
-    }
-
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFrag(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+    private void shop() {
+        try {
+            String url = "https://play.google.com/store/apps/developer?id=%CE%9A%CF%8E%CF%83%CF%84%CE%B1%CF%82%20%CE%91%CE%BD%CE%B1%CE%B3%CE%BD%CF%8E%CF%83%CF%84%CE%BF%CF%85\n";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } catch (ActivityNotFoundException activityException) {
+            Log.e("navigate Site", "Site failed", activityException);
         }
     }
+
+    private void mail() {
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("message/rfc822");
+        i.putExtra(Intent.EXTRA_EMAIL,
+                new String[]{"anagnostou74@gmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT,
+                getString(R.string.sxetika_mail));
+        i.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_me));
+        try {
+            startActivity(Intent.createChooser(i,
+                    getString(R.string.apostoli)));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, getString(R.string.aneu),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void launchMarket() {
+        Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
+        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(myAppLinkToMarket);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, getString(R.string.failed2), Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
 }

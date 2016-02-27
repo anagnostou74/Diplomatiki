@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_vouli"
-            android:icon="@drawable/ic_account_balance_black_24dp"
-            android:title="@string/vouli" />
-        <item
-            android:id="@+id/nav_organosi"
-            android:icon="@drawable/ic_group_work_black_24dp"
-            android:title="@string/organosi" />
-        <item
-            android:id="@+id/nav_vouleutes"
-            android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="@string/mps" />
-        <item
-            android:id="@+id/nav_sindesmoi"
-            android:icon="@drawable/ic_insert_link_black_24dp"
-            android:title="@string/links" />
-    </group>
+    <item android:title="@string/app_name">
+        <menu>
+            <item
+                android:id="@+id/nav_vouli"
+                android:icon="@drawable/ic_account_balance_black_24dp"
+                android:title="@string/thesmos" />
+            <item
+                android:id="@+id/nav_organosi"
+                android:icon="@drawable/ic_group_work_black_24dp"
+                android:title="@string/organosi" />
+            <item
+                android:id="@+id/nav_vouleutes"
+                android:icon="@drawable/ic_account_circle_black_24dp"
+                android:title="@string/mps" />
+            <item
+                android:id="@+id/nav_sindesmoi"
+                android:icon="@drawable/ic_insert_link_black_24dp"
+                android:title="@string/links" />
+        </menu>
+    </item>
     <item android:title="@string/polimesa">
         <menu>
             <item
@@ -61,10 +63,6 @@
                 android:id="@+id/nav_diktio"
                 android:icon="@drawable/ic_verified_user_black_24dp"
                 android:title="@string/entos" />
-            <item
-                android:id="@+id/nav_epikoinonia"
-                android:icon="@drawable/ic_mail_outline_black_24dp"
-                android:title="@string/epikoinonia" />
             <item
                 android:id="@+id/nav_peri"
                 android:icon="@drawable/ic_info_outline_black_24dp"

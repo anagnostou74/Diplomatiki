@@ -40,7 +40,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="simera">Σήμερα</string>
-    <string name="thesmos">Θεσμός</string>
+    <string name="thesmos">O Θεσμός</string>
     <string name="ypiresiesKeim"><![CDATA[
     ]]>
     </string>
@@ -470,7 +470,7 @@
     <string name="email">eMail</string>
     <string name="praktika">Πρακτικά</string>
 
-    <string name="vouli">Βουλή - Ο Θεσμός</string>
+    <string name="vouli">Ο Θεσμός</string>
     <string name="organosi">Οργάνωση</string>
     <string name="mps">Βουλευτές</string>
     <string name="links">Σύνδεσμοι</string>

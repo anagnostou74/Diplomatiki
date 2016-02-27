@@ -44,7 +44,7 @@ public final class TvArrayAdapter extends ArrayAdapter<TvListViewItem> {
   @Override
   public View getView(int position, View view, ViewGroup parent) {
     if (view == null) {
-      view = inflater.inflate(R.layout.list_item, null);
+      view = inflater.inflate(R.layout.list_item_youtube, null);
     }
 
     TextView textView = (TextView) view.findViewById(R.id.list_item_text);

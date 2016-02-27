@@ -21,7 +21,6 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
@@ -105,7 +104,7 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
 
         ListView listView = (ListView) findViewById(R.id.intent_list);
         TvArrayAdapter adapter =
-                new TvArrayAdapter(this, R.layout.list_item, intentItems);
+                new TvArrayAdapter(this, R.layout.list_item_youtube, intentItems);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 

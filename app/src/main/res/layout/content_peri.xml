@@ -18,10 +18,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:drawableLeft="@drawable/ic_store_mall_directory_black_24dp"
         android:text="@string/devel"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        style="@style/ButtonStyle"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/btnVathm"
@@ -31,10 +29,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:drawableLeft="@drawable/ic_favorite_border_black_24dp"
         android:text="@string/vathm"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        style="@style/ButtonStyle"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/btnMail"
@@ -44,10 +40,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
         android:text="@string/emailP"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        style="@style/ButtonStyle" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ScrollView
         android:id="@+id/ScrollView1"
