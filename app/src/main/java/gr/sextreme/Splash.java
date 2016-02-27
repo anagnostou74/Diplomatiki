@@ -30,7 +30,7 @@ public class Splash extends MainActivity {
                 // close this activity
                 finish();
             }
-        }, 2 * 1000); // wait for 2 seconds
+        }, 1000); // wait for 1 second
     }
 
     @Override
