@@ -26,6 +26,7 @@
     <string name="main_me" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θα ήθελα...</string>
     <string name="apostoli" translatable="false">Αποστολή email!</string>
     <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας!</string>
+    <string name="aneu_diktiou" translatable="false">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
     <string name="failed2" translatable="false">Δεν μπόρεσα να επικοινωνήσω με το Google Play! Ελέγξτε τη σύνδεση σας στο διαδίκτυο.</string>
 
     <string name="sxetika_mail" translatable="false">Σχετικά με το πρόγραμμα για Android</string>
@@ -477,6 +478,7 @@
     <string name="polimesa">Πολυμέσα</string>
     <string name="ekdoseis">Εκδόσεις</string>
     <string name="photos">Φωτογραφίες</string>
+    <string name="tv_all">Βουλή Τηλεόραση</string>
     <string name="tv">Τηλεόραση</string>
     <string name="nav_live_ena">Βουλή TV Live 1</string>
     <string name="nav_live_dio">Βουλή TV Live 2</string>

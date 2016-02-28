@@ -71,11 +71,12 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
         setContentView(R.layout.activity_youtube);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        getSupportActionBar().setTitle(getString(R.string.tv_all));  // Title at app bar provide compatibility to all the versions
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
