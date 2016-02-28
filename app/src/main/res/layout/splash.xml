@@ -9,9 +9,22 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
-        android:padding="16dp"
-        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:background="@drawable/logo_without_letters" />
+        android:background="@mipmap/ic_splash"
+        android:padding="16dp"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_below="@+id/image_splash"
+        android:padding="16dp"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorLogo"
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
+
 
 </RelativeLayout>

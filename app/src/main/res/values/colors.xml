@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#1976d2</color>
     <color name="colorPrimaryLight">#64B5F6</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorLogo">#6ca5d5</color>
     <color name="colorAccent">#FF3F80</color>
+    <color name="colorNav">#0D47A1</color>
     <color name="black">#000000</color>
     <color name="gray">#ff888888</color>
 

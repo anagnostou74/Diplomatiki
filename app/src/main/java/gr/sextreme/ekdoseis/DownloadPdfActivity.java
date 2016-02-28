@@ -53,11 +53,11 @@ public class DownloadPdfActivity extends MainActivity {
             "Σε μορφή pdf",
             "Σε μορφή pdf",
     };
-    public static final Integer[] images = {R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
-            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
-            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
-            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
-            R.drawable.ic_picture_as_pdf_24dp, R.drawable.ic_picture_as_pdf_24dp,
+    public static final Integer[] images = {R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
+            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
+            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
+            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
+            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
     };
     ListView listView;
     List<RowItem> rowItems;
@@ -84,7 +84,7 @@ public class DownloadPdfActivity extends MainActivity {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
