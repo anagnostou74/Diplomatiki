@@ -1,7 +1,11 @@
 package gr.mobap.images;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,6 +13,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -128,36 +133,55 @@ public class Image extends MainActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        for (int i = 0; i < IMGS.length; i++) {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // fetch data
+            for (int i = 0; i < IMGS.length; i++) {
 
-            ImageModel imageModel = new ImageModel();
-            imageModel.setName("Φωτογραφία " + i);
-            imageModel.setUrl(IMGS[i]);
-            data.add(imageModel);
+                ImageModel imageModel = new ImageModel();
+                imageModel.setName("Φωτογραφία " + i);
+                imageModel.setUrl(IMGS[i]);
+                data.add(imageModel);
 
+            }
+
+            mRecyclerView = (RecyclerView) findViewById(R.id.list);
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+            mRecyclerView.setHasFixedSize(true);
+
+
+            mAdapter = new GalleryAdapter(Image.this, data);
+            mRecyclerView.setAdapter(mAdapter);
+
+            mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,
+                    new RecyclerItemClickListener.OnItemClickListener() {
+
+                        @Override
+                        public void onItemClick(View view, int position) {
+
+                            Intent intent = new Intent(Image.this, DetailActivity.class);
+                            intent.putParcelableArrayListExtra("data", data);
+                            intent.putExtra("pos", position);
+                            startActivity(intent);
+
+                        }
+                    }));
+        } else {
+            // display error
+            Toast.makeText(this, getString(R.string.aneu_diktiou),
+                    Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(Image.this, MainActivity.class);
+                    // close this activity
+                    finish();
+                }
+            }, 1000); // wait for 1 second
         }
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.list);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-        mRecyclerView.setHasFixedSize(true);
-
-
-        mAdapter = new GalleryAdapter(Image.this, data);
-        mRecyclerView.setAdapter(mAdapter);
-
-        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,
-                new RecyclerItemClickListener.OnItemClickListener() {
-
-                    @Override
-                    public void onItemClick(View view, int position) {
-
-                        Intent intent = new Intent(Image.this, DetailActivity.class);
-                        intent.putParcelableArrayListExtra("data", data);
-                        intent.putExtra("pos", position);
-                        startActivity(intent);
-
-                    }
-                }));
 
     }
 
