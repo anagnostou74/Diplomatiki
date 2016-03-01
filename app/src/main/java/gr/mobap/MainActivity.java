@@ -30,6 +30,7 @@ import java.util.List;
 
 import gr.mobap.ekdoseis.DownloadPdfActivity;
 import gr.mobap.images.Image;
+import gr.mobap.map.MapsActivity;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.NeaActivity;
 import gr.mobap.rss.NomosxediaActivity;
@@ -104,7 +105,11 @@ public class MainActivity extends AppCompatActivity
                 // User chose the "Settings" item, show the app settings UI...
                 mail();
                 return true;
-
+            case R.id.action_map:
+                // User chose the "Settings" item, show the app settings UI...
+                Intent i = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(i);
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

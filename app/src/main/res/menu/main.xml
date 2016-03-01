@@ -11,5 +11,10 @@
         android:icon="@drawable/ic_mail_outline_white_24dp"
         android:title="@string/epikoinonia_mail"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_map"
+        android:icon="@drawable/ic_map_24dp"
+        android:title="@string/title_activity_maps"
+        app:showAsAction="ifRoom"/>
 
 </menu>

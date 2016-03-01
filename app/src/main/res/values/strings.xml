@@ -496,5 +496,7 @@
     <string name="intent_disabled">Δεν υποστηρίζεται η τρέχουσα εγκατεστημένη έκδοση του YouTube.</string>
     <string name="youtube_currently_installed">Σε αυτή τη συσκευή είναι εγκατεστημένη η έκδοση: <xliff:g id="youtube_version">%1$s</xliff:g> του YouTube.</string>
     <string name="youtube_not_installed">Το YouTube δεν είναι εγκατεστημένο σε αυτή τη συσκευή.</string>
+    <string name="title_activity_maps">Χάρτης</string>
+    <string name="map_epikoinonia">Μέγαρο Βουλής,100 21, Αθήνα</string>
 
 </resources>

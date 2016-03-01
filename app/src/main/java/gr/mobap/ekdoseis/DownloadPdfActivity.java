@@ -56,11 +56,11 @@ public class DownloadPdfActivity extends MainActivity {
             "Σε μορφή pdf",
             "Σε μορφή pdf",
     };
-    public static final Integer[] images = {R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
-            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
-            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
-            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
-            R.drawable.ic_import_contacts_24dp, R.drawable.ic_import_contacts_24dp,
+    public static final Integer[] images = {R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
     };
     ListView listView;
     List<RowItem> rowItems;
