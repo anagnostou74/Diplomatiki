@@ -73,8 +73,6 @@ public class MapsActivity extends MainActivity implements OnMapReadyCallback {
         }
     }
 
-
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -89,7 +87,7 @@ public class MapsActivity extends MainActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Add a marker in Parliament and move the camera
-        LatLng vouli = new LatLng(37.975290, 23.736336);
+        LatLng vouli = new LatLng(37.975232, 23.736980);
         mMap.addMarker(new MarkerOptions()
                 .position(vouli).title("Βουλή των Ελλήνων")
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
