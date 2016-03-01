@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="gr.mobap">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -40,34 +40,54 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="gr.mobap.MainActivity" />
         </activity>
-        <activity android:name=".ekdoseis.DownloadPdfActivity" />
-        <activity android:name=".organosi.OrganosiActivity" />
-        <activity android:name=".web.SindesmoiActivity" />
-        <activity android:name=".rss.NeaActivity" />
-        <activity android:name=".rss.NomosxediaActivity" />
-        <activity android:name=".web.entos.DiktioActivity" />
-        <activity android:name=".PeriActivity" />
+        <activity
+            android:name=".ekdoseis.DownloadPdfActivity"
+            android:label="@string/ekdoseis" />
+        <activity
+            android:name=".organosi.OrganosiActivity"
+            android:label="@string/organosi" />
+        <activity
+            android:name=".web.SindesmoiActivity"
+            android:label="@string/links" />
+        <activity
+            android:name=".rss.NeaActivity"
+            android:label="@string/enimerosi" />
+        <activity
+            android:name=".rss.NomosxediaActivity"
+            android:label="@string/nomosxedia" />
+        <activity
+            android:name=".web.entos.DiktioActivity"
+            android:label="@string/entos" />
+        <activity
+            android:name=".PeriActivity"
+            android:label="@string/peri" />
         <activity
             android:name=".images.Image"
-            android:finishOnTaskLaunch="true" />
+            android:finishOnTaskLaunch="true"
+            android:label="@string/photos" />
         <activity
             android:name=".images.DetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:finishOnTaskLaunch="true" />
+            android:finishOnTaskLaunch="true"
+            android:label="@string/photos" />
         <activity
             android:name=".video.LiveVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:finishOnTaskLaunch="true" />
+            android:finishOnTaskLaunch="true"
+            android:label="@string/nav_live_ena" />
         <activity
             android:name=".video.LiveVideoDioActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:finishOnTaskLaunch="true" />
+            android:finishOnTaskLaunch="true"
+            android:label="@string/nav_live_dio" />
         <activity
             android:name=".book.BookActivity"
-            android:finishOnTaskLaunch="true" />
+            android:finishOnTaskLaunch="true"
+            android:label="@string/book" />
         <activity
             android:name=".youtube.IntentsTvActivity"
-            android:finishOnTaskLaunch="true" />
+            android:finishOnTaskLaunch="true"
+            android:label="@string/tv_all" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -82,7 +102,8 @@
 
         <activity
             android:name=".map.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
