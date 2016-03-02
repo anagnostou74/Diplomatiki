@@ -4,19 +4,19 @@
     <!-- Description here -->
     <string name="imgdesc" translatable="false">περιγραφή φωτογραφίας</string>
     <!-- Description here -->
-    <string name="emailP" translatable="false"><b>Στείλε Email\nγια τεχνικά θέματα</b></string>
+    <string name="emailP" translatable="false">Email για\nτεχνικά θέματα</string>
     <!-- Description here -->
     <string name="emailParl" translatable="false"><b>Στείλε Email και\nπαρατηρήσεις στη Βουλή</b></string>
     <!-- Description here -->
-    <string name="vathm" translatable="false"><b>Αξιολόγησε\nτην εφαρμογή</b></string>
+    <string name="vathm" translatable="false">Αξιολόγηση</string>
     <!-- Description here -->
     <string name="sxetikaKeim" translatable="false">***ΧΡΗΣΙΜΕΣ ΠΛΗΡΟΦΟΡΙΕΣ***\n\nΈχεις να προτείνεις κάτι σχετικά με την εφαρμογή;
         Στείλε μου μήνυμα και η επόμενη έκδοση θα έχει το όνομα σου!\n\n
         Η ποικιλία των τηλεφώνων με λειτουργικό Android και η διασπορά των εκδόσεων του συγκεκριμένου λειτουργικού μπορεί να επιφέρει αλλαγές στο περιβάλλον της εφαρμογής.
-        Για οποιοδήποτε πρόβλημα παρακαλώ στείλε μου μήνυμα!\n\n
+        Για οποιοδήποτε πρόβλημα παρακαλώ στείλε μου μήνυμα.\n\n
         Το ήξερες ότι ........;\n\n\n</string>
     <!-- Description here -->
-    <string name="devel" translatable="false"><b>Άλλες εφαρμογές\nστο Google Play</b></string>
+    <string name="devel" translatable="false">Google Play</string>
     <!-- Description here -->
     <string name="klisi" translatable="false"><b>Κλήση</b></string>
     <!-- Description here -->
@@ -25,7 +25,7 @@
     <string name="failed" translatable="false">Η κλήση απέτυχε</string>
     <string name="main_me" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θα ήθελα...</string>
     <string name="apostoli" translatable="false">Αποστολή email</string>
-    <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας!</string>
+    <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας</string>
     <string name="aneu_diktiou" translatable="false">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
     <string name="failed2" translatable="false">Δεν μπόρεσα να επικοινωνήσω με το Google Play! Ελέγξτε τη σύνδεση σας στο διαδίκτυο.</string>
 

@@ -24,7 +24,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/colorLogo"
         android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textSize="25sp" />
 
 
 </RelativeLayout>
