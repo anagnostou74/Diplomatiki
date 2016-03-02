@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.RequiresPermission;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
@@ -110,6 +111,11 @@ public class MainActivity extends AppCompatActivity
                 Intent i = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(i);
                 return true;
+            case R.id.action_peri:
+                // User chose the "Settings" item, show the app settings UI...
+                Intent p = new Intent(MainActivity.this, PeriActivity.class);
+                startActivity(p);
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -130,9 +136,9 @@ public class MainActivity extends AppCompatActivity
                 //                                          int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
-                startActivity(callIntent);
                 return;
             }
+            startActivity(callIntent);
         } catch (ActivityNotFoundException activityException) {
             Log.e(getString(R.string.klisi_java), getString(R.string.failed),
                     activityException);
