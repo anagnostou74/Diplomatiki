@@ -485,10 +485,20 @@
     <string name="enimerosi">Ενημέρωση</string>
     <string name="deltia">Δελτία τύπου</string>
     <string name="nomosxedia">Νομοσχέδια</string>
+    <string name="koin_epitropes">Κοινοβουλευτικές Επιτροπές</string>
     <string name="xristes">Χρήστες</string>
     <string name="entos">Εντός δικτύου</string>
     <string name="epikoinonia">Επικοινωνία</string>
     <string name="peri">Περί</string>
+
+    <string name="nea">Νέα &amp; Ανακοινώσεις</string>
+    <string name="ns">Νομοσχέδια</string>
+    <string name="katatethenta">Κατατεθέντα</string>
+    <string name="psifisthenta">Ψηφισθέντα</string>
+    <string name="eleghos">Κοινοβουλευτικός Έλεγχος</string>
+    <string name="sinedriaseis_epitropon">Συνεδριάσεις</string>
+    <string name="ektheseis">Εκθέσεις</string>
+    <string name="drastiriotites">Δραστηριότητες</string>
 
     <string name="intent_select"><b>Παρακολουθείστε επιλεγμένες συνεδριάσεις της Ολομέλειας της Βουλής, ενημερωτικές εκπομπές και παραγωγές του Τηλεοπτικού Σταθμού της Βουλής των Ελλήνων
         καθώς και αφιερώματα σε εκθέσεις και εκδηλώσεις της Βιβλιοθήκης της Βουλής και του Ιδρύματος της Βουλής των Ελλήνων για τον Κοινοβουλευτισμό και τη Δημοκρατία. \n\n

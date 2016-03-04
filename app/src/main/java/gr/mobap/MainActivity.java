@@ -32,8 +32,13 @@ import gr.mobap.ekdoseis.DownloadPdfActivity;
 import gr.mobap.images.Image;
 import gr.mobap.map.MapsActivity;
 import gr.mobap.organosi.OrganosiActivity;
-import gr.mobap.rss.NeaActivity;
-import gr.mobap.rss.NomosxediaActivity;
+import gr.mobap.rss.activities.DrastActivity;
+import gr.mobap.rss.activities.EktheseisEpActivity;
+import gr.mobap.rss.activities.EleghosActivity;
+import gr.mobap.rss.activities.NeaActivity;
+import gr.mobap.rss.activities.NsKatActivity;
+import gr.mobap.rss.activities.NsPsActivity;
+import gr.mobap.rss.activities.SinEpActivity;
 import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
 import gr.mobap.vouli.EpitropesFragment;
@@ -196,8 +201,23 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_nomosxedia) {
-            Intent i = new Intent(MainActivity.this, NeaActivity.class);
+        } else if (id == R.id.nav_katatethenta) {
+            Intent i = new Intent(MainActivity.this, NsKatActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_psifisthenta) {
+            Intent i = new Intent(MainActivity.this, NsPsActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_eleghos) {
+            Intent i = new Intent(MainActivity.this, EleghosActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_sinedriaseis_epitropon) {
+            Intent i = new Intent(MainActivity.this, SinEpActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_ektheseis) {
+            Intent i = new Intent(MainActivity.this, EktheseisEpActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_drastiriotites) {
+            Intent i = new Intent(MainActivity.this, DrastActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_diktio) {
             Intent i = new Intent(MainActivity.this, DiktioActivity.class);

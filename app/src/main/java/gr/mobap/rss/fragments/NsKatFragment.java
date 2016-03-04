@@ -1,4 +1,4 @@
-package gr.mobap.rss;
+package gr.mobap.rss.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,14 +17,18 @@ import android.widget.Toast;
 import java.util.List;
 
 import gr.mobap.R;
+import gr.mobap.rss.Adapter;
+import gr.mobap.rss.Item;
+import gr.mobap.rss.services.NeaService;
+import gr.mobap.rss.services.NsKatService;
 
-public class RssFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class NsKatFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private ProgressBar progressBar;
     private ListView listView;
     private View view;
 
-    public RssFragment() {
+    public NsKatFragment() {
         // Required empty public constructor
     }
 
@@ -41,19 +45,19 @@ public class RssFragment extends Fragment implements AdapterView.OnItemClickList
         view = inflater.inflate(R.layout.rss_fragment_layout, container, false);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         listView = (ListView) view.findViewById(R.id.listView);
-        listView.setOnItemClickListener(RssFragment.this);
+        listView.setOnItemClickListener(NsKatFragment.this);
         startService();
         return view;
     }
 
     private void startService() {
-        Intent intent = new Intent(getActivity(), Service.class);
-        intent.putExtra(Service.RECEIVER, resultReceiver);
+        Intent intent = new Intent(getActivity(), NsKatService.class);
+        intent.putExtra(NeaService.RECEIVER, resultReceiver);
         getActivity().startService(intent);
     }
 
     /**
-     * Once the {@link Service} finishes its task, the result is sent to this
+     * Once the {@link NeaService} finishes its task, the result is sent to this
      * ResultReceiver.
      */
     private final ResultReceiver resultReceiver = new ResultReceiver(new Handler()) {
@@ -61,7 +65,7 @@ public class RssFragment extends Fragment implements AdapterView.OnItemClickList
         @Override
         protected void onReceiveResult(int resultCode, Bundle resultData) {
             progressBar.setVisibility(View.GONE);
-            List<Item> items = (List<Item>) resultData.getSerializable(Service.ITEMS);
+            List<Item> items = (List<Item>) resultData.getSerializable(NeaService.ITEMS);
             if (items != null) {
                 Adapter adapter = new Adapter(getActivity(), items);
                 listView.setAdapter(adapter);

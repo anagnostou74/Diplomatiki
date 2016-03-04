@@ -112,6 +112,9 @@ public class Image extends MainActivity {
             "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/4%20IMG_2009_01_30_9_74.jpg",
             "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/5%20IMG_2009_01_30_9_72.jpg",
             "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_18_014.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2016_03_01_069.jpg",
+            "http://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2016_03_01_057.jpg",
+
     };
     GalleryAdapter mAdapter;
     RecyclerView mRecyclerView;

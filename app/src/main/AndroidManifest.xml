@@ -50,13 +50,6 @@
             android:name=".web.SindesmoiActivity"
             android:label="@string/links" />
         <activity
-            android:name=".rss.NeaActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/enimerosi" />
-        <activity
-            android:name=".rss.NomosxediaActivity"
-            android:label="@string/nomosxedia" />
-        <activity
             android:name=".web.entos.DiktioActivity"
             android:label="@string/entos" />
         <activity
@@ -105,8 +98,42 @@
             android:name=".map.MapsActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".rss.activities.NeaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/nea" />
+        <activity
+            android:name=".rss.activities.NsKatActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/katatethenta" />
+        <activity
+            android:name=".rss.activities.NsPsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/psifisthenta" />
+        <activity
+            android:name=".rss.activities.EleghosActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/eleghos" />
+        <activity
+            android:name=".rss.activities.SinEpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/sinedriaseis_epitropon" />
+        <activity
+            android:name=".rss.activities.EktheseisEpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/ektheseis" />
+        <activity
+            android:name=".rss.activities.DrastActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/drastiriotites" />
 
-        <service android:name=".rss.Service" />
+        <service android:name=".rss.services.NeaService" />
+        <service android:name=".rss.services.NsKatService" />
+        <service android:name=".rss.services.NsPsService" />
+        <service android:name=".rss.services.EleghosService" />
+        <service android:name=".rss.services.SinEpService" />
+        <service android:name=".rss.services.EktheseisEpService" />
+        <service android:name=".rss.services.DrastService" />
     </application>
 
 </manifest>

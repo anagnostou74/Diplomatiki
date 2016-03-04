@@ -1,4 +1,4 @@
-package gr.mobap.rss;
+package gr.mobap.rss.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,8 +20,10 @@ import java.util.List;
 
 import gr.mobap.MainActivity;
 import gr.mobap.R;
+import gr.mobap.rss.fragments.DrastFragment;
+import gr.mobap.rss.fragments.NeaFragment;
 
-public class NeaActivity extends MainActivity {
+public class DrastActivity extends MainActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class NeaActivity extends MainActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent i = new Intent(NeaActivity.this, MainActivity.class);
+                    Intent i = new Intent(DrastActivity.this, MainActivity.class);
                     startActivity(i);
                     // close this activity
                     finish();
@@ -74,7 +76,7 @@ public class NeaActivity extends MainActivity {
 
     private void setupViewPager(ViewPager fragment_container) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new RssFragment(), getString(R.string.deltia));
+        adapter.addFrag(new DrastFragment(), getString(R.string.drastiriotites));
         fragment_container.setAdapter(adapter);
     }
 

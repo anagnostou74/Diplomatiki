@@ -1,4 +1,4 @@
-package gr.mobap.rss;
+package gr.mobap.rss.services;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -14,19 +14,23 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.List;
 
-public class Service extends IntentService {
+import gr.mobap.rss.Constants;
+import gr.mobap.rss.Item;
+import gr.mobap.rss.Parser;
 
-	private static final String RSS_LINK = "http://www.hellenicparliament.gr/rssfeed/RssNews.aspx";
+public class NeaService extends IntentService {
+
+	public static final String RSS_LINK = "http://www.hellenicparliament.gr/rssfeed/RssNews.aspx";
 	public static final String ITEMS = "items";
 	public static final String RECEIVER = "receiver";
 
-	public Service() {
-		super("Service");
+	public NeaService() {
+		super("NeaService");
 	}
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		Log.d(Constants.TAG, "Service started");
+		Log.d(Constants.TAG, "NeaService started");
 		List<Item> items = null;
 		try {
 			Parser parser = new Parser();

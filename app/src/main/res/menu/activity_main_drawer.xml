@@ -52,9 +52,38 @@
                 android:icon="@mipmap/ic_rss_feed_black_24dp"
                 android:title="@string/deltia" />
             <item
-                android:id="@+id/nav_nomosxedia"
+                android:id="@+id/nav_eleghos"
                 android:icon="@drawable/ic_library_books_24dp"
-                android:title="@string/nomosxedia" />
+                android:title="@string/eleghos" />
+        </menu>
+    </item>
+    <item android:title="@string/ns">
+        <menu>
+            <item
+                android:id="@+id/nav_katatethenta"
+                android:icon="@drawable/ic_library_books_24dp"
+                android:title="@string/katatethenta" />
+            <item
+                android:id="@+id/nav_psifisthenta"
+                android:icon="@drawable/ic_library_books_24dp"
+                android:title="@string/psifisthenta" />
+        </menu>
+    </item>
+    <item android:title="@string/koin_epitropes">
+        <menu>
+            <item
+                android:id="@+id/nav_sinedriaseis_epitropon"
+                android:icon="@drawable/ic_library_books_24dp"
+                android:title="@string/sinedriaseis_epitropon" />
+            <item
+                android:id="@+id/nav_ektheseis"
+                android:icon="@drawable/ic_library_books_24dp"
+                android:title="@string/ektheseis" />
+            <item
+                android:id="@+id/nav_drastiriotites"
+                android:icon="@drawable/ic_library_books_24dp"
+                android:title="@string/drastiriotites" />
+
         </menu>
     </item>
     <item android:title="@string/xristes">
