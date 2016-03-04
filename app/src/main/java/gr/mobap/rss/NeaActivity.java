@@ -1,83 +1,85 @@
 package gr.mobap.rss;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.MainActivity;
 import gr.mobap.R;
-import gr.mobap.vouli.EpitropesFragment;
-import gr.mobap.vouli.KtirioFragment;
-import gr.mobap.vouli.ProedreioFragment;
-import gr.mobap.vouli.SyntagmaFragment;
-import gr.mobap.vouli.ThesmosFragment;
 
 public class NeaActivity extends MainActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_rss);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // fetch data
+            if (savedInstanceState == null) {
+                ViewPager fragment_container = (ViewPager) findViewById(R.id.fragment_container);
+                setupViewPager(fragment_container);
+            }
+        } else {
+            // display error
+            Toast.makeText(this, getString(R.string.aneu_diktiou),
+                    Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(NeaActivity.this, MainActivity.class);
+                    startActivity(i);
+                    // close this activity
+                    finish();
+                }
+            }, 1000); // wait for 1 second
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("fragment_added", true);
     }
 
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager(ViewPager fragment_container) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.simera));
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.kanonismos));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.book));
-        viewPager.setAdapter(adapter);
+        adapter.addFrag(new RssFragment(), getString(R.string.deltia));
+        fragment_container.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<android.support.v4.app.Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
         public ViewPagerAdapter(FragmentManager manager) {
@@ -85,7 +87,7 @@ public class NeaActivity extends MainActivity {
         }
 
         @Override
-        public Fragment getItem(int position) {
+        public android.support.v4.app.Fragment getItem(int position) {
             return mFragmentList.get(position);
         }
 
@@ -94,7 +96,7 @@ public class NeaActivity extends MainActivity {
             return mFragmentList.size();
         }
 
-        public void addFrag(Fragment fragment, String title) {
+        public void addFrag(android.support.v4.app.Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }

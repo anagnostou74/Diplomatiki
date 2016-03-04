@@ -51,6 +51,7 @@
             android:label="@string/links" />
         <activity
             android:name=".rss.NeaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/enimerosi" />
         <activity
             android:name=".rss.NomosxediaActivity"
@@ -103,7 +104,9 @@
         <activity
             android:name=".map.MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service android:name=".rss.Service" />
     </application>
 
 </manifest>

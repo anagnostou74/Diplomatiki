@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.RequiresPermission;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
@@ -188,19 +187,17 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_kanali) {
             Intent i = new Intent(MainActivity.this, IntentsTvActivity.class);
             startActivity(i);
-        }
-        else if (id == R.id.nav_live_ena) {
+        } else if (id == R.id.nav_live_ena) {
             Intent i = new Intent(MainActivity.this, LiveVideoActivity.class);
             startActivity(i);
-        }
-        else if (id == R.id.nav_live_dio) {
+        } else if (id == R.id.nav_live_dio) {
             Intent i = new Intent(MainActivity.this, LiveVideoDioActivity.class);
             startActivity(i);
-        }else if (id == R.id.nav_nea) {
+        } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_nomosxedia) {
-            Intent i = new Intent(MainActivity.this, NomosxediaActivity.class);
+            Intent i = new Intent(MainActivity.this, NeaActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_diktio) {
             Intent i = new Intent(MainActivity.this, DiktioActivity.class);
