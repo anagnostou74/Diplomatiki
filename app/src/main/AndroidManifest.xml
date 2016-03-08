@@ -7,14 +7,31 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- USE_CREDENTIALS is necessary for Google+ login -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <!-- GET_ACCOUNTS is necessary to display email address of logged in user. This permission is optional -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="gr.mobap.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="gr.mobap.permission.C2D_MESSAGE" />
+
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
+        android:name=".AnalyticsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,6 +52,7 @@
             android:label="@string/app_name" />
         <activity
             android:name=".ScrollingActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -42,21 +60,27 @@
         </activity>
         <activity
             android:name=".ekdoseis.DownloadPdfActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/ekdoseis" />
         <activity
             android:name=".organosi.OrganosiActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/organosi" />
         <activity
             android:name=".web.SindesmoiActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/links" />
         <activity
             android:name=".web.entos.DiktioActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/entos" />
         <activity
             android:name=".PeriActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/peri" />
         <activity
             android:name=".images.Image"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:finishOnTaskLaunch="true"
             android:label="@string/photos" />
         <activity
@@ -76,10 +100,12 @@
             android:label="@string/nav_live_dio" />
         <activity
             android:name=".book.BookActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:finishOnTaskLaunch="true"
             android:label="@string/book" />
         <activity
             android:name=".youtube.IntentsTvActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:finishOnTaskLaunch="true"
             android:label="@string/tv_all" />
         <!--
@@ -96,6 +122,7 @@
 
         <activity
             android:name=".map.MapsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -126,6 +153,22 @@
             android:name=".rss.activities.DrastActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/drastiriotites" />
+        <activity
+            android:name=".login.LoginMain"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/login_with_google" />
+        <activity
+            android:name=".login.GoogleOAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/login_with_google" />
+        <activity
+            android:name=".twitter.TimelineActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".twitter.TwitterCoreMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" />
 
         <service android:name=".rss.services.NeaService" />
         <service android:name=".rss.services.NsKatService" />
@@ -134,6 +177,35 @@
         <service android:name=".rss.services.SinEpService" />
         <service android:name=".rss.services.EktheseisEpService" />
         <service android:name=".rss.services.DrastService" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.gcm" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="gr.mobap.gcm.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="gr.mobap.gcm.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d40138b75d5dfad422facd04bc36a5a0f166c83d" />
     </application>
 
 </manifest>

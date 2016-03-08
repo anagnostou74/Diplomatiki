@@ -90,8 +90,12 @@
         <menu>
             <item
                 android:id="@+id/nav_diktio"
-                android:icon="@drawable/ic_verified_user_black_24dp"
+                android:icon="@drawable/ic_share_24dp"
                 android:title="@string/entos" />
+            <item
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/twitter_48"
+                android:title="@string/twitter" />
             <item
                 android:id="@+id/nav_peri"
                 android:icon="@drawable/ic_info_outline_black_24dp"

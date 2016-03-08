@@ -509,4 +509,58 @@
     <string name="title_activity_maps">Χάρτης</string>
     <string name="map_epikoinonia">Μέγαρο Βουλής,100 21, Αθήνα</string>
 
+    <string name="action_logout">Logout</string>
+    <string name="login_with_google">Login with Google+</string>
+    <string name="login_with_twitter">Login with Twitter</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="menu_share">Μοιραστείτε το</string>
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+
+    <string name="preview_tweet">Preview</string>
+    <string name="xml_tweets_activity">XML Tweets</string>
+    <string name="tweets_activity">Single Tweets</string>
+    <string name="unqiue_tweets">Unique Tweets</string>
+    <string name="button_timelines_activity">Timelines</string>
+    <string name="search_timeline_title">Search Timeline</string>
+    <string name="user_timeline_title">User Timeline</string>
+    <string name="collection_timeline_title">Collection Timeline</string>
+    <string name="list_timeline_title">List Timeline</string>
+    <string name="fixed_timeline">Fixed Timeline</string>
+    <string name="refresh_timeline">Refresh Timeline</string>
+    <string name="refresh_timeline_title">Search: #twitter</string>
+    <string name="button_show_light">Light</string>
+    <string name="button_show_dark">Dark</string>
+    <string name="selector_input_hint">Tweet id</string>
+    <string name="tweet_load_error">Failed to load Tweet</string>
+    <string name="multi_tweet_view_error">Failed to load tweets</string>
+    <string name="timeline_empty">No tweets :(</string>
+    <string name="kit_twittercore">Twitter Core</string>
+    <string name="kit_tweetcomposer">Tweet Composer</string>
+    <string name="kit_tweetui">Tweet Ui</string>
+    <string name="twitter">Twitter</string>
+
+    <!-- TweetComposer strings -->
+    <string name="twitter_composer">Twitter Composer</string>
+    <string name="twitter_kit_composer">TwitterKit Composer</string>
+
+
 </resources>

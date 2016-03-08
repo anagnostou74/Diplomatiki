@@ -25,6 +25,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +43,8 @@ import gr.mobap.rss.activities.NeaActivity;
 import gr.mobap.rss.activities.NsKatActivity;
 import gr.mobap.rss.activities.NsPsActivity;
 import gr.mobap.rss.activities.SinEpActivity;
+import gr.mobap.twitter.TimelineActivity;
+import gr.mobap.twitter.TwitterCoreMainActivity;
 import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
 import gr.mobap.vouli.EpitropesFragment;
@@ -52,6 +58,10 @@ import gr.mobap.youtube.IntentsTvActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    /**
+     * The {@link Tracker} used to record screen views.
+     */
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +69,8 @@ public class MainActivity extends AppCompatActivity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        Firebase.setAndroidContext(this);
 
         AppRate.app_launched(this);
 
@@ -69,6 +81,7 @@ public class MainActivity extends AppCompatActivity
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -80,6 +93,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        // [END shared_tracker]
+
     }
 
     @Override
@@ -120,12 +140,31 @@ public class MainActivity extends AppCompatActivity
                 Intent p = new Intent(MainActivity.this, PeriActivity.class);
                 startActivity(p);
                 return true;
+            case R.id.menu_share:
+                // User chose the "Settings" item, show the app settings UI...
+                setShareIntent();
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    private void setShareIntent() {
+        // [START custom_event]
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("Share")
+                .build());
+        // [END custom_event]
+        String text = "I'd love you to hear about ";
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
     private void klisi() {
@@ -178,7 +217,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
-            Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
+            Intent i = new Intent(MainActivity.this, TwitterCoreMainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);
@@ -221,6 +260,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.nav_diktio) {
             Intent i = new Intent(MainActivity.this, DiktioActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_twitter) {
+            Intent i = new Intent(MainActivity.this, TimelineActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_peri) {
             Intent i = new Intent(MainActivity.this, PeriActivity.class);
