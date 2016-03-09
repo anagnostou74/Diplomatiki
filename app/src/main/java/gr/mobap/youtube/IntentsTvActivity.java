@@ -28,11 +28,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.youtube.player.YouTubeIntents;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -41,6 +43,7 @@ import gr.mobap.R;
  * Intents that navigate the user to Activities within the main YouTube application.
  */
 public final class IntentsTvActivity extends MainActivity implements OnItemClickListener {
+    private Tracker mTracker;
 
     private static final String KOINOVOULEUTIKO_ERGO = "PLlLw1tG9H3CWmGoCIlvgCmD9zbRITix4V";
     private static final String SINANTISI = "PLlLw1tG9H3CWeAtiRC7qnZlfmyAYf3FOT";
@@ -81,6 +84,11 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        // [END shared_tracker]
 
         intentItems = new ArrayList<TvListViewItem>();
         intentItems.add(new IntentItem("Κοινοβουλευτικό έργο", IntentType.KOINOVOULEUTIKO_ERGO));

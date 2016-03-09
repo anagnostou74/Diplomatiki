@@ -15,8 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.Tracker;
+
 import java.util.ArrayList;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -119,6 +122,7 @@ public class Image extends MainActivity {
     GalleryAdapter mAdapter;
     RecyclerView mRecyclerView;
     ArrayList<ImageModel> data = new ArrayList<>();
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +136,11 @@ public class Image extends MainActivity {
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        // [END shared_tracker]
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

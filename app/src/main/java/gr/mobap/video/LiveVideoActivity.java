@@ -17,11 +17,14 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.devbrackets.android.exomedia.EMVideoView;
+import com.google.android.gms.analytics.Tracker;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
 public class LiveVideoActivity extends AppCompatActivity {
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,11 @@ public class LiveVideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.content_video);
-
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        // [END shared_tracker]
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();

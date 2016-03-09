@@ -17,6 +17,7 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.Tracker;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthException;
@@ -28,6 +29,7 @@ import com.twitter.sdk.android.tweetui.TwitterListTimeline;
 
 import java.lang.ref.WeakReference;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -35,6 +37,7 @@ import gr.mobap.R;
  * TimelineActivity shows a full screen timeline which is useful for screenshots.
  */
 public class TimelineActivity extends MainActivity {
+    private Tracker mTracker;
 
     final WeakReference<Activity> activityRef = new WeakReference<Activity>(TimelineActivity.this);
 
@@ -54,6 +57,11 @@ public class TimelineActivity extends MainActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        // [END shared_tracker]
 
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);

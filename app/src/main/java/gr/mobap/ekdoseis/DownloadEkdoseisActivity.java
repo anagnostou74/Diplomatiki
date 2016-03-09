@@ -22,15 +22,18 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
 
-public class DownloadPdfActivity extends MainActivity {
+public class DownloadEkdoseisActivity extends MainActivity {
     // Defined Array values to show in ListView
     public static final String[] titles = new String[]{
             "Σύνταγμα της Ελλάδος",
@@ -134,6 +137,7 @@ public class DownloadPdfActivity extends MainActivity {
     ListView listView;
     List<RowItem> rowItems;
     private String TAG = "RegsActivity", pdfURL;
+    private Tracker mTracker;
 
     /**
      * functoin to open the PDF using an Intent
@@ -158,6 +162,11 @@ public class DownloadPdfActivity extends MainActivity {
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        // [END shared_tracker]
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -289,7 +298,7 @@ public class DownloadPdfActivity extends MainActivity {
 
                 } else {
                     // display error
-                    Toast.makeText(DownloadPdfActivity.this, getString(R.string.aneu_diktiou),
+                    Toast.makeText(DownloadEkdoseisActivity.this, getString(R.string.aneu_diktiou),
                             Toast.LENGTH_SHORT).show();
                 }
             }

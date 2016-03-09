@@ -28,11 +28,14 @@ import android.widget.Toast;
 import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.mobap.ekdoseis.DownloadPdfActivity;
+import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
+import gr.mobap.ekdoseis.DownloadPraktikaActivity;
 import gr.mobap.images.Image;
 import gr.mobap.map.MapsActivity;
 import gr.mobap.organosi.OrganosiActivity;
@@ -44,7 +47,6 @@ import gr.mobap.rss.activities.NsKatActivity;
 import gr.mobap.rss.activities.NsPsActivity;
 import gr.mobap.rss.activities.SinEpActivity;
 import gr.mobap.twitter.TimelineActivity;
-import gr.mobap.twitter.TwitterCoreMainActivity;
 import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
 import gr.mobap.vouli.EpitropesFragment;
@@ -55,6 +57,7 @@ import gr.mobap.vouli.ThesmosFragment;
 import gr.mobap.web.SindesmoiActivity;
 import gr.mobap.web.entos.DiktioActivity;
 import gr.mobap.youtube.IntentsTvActivity;
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,6 +65,10 @@ public class MainActivity extends AppCompatActivity
      * The {@link Tracker} used to record screen views.
      */
     private Tracker mTracker;
+
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY";
+    private static final String TWITTER_SECRET = "LVQljKvSX2zhI6EThT8O4n1ERSAQr0JySmNwYNKKvhjeRjs8re";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +78,8 @@ public class MainActivity extends AppCompatActivity
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Firebase.setAndroidContext(this);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
 
         AppRate.app_launched(this);
 
@@ -99,7 +108,6 @@ public class MainActivity extends AppCompatActivity
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
         // [END shared_tracker]
-
     }
 
     @Override
@@ -217,13 +225,13 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
-            Intent i = new Intent(MainActivity.this, TwitterCoreMainActivity.class);
+            Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_ekdoseis) {
-            Intent i = new Intent(MainActivity.this, DownloadPdfActivity.class);
+            Intent i = new Intent(MainActivity.this, DownloadEkdoseisActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_photo) {
             Intent i = new Intent(MainActivity.this, Image.class);
@@ -240,14 +248,17 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_nea) {
             Intent i = new Intent(MainActivity.this, NeaActivity.class);
             startActivity(i);
+        } else if (id == R.id.nav_praktika) {
+            Intent i = new Intent(MainActivity.this, DownloadPraktikaActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_eleghos) {
+            Intent i = new Intent(MainActivity.this, EleghosActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_katatethenta) {
             Intent i = new Intent(MainActivity.this, NsKatActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_psifisthenta) {
             Intent i = new Intent(MainActivity.this, NsPsActivity.class);
-            startActivity(i);
-        } else if (id == R.id.nav_eleghos) {
-            Intent i = new Intent(MainActivity.this, EleghosActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sinedriaseis_epitropon) {
             Intent i = new Intent(MainActivity.this, SinEpActivity.class);

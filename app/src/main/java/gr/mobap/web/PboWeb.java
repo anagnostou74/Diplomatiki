@@ -10,9 +10,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.analytics.Tracker;
+
 import gr.mobap.R;
 
 public class PboWeb extends Fragment {
+    private Tracker mTracker;
 
     private WebView webView;
     private Bundle webViewBundle;

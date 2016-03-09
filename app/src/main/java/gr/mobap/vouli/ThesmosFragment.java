@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.Tracker;
+
 import gr.mobap.R;
 
 public class ThesmosFragment extends Fragment {
+    private Tracker mTracker;
 
     public ThesmosFragment() {
         // Required empty public constructor

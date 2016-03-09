@@ -59,9 +59,13 @@
                 android:value="gr.mobap.MainActivity" />
         </activity>
         <activity
-            android:name=".ekdoseis.DownloadPdfActivity"
+            android:name=".ekdoseis.DownloadEkdoseisActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/ekdoseis" />
+        <activity
+            android:name=".ekdoseis.DownloadPraktikaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/praktika_olom" />
         <activity
             android:name=".organosi.OrganosiActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -176,15 +180,16 @@
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="com.example.gcm" />
             </intent-filter>
         </receiver>
+
         <service
             android:name="gr.mobap.gcm.MyGcmListenerService"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
@@ -197,10 +202,35 @@
             </intent-filter>
         </service>
 
-
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="d40138b75d5dfad422facd04bc36a5a0f166c83d" />
+
+        <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background
+             dispatching on non-Google Play devices -->
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable
+             installation campaign reporting -->
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+
     </application>
 
 </manifest>

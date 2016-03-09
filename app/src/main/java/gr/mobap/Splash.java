@@ -30,10 +30,6 @@ import io.fabric.sdk.android.Fabric;
  */
 public class Splash extends AppCompatActivity {
 
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY";
-    private static final String TWITTER_SECRET = "LVQljKvSX2zhI6EThT8O4n1ERSAQr0JySmNwYNKKvhjeRjs8re";
-
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private ProgressBar mRegistrationProgressBar;
     private TextView mInformationTextView;
@@ -50,8 +46,7 @@ public class Splash extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         super.onCreate(savedInstanceState);
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
+
         setContentView(R.layout.splash);
         new Handler().postDelayed(new Runnable() {
             @Override
