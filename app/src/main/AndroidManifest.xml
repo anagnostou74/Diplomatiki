@@ -99,11 +99,6 @@
             android:finishOnTaskLaunch="true"
             android:label="@string/nav_live_dio" />
         <activity
-            android:name=".book.BookActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:finishOnTaskLaunch="true"
-            android:label="@string/book" />
-        <activity
             android:name=".youtube.IntentsTvActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:finishOnTaskLaunch="true"

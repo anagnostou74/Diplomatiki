@@ -43,24 +43,93 @@ public class DownloadPdfActivity extends MainActivity {
             "15η Σεπτεμβρίου - Παγκόσμια Ημέρα της Δημοκρατίας",
             "Ευρω-Μεσογειακή Κοινοβουλευτική Συνέλευση (Μάρτιος 2007 - Μάρτιος 2008)",
             "Ο Λόγος του Θεόδωρου Κολοκοτρώνη στην Πνύκα",
+            "Προσανατολισμοί του Νέου Ελληνισμού",
+            "ΕΠΙΦΥΛΛΙΔΕΣ - Μάριος Πλωρίτης 1993 - 2004",
+            "ΕΠΙΦΥΛΛΙΔΕΣ - Μάριος Πλωρίτης 1989 - 1993",
+            "Nicholas Kaltchas : Introduction to the Constitutional History of Modern of Greece",
+            "Ορόσημα Ελληνο-Γερμανικών σχέσεων : Ορόσημα",
+            "MEILENSTEINE DEUTSCH–GRIECHISCHER BEZIEHUNGEN : Herausgegeben von Wolfgang Schultheiß, Evangelos Chrysos",
+            "Ευρωπαϊκό Κοινοβούλιο 50 Χρόνια - Εμπειρία & Προοπτικές:  Πρακτικά Συνεδρίου",
+            "Μισός αιώνας γυναικείας ψήφου, μισός αιώνας γυναίκες στη Βουλή, Μάρω Παντελίδου Μαλούτα",
+            "Θουκυδίδου Περικλέους Επιτάφιος",
+            "Η Μετάβαση στη Δημοκρατία και το Σύνταγμα του 1975, Γιώργος Κασιμάτης",
+            "Πρόεδροι της Βουλής, Γερουσίας & Εθνοσυνελεύσεων 1821 - 2008",
+            "Νομική Διάταξις της Ανατολικής Χέρσου Ελλάδος",
+            "Προσωρινόν Πολίτευμα της νήσου Κρήτης",
+            "Νόμος της Επιδαύρου",
+            "Πολιτικόν Σύνταγμα της Ελλάδος",
+            "Ηγεμονικό",
+            "Σύνταγμα του 1844",
+            "Σύνταγμα του 1864",
+            "Σύνταγμα του 1911",
+            "Σύνταγμα του 1927",
+            "Σύνταγμα του 1952"
     };
     public static final String[] descriptions = new String[]{
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
-            "Σε μορφή pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf"
     };
-    public static final Integer[] images = {R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp, R.drawable.ic_local_library_24dp,
+    public static final Integer[] images = {
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp,
+            R.drawable.ic_local_library_24dp
     };
     ListView listView;
     List<RowItem> rowItems;
@@ -95,7 +164,6 @@ public class DownloadPdfActivity extends MainActivity {
 
         // Get ListView object from xml
         listView = (ListView) findViewById(R.id.listEkd);
-
 
         rowItems = new ArrayList<RowItem>();
         for (int i = 0; i < titles.length; i++) {
@@ -145,6 +213,69 @@ public class DownloadPdfActivity extends MainActivity {
                         break;
                     case 9:
                         pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/kolokotronis.pdf";
+                        break;
+                    case 10:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/soma_low.pdf";
+                        break;
+                    case 11:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/ploritisB-low.pdf";
+                        break;
+                    case 12:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/ploritisA-low.pdf";
+                        break;
+                    case 13:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Kaltchas%20book.pdf";
+                        break;
+                    case 14:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Orosima%20book.pdf";
+                        break;
+                    case 15:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/soma_germ_1.pdf";
+                        break;
+                    case 16:
+                        pdfURL = "http://foundation.parliament.gr/contentData/%CF%80%CF%81%CE%B1%CE%BA%CF%84%CE%B9%CE%BA%CE%AC%20%CF%83%CF%85%CE%BD%CE%B5%CE%B4%CF%81%CE%AF%CE%BF%CF%85.pdf";
+                        break;
+                    case 17:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Gynaikes.pdf";
+                        break;
+                    case 18:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/epitaphios.pdf";
+                        break;
+                    case 19:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Kasimatis.pdf";
+                        break;
+                    case 20:
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/%CE%A0%CF%81%CE%BF%CE%AD%CE%B4%CF%81%CE%BF%CE%B9.pdf";
+                        break;
+                    case 21:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn04a.pdf";
+                        break;
+                    case 22:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn08.pdf";
+                        break;
+                    case 23:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn07.pdf";
+                        break;
+                    case 24:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn09.pdf";
+                        break;
+                    case 25:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn11.pdf";
+                        break;
+                    case 26:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn12.pdf";
+                        break;
+                    case 27:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn13.pdf";
+                        break;
+                    case 28:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn14.pdf";
+                        break;
+                    case 29:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn15.pdf";
+                        break;
+                    case 30:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn16.pdf";
                         break;
                     default:
                 }
