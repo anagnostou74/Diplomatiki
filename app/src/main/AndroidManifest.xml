@@ -157,6 +157,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/login_with_google" />
         <activity
+            android:name=".mps.Mps"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/mps" />
+        <activity
             android:name=".login.GoogleOAuthActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/login_with_google" />
