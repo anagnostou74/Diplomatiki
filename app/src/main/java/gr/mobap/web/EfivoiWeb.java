@@ -50,7 +50,7 @@ public class EfivoiWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("http://www.efivoi.gr/");
         } else {
             webView.restoreState(webViewBundle);

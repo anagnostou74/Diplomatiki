@@ -35,7 +35,7 @@ public class DiktioActivity extends MainActivity {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -62,9 +62,7 @@ public class DiktioActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new CollaborationWeb(), getString(R.string.collaboration));
         adapter.addFrag(new MailWeb(), getString(R.string.email));
-        adapter.addFrag(new PraktikaWeb(), getString(R.string.praktika));
         viewPager.setAdapter(adapter);
     }
 

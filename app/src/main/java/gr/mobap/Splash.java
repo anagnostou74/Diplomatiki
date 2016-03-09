@@ -39,7 +39,7 @@ public class Splash extends AppCompatActivity {
     private TextView mInformationTextView;
     private boolean isReceiverRegistered;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Splash";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

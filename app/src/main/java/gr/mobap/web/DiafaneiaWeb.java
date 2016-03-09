@@ -50,7 +50,7 @@ public class DiafaneiaWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("http://diafaneia.hellenicparliament.gr/results/?ada=&datefrom=&dateto=&sector=&freetext=&type=");
         } else {
             webView.restoreState(webViewBundle);

@@ -50,7 +50,7 @@ public class IdrymaWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("http://foundation.parliament.gr/central.aspx?sId=106I344I938I646I434770");
         } else {
             webView.restoreState(webViewBundle);

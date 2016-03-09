@@ -50,7 +50,7 @@ public class PboWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("http://www.pbo.gr");
         } else {
             webView.restoreState(webViewBundle);

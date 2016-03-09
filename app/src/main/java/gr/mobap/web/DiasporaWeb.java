@@ -50,7 +50,7 @@ public class DiasporaWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("http://diaspora.parliament.gr");
         } else {
             webView.restoreState(webViewBundle);

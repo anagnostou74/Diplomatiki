@@ -50,7 +50,7 @@ public class MailWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("https://webmail.parliament.gr/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fwebmail.parliament.gr%2fowa%2f");
         } else {
             webView.restoreState(webViewBundle);

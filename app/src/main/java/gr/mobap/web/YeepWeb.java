@@ -50,7 +50,7 @@ public class YeepWeb extends Fragment {
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) {
+        if (webViewBundle == null) { //Κώδικας για webView save State
             webView.loadUrl("http://yeep.parliament.gr/");
         } else {
             webView.restoreState(webViewBundle);
