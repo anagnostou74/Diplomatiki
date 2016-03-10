@@ -174,7 +174,7 @@ public class LoginMain extends MainActivity implements
     public boolean onCreateOptionsMenu(Menu menu) {
         /* If a user is currently authenticated, display a logout menu */
         if (this.mAuthData != null) {
-            getMenuInflater().inflate(R.menu.main, menu);
+            getMenuInflater().inflate(R.menu.main_logout, menu);
             return true;
         } else {
             return false;
