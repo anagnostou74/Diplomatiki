@@ -50,11 +50,11 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name" />
+            android:label="@string/simera" />
         <activity
             android:name=".vouli.VouliActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name" />
+            android:label="@string/thesmos" />
         <activity
             android:name=".ScrollingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
