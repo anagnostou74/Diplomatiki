@@ -18,7 +18,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.URL;
 
 import gr.mobap.R;
 
@@ -52,37 +51,37 @@ public class OlomeleiaEleghosFragment extends Fragment {
                 container, false);
 
         webView = (WebView) ll.findViewById(R.id.webView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().supportZoom();
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.setFocusableInTouchMode(false);
+        webView.setFocusable(false);
         progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
                 "Φορτώνει η σελίδα", true);
         progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+
         webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return true;
+            }
 
             public void onPageFinished(WebView view, String url) {
                 if (progress != null)
                     progress.dismiss();
             }
         });
-        if (webViewBundle == null) { //Κώδικας για webView save State
+        try {
+            Document doc = Jsoup.connect(url).ignoreContentType(true).get();
+            doc.outputSettings().charset("Windows-1252");
+            Elements ele = doc.select("div#middlecolumnwide");
+            String html = ele.toString();
+            String mime = "text/html";
+            String encoding = "Windows-1252";
+            webView.loadData(html, mime, encoding);
 
-            try {
-                Document doc = Jsoup.connect(url).ignoreContentType(true).get();
-                doc.outputSettings().charset("Windows-1252");
-                Elements ele = doc.select("div#middlecolumnwide");
-                String html = ele.toString();
-                String mime = "text/html";
-                String encoding = "Windows-1252";
-                webView.loadData(html, mime, encoding);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            webView.restoreState(webViewBundle);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return ll;
     }

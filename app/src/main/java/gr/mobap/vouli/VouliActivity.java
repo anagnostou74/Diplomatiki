@@ -75,7 +75,7 @@ public class VouliActivity extends MainActivity {
         Firebase.setAndroidContext(this);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_vouli);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
