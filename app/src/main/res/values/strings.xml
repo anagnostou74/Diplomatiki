@@ -557,7 +557,7 @@
     <string name="selector_input_hint">Tweet id</string>
     <string name="tweet_load_error">Failed to load Tweet</string>
     <string name="multi_tweet_view_error">Failed to load tweets</string>
-    <string name="timeline_empty">No tweets :(</string>
+    <string name="timeline_empty">Έρχονται τα Tweets :)</string>
     <string name="kit_twittercore">Twitter Core</string>
     <string name="kit_tweetcomposer">Tweet Composer</string>
     <string name="kit_tweetui">Tweet Ui</string>
