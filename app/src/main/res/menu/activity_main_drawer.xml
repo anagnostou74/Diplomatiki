@@ -16,6 +16,10 @@
                 android:icon="@drawable/ic_account_circle_black_24dp"
                 android:title="@string/mps" />
             <item
+                android:id="@+id/nav_simera"
+                android:icon="@drawable/ic_event_note_black_24dp"
+                android:title="@string/simera" />
+            <item
                 android:id="@+id/nav_sindesmoi"
                 android:icon="@drawable/ic_insert_link_black_24dp"
                 android:title="@string/links" />

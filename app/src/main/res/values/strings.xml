@@ -40,7 +40,10 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="simera">Σήμερα</string>
+    <string name="koin_eleghos">Κοινοβουλευτικός Έλεγχος</string>
+    <string name="today_olom">Ημερήσια Διάταξη Ολομέλειας</string>
+    <string name="today_el">Δελτίο Επικαίρων Ερωτήσεων</string>
+    <string name="today_ep">Συνεδριάσεις Επιτροπών</string>
     <string name="thesmos">O Θεσμός</string>
     <string name="ypiresiesKeim"><![CDATA[
     ]]>
@@ -500,6 +503,7 @@
     <string name="sinedriaseis_epitropon">Συνεδριάσεις</string>
     <string name="ektheseis">Εκθέσεις</string>
     <string name="drastiriotites">Δραστηριότητες</string>
+    <string name="simera">Πρόγραμμα Συνεδριάσεων</string>
 
     <string name="intent_select"><b>Παρακολουθείστε επιλεγμένες συνεδριάσεις της Ολομέλειας της Βουλής, ενημερωτικές εκπομπές και παραγωγές του Τηλεοπτικού Σταθμού της Βουλής των Ελλήνων
         καθώς και αφιερώματα σε εκθέσεις και εκδηλώσεις της Βιβλιοθήκης της Βουλής και του Ιδρύματος της Βουλής των Ελλήνων για τον Κοινοβουλευτισμό και τη Δημοκρατία. \n\n

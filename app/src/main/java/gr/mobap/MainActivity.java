@@ -47,14 +47,14 @@ import gr.mobap.rss.activities.NeaActivity;
 import gr.mobap.rss.activities.NsKatActivity;
 import gr.mobap.rss.activities.NsPsActivity;
 import gr.mobap.rss.activities.SinEpActivity;
+import gr.mobap.simera.EpiTodayFragment;
+import gr.mobap.simera.OlomeleiaEleghosFragment;
+import gr.mobap.simera.OlomeleiaFragment;
+import gr.mobap.simera.SimeraFragment;
 import gr.mobap.twitter.TimelineActivity;
 import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
-import gr.mobap.vouli.EpitropesFragment;
-import gr.mobap.vouli.KtirioFragment;
-import gr.mobap.vouli.ProedreioFragment;
-import gr.mobap.vouli.SyntagmaFragment;
-import gr.mobap.vouli.ThesmosFragment;
+import gr.mobap.vouli.VouliActivity;
 import gr.mobap.web.SindesmoiActivity;
 import gr.mobap.web.entos.DiktioActivity;
 import gr.mobap.youtube.IntentsTvActivity;
@@ -218,15 +218,17 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_vouli) {
-            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            Intent i = new Intent(MainActivity.this, VouliActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
             Intent i = new Intent(MainActivity.this, Mps.class);
+            startActivity(i);
+        } else if (id == R.id.nav_simera) {
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);
@@ -287,11 +289,10 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.proedreio));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.epitropes));
+        adapter.addFrag(new OlomeleiaFragment(), getString(R.string.today_olom));
+        adapter.addFrag(new SimeraFragment(), getString(R.string.koin_eleghos));
+        adapter.addFrag(new OlomeleiaEleghosFragment(), getString(R.string.today_el));
+        adapter.addFrag(new EpiTodayFragment(), getString(R.string.today_ep));
         viewPager.setAdapter(adapter);
     }
 
