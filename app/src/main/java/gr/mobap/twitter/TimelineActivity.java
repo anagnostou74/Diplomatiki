@@ -1,10 +1,7 @@
 package gr.mobap.twitter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -30,6 +27,7 @@ import com.twitter.sdk.android.tweetui.TwitterListTimeline;
 import java.lang.ref.WeakReference;
 
 import gr.mobap.AnalyticsApplication;
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -63,12 +61,8 @@ public class TimelineActivity extends MainActivity {
         mTracker = application.getDefaultTracker();
         // [END shared_tracker]
 
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            // fetch data
-
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(this)) {
             // launch the app login activity when a guest user tries to favorite a Tweet
             final Callback<Tweet> actionCallback = new Callback<Tweet>() {
                 @Override

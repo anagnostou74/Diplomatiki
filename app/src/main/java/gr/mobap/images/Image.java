@@ -1,9 +1,6 @@
 package gr.mobap.images;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -20,6 +17,7 @@ import com.google.android.gms.analytics.Tracker;
 import java.util.ArrayList;
 
 import gr.mobap.AnalyticsApplication;
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -145,25 +143,17 @@ public class Image extends MainActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            // fetch data
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(this)) {
             for (int i = 0; i < IMGS.length; i++) {
-
                 ImageModel imageModel = new ImageModel();
                 imageModel.setName("Φωτογραφία " + i);
                 imageModel.setUrl(IMGS[i]);
                 data.add(imageModel);
-
             }
-
             mRecyclerView = (RecyclerView) findViewById(R.id.list);
             mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
             mRecyclerView.setHasFixedSize(true);
-
-
             mAdapter = new GalleryAdapter(Image.this, data);
             mRecyclerView.setAdapter(mAdapter);
 
@@ -193,8 +183,5 @@ public class Image extends MainActivity {
                 }
             }, 1000); // wait for 1 second
         }
-
-
     }
-
 }

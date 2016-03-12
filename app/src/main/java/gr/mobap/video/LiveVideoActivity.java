@@ -3,11 +3,8 @@ package gr.mobap.video;
 // http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8
 // http://streamer-cache.grnet.gr/parliament/hls/webtv2.m3u8
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +17,7 @@ import com.devbrackets.android.exomedia.EMVideoView;
 import com.google.android.gms.analytics.Tracker;
 
 import gr.mobap.AnalyticsApplication;
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -41,10 +39,8 @@ public class LiveVideoActivity extends AppCompatActivity {
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
         // [END shared_tracker]
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(this)) {
             // fetch data
             EMVideoView emVideoView = (EMVideoView) findViewById(R.id.video_play_activity_video_view);
             emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8"));

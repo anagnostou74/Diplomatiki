@@ -1,9 +1,6 @@
 package gr.mobap.rss.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -21,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 import gr.mobap.rss.fragments.EleghosFragment;
-import gr.mobap.rss.fragments.NeaFragment;
 
 public class EleghosActivity extends MainActivity {
     private Tracker mTracker;
@@ -42,11 +39,8 @@ public class EleghosActivity extends MainActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            // fetch data
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(this)) {
             if (savedInstanceState == null) {
                 ViewPager fragment_container = (ViewPager) findViewById(R.id.fragment_container);
                 setupViewPager(fragment_container);

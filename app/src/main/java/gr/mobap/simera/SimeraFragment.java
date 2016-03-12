@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.analytics.Tracker;
 
@@ -19,6 +20,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.R;
 
 public class SimeraFragment extends Fragment {
@@ -49,41 +51,46 @@ public class SimeraFragment extends Fragment {
         }
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(getActivity())) {
+            webView = (WebView) ll.findViewById(R.id.webView);
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().supportZoom();
+            webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setLoadWithOverviewMode(true);
+            webView.setFocusableInTouchMode(false);
+            webView.setFocusable(false);
+            progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
+                    "Φορτώνει η σελίδα", true);
+            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 
-        webView = (WebView) ll.findViewById(R.id.webView);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().supportZoom();
-        webView.getSettings().setUseWideViewPort(true);
-        webView.getSettings().setLoadWithOverviewMode(true);
-        webView.setFocusableInTouchMode(false);
-        webView.setFocusable(false);
-        progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
-                "Φορτώνει η σελίδα", true);
-        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    return true;
+                }
 
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return true;
+                public void onPageFinished(WebView view, String url) {
+                    if (progress != null)
+                        progress.dismiss();
+                }
+            });
+            try {
+                Document doc = Jsoup.connect(url).ignoreContentType(true).get();
+                doc.outputSettings().charset("Windows-1252");
+                Elements ele = doc.select("div#middlecolumnwide");
+                String html = ele.toString();
+                String mime = "text/html";
+                String encoding = "Windows-1252";
+                webView.loadData(html, mime, encoding);
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            public void onPageFinished(WebView view, String url) {
-                if (progress != null)
-                    progress.dismiss();
-            }
-        });
-        try {
-            Document doc = Jsoup.connect(url).ignoreContentType(true).get();
-            doc.outputSettings().charset("Windows-1252");
-            Elements ele = doc.select("div#middlecolumnwide");
-            String html = ele.toString();
-            String mime = "text/html";
-            String encoding = "Windows-1252";
-            webView.loadData(html, mime, encoding);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
+                    Toast.LENGTH_SHORT).show();
         }
         return ll;
     }
@@ -91,7 +98,11 @@ public class SimeraFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        webViewBundle = new Bundle();
-        webView.saveState(webViewBundle);
+        if (webView == null) {
+            onDestroy();
+        } else {
+            webViewBundle = new Bundle();
+            webView.saveState(webViewBundle);
+        }
     }
 }

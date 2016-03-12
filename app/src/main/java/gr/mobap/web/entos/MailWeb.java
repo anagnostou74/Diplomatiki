@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.R;
 
 public class MailWeb extends Fragment {
@@ -33,38 +35,45 @@ public class MailWeb extends Fragment {
 
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(getActivity())) {
+            webView = (WebView) ll.findViewById(R.id.webView);
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().supportZoom();
+            webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setLoadWithOverviewMode(true);
+            progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
+                    "Φορτώνει η σελίδα", true);
+            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            webView.setWebViewClient(new WebViewClient() {
 
-        webView = (WebView) ll.findViewById(R.id.webView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().supportZoom();
-        webView.getSettings().setUseWideViewPort(true);
-        webView.getSettings().setLoadWithOverviewMode(true);
-        progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
-                "Φορτώνει η σελίδα", true);
-        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        webView.setWebViewClient(new WebViewClient() {
-
-            public void onPageFinished(WebView view, String url) {
-                if (progress != null)
-                    progress.dismiss();
+                public void onPageFinished(WebView view, String url) {
+                    if (progress != null)
+                        progress.dismiss();
+                }
+            });
+            if (webViewBundle == null) { //Κώδικας για webView save State
+                webView.loadUrl("https://webmail.parliament.gr/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fwebmail.parliament.gr%2fowa%2f");
+            } else {
+                webView.restoreState(webViewBundle);
             }
-        });
-        if (webViewBundle == null) { //Κώδικας για webView save State
-            webView.loadUrl("https://webmail.parliament.gr/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fwebmail.parliament.gr%2fowa%2f");
-        } else {
-            webView.restoreState(webViewBundle);
-        }
 
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
+                    Toast.LENGTH_SHORT).show();
+        }
         return ll;
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
-        webViewBundle = new Bundle();
-        webView.saveState(webViewBundle);
+        if (webView == null) {
+            onDestroy();
+        } else {
+            webViewBundle = new Bundle();
+            webView.saveState(webViewBundle);
+        }
     }
-
 }
