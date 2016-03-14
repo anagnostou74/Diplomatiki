@@ -55,39 +55,62 @@ public class Mps extends MainActivity {
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
+
             // Get ListView object from xml
             final ListView listView = (ListView) findViewById(R.id.listViewMps);
-
             // Create a new Adapter
-            final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                    R.layout.list_item_mps, R.id.onoma);
-
+            final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item_mps, R.id.onoma);
             // Assign adapter to ListView
             listView.setAdapter(adapter);
-
             // Use Firebase to populate the list.
             Firebase.setAndroidContext(this);
-
             Firebase ref = new Firebase("https://incandescent-heat-2208.firebaseio.com/vouleutis");
             // Attach an listener to read the data at our posts reference
-
             ref.addChildEventListener(new ChildEventListener() {
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    adapter.add((String) dataSnapshot.child("Onoma").getValue());
-                    adapter.add((String) dataSnapshot.child("OnomaPatros").getValue());
                     adapter.add((String) dataSnapshot.child("Epitheto").getValue());
+                    adapter.add((String) dataSnapshot.child("Onoma").getValue());
+                    //adapter.add((String) dataSnapshot.child("Titlos").getValue());
+                    //adapter.add((String) dataSnapshot.child("govPosition").getValue());
+                    //adapter.add((String) dataSnapshot.child("OnomaPatros").getValue());
                     adapter.add((String) dataSnapshot.child("Komma").getValue());
                     adapter.add((String) dataSnapshot.child("Perifereia").getValue());
+                    //adapter.add((String) dataSnapshot.child("birth").getValue());
+                    //adapter.add((String) dataSnapshot.child("family").getValue());
+                    //adapter.add((String) dataSnapshot.child("epaggelma").getValue());
+                    //adapter.add((String) dataSnapshot.child("parliamentActivities").getValue());
+                    //adapter.add((String) dataSnapshot.child("socialActivities").getValue());
+                    //adapter.add((String) dataSnapshot.child("spoudes").getValue());
+                    //adapter.add((String) dataSnapshot.child("languages").getValue());
+                    //adapter.add((String) dataSnapshot.child("address").getValue());
+                    //adapter.add((String) dataSnapshot.child("type").getValue());
+                    adapter.add((String) dataSnapshot.child("Photo").getValue());
+                    adapter.add((String) dataSnapshot.child("Site").getValue());
                     adapter.add((String) dataSnapshot.child("Email").getValue());
+                    //adapter.add((String) dataSnapshot.child("committees").getValue());
                 }
 
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    adapter.remove((String) dataSnapshot.child("Onoma").getValue());
-                    adapter.remove((String) dataSnapshot.child("OnomaPatros").getValue());
                     adapter.remove((String) dataSnapshot.child("Epitheto").getValue());
+                    adapter.remove((String) dataSnapshot.child("Onoma").getValue());
+                    //adapter.remove((String) dataSnapshot.child("Titlos").getValue());
+                    //adapter.remove((String) dataSnapshot.child("govPosition").getValue());
+                    //adapter.remove((String) dataSnapshot.child("OnomaPatros").getValue());
                     adapter.remove((String) dataSnapshot.child("Komma").getValue());
                     adapter.remove((String) dataSnapshot.child("Perifereia").getValue());
+                    //adapter.remove((String) dataSnapshot.child("birth").getValue());
+                    //adapter.remove((String) dataSnapshot.child("family").getValue());
+                    //adapter.remove((String) dataSnapshot.child("epaggelma").getValue());
+                    //adapter.remove((String) dataSnapshot.child("parliamentActivities").getValue());
+                    //adapter.remove((String) dataSnapshot.child("socialActivities").getValue());
+                    //adapter.remove((String) dataSnapshot.child("spoudes").getValue());
+                    //adapter.remove((String) dataSnapshot.child("languages").getValue());
+                    //adapter.remove((String) dataSnapshot.child("address").getValue());
+                    //adapter.remove((String) dataSnapshot.child("type").getValue());
+                    adapter.remove((String) dataSnapshot.child("Photo").getValue());
+                    adapter.remove((String) dataSnapshot.child("Site").getValue());
                     adapter.remove((String) dataSnapshot.child("Email").getValue());
+                    //adapter.remove((String) dataSnapshot.child("committees").getValue());
                 }
 
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {

@@ -2,6 +2,7 @@ package gr.mobap;
 
 import android.app.Application;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
@@ -11,6 +12,12 @@ import com.google.android.gms.analytics.Tracker;
  */
 public class AnalyticsApplication extends Application {
     private Tracker mTracker;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Firebase.setAndroidContext(this);
+    }
 
     /**
      * Gets the default {@link Tracker} for this {@link Application}.
