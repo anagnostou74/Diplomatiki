@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -20,6 +18,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
 
 import gr.mobap.AndroidNetworkUtility;
@@ -57,21 +56,6 @@ public class OlomeleiaFragment extends Fragment {
         if (androidNetworkUtility.isConnected(getActivity())) {
             webView = (WebView) ll.findViewById(R.id.webView);
             webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-            progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
-                    "Φορτώνει η σελίδα", true);
-            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-
-            webView.setWebViewClient(new WebViewClient() {
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    return true;
-                }
-
-                public void onPageFinished(WebView view, String url) {
-                    if (progress != null)
-                        progress.dismiss();
-                }
-            });
             try {
                 Document doc = Jsoup.connect(url).ignoreContentType(true).get();
                 doc.outputSettings().charset("Windows-1252");
@@ -80,7 +64,6 @@ public class OlomeleiaFragment extends Fragment {
                 String mime = "text/html";
                 String encoding = "Windows-1252";
                 webView.loadData(html, mime, encoding);
-
             } catch (IOException e) {
                 e.printStackTrace();
             }

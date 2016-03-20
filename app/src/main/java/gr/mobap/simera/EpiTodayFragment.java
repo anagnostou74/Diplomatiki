@@ -53,25 +53,10 @@ public class EpiTodayFragment extends Fragment {
         }
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
-
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
             webView = (WebView) ll.findViewById(R.id.webView);
             webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-            progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
-                    "Φορτώνει η σελίδα", true);
-            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            webView.setWebViewClient(new WebViewClient() {
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    return true;
-                }
-
-                public void onPageFinished(WebView view, String url) {
-                    if (progress != null)
-                        progress.dismiss();
-                }
-            });
             try {
                 Document doc = Jsoup.connect(url).ignoreContentType(true).get();
                 doc.outputSettings().charset("Windows-1252");

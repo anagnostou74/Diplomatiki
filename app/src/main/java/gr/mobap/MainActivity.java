@@ -31,6 +31,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,6 +110,12 @@ public class MainActivity extends AppCompatActivity
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
         // [END shared_tracker]
+    }
+
+    @Override
+    public File getCacheDir() {
+        // NOTE: this method is used in Android 2.1
+        return getApplicationContext().getCacheDir();
     }
 
     @Override
