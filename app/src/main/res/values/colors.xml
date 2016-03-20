@@ -16,5 +16,7 @@
     <color name="solid_yellow">#fff000</color>
     <color name="divider_gray">#ffe1e8ed</color>
 
+    <color name="window_background">#FFF5F5F5</color>
+
 
 </resources>

@@ -38,7 +38,7 @@ import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
 import gr.mobap.ekdoseis.DownloadPraktikaActivity;
 import gr.mobap.images.Image;
 import gr.mobap.map.MapsActivity;
-import gr.mobap.mps.Mps;
+import gr.mobap.mps.MpsMain;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.activities.DrastActivity;
 import gr.mobap.rss.activities.EktheseisEpActivity;
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_vouleutes) {
-            Intent i = new Intent(MainActivity.this, Mps.class);
+            Intent i = new Intent(MainActivity.this, MpsMain.class);
             startActivity(i);
         } else if (id == R.id.nav_simera) {
             Intent i = new Intent(MainActivity.this, MainActivity.class);

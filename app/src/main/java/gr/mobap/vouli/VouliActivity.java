@@ -1,14 +1,8 @@
 package gr.mobap.vouli;
 
-import android.Manifest;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,20 +10,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.firebase.client.Firebase;
-import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,31 +22,6 @@ import java.util.List;
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
-import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
-import gr.mobap.ekdoseis.DownloadPraktikaActivity;
-import gr.mobap.images.Image;
-import gr.mobap.map.MapsActivity;
-import gr.mobap.mps.Mps;
-import gr.mobap.organosi.OrganosiActivity;
-import gr.mobap.rss.activities.DrastActivity;
-import gr.mobap.rss.activities.EktheseisEpActivity;
-import gr.mobap.rss.activities.EleghosActivity;
-import gr.mobap.rss.activities.NeaActivity;
-import gr.mobap.rss.activities.NsKatActivity;
-import gr.mobap.rss.activities.NsPsActivity;
-import gr.mobap.rss.activities.SinEpActivity;
-import gr.mobap.twitter.TimelineActivity;
-import gr.mobap.video.LiveVideoActivity;
-import gr.mobap.video.LiveVideoDioActivity;
-import gr.mobap.vouli.EpitropesFragment;
-import gr.mobap.vouli.KtirioFragment;
-import gr.mobap.vouli.ProedreioFragment;
-import gr.mobap.vouli.SyntagmaFragment;
-import gr.mobap.vouli.ThesmosFragment;
-import gr.mobap.web.SindesmoiActivity;
-import gr.mobap.web.entos.DiktioActivity;
-import gr.mobap.youtube.IntentsTvActivity;
-import io.fabric.sdk.android.Fabric;
 
 public class VouliActivity extends MainActivity {
     /**

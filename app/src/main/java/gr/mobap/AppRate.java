@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class AppRate extends Activity {
 
     private final static String APP_TITLE = "εφαρμογή";
-    private final static String APP_PNAME = "gr.mobap.gr.mobap.mobap";
+    private final static String APP_PNAME = "gr.mobap";
 
     private final static int DAYS_UNTIL_PROMPT = 3;
     private final static int LAUNCHES_UNTIL_PROMPT = 5;
@@ -68,6 +68,7 @@ public class AppRate extends Activity {
 
         Button b1 = new Button(mContext);
         b1.setText("Βαθμολογήστε την " + APP_TITLE);
+        b1.setPadding(4, 0, 4, 4);
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri
@@ -79,6 +80,7 @@ public class AppRate extends Activity {
 
         Button b2 = new Button(mContext);
         b2.setText("Θύμισε το μου αργότερα!");
+        b2.setPadding(4, 4, 4, 4);
         b2.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 dialog.dismiss();
@@ -88,6 +90,7 @@ public class AppRate extends Activity {
 
         Button b3 = new Button(mContext);
         b3.setText("Όχι, ευχαριστώ!");
+        b3.setPadding(4, 4, 4, 4);
         b3.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (editor != null) {

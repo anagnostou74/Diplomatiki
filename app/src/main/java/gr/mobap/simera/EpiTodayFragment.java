@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -55,16 +57,10 @@ public class EpiTodayFragment extends Fragment {
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
             webView = (WebView) ll.findViewById(R.id.webView);
-            webView.getSettings().setUseWideViewPort(true);
-            webView.getSettings().setLoadWithOverviewMode(true);
-            webView.getSettings().setBuiltInZoomControls(true);
-            webView.getSettings().supportZoom();
-            webView.setFocusableInTouchMode(false);
-            webView.setFocusable(false);
+            webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
             progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
                     "Φορτώνει η σελίδα", true);
             progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-
             webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {

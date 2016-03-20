@@ -162,7 +162,11 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/login_with_google" />
         <activity
-            android:name=".mps.Mps"
+            android:name=".mps.MpsMain"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/mps" />
+        <activity
+            android:name=".mps.MpsDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/mps" />
         <activity
