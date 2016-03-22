@@ -16,6 +16,9 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.clevertap.android.sdk.CleverTapAPI;
+import com.clevertap.android.sdk.exceptions.CleverTapMetaDataNotFoundException;
+import com.clevertap.android.sdk.exceptions.CleverTapPermissionsNotSatisfied;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
@@ -36,10 +39,17 @@ public class Splash extends AppCompatActivity {
     private boolean isReceiverRegistered;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "Splash";
+    CleverTapAPI cleverTap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        try {
+            cleverTap = CleverTapAPI.getInstance(getApplicationContext());
+        } catch (CleverTapMetaDataNotFoundException e) {
+            // handle appropriately
+        } catch (CleverTapPermissionsNotSatisfied e) {
+            // handle appropriately
+        }
         //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,

@@ -3,6 +3,7 @@ package gr.mobap;
 import android.app.Application;
 import android.os.Environment;
 
+import com.clevertap.android.sdk.ActivityLifecycleCallback;
 import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -20,8 +21,9 @@ public class AnalyticsApplication extends Application {
 
     @Override
     public void onCreate() {
-        super.onCreate();
+        ActivityLifecycleCallback.register(this);
         Firebase.setAndroidContext(this);
+        super.onCreate();
 
         // Check if the external storage is writeable
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {

@@ -143,6 +143,7 @@
     <orderEntry type="library" exported="" name="support-v4-23.2.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="tweet-ui-1.10.0" level="project" />
+    <orderEntry type="library" exported="" name="CleverTapAndroidSDK" level="project" />
     <orderEntry type="library" exported="" name="jackson-annotations-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.2.0" level="project" />
     <orderEntry type="library" exported="" name="glide-3.6.1" level="project" />
