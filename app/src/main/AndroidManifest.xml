@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="gr.mobap">
-
-    <uses-sdk tools:overrideLibrary="com.clevertap.android.sdk"/>
-
     <!-- Required to retrieve a unique identifier for the device, see note below -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET" />
@@ -186,6 +182,14 @@
             android:name=".twitter.TwitterCoreMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name" />
+        <activity
+            android:name=".AndroidNetworkUtility"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".AppRate"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" />
 
         <service android:name=".rss.services.NeaService" />
         <service android:name=".rss.services.NsKatService" />
@@ -255,10 +259,10 @@
             android:configChanges="orientation|keyboardHidden"/>
         <meta-data
             android:name="CLEVERTAP_ACCOUNT_ID"
-            android:value="000-000-0000" />;
+            android:value="67Z-R46-854Z" />;
         <meta-data
             android:name="CLEVERTAP_TOKEN"
-            android:value="000-000" />
+            android:value="642-1a6" />
 
         <receiver
             android:name="com.clevertap.android.sdk.InstallReferrerBroadcastReceiver"
