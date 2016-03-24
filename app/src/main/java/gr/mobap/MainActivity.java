@@ -25,11 +25,17 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.clevertap.android.sdk.CleverTapAPI;
+import com.clevertap.android.sdk.SyncListener;
+import com.clevertap.android.sdk.exceptions.CleverTapMetaDataNotFoundException;
+import com.clevertap.android.sdk.exceptions.CleverTapPermissionsNotSatisfied;
 import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -62,11 +68,13 @@ import gr.mobap.youtube.IntentsTvActivity;
 import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SyncListener {
     /**
      * The {@link Tracker} used to record screen views.
      */
     private Tracker mTracker;
+    CleverTapAPI cleverTap;
+    private CleverTapAPI ct = null;
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY";
@@ -78,6 +86,29 @@ public class MainActivity extends AppCompatActivity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        try {
+            // CleverTap
+            CleverTapAPI.setDebugLevel(1); // optional
+            ct = CleverTapAPI.getInstance(getApplicationContext());
+            ct.enablePersonalization();  // optional
+            ct.setSyncListener(this); // optional
+        } catch (CleverTapMetaDataNotFoundException e) {
+            // handle appropriately
+            e.printStackTrace();
+        } catch (CleverTapPermissionsNotSatisfied e) {
+            // handle appropriately
+            e.printStackTrace();
+        }
+        assert ct != null;
+        // Read key value pairs from an incoming notification
+        try {
+            Bundle extras = getIntent().getExtras();
+            for (String key : extras.keySet()) {
+                Log.i("StarterProject", "key = " + key + "; value = " + extras.get(key).toString());
+            }
+        } catch (Exception e) {
+            // Ignore
+        }
 
         Firebase.setAndroidContext(this);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
@@ -331,4 +362,15 @@ public class MainActivity extends AppCompatActivity
             return mFragmentTitleList.get(position);
         }
     }
+
+    // SyncListener
+    public void profileDataUpdated(JSONObject updates) {
+        Log.d("PR_UPDATES", updates.toString());
+    }
+
+    public void profileDidInitialize(String cleverTapID) {
+        Log.d("CLEVERTAP_ID", cleverTapID);
+    }
+
+
 }
