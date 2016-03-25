@@ -163,11 +163,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/login_with_google" />
         <activity
-            android:name=".mps.MpsMain"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/mps" />
-        <activity
-            android:name=".mps.MpsDetailActivity"
+            android:name=".mps.XMLPullParserActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/mps" />
         <activity
@@ -209,21 +205,6 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="gr.mobap.gcm.MyGcmListenerService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
-        <service
-            android:name="gr.mobap.gcm.MyInstanceIDListenerService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID" />
-            </intent-filter>
-        </service>
-
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="d40138b75d5dfad422facd04bc36a5a0f166c83d" />
@@ -263,6 +244,32 @@
         <meta-data
             android:name="CLEVERTAP_TOKEN"
             android:value="642-1a6" />
+        <meta-data
+            android:name="GCM_SENDER_ID"
+            android:value="id:190314798172"/>
+
+
+        <receiver
+            android:name="com.clevertap.android.sdk.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+
+                <category android:name="com.clevertap.starter"/>
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <!-- specify activities where In-app notifications should not be shown -->
+        <!-- pretend there is a SplashActivity in this project -->
+        <meta-data
+            android:name="CLEVERTAP_INAPP_EXCLUDE"
+            android:value="SplashActivity"/>
+
 
         <receiver
             android:name="com.clevertap.android.sdk.InstallReferrerBroadcastReceiver"
@@ -271,6 +278,7 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER"/>
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

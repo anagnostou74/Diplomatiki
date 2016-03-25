@@ -566,8 +566,7 @@
     <!-- TweetComposer strings -->
     <string name="twitter_composer">Twitter Composer</string>
     <string name="twitter_kit_composer">TwitterKit Composer</string>
-    <string name="google_maps_key">AIzaSyD-z4ErQp0AbhDwxZ-VD0EyrRGa5JCtwUE</string>
-
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD-z4ErQp0AbhDwxZ-VD0EyrRGa5JCtwUE</string>
 
       <string name="cheese_ipsum">Jarlsberg lancashire edam. Dolcelatte hard cheese brie st. agur blue
     cheese caerphilly bavarian bergkase cheese and biscuits mascarpone. Cheeseburger swiss bavarian
