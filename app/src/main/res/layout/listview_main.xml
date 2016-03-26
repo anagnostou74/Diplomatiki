@@ -13,9 +13,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tool"
         android:fitsSystemWindows="true"
-        tools:context=".mps.MpsMain">
+        tools:context="gr.mobap.MainActivity">
 
         <android.support.design.widget.AppBarLayout
             style="@style/AppTheme.AppBarOverlay"
@@ -28,34 +27,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/action_bar"
-                android:theme="@style/AppTheme.PopupOverlay"
-                app:layout_scrollFlags="scroll|enterAlways|snap" />
+                android:theme="@style/AppTheme.PopupOverlay" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                style="@style/MyCustomTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable" />
 
         </android.support.design.widget.AppBarLayout>
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tool"
-            tools:context=".mps.MpsMain">
-
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textSize="16sp" />
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/toolbar"
+            android:layout_height="fill_parent">
 
             <ListView
-                android:id="@+id/list"
+                android:id="@+id/listview"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_below="@id/text" />
+                android:layout_height="fill_parent" />
 
         </RelativeLayout>
-
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView

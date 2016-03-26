@@ -7,6 +7,9 @@ import com.clevertap.android.sdk.ActivityLifecycleCallback;
 import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseUser;
 
 import java.io.File;
 
@@ -24,6 +27,20 @@ public class AnalyticsApplication extends Application {
         ActivityLifecycleCallback.register(this);
         Firebase.setAndroidContext(this);
         super.onCreate();
+
+        // Add your initialization code here
+        //Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+        Parse.initialize(this, "QwcoU9mE71adBC907aYqRWfz0OSPrjpGsJLnMhp3", "sichMEDjshZEciXRARp8TGR44u9kRw6ou9zq9BxX");
+
+        ParseUser.enableAutomaticUser();
+        ParseACL defaultACL = new ParseACL();
+
+        // If you would like all objects to be private by default, remove this
+        // line.
+        defaultACL.setPublicReadAccess(true);
+
+        ParseACL.setDefaultACL(defaultACL, true);
+
 
         // Check if the external storage is writeable
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
