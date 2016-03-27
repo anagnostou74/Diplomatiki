@@ -1,13 +1,9 @@
 package gr.mobap;
 
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -16,23 +12,9 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.clevertap.android.sdk.CleverTapAPI;
-import com.clevertap.android.sdk.SyncListener;
-import com.clevertap.android.sdk.exceptions.CleverTapMetaDataNotFoundException;
-import com.clevertap.android.sdk.exceptions.CleverTapPermissionsNotSatisfied;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-
-import org.json.JSONObject;
-
-import io.fabric.sdk.android.Fabric;
-
-/**
- * Created by kanag on 21/Φεβ/2016.
- */
 public class Splash extends AppCompatActivity {
 
     private BroadcastReceiver mRegistrationBroadcastReceiver;
@@ -83,7 +65,7 @@ public class Splash extends AppCompatActivity {
     }
 
 
-   /**
+    /**
      * Check the device to make sure it has the Google Play Services APK. If
      * it doesn't, display a dialog that allows users to download the APK from
      * the Google Play Store or enable it in the device's system settings.

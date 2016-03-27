@@ -75,7 +75,6 @@ public class NsKatFragment extends Fragment implements AdapterView.OnItemClickLi
             }
         }
 
-        ;
     };
 
     @Override

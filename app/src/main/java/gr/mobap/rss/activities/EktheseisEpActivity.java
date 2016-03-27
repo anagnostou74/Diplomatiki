@@ -1,9 +1,6 @@
 package gr.mobap.rss.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -25,7 +22,6 @@ import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 import gr.mobap.rss.fragments.EktheseisEpFragment;
-import gr.mobap.rss.fragments.NeaFragment;
 
 public class EktheseisEpActivity extends MainActivity {
     private Tracker mTracker;

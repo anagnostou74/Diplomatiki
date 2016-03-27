@@ -20,7 +20,6 @@ import gr.mobap.R;
 import gr.mobap.rss.Adapter;
 import gr.mobap.rss.Item;
 import gr.mobap.rss.services.NeaService;
-import gr.mobap.rss.services.NsKatService;
 import gr.mobap.rss.services.SinEpService;
 
 public class SinEpFragment extends Fragment implements AdapterView.OnItemClickListener {
@@ -76,7 +75,6 @@ public class SinEpFragment extends Fragment implements AdapterView.OnItemClickLi
             }
         }
 
-        ;
     };
 
     @Override

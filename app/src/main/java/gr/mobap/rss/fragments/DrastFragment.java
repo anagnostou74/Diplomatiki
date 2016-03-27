@@ -21,7 +21,6 @@ import gr.mobap.rss.Adapter;
 import gr.mobap.rss.Item;
 import gr.mobap.rss.services.DrastService;
 import gr.mobap.rss.services.NeaService;
-import gr.mobap.rss.services.NsKatService;
 
 public class DrastFragment extends Fragment implements AdapterView.OnItemClickListener {
 
@@ -76,7 +75,6 @@ public class DrastFragment extends Fragment implements AdapterView.OnItemClickLi
             }
         }
 
-        ;
     };
 
     @Override

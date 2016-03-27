@@ -74,7 +74,6 @@ public class NeaFragment extends Fragment implements AdapterView.OnItemClickList
             }
         }
 
-        ;
     };
 
     @Override

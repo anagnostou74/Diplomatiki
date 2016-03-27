@@ -159,14 +159,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/drastiriotites" />
         <activity
-            android:name=".login.LoginMain"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/login_with_google" />
-        <activity
-            android:name=".login.GoogleOAuthActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/login_with_google" />
-        <activity
             android:name=".twitter.TimelineActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name" />
