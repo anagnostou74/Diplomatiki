@@ -576,7 +576,16 @@
     <string name="checkin">Checkin</string>
 
     <string name="ranklabel">"Rank : "</string>
-    <string name="countrylabel">"Country : "</string>
-    <string name="populationlabel">"Population : "</string>
+    <string name="countrylabel">"Επίθετο : "</string>
+    <string name="populationlabel">"Όνομα : "</string>
 
+    <string name="syriza">Checkin</string>
+    <string name="nd">Checkin</string>
+    <string name="xa">Checkin</string>
+    <string name="simparataksi">Checkin</string>
+    <string name="kke">Checkin</string>
+    <string name="potami">Checkin</string>
+    <string name="anel">Checkin</string>
+    <string name="enke">Checkin</string>
+    <string name="aneksartitoi">Checkin</string>
 </resources>

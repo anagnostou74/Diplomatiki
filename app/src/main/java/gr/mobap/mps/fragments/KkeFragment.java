@@ -40,13 +40,13 @@ public class KkeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Execute RemoteDataTask AsyncTask
-        new RemoteDataTask().execute();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Execute RemoteDataTask AsyncTask
+        new RemoteDataTask().execute();
         View view = inflater.inflate(R.layout.fragment_list_mps, container, false);
         return view;
     }

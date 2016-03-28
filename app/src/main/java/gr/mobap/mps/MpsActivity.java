@@ -138,6 +138,4 @@ public class MpsActivity extends MainActivity {
             return null;
         }
     }
-
-
 }
