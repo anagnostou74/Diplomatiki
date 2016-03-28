@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -18,6 +19,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.R;
 import gr.mobap.mps.ListViewAdapter;
 import gr.mobap.mps.MpsData;
@@ -45,8 +47,14 @@ public class AnelFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Execute RemoteDataTask AsyncTask
-        new RemoteDataTask().execute();
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(getActivity())) {
+            // Execute RemoteDataTask AsyncTask
+            new RemoteDataTask().execute();
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
+                    Toast.LENGTH_SHORT).show();
+        }
         View view = inflater.inflate(R.layout.fragment_list_mps, container, false);
         return view;
     }
@@ -62,7 +70,7 @@ public class AnelFragment extends Fragment {
             mProgressDialog.setTitle("Παρακαλώ, περιμένετε...");
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
-            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setIndeterminate(true);
             // Show progressdialog
             mProgressDialog.show();
         }

@@ -575,9 +575,8 @@
     the big cheese.</string>
     <string name="checkin">Checkin</string>
 
-    <string name="ranklabel">"Rank : "</string>
-    <string name="countrylabel">"Επίθετο : "</string>
-    <string name="populationlabel">"Όνομα : "</string>
+    <string name="perif_label">Περιφέρεια: </string>
+    <string name="on_patros_label">του </string>
 
     <string name="syriza">Checkin</string>
     <string name="nd">Checkin</string>

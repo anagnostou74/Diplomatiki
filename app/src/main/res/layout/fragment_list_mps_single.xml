@@ -7,8 +7,7 @@
     <TextView
         android:id="@+id/ranklabel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ranklabel" />
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/rank"
@@ -20,8 +19,7 @@
         android:id="@+id/countrylabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ranklabel"
-        android:text="@string/countrylabel" />
+        android:layout_below="@+id/ranklabel"/>
 
     <TextView
         android:id="@+id/country"
@@ -34,8 +32,7 @@
         android:id="@+id/populationlabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/countrylabel"
-        android:text="@string/populationlabel" />
+        android:layout_below="@+id/countrylabel"/>
 
     <TextView
         android:id="@+id/population"

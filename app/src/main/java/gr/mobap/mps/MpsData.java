@@ -5,7 +5,7 @@ public class MpsData {
 	private String rank;
 	private String epitheto;
 	private String onoma;
-	private String onomaPatros;
+	private String OnomaPatros;
 	private String titlos;
 	private String govPosition;
 	private String komma;
@@ -37,7 +37,7 @@ public class MpsData {
 	}
 
 	public String getOnomaPatros() {
-		return onomaPatros;
+		return OnomaPatros;
 	}
 
 	public String getTitlos() {
@@ -109,8 +109,8 @@ public class MpsData {
 		this.onoma = onoma;
 	}
 
-	public void setOnomaPatros(String onomaPatros) {
-		this.onomaPatros = onomaPatros;
+	public void setOnomaPatros(String OnomaPatros) {
+		this.OnomaPatros = OnomaPatros;
 	}
 
 	public void setTitlos(String titlos) {

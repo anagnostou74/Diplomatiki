@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="gr.mobap.MainActivity">
+        tools:context="gr.mobap.mps.SingleItemView">
 
         <android.support.design.widget.AppBarLayout
             style="@style/AppTheme.AppBarOverlay"
@@ -31,61 +31,158 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/toolbar"
             android:layout_marginTop="?attr/actionBarSize">
 
-            <TextView
-                android:id="@+id/ranklabel"
-                android:layout_width="wrap_content"
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ranklabel" />
+                android:padding="15dp">
 
-            <TextView
-                android:id="@+id/rank"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/ranklabel" />
+                <TextView
+                    android:id="@+id/komma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true" />
 
-            <TextView
-                android:id="@+id/countrylabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ranklabel"
-                android:text="@string/countrylabel" />
+                <ImageView
+                    android:id="@+id/flag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/komma"
+                    android:layout_margin="3dp"
+                    android:background="#000000" />
 
-            <TextView
-                android:id="@+id/country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rank"
-                android:layout_toRightOf="@+id/countrylabel" />
+                <TextView
+                    android:id="@+id/epitheto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/flag" />
 
-            <TextView
-                android:id="@+id/populationlabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/countrylabel"
-                android:text="@string/populationlabel" />
+                <TextView
+                    android:id="@+id/onoma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/flag"
+                    android:layout_toRightOf="@+id/epitheto"
+                    android:paddingLeft="2dp" />
 
-            <TextView
-                android:id="@+id/population"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/country"
-                android:layout_toRightOf="@+id/populationlabel" />
+                <TextView
+                    android:id="@+id/on_patros_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/epitheto"
+                    android:text="@string/on_patros_label" />
 
-            <ImageView
-                android:id="@+id/flag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="#000000"
-                android:padding="1dp" />
+                <TextView
+                    android:id="@+id/onomaPatros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/onoma"
+                    android:layout_toRightOf="@+id/on_patros_label"
+                    android:paddingLeft="2dp" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/titlos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/onomaPatros" />
+
+                <TextView
+                    android:id="@+id/govPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titlos"
+                    android:singleLine="false" />
+
+                <TextView
+                    android:id="@+id/perif_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/govPosition"
+                    android:text="@string/perif_label" />
+
+                <TextView
+                    android:id="@+id/perifereia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/govPosition"
+                    android:layout_toRightOf="@+id/perif_label" />
+
+                <TextView
+                    android:id="@+id/birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/perif_label" />
+
+                <TextView
+                    android:id="@+id/family"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/birth" />
+
+                <TextView
+                    android:id="@+id/epaggelma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/family" />
+
+                <TextView
+                    android:id="@+id/parliamentActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/epaggelma" />
+
+                <TextView
+                    android:id="@+id/socialActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/parliamentActivities" />
+
+                <TextView
+                    android:id="@+id/spoudes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/socialActivities" />
+
+                <TextView
+                    android:id="@+id/languages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spoudes" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/languages" />
+
+                <TextView
+                    android:id="@+id/site"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/address"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/web"
+                    android:drawablePadding="3dp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/site"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/mail_mp"
+                    android:drawablePadding="3dp"
+                    android:textStyle="bold|italic" />
+
+            </RelativeLayout>
+        </ScrollView>
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView

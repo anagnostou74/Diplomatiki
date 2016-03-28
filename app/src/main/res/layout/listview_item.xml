@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:padding="5dp">
 
     <TextView
-        android:id="@+id/ranklabel"
+        android:id="@+id/epitheto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ranklabel" />
+        android:layout_toRightOf="@+id/flag" />
 
     <TextView
-        android:id="@+id/rank"
+        android:id="@+id/onoma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ranklabel" />
+        android:layout_toRightOf="@+id/epitheto"
+        android:paddingLeft="2dp" />
 
     <TextView
-        android:id="@+id/countrylabel"
+        android:id="@+id/titlos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ranklabel"
-        android:text="@string/countrylabel" />
+        android:layout_below="@+id/epitheto"
+        android:layout_toRightOf="@+id/flag" />
 
     <TextView
-        android:id="@+id/country"
+        android:id="@+id/govPosition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rank"
-        android:layout_toRightOf="@+id/countrylabel" />
+        android:layout_below="@+id/titlos"
+        android:layout_toRightOf="@+id/flag"
+        android:singleLine="false" />
 
     <TextView
-        android:id="@+id/populationlabel"
+        android:id="@+id/perif_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/countrylabel"
-        android:text="@string/populationlabel" />
+        android:layout_below="@+id/govPosition"
+        android:layout_toRightOf="@+id/flag"
+        android:text="@string/perif_label" />
 
     <TextView
-        android:id="@+id/population"
+        android:id="@+id/perifereia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/country"
-        android:layout_toRightOf="@+id/populationlabel" />
-    
+        android:layout_below="@+id/govPosition"
+        android:layout_toRightOf="@+id/perif_label" />
+
     <ImageView
         android:id="@+id/flag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:background="#000000"
-        android:padding="1dp" />
+        android:layout_margin="3dp" />
 
 </RelativeLayout>
