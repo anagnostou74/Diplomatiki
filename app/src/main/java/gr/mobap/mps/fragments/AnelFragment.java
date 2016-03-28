@@ -40,13 +40,13 @@ public class AnelFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Execute RemoteDataTask AsyncTask
-        new RemoteDataTask().execute();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Execute RemoteDataTask AsyncTask
+        new RemoteDataTask().execute();
         View view = inflater.inflate(R.layout.fragment_list_mps, container, false);
         return view;
     }
@@ -77,7 +77,7 @@ public class AnelFragment extends Fragment {
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
                 query.orderByAscending("Epitheto");
-                query.whereEqualTo("Komma", "ΑΝΕΞΑΡΤΗΤΟΙ ΕΛΛΗΝΕΣ ΕΘΝΙΚΗ ΠΑΤΡΙΩΤΙΚΗ ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΜΑΧΙΑ");
+                query.whereEqualTo("Komma", "ΑΝΕΞΑΡΤΗΤΟΙ ΕΛΛΗΝΕΣ ΕΘΝΙΚΗ ΠΑΤΡΙΩΤΙΚΗ ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΜΑΧΙΑ ");
                 ob = query.find();
                 for (ParseObject mps : ob) {
                     // Locate images in flag column
