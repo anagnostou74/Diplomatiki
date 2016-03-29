@@ -587,4 +587,7 @@
     <string name="anel">Checkin</string>
     <string name="enke">Checkin</string>
     <string name="aneksartitoi">Checkin</string>
+
+    <string name="bio">Βιογραφικό</string>
+    <string name="tweet">Πολιτικά tweet</string>
 </resources>
