@@ -41,6 +41,7 @@ public class LiveVideoActivity extends AppCompatActivity {
         // [END shared_tracker]
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             // fetch data
             EMVideoView emVideoView = (EMVideoView) findViewById(R.id.video_play_activity_video_view);
             emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8"));
@@ -60,6 +61,11 @@ public class LiveVideoActivity extends AppCompatActivity {
                 }
             }, 1000); // wait for 1 second
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     @Override
