@@ -28,7 +28,6 @@ import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.identity.TwitterAuthClient;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import gr.mobap.MainActivity;
@@ -60,7 +59,7 @@ public class TwitterCoreMainActivity extends MainActivity {
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
-                requestEmailAddress(getApplicationContext(), result.data);
+                //requestEmailAddress(getApplicationContext(), result.data);
                 // The TwitterSession is also available through:
                 // Twitter.getInstance().core.getSessionManager().getActiveSession()
                 TwitterSession session = result.data;
@@ -68,6 +67,8 @@ public class TwitterCoreMainActivity extends MainActivity {
                 // with your app's user model
                 String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                Intent i = new Intent(TwitterCoreMainActivity.this, TimelineActivity.class);
+                startActivity(i);
             }
 
             @Override
@@ -82,19 +83,19 @@ public class TwitterCoreMainActivity extends MainActivity {
 
     }
 
-    private static void requestEmailAddress(final Context context, TwitterSession session) {
-        new TwitterAuthClient().requestEmail(session, new Callback<String>() {
-            @Override
-            public void success(Result<String> result) {
-                Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show();
-            }
+    //   private static void requestEmailAddress(final Context context, TwitterSession session) {
+    //      new TwitterAuthClient().requestEmail(session, new Callback<String>() {
+    //         @Override
+    //        public void success(Result<String> result) {
+    //          Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show();
+    //    }
 
-            @Override
-            public void failure(TwitterException exception) {
-                Toast.makeText(context, exception.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+    //   @Override
+//            public void failure(TwitterException exception) {
+    //              Toast.makeText(context, exception.getMessage(), Toast.LENGTH_SHORT).show();
+    //        }
+    //  });
+    //}
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
