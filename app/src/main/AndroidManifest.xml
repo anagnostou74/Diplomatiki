@@ -57,14 +57,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/thesmos" />
         <activity
-            android:name=".ScrollingActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="gr.mobap.MainActivity" />
-        </activity>
-        <activity
             android:name=".ekdoseis.DownloadEkdoseisActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/ekdoseis" />
