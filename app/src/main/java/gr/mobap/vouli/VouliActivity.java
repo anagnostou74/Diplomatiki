@@ -83,7 +83,6 @@ public class VouliActivity extends MainActivity {
         adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
         adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
         adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new ProedreioFragment(), getString(R.string.proedreio));
         adapter.addFrag(new EpitropesFragment(), getString(R.string.epitropes));
         viewPager.setAdapter(adapter);
     }

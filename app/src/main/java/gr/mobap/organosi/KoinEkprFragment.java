@@ -4,14 +4,11 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -28,7 +25,7 @@ import gr.mobap.mps.ListViewAdapter;
 import gr.mobap.mps.MpsData;
 import gr.mobap.mps.MpsImageLoader;
 
-public class GrammateisFragment extends Fragment {
+public class KoinEkprFragment extends Fragment {
     // Declare Variables
     ListView listview;
     List<ParseObject> ob;
@@ -37,7 +34,7 @@ public class GrammateisFragment extends Fragment {
     MpsImageLoader mpsImageLoader = new MpsImageLoader(getActivity());
     private List<MpsData> worldpopulationlist = null;
 
-    public GrammateisFragment() {
+    public KoinEkprFragment() {
         // Required empty public constructor
     }
     @Override
@@ -87,7 +84,7 @@ public class GrammateisFragment extends Fragment {
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
                 query.orderByAscending("Epitheto");
-                query.whereContains("Titlos", "ΓΡΑΜΜΑΤΕΑΣ");
+                query.whereContains("Titlos", "Κοινοβουλευτικός");
                 ob = query.find();
                 for (ParseObject mps : ob) {
                     // Locate images in flag column
