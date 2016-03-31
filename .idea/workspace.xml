@@ -11,19 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd2ce0ed-b71f-40a4-8ab3-346023a712cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/gr/mobap/web/MailWeb.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_web.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/gr/mobap/web/entos/DiktioActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/gr/mobap/web/entos/MailWeb.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gr/mobap/Splash.java" afterPath="$PROJECT_DIR$/app/src/main/java/gr/mobap/Splash.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     </list>
     <ignored path="Parliament.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,23 +36,13 @@
     <favorites_list name="Parliament" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Splash.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/Splash.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4573991">
-              <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile_vertical" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -1911,9 +1894,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/PotamiFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/KkeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/EnosiFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/DhsyFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/AnexFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/AnelFragment.java" />
@@ -1946,7 +1926,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/web/entos/MailWeb.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/web/MailWeb.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/web/YeepWeb.java" />
@@ -1959,9 +1938,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/simera/SimeraFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/simera/OlomeleiaEleghosFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/simera/EpiTodayFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_web.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/splash.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/Splash.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2017,6 +2000,14 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles.xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2032,8 +2023,22 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Parliament" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2084,6 +2089,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2482,7 +2491,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459440678973</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Mail δικτύου αλλαγή μενού">
+      <created>1459450044510</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1459450044510</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2545,46 +2560,14 @@
     <MESSAGE value="Οργάνωση, προσθήκη Κοινοβουλευτικών Εκπροσώπων" />
     <MESSAGE value="Οργάνωση αλλαγή σε fragment ypiresies" />
     <MESSAGE value="Διορθώσεις σε Strings (&lt;a href&gt;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Διορθώσεις σε Strings (&lt;a href&gt;)" />
+    <MESSAGE value="Mail δικτύου αλλαγή μενού" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mail δικτύου αλλαγή μενού" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_pdf.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_books.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5483871">
-          <caret line="27" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_video.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/fragments/NdFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18049328">
@@ -2932,54 +2915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43187067">
-          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-          <folding>
-            <element signature="e#1953#1971#0" expanded="true" />
-            <element signature="e#2213#2231#0" expanded="true" />
-            <element signature="e#2616#2632#0" expanded="true" />
-            <element signature="e#2802#2819#0" expanded="true" />
-            <element signature="e#3003#3021#0" expanded="true" />
-            <element signature="e#3205#3228#0" expanded="true" />
-            <element signature="e#3404#3422#0" expanded="true" />
-            <element signature="e#3594#3609#0" expanded="true" />
-            <element signature="e#3772#3786#0" expanded="true" />
-            <element signature="e#3995#4011#0" expanded="true" />
-            <element signature="e#4229#4245#0" expanded="true" />
-            <element signature="e#4465#4487#0" expanded="true" />
-            <element signature="e#4710#4732#0" expanded="true" />
-            <element signature="e#4954#4970#0" expanded="true" />
-            <element signature="e#5593#5618#0" expanded="true" />
-            <element signature="e#5786#5815#0" expanded="true" />
-            <element signature="e#6048#6061#0" expanded="true" />
-            <element signature="e#6240#6262#0" expanded="true" />
-            <element signature="e#6440#6462#0" expanded="true" />
-            <element signature="e#6643#6660#0" expanded="true" />
-            <element signature="e#6839#6871#0" expanded="true" />
-            <element signature="e#7056#7075#0" expanded="true" />
-            <element signature="e#7237#7252#0" expanded="true" />
-            <element signature="e#7431#7455#0" expanded="true" />
-            <element signature="e#7630#7645#0" expanded="true" />
-            <element signature="e#7827#7842#0" expanded="true" />
-            <element signature="e#8014#8032#0" expanded="true" />
-            <element signature="e#8198#8211#0" expanded="true" />
-            <element signature="e#8380#8393#0" expanded="true" />
-            <element signature="e#8551#8569#0" expanded="true" />
-            <element signature="e#11855#11894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34304932">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/singleitemview.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3059,10 +2994,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35334873">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55269057">
+          <caret line="100" column="4" selection-start-line="97" selection-start-column="8" selection-end-line="100" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23556583">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/Splash.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4573991">
-          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.28587443">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4862932">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.960739">
+          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
           <folding />
         </state>
       </provider>

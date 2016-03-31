@@ -2,6 +2,7 @@ package gr.mobap;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -23,6 +25,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.clevertap.android.sdk.CleverTapAPI;
@@ -32,6 +36,8 @@ import com.clevertap.android.sdk.exceptions.CleverTapPermissionsNotSatisfied;
 import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
@@ -75,6 +81,12 @@ public class MainActivity extends AppCompatActivity
     private Tracker mTracker;
     CleverTapAPI cleverTap;
     private CleverTapAPI ct = null;
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
+    private ProgressBar mRegistrationProgressBar;
+    private TextView mInformationTextView;
+    private boolean isReceiverRegistered;
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private static final String TAG = "Splash";
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY";
@@ -215,6 +227,46 @@ public class MainActivity extends AppCompatActivity
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+        isReceiverRegistered = false;
+        super.onPause();
+    }
+
+
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
 
     private void klisi() {
         try {
