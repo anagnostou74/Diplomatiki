@@ -74,7 +74,6 @@ public class OrganosiActivity extends MainActivity {
         adapter.addFrag(new GrammateisFragment(), getString(R.string.grammateis));
         adapter.addFrag(new KosmitoresFragment(), getString(R.string.kosmitores));
         adapter.addFrag(new KoinEkprFragment(), getString(R.string.koin_ekpr));
-        adapter.addFrag(new YpiresiesFragment(), getString(R.string.ypiresies));
         viewPager.setAdapter(adapter);
     }
 
