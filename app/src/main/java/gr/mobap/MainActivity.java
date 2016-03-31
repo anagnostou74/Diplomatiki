@@ -63,7 +63,7 @@ import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
 import gr.mobap.vouli.VouliActivity;
 import gr.mobap.web.SindesmoiActivity;
-import gr.mobap.web.entos.DiktioActivity;
+import gr.mobap.web.MailWeb;
 import gr.mobap.youtube.IntentsTvActivity;
 import io.fabric.sdk.android.Fabric;
 
@@ -183,13 +183,15 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
                 return true;
             case R.id.action_peri:
-                // User chose the "Settings" item, show the app settings UI...
                 Intent p = new Intent(MainActivity.this, PeriActivity.class);
                 startActivity(p);
                 return true;
             case R.id.menu_share:
-                // User chose the "Settings" item, show the app settings UI...
                 setShareIntent();
+                return true;
+            case R.id.nav_diktio:
+                Intent d = new Intent(MainActivity.this, MailWeb.class);
+                startActivity(d);
                 return true;
             default:
                 // If we got here, the user's action was not recognized.
@@ -310,14 +312,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_drastiriotites) {
             Intent i = new Intent(MainActivity.this, DrastActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_diktio) {
-            Intent i = new Intent(MainActivity.this, DiktioActivity.class);
-            startActivity(i);
         } else if (id == R.id.nav_twitter) {
             Intent i = new Intent(MainActivity.this, TimelineActivity.class);
-            startActivity(i);
-        } else if (id == R.id.nav_peri) {
-            Intent i = new Intent(MainActivity.this, PeriActivity.class);
             startActivity(i);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -371,6 +367,5 @@ public class MainActivity extends AppCompatActivity
     public void profileDidInitialize(String cleverTapID) {
         Log.d("CLEVERTAP_ID", cleverTapID);
     }
-
 
 }

@@ -20,11 +20,16 @@
         android:id="@+id/menu_share"
         android:icon="@drawable/ic_share_24dp"
         android:title="@string/menu_share"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_peri"
         android:icon="@drawable/ic_info_outline_white_24dp"
         android:title="@string/peri"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/nav_diktio"
+        android:icon="@drawable/ic_share_24dp"
+        android:title="@string/entos"
         app:showAsAction="never" />
 
 </menu>

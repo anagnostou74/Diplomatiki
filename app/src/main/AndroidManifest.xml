@@ -73,10 +73,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/links" />
         <activity
-            android:name=".web.entos.DiktioActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/entos" />
-        <activity
             android:name=".PeriActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/peri" />
@@ -146,6 +142,10 @@
             android:name=".rss.activities.EktheseisEpActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/ektheseis" />
+        <activity
+            android:name=".web.MailWeb"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/entos" />
         <activity
             android:name=".rss.activities.DrastActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

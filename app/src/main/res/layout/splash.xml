@@ -7,12 +7,12 @@
         android:id="@+id/image_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
         android:adjustViewBounds="true"
         android:background="@mipmap/ic_splash"
         android:padding="16dp"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="match_parent"
