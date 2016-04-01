@@ -30,7 +30,8 @@ public class Parser {
 	private List<Item> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
 		parser.require(XmlPullParser.START_TAG, null, "rss");
 		String title = null;
-		String link = null;
+        String link = null;
+        String description = null;
 		List<Item> items = new ArrayList<Item>();
 		while (parser.next() != XmlPullParser.END_DOCUMENT) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -41,12 +42,15 @@ public class Parser {
 				title = readTitle(parser);
 			} else if (name.equals("link")) {
 				link = readLink(parser);
+			} else if (name.equals("description")) {
+				description = readDescription(parser);
 			}
-			if (title != null && link != null) {
-				Item item = new Item(title, link);
+			if (title != null && link != null && description != null) {
+				Item item = new Item(title, link, description);
 				items.add(item);
 				title = null;
 				link = null;
+				description = null;
 			}
 		}
 		return items;
@@ -66,6 +70,12 @@ public class Parser {
 		return title;
 	}
 
+	private String readDescription(XmlPullParser parser) throws XmlPullParserException, IOException {
+		parser.require(XmlPullParser.START_TAG, ns, "description");
+		String description = readText(parser);
+		parser.require(XmlPullParser.END_TAG, ns, "description");
+		return description;
+	}
 	// For the tags title and link, extract their text values.
 	private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
 		String result = "";

@@ -1,6 +1,7 @@
 package gr.mobap.rss;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -42,15 +43,19 @@ public class Adapter extends BaseAdapter {
 			convertView = View.inflate(context, R.layout.rss_item, null);
 			holder = new ViewHolder();
 			holder.itemTitle = (TextView) convertView.findViewById(R.id.itemTitle);
+			holder.itemDescription = (TextView) convertView.findViewById(R.id.itemDescription);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		holder.itemTitle.setText(items.get(position).getTitle());
+		holder.itemDescription.setText(items.get(position).getDescription());
+		holder.itemDescription.setText(Html.fromHtml(items.get(position).getDescription()));
 		return convertView;
 	}
 
 	static class ViewHolder {
 		TextView itemTitle;
+		TextView itemDescription;
 	}
 }

@@ -23,7 +23,17 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/rss"
             android:padding="10dp"
+            android:textColor="@color/twitter_dark"
             android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/itemDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/rss"
+            android:layout_below="@+id/itemTitle"
+            android:padding="10dp"
+            android:textSize="14sp" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
