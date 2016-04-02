@@ -45,6 +45,8 @@
     <string name="today_el">Δελτίο Επικαίρων Ερωτήσεων</string>
     <string name="today_ep">Συνεδριάσεις Επιτροπών</string>
     <string name="thesmos">O Θεσμός</string>
+    <string name="nomo">Νομοθετεί</string>
+    <string name="elegxos">Ελέγχει</string>
     <string name="ypiresiesKeim"><![CDATA[
     ]]>
     </string>
@@ -79,8 +81,10 @@
 <h2>Η Βουλή αποφασίζει</h2>
 
 <p >Η Ολομέλεια της Βουλής αποφασίζει με την απόλυτη πλειοψηφία των παρόντων μελών της, η οποία δεν μπορεί να είναι μικρότερη από το 1/4 του όλου αριθμού των Βουλευτών (75 βουλευτές). Οι περιπτώσεις που απαιτούν ειδική πλειοψηφία αναφέρονται στο Σύνταγμα και τον Κανονισμό της Βουλής.</p>
-
-<h2><strong>Η Βουλή νομοθετεί</strong></h2>
+\n\n
+]]>
+    </string>
+    <string name="nomoKeim"><![CDATA[ <h2><strong>Η Βουλή νομοθετεί</strong></h2>
 
 <p >Η νομοθετική λειτουργία, δηλαδή η ψήφιση των νομοσχεδίων και των προτάσεων νόμου και ο κοινοβουλευτικός έλεγχος προς την Κυβέρνηση, αποτελούν τον πυρήνα του κοινοβουλευτικού έργου.</p>
 
@@ -113,9 +117,10 @@
 	<p>&nbsp;&nbsp;&bull;&nbsp;Η απόφαση για τη διεξαγωγή δημοψηφίσματος</p>
 	<p>&nbsp;&nbsp;&bull;&nbsp;Η άρση ασυλίας των Βουλευτών</p>
 	<p>&nbsp;&nbsp;&bull;&nbsp;Η πρόσκληση Αρχηγών Κρατών, Προέδρων Κυβερνήσεων και προσωπικοτήτων διεθνούς κύρους να απευθυνθούν στη Βουλή.</p>
-
-
-<h2><strong>Η Βουλή ελέγχει</strong></h2>
+\n\n
+]]>
+    </string>
+    <string name="elegxosKeim"><![CDATA[ <h2><strong>Η Βουλή ελέγχει</strong></h2>
 
 <p >Η Κυβέρνηση υπόκειται στον έλεγχο της Βουλής, όπως προβλέπεται στο Σύνταγμα και τον Κανονισμό της Βουλής.</p>
 
@@ -201,6 +206,7 @@
 \n\n
 ]]>
     </string>
+
     <string name="syntagma">Συνταγματική Ιστορία</string>
     <string name="syntagmaKeim"><![CDATA[ <h3 style="text-apgn: center">Τα τοπικά πολιτεύματα της επαναστατικής περιόδου</h3>
 
@@ -468,6 +474,7 @@
     <string name="entos">Email χρηστών</string>
     <string name="epikoinonia">Επικοινωνία</string>
     <string name="peri">Περί</string>
+    <string name="menu_refresh">Ανανέωση</string>
 
     <string name="nea">Νέα &amp; Ανακοινώσεις</string>
     <string name="ns">Νομοσχέδια</string>

@@ -52,11 +52,11 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/simera" />
+            android:label="@string/app_name" />
         <activity
-            android:name=".vouli.VouliActivity"
+            android:name=".simera.HmerolActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/thesmos" />
+            android:label="@string/simera" />
         <activity
             android:name=".ekdoseis.DownloadEkdoseisActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

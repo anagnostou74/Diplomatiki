@@ -1,4 +1,4 @@
-package gr.mobap.vouli;
+package gr.mobap.simera;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -22,8 +22,12 @@ import java.util.List;
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
+import gr.mobap.simera.EpiTodayFragment;
+import gr.mobap.simera.OlomeleiaEleghosFragment;
+import gr.mobap.simera.OlomeleiaFragment;
+import gr.mobap.simera.SimeraFragment;
 
-public class VouliActivity extends MainActivity {
+public class HmerolActivity extends MainActivity {
     /**
      * The {@link Tracker} used to record screen views.
      */
@@ -80,10 +84,10 @@ public class VouliActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
-        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
-        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
-        adapter.addFrag(new EpitropesFragment(), getString(R.string.epitropes));
+        adapter.addFrag(new OlomeleiaFragment(), getString(R.string.today_olom));
+        adapter.addFrag(new SimeraFragment(), getString(R.string.koin_eleghos));
+        adapter.addFrag(new OlomeleiaEleghosFragment(), getString(R.string.today_el));
+        adapter.addFrag(new EpiTodayFragment(), getString(R.string.today_ep));
         viewPager.setAdapter(adapter);
     }
 

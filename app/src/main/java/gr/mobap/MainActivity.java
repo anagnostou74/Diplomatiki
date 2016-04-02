@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -60,16 +61,18 @@ import gr.mobap.rss.activities.NeaActivity;
 import gr.mobap.rss.activities.NsKatActivity;
 import gr.mobap.rss.activities.NsPsActivity;
 import gr.mobap.rss.activities.SinEpActivity;
-import gr.mobap.simera.EpiTodayFragment;
-import gr.mobap.simera.OlomeleiaEleghosFragment;
-import gr.mobap.simera.OlomeleiaFragment;
-import gr.mobap.simera.SimeraFragment;
+import gr.mobap.simera.HmerolActivity;
 import gr.mobap.twitter.TimelineActivity;
 import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
-import gr.mobap.vouli.VouliActivity;
-import gr.mobap.web.SindesmoiActivity;
+import gr.mobap.vouli.ElegxosFragment;
+import gr.mobap.vouli.EpitropesFragment;
+import gr.mobap.vouli.KtirioFragment;
+import gr.mobap.vouli.NomoFragment;
+import gr.mobap.vouli.SyntagmaFragment;
+import gr.mobap.vouli.ThesmosFragment;
 import gr.mobap.web.MailWeb;
+import gr.mobap.web.SindesmoiActivity;
 import gr.mobap.youtube.IntentsTvActivity;
 import io.fabric.sdk.android.Fabric;
 
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity
     private TextView mInformationTextView;
     private boolean isReceiverRegistered;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    private static final String TAG = "Splash";
+    private static final String TAG = "MainActivity";
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY";
@@ -198,6 +201,9 @@ public class MainActivity extends AppCompatActivity
                 Intent p = new Intent(MainActivity.this, PeriActivity.class);
                 startActivity(p);
                 return true;
+            case R.id.menu_refresh:
+                refresh();
+                return true;
             case R.id.menu_share:
                 setShareIntent();
                 return true;
@@ -210,6 +216,15 @@ public class MainActivity extends AppCompatActivity
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
+        }
+    }
+
+    private void refresh() {
+        if (Build.VERSION.SDK_INT >= 11) {
+            recreate();
+        } else {
+            finish();
+            startActivity(getIntent());
         }
     }
 
@@ -311,7 +326,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_vouli) {
-            Intent i = new Intent(MainActivity.this, VouliActivity.class);
+            Intent i = new Intent(MainActivity.this, HmerolActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
@@ -375,10 +390,12 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new OlomeleiaFragment(), getString(R.string.today_olom));
-        adapter.addFrag(new SimeraFragment(), getString(R.string.koin_eleghos));
-        adapter.addFrag(new OlomeleiaEleghosFragment(), getString(R.string.today_el));
-        adapter.addFrag(new EpiTodayFragment(), getString(R.string.today_ep));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
+        adapter.addFrag(new NomoFragment(), getString(R.string.nomo));
+        adapter.addFrag(new ElegxosFragment(), getString(R.string.elegxos));
+        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
+        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
+        adapter.addFrag(new EpitropesFragment(), getString(R.string.epitropes));
         viewPager.setAdapter(adapter);
     }
 
