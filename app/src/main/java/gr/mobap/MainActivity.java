@@ -6,7 +6,6 @@ import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -220,12 +219,12 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void refresh() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            recreate();
-        } else {
-            finish();
-            startActivity(getIntent());
-        }
+        //if (Build.VERSION.SDK_INT >= 11) {
+        //  recreate(); Doesn't work with rss
+        // } else {
+        finish();
+        startActivity(getIntent());
+        //}
     }
 
     private void setShareIntent() {
