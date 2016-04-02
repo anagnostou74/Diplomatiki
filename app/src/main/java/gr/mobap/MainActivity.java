@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_vouli) {
-            Intent i = new Intent(MainActivity.this, HmerolActivity.class);
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this, MpsActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_simera) {
-            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            Intent i = new Intent(MainActivity.this, HmerolActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sindesmoi) {
             Intent i = new Intent(MainActivity.this, SindesmoiActivity.class);
