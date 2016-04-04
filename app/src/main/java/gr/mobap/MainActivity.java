@@ -33,11 +33,11 @@ import com.clevertap.android.sdk.CleverTapAPI;
 import com.clevertap.android.sdk.SyncListener;
 import com.clevertap.android.sdk.exceptions.CleverTapMetaDataNotFoundException;
 import com.clevertap.android.sdk.exceptions.CleverTapPermissionsNotSatisfied;
-import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.parse.Parse;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
@@ -52,6 +52,7 @@ import gr.mobap.ekdoseis.DownloadPraktikaActivity;
 import gr.mobap.images.Image;
 import gr.mobap.map.MapsActivity;
 import gr.mobap.mps.MpsActivity;
+import gr.mobap.organosi.KommActivity;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.activities.DrastActivity;
 import gr.mobap.rss.activities.EktheseisEpActivity;
@@ -124,7 +125,6 @@ public class MainActivity extends AppCompatActivity
             // Ignore
         }
 
-        Firebase.setAndroidContext(this);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
 
@@ -330,7 +330,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
-        } else if (id == R.id.nav_vouleutes) {
+        }else if (id == R.id.nav_kommata) {
+            Intent i = new Intent(MainActivity.this, KommActivity.class);
+            startActivity(i);
+        }else if (id == R.id.nav_vouleutes) {
             Intent i = new Intent(MainActivity.this, MpsActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_simera) {

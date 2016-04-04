@@ -4,7 +4,6 @@ import android.app.Application;
 import android.os.Environment;
 
 import com.clevertap.android.sdk.ActivityLifecycleCallback;
-import com.firebase.client.Firebase;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.parse.Parse;
@@ -25,12 +24,16 @@ public class AnalyticsApplication extends Application {
     @Override
     public void onCreate() {
         ActivityLifecycleCallback.register(this);
-        Firebase.setAndroidContext(this);
         super.onCreate();
 
         // Add your initialization code here
         //Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
-        Parse.initialize(this, "QwcoU9mE71adBC907aYqRWfz0OSPrjpGsJLnMhp3", "sichMEDjshZEciXRARp8TGR44u9kRw6ou9zq9BxX");
+        //Parse.initialize(this, "QwcoU9mE71adBC907aYqRWfz0OSPrjpGsJLnMhp3", "sichMEDjshZEciXRARp8TGR44u9kRw6ou9zq9BxX");
+        Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
+                .applicationId("JQLmtUO2gtFqtsTqFg6otK8KCZ0lXE")
+                .clientKey(null).server("http://hellenicparliament.herokuapp.com/parse/") // The trailing slash is important.
+                .build()
+        );
 
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();

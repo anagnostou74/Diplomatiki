@@ -12,6 +12,10 @@
                 android:icon="@drawable/ic_group_work_black_24dp"
                 android:title="@string/organosi" />
             <item
+                android:id="@+id/nav_kommata"
+                android:icon="@drawable/ic_domain_black_24dp"
+                android:title="@string/komma" />
+            <item
                 android:id="@+id/nav_vouleutes"
                 android:icon="@drawable/ic_account_circle_black_24dp"
                 android:title="@string/mps" />

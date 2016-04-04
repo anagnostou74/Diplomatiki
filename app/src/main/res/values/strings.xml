@@ -473,6 +473,7 @@ CleverTap Notifications\n\n
 
     <string name="vouli">Ο Θεσμός</string>
     <string name="organosi">Οργάνωση</string>
+    <string name="komma">Κόμματα</string>
     <string name="mps">Βουλευτές</string>
     <string name="links">Σύνδεσμοι</string>
     <string name="polimesa">Πολυμέσα</string>
@@ -566,26 +567,19 @@ CleverTap Notifications\n\n
     <string name="twitter_kit_composer">TwitterKit Composer</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD-z4ErQp0AbhDwxZ-VD0EyrRGa5JCtwUE</string>
 
-      <string name="cheese_ipsum">Jarlsberg lancashire edam. Dolcelatte hard cheese brie st. agur blue
-    cheese caerphilly bavarian bergkase cheese and biscuits mascarpone. Cheeseburger swiss bavarian
-    bergkase cream cheese fromage frais cheesy feet port-salut airedale. St. agur blue cheese rubber
-    cheese caerphilly cheddar cheesecake cream cheese manchego lancashire. Roquefort squirty cheese
-    the big cheese.</string>
-    <string name="checkin">Checkin</string>
-
     <string name="perif_label">Περιφέρεια: </string>
     <string name="on_patros_label">του </string>
 
-    <string name="syriza">Checkin</string>
-    <string name="nd">Checkin</string>
-    <string name="xa">Checkin</string>
-    <string name="simparataksi">Checkin</string>
-    <string name="kke">Checkin</string>
-    <string name="potami">Checkin</string>
-    <string name="anel">Checkin</string>
-    <string name="enke">Checkin</string>
-    <string name="aneksartitoi">Checkin</string>
+    <string name="syriza">ΣΥΝΑΣΠΙΣΜΟΣ ΡΙΖΟΣΠΑΣΤΙΚΗΣ ΑΡΙΣΤΕΡΑΣ</string>
+    <string name="nd">ΝΕΑ ΔΗΜΟΚΡΑΤΙΑ</string>
+    <string name="xa">ΛΑΪΚΟΣ ΣΥΝΔΕΣΜΟΣ - ΧΡΥΣΗ ΑΥΓΗ</string>
+    <string name="simparataksi">ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΠΑΡΑΤΑΞΗ (ΠΑΝΕΛΛΗΝΙΟ ΣΟΣΙΑΛΙΣΤΙΚΟ ΚΙΝΗΜΑ - ΔΗΜΟΚΡΑΤΙΚΗ ΑΡΙΣΤΕΡΑ)</string>
+    <string name="kke">ΚΟΜΜΟΥΝΙΣΤΙΚΟ ΚΟΜΜΑ ΕΛΛΑΔΑΣ</string>
+    <string name="potami">ΤΟ ΠΟΤΑΜΙ</string>
+    <string name="anel">ΑΝΕΞΑΡΤΗΤΟΙ ΕΛΛΗΝΕΣ ΕΘΝΙΚΗ ΠΑΤΡΙΩΤΙΚΗ ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΜΑΧΙΑ</string>
+    <string name="enke">ΕΝΩΣΗ ΚΕΝΤΡΩΩΝ</string>
+    <string name="aneksartitoi">ΑΝΕΞΑΡΤΗΤΟΙ</string>
 
     <string name="bio">Βιογραφικό</string>
-    <string name="tweet">Πολιτικά tweet</string>
+    <string name="tweet">Πολιτικά tweets</string>
 </resources>

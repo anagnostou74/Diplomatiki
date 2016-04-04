@@ -70,6 +70,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/organosi" />
         <activity
+            android:name=".organosi.KommActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/organosi" />
+        <activity
             android:name=".web.SindesmoiActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/links" />

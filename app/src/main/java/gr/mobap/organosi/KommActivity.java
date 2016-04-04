@@ -1,4 +1,4 @@
-package gr.mobap.simera;
+package gr.mobap.organosi;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -22,41 +22,33 @@ import gr.mobap.AnalyticsApplication;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
-public class HmerolActivity extends MainActivity {
-    /**
-     * The {@link Tracker} used to record screen views.
-     */
+public class KommActivity extends MainActivity {
     private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vouli);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
         // [END shared_tracker]
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -77,14 +69,12 @@ public class HmerolActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new OlomeleiaFragment(), getString(R.string.today_olom));
-        adapter.addFrag(new SimeraFragment(), getString(R.string.koin_eleghos));
-        adapter.addFrag(new OlomeleiaEleghosFragment(), getString(R.string.today_el));
-        adapter.addFrag(new EpiTodayFragment(), getString(R.string.today_ep));
+        adapter.addFrag(new KoinOmPrFragment(), getString(R.string.koin_omades));
+        adapter.addFrag(new KoinEkprFragment(), getString(R.string.koin_ekpr));
         viewPager.setAdapter(adapter);
     }
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
+    class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
