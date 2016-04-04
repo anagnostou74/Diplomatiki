@@ -83,8 +83,8 @@ public class KoinEkprFragment extends Fragment {
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("mps");
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
-                query.orderByAscending("Epitheto");
-                query.whereContains("Titlos", "Κοινοβουλευτικός");
+                query.orderByAscending("Rank");
+                query.whereContains("Titlos", "Εκπρόσωπος");
                 ob = query.find();
                 for (ParseObject mps : ob) {
                     // Locate images in flag column
