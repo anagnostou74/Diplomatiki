@@ -62,10 +62,12 @@
 
                         <ImageView
                             android:id="@+id/flag"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="160dp"
+                            android:layout_height="202dp"
                             android:layout_below="@+id/komma"
                             android:layout_centerInParent="true"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
                             android:layout_margin="3dp"
                             android:background="#000000" />
 

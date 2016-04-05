@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.analytics.Tracker;
 
 import gr.mobap.AnalyticsApplication;
@@ -159,6 +160,8 @@ public class SingleItemView extends MainActivity {
 
         // Capture position and set results to the ImageView
         // Passes flag images URL into MpsImageLoader.class
-        mpsImageLoader.DisplayImage(flag, imgflag);
+        //mpsImageLoader.DisplayImage(flag, imgflag);
+        Glide.with(this).load(flag).into(imgflag);
+
     }
 }
