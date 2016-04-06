@@ -59,15 +59,15 @@ public class AppRate extends Activity {
         ll.setOrientation(LinearLayout.VERTICAL);
 
         TextView tv = new TextView(mContext);
-        tv.setText("Εάν σας άρεσε η "
+        tv.setText("Παρακαλώ βαθμολογήστε την εφαρμογή για τη "
                 + APP_TITLE
-                + ", παρακαλώ βαθμολογήστε την. Ευχαριστώ για την συμπαράσταση σας!");
+                + "Ευχαριστώ για την συμπαράσταση σας!");
         tv.setWidth(240);
         tv.setPadding(4, 0, 4, 10);
         ll.addView(tv);
 
         Button b1 = new Button(mContext);
-        b1.setText("Βαθμολογήστε την " + APP_TITLE);
+        b1.setText("Βαθμολογήστε την εφαρμογή για τη " + APP_TITLE);
         b1.setPadding(4, 0, 4, 4);
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {

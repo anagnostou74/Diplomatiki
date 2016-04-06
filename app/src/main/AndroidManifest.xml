@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- USE_CREDENTIALS is necessary for Google+ login -->
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <!-- GET_ACCOUNTS is necessary to display email address of logged in user. This permission is optional -->
@@ -179,6 +178,10 @@
             android:name=".AppRate"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name" />
+        <activity
+            android:name=".Share"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/menu_share" />
 
         <service android:name=".rss.services.NeaService" />
         <service android:name=".rss.services.NsKatService" />

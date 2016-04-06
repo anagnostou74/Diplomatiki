@@ -26,11 +26,8 @@ public class AnalyticsApplication extends Application {
         ActivityLifecycleCallback.register(this);
         super.onCreate();
 
-        // Add your initialization code here
-        //Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
-        //Parse.initialize(this, "QwcoU9mE71adBC907aYqRWfz0OSPrjpGsJLnMhp3", "sichMEDjshZEciXRARp8TGR44u9kRw6ou9zq9BxX");
         Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
-                .applicationId("JQLmtUO2gtFqtsTqFg6otK8KCZ0lXE")
+                .applicationId("JQLmtUO2gtFqtsTqFg6otK8KCZ0lXE") //TODO αλλαγή κωδικών
                 .clientKey(null).server("http://hellenicparliament.herokuapp.com/parse/") // The trailing slash is important.
                 .build()
         );

@@ -1,6 +1,5 @@
 package gr.mobap;
 
-import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -33,17 +32,16 @@ import com.clevertap.android.sdk.CleverTapAPI;
 import com.clevertap.android.sdk.SyncListener;
 import com.clevertap.android.sdk.exceptions.CleverTapMetaDataNotFoundException;
 import com.clevertap.android.sdk.exceptions.CleverTapPermissionsNotSatisfied;
-import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.parse.Parse;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
 import org.json.JSONObject;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,8 +90,8 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG = "MainActivity";
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY";
-    private static final String TWITTER_SECRET = "LVQljKvSX2zhI6EThT8O4n1ERSAQr0JySmNwYNKKvhjeRjs8re";
+    private static final String TWITTER_KEY = "mJfPJqTMOxPvkAfxdT33ettnY"; //TODO αλλαγή κωδικών
+    private static final String TWITTER_SECRET = "LVQljKvSX2zhI6EThT8O4n1ERSAQr0JySmNwYNKKvhjeRjs8re"; //TODO αλλαγή κωδικών
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,7 +202,11 @@ public class MainActivity extends AppCompatActivity
                 refresh();
                 return true;
             case R.id.menu_share:
-                setShareIntent();
+                shareSocial();
+                return true;
+            case R.id.menu_fb:
+                Intent k = new Intent(MainActivity.this, Share.class);
+                startActivity(k);
                 return true;
             case R.id.nav_diktio:
                 Intent d = new Intent(MainActivity.this, MailWeb.class);
@@ -214,32 +216,27 @@ public class MainActivity extends AppCompatActivity
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
-    private void refresh() {
-        //if (Build.VERSION.SDK_INT >= 11) {
-        //  recreate(); Doesn't work with rss
-        // } else {
-        finish();
-        startActivity(getIntent());
-        //}
+    private void shareSocial() {
+        CharSequence subject = "Δες τι βρήκα!";
+        CharSequence text = "Αξίζει να κατεβάσεις την εφαρμογή για να βλέπεις εργασίες που επηρεάζουν το δικό σου σήμερα " +
+                "https://play.google.com/store"; //TODO αλλαγή διεύθυνσης
+        Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/drawable/" + "share");
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("image/png");
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject.toString());
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        startActivity(Intent.createChooser(intent, "Κοινοποίηση εφαρμογής"));
     }
 
-    private void setShareIntent() {
-        // [START custom_event]
-        mTracker.send(new HitBuilders.EventBuilder()
-                .setCategory("Action")
-                .setAction("Share")
-                .build());
-        // [END custom_event]
-        String text = "I'd love you to hear about ";
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+    private void refresh() {
+        finish();
+        startActivity(getIntent());
     }
 
     @Override
@@ -283,24 +280,9 @@ public class MainActivity extends AppCompatActivity
 
 
     private void klisi() {
-        try {
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:21037070000"));
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            startActivity(callIntent);
-        } catch (ActivityNotFoundException activityException) {
-            Log.e(getString(R.string.klisi_java), getString(R.string.failed),
-                    activityException);
-        }
+        String phone = "+302103707000";
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+        startActivity(intent);
     }
 
     private void mail() {
@@ -308,12 +290,13 @@ public class MainActivity extends AppCompatActivity
         i.setType("message/rfc822");
         i.putExtra(Intent.EXTRA_EMAIL,
                 new String[]{"infopar@parliament.gr"});
+        i.putExtra(Intent.EXTRA_BCC,
+                new String[]{"k.anagnostou@parliament.gr"});
         i.putExtra(Intent.EXTRA_SUBJECT,
                 getString(R.string.epikoinonia_mail));
         i.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_epikoinonia));
         try {
-            startActivity(Intent.createChooser(i,
-                    getString(R.string.apostoli)));
+            startActivity(Intent.createChooser(i, getString(R.string.apostoli)));
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(this, getString(R.string.aneu),
                     Toast.LENGTH_SHORT).show();
@@ -330,10 +313,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
             startActivity(i);
-        }else if (id == R.id.nav_kommata) {
+        } else if (id == R.id.nav_kommata) {
             Intent i = new Intent(MainActivity.this, KommActivity.class);
             startActivity(i);
-        }else if (id == R.id.nav_vouleutes) {
+        } else if (id == R.id.nav_vouleutes) {
             Intent i = new Intent(MainActivity.this, MpsActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_simera) {
