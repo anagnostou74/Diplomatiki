@@ -71,7 +71,7 @@
         <activity
             android:name=".organosi.KommActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/organosi" />
+            android:label="@string/komma" />
         <activity
             android:name=".web.SindesmoiActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
