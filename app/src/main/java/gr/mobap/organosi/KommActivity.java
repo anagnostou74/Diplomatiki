@@ -71,6 +71,7 @@ public class KommActivity extends MainActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new KoinOmPrFragment(), getString(R.string.koin_omades));
         adapter.addFrag(new KoinEkprFragment(), getString(R.string.koin_ekpr));
+        adapter.addFrag(new MpsSearchFragment(), getString(R.string.mps_peri));
         viewPager.setAdapter(adapter);
     }
 

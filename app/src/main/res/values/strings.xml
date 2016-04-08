@@ -475,6 +475,7 @@ CleverTap Notifications\n\n
     <string name="organosi">Οργάνωση</string>
     <string name="komma">Κόμματα</string>
     <string name="mps">Βουλευτές</string>
+    <string name="mps_peri">Βουλευτές ανά περιφέρεια</string>
     <string name="links">Σύνδεσμοι</string>
     <string name="polimesa">Πολυμέσα</string>
     <string name="ekdoseis">Εκδόσεις</string>
