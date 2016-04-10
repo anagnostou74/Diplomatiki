@@ -1,45 +1,402 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_below="@+id/toolbar"
-    android:layout_marginTop="?attr/actionBarSize">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <RadioGroup
-        android:id="@+id/radio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
 
-        <RadioButton
-            android:id="@+id/selectAndroid"
-            android:layout_width="wrap_content"
+        <ListView
+            android:id="@+id/search"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="ΕΠΙΚΡΑΤΕΙΑΣ" />
+            android:textColor="@color/colorWhite"
+            android:gravity="center_horizontal"
+            android:text="@string/perifereia"/>
 
-        <RadioButton
-            android:id="@+id/selectIOS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ΑΤΤΙΚΗΣ" />
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/text"
+            android:scrollbars="vertical">
 
-        <RadioButton
-            android:id="@+id/selectWindows"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Α' ΑΘΗΝΩΝ" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/selectRIM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Β' ΑΘΗΝΩΝ" />
-    </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/radio" />
+                    <RadioButton
+                        android:id="@+id/epikrateias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/epikrateias" />
+
+                    <RadioButton
+                        android:id="@+id/athinon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/athinon" />
+
+                    <RadioButton
+                        android:id="@+id/bathinon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bathinon" />
+
+                    <RadioButton
+                        android:id="@+id/aiotolias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/aiotolias" />
+
+                    <RadioButton
+                        android:id="@+id/argolidas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/argolidas" />
+
+                    <RadioButton
+                        android:id="@+id/arkadias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arkadias" />
+
+                    <RadioButton
+                        android:id="@+id/artis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/artis" />
+
+                    <RadioButton
+                        android:id="@+id/attikis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/attikis" />
+
+                    <RadioButton
+                        android:id="@+id/axaias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/axaias" />
+
+                    <RadioButton
+                        android:id="@+id/voiotias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/voiotias" />
+
+                    <RadioButton
+                        android:id="@+id/grevenon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grevenon" />
+
+                    <RadioButton
+                        android:id="@+id/dramas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dramas" />
+
+                    <RadioButton
+                        android:id="@+id/dodekanisa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dodekanisa" />
+
+                    <RadioButton
+                        android:id="@+id/evrou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evrou" />
+
+                    <RadioButton
+                        android:id="@+id/evias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evias" />
+
+                    <RadioButton
+                        android:id="@+id/evritanias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evritanias" />
+
+                    <RadioButton
+                        android:id="@+id/zakinthos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zakinthos" />
+
+                    <RadioButton
+                        android:id="@+id/ilias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ilias" />
+
+                    <RadioButton
+                        android:id="@+id/imathias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/imathias" />
+
+                    <RadioButton
+                        android:id="@+id/irakliou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/irakliou" />
+
+                    <RadioButton
+                        android:id="@+id/thesprotias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/thesprotias" />
+
+                    <RadioButton
+                        android:id="@+id/thess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/thess" />
+
+                    <RadioButton
+                        android:id="@+id/bthess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bthess" />
+
+                    <RadioButton
+                        android:id="@+id/ioannina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ioannina" />
+
+                    <RadioButton
+                        android:id="@+id/kavalas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kavalas" />
+
+                    <RadioButton
+                        android:id="@+id/karditsas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/karditsas" />
+
+                    <RadioButton
+                        android:id="@+id/kastorias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kastorias" />
+
+                    <RadioButton
+                        android:id="@+id/kerkiras"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kerkiras" />
+
+                    <RadioButton
+                        android:id="@+id/kefallinias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kefallinias" />
+
+                    <RadioButton
+                        android:id="@+id/kilkis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kilkis" />
+
+                    <RadioButton
+                        android:id="@+id/kozanis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kozanis" />
+
+                    <RadioButton
+                        android:id="@+id/korinthias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/korinthias" />
+
+                    <RadioButton
+                        android:id="@+id/kikladon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kikladon" />
+
+                    <RadioButton
+                        android:id="@+id/lakonias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lakonias" />
+
+                    <RadioButton
+                        android:id="@+id/larisas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/larisas" />
+
+                    <RadioButton
+                        android:id="@+id/lasithi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lasithi" />
+
+                    <RadioButton
+                        android:id="@+id/lesvou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lesvou" />
+
+                    <RadioButton
+                        android:id="@+id/leukados"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/leukados" />
+
+                    <RadioButton
+                        android:id="@+id/magnisias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/magnisias" />
+
+                    <RadioButton
+                        android:id="@+id/messinias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/messinias" />
+
+                    <RadioButton
+                        android:id="@+id/ksanthis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ksanthis" />
+
+                    <RadioButton
+                        android:id="@+id/piraias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/piraias" />
+
+                    <RadioButton
+                        android:id="@+id/bpirea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bpirea" />
+
+                    <RadioButton
+                        android:id="@+id/pellas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pellas" />
+
+                    <RadioButton
+                        android:id="@+id/pierias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pierias" />
+
+                    <RadioButton
+                        android:id="@+id/prevezis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prevezis" />
+
+                    <RadioButton
+                        android:id="@+id/rethimnis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rethimnis" />
+
+                    <RadioButton
+                        android:id="@+id/rodopis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rodopis" />
+
+                    <RadioButton
+                        android:id="@+id/samou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/samou" />
+
+                    <RadioButton
+                        android:id="@+id/serron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/serron" />
+
+                    <RadioButton
+                        android:id="@+id/trikalon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trikalon" />
+
+                    <RadioButton
+                        android:id="@+id/fthiotidas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fthiotidas" />
+
+                    <RadioButton
+                        android:id="@+id/florinas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/florinas" />
+
+                    <RadioButton
+                        android:id="@+id/fokidas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fokidas" />
+
+                    <RadioButton
+                        android:id="@+id/xalkidikis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xalkidikis" />
+
+                    <RadioButton
+                        android:id="@+id/xanion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xanion" />
+
+                    <RadioButton
+                        android:id="@+id/xiou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xiou" />
+                </RadioGroup>
+            </android.support.v7.widget.CardView>
+        </android.support.v4.widget.NestedScrollView>
+    </RelativeLayout>
+</LinearLayout>
 
 
-</RelativeLayout>
+
+
+
+
+
+
