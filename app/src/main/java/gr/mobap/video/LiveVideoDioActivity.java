@@ -3,13 +3,11 @@ package gr.mobap.video;
 // http://streamer-cache.grnet.gr/parliament/hls/webtv.m3u8
 // http://streamer-cache.grnet.gr/parliament/hls/webtv2.m3u8
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,6 +24,7 @@ import gr.mobap.R;
 public class LiveVideoDioActivity extends AppCompatActivity {
 
     private Tracker mTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //fullscreen

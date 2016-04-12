@@ -1,7 +1,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name"><b>Βουλή των Ελλήνων</b></string>
-    <string name="perifereia"><b>Επιλογή Περιφέρειας:</b></string>
+    <string name="perifereia"><b>Επιλέγω την Περιφέρεια:</b></string>
     <string name="epikrateias">ΕΠΙΚΡΑΤΕΙΑΣ</string>
     <string name="athinon">Α\' ΑΘΗΝΩΝ</string>
     <string name="bathinon">Β\' ΑΘΗΝΩΝ</string>
@@ -96,7 +96,7 @@ CleverTap Notifications\n\n
     <string name="klisi_java" translatable="false">Καλείται τη Βουλή</string>
     <!-- Description here -->
     <string name="failed" translatable="false">Η κλήση απέτυχε</string>
-    <string name="main_me" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θα ήθελα...</string>
+    <string name="main_me" translatable="false">Σου στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θέλω…</string>
     <string name="apostoli" translatable="false">Αποστολή email</string>
     <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας</string>
     <string name="aneu_diktiou" translatable="false">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
@@ -104,7 +104,7 @@ CleverTap Notifications\n\n
 
     <string name="sxetika_mail" translatable="false">Σχετικά με το πρόγραμμα για Android</string>
     <string name="epikoinonia_mail" translatable="false">Σχόλια ή παρατηρήσεις</string>
-    <string name="main_epikoinonia" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θα ήθελα...</string>
+    <string name="main_epikoinonia" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θέλω…</string>
 
     <string name="image">Thumbnail</string>
 
@@ -120,18 +120,6 @@ CleverTap Notifications\n\n
     <string name="thesmos">O Θεσμός</string>
     <string name="nomo">Νομοθετεί</string>
     <string name="elegxos">Ελέγχει</string>
-    <string name="ypiresiesKeim"><![CDATA[
-    ]]>
-    </string>
-    <string name="kosmitoresKeim"><![CDATA[
-    ]]>
-    </string><string name="grammateisKeim"><![CDATA[
-    ]]>
-    </string>
-    <string name="antiProedroiKeim"><![CDATA[
-    ]]>
-    </string>
-
     <string name="thesmosKeim"><![CDATA[ <h2>Tι είναι η Bουλή</h2>
 
 <p >Η Βουλή είναι ο κορυφαίος δημοκρατικός θεσμός, μέσω του οποίου αντιπροσωπεύεται ο λαός δια των βουλευτών.</p>
@@ -528,7 +516,6 @@ CleverTap Notifications\n\n
     <string name="collaboration">Συνεργατικό Περιβάλλον</string>
     <string name="email">eMail</string>
     <string name="praktika">Πρακτικά</string>
-
     <string name="vouli">Ο Θεσμός</string>
     <string name="organosi">Οργάνωση</string>
     <string name="komma">Κόμματα</string>
@@ -551,7 +538,6 @@ CleverTap Notifications\n\n
     <string name="epikoinonia">Επικοινωνία</string>
     <string name="peri">Περί</string>
     <string name="menu_refresh">Ανανέωση</string>
-
     <string name="nea">Νέα &amp; Ανακοινώσεις</string>
     <string name="ns">Νομοσχέδια</string>
     <string name="katatethenta">Κατατεθέντα</string>
@@ -594,7 +580,7 @@ CleverTap Notifications\n\n
     <string name="menu_share">Κοινοποίηση</string>
     <string name="menu_fb">Facebook</string>
     <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to send downstream messages to this app.</string>
-    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="registering_message">Generating InstanceID token…</string>
     <string name="token_error_message">An error occurred while either fetching the InstanceID token,
         sending the fetched token to the server or subscribing to the PubSub topic. Please try
         running the sample again.</string>

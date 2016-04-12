@@ -47,7 +47,7 @@ public class AppRate extends Activity {
             }
         }
 
-        editor.commit();
+        editor.apply();
     }
 
     public static void showRateDialog(final Context mContext,
