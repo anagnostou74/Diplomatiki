@@ -1,16 +1,26 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:context="gr.mobap.MainActivity">
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/shadow" />
 
-    <TextView
-        android:id="@+id/textThesmos"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:linksClickable="true" />
+        tools:context="gr.mobap.MainActivity">
 
-</ScrollView>
+        <TextView
+            android:id="@+id/textThesmos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:linksClickable="true" />
+
+    </ScrollView>
+</RelativeLayout >
