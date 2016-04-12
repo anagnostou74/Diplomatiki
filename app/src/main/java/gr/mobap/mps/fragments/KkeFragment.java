@@ -120,7 +120,7 @@ public class KkeFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Void result) {
-            // Locate the listview in listview_main.xml
+            // Locate the listview in listview_mpsxml
             listview = (ListView) getView().findViewById(R.id.listview);
             // Pass the results into ListViewAdapter.java
             adapter = new ListViewAdapter(getActivity(), worldpopulationlist);

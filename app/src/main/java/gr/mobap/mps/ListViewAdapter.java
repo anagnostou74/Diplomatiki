@@ -75,8 +75,8 @@ public class ListViewAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            view = inflater.inflate(R.layout.listview_item, null);
-            // Locate the TextViews in listview_item.xml
+            view = inflater.inflate(R.layout.listview_mps_item, null);
+            // Locate the TextViews in listview_mps_item.xml.xml
             holder.epitheto = (TextView) view.findViewById(R.id.epitheto);
             holder.onoma = (TextView) view.findViewById(R.id.onoma);
             holder.onomaPatros = (TextView) view.findViewById(R.id.onomaPatros);
@@ -94,7 +94,7 @@ public class ListViewAdapter extends BaseAdapter {
             holder.address = (TextView) view.findViewById(R.id.address);
             holder.site = (TextView) view.findViewById(R.id.site);
             holder.email = (TextView) view.findViewById(R.id.email);
-            // Locate the ImageView in listview_item.xml
+            // Locate the ImageView in listview_mps_item.xml.xml
             holder.flag = (ImageView) view.findViewById(R.id.flag);
             view.setTag(holder);
         } else {

@@ -42,7 +42,7 @@ public class NsPsFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.rss_fragment_layout, container, false);
+        view = inflater.inflate(R.layout.fragment_list_rss, container, false);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         listView = (ListView) view.findViewById(R.id.listView);
         listView.setOnItemClickListener(NsPsFragment.this);

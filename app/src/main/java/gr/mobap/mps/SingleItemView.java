@@ -47,8 +47,8 @@ public class SingleItemView extends MainActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Get the view from singleitemview.xml
-        setContentView(R.layout.singleitemview);
+        // Get the view from item_mps
+        setContentView(R.layout.item_mps);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -88,10 +88,9 @@ public class SingleItemView extends MainActivity {
         site = i.getStringExtra("site");
         email = i.getStringExtra("email");
 
-        // Locate the ImageView in singleitemview.xml
+        // Locate the ImageView in item_mps
         ImageView imgflag = (ImageView) findViewById(R.id.flag);
-        // Locate the TextViews in singleitemview.xml
-        //TextView txtrank = (TextView) findViewById(R.id.rank);
+        // Locate the TextViews in item_mps.xml   //TextView txtrank = (TextView) findViewById(R.id.rank);
         TextView txtkomma = (TextView) findViewById(R.id.komma);
         TextView txtepitheto = (TextView) findViewById(R.id.epitheto);
         TextView txtonoma = (TextView) findViewById(R.id.onoma);

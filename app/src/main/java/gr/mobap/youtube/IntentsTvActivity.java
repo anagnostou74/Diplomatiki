@@ -113,7 +113,7 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
 
         ListView listView = (ListView) findViewById(R.id.intent_list);
         TvArrayAdapter adapter =
-                new TvArrayAdapter(this, R.layout.list_item_youtube, intentItems);
+                new TvArrayAdapter(this, R.layout.item_youtube, intentItems);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
