@@ -75,7 +75,7 @@ public class ListViewAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            view = inflater.inflate(R.layout.listview_mps_item, null);
+            view = inflater.inflate(R.layout.listview_item_mps, null);
             // Locate the TextViews in listview_mps_item.xml.xml
             holder.epitheto = (TextView) view.findViewById(R.id.epitheto);
             holder.onoma = (TextView) view.findViewById(R.id.onoma);

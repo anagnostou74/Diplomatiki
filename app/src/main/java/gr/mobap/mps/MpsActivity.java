@@ -50,8 +50,7 @@ public class MpsActivity extends MainActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Get the view from listview_mps.xml
-        setContentView(R.layout.listview_mps);
+        setContentView(R.layout.activity_mps);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
