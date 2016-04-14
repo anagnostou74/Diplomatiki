@@ -7,17 +7,27 @@
     tools:context=".youtube.IntentsTvActivity">
 
     <android.support.design.widget.AppBarLayout
+        style="@style/AppTheme.AppBarOverlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AppTheme.AppBarOverlay"
+        android:background="@drawable/action_bar"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/action_bar"
-            android:theme="@style/AppTheme.PopupOverlay"/>
+            android:theme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:baselineAlignBottom="true"
+                android:cropToPadding="true"
+                android:src="@mipmap/ic_launcher" />
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -38,17 +48,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             android:drawableLeft="@drawable/vouli_tv"
+            android:padding="16dp"
             android:text="@string/intent_select"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <ListView
             android:id="@+id/intent_list"
             android:layout_width="match_parent"
-            android:padding="22dp"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:padding="22dp" />
 
         <TextView
             android:id="@+id/youtube_version_text"
