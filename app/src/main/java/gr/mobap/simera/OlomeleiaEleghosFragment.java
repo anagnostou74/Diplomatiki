@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -42,36 +44,56 @@ public class OlomeleiaEleghosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            //your codes here
-        }
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
+        webView = (WebView) ll.findViewById(R.id.webViewfr);
+
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
-            webView = (WebView) ll.findViewById(R.id.webView);
-            webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-            try {
-                Document doc = Jsoup.connect(url).ignoreContentType(true).get();
-                doc.outputSettings().charset("Windows-1252");
-                Elements ele = doc.select("div#middlecolumnwide");
-                String html = ele.toString();
-                String mime = "text/html";
-                String encoding = "Windows-1252";
-                webView.loadData(html, mime, encoding);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            web();
         } else {
             Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
         }
         return ll;
+    }
+
+    private void web() {
+        try {
+            Document doc = Jsoup.connect(url).ignoreContentType(true).get();
+            doc.select("#ctl00_ContentPlaceHolder1_pcrd1_lnkBack").remove();
+            doc.outputSettings().charset("Windows-1252");
+            Elements ele = doc.select("div#middlecolumnwide");
+            String html = ele.toString();
+            String mime = "text/html";
+            String encoding = "Windows-1252";
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().supportZoom();
+            webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+            webView.setScrollbarFadingEnabled(true);
+            progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
+                    "Φορτώνει η σελίδα", true);
+            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+                    return false;
+                }
+                public void onPageFinished(WebView view, String url) {
+                    if (progress != null)
+                        progress.dismiss();
+                }
+            });
+            if (webViewBundle == null) { //Κώδικας για webView save State
+                webView.loadData(html, mime, encoding);
+            } else {
+                webView.restoreState(webViewBundle);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

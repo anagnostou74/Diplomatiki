@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="gr.mobap.MainActivity">
+    tools:context="gr.mobap.web.MailWeb">
 
     <android.support.design.widget.AppBarLayout
         style="@style/AppTheme.AppBarOverlay"
@@ -34,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="@drawable/shadow" />
-
 
         <WebView
             android:id="@+id/webView"
