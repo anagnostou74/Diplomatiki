@@ -64,18 +64,18 @@ public class DownloadPraktikaActivity extends MainActivity {
             "28/06/2012-03/10/2013, pdf"
     };
     public static final Integer[] images = {
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp,
-            R.drawable.ic_local_library_24dp
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read
     };
 
     ListView listView;

@@ -201,6 +201,16 @@ public class MainActivity extends AppCompatActivity
             case R.id.menu_share:
                 shareSocial();
                 return true;
+            case R.id.menu_play:
+                try {
+                    String url = "https://play.google.com/store/apps/developer?id=%CE%9A%CF%8E%CF%83%CF%84%CE%B1%CF%82%20%CE%91%CE%BD%CE%B1%CE%B3%CE%BD%CF%8E%CF%83%CF%84%CE%BF%CF%85\n";
+                    Intent m = new Intent(Intent.ACTION_VIEW);
+                    m.setData(Uri.parse(url));
+                    startActivity(m);
+                } catch (ActivityNotFoundException activityException) {
+                    Log.e("navigate Site", "Site failed", activityException);
+                }
+                return true;
             case R.id.menu_fb:
                 Intent k = new Intent(MainActivity.this, Share.class);
                 startActivity(k);

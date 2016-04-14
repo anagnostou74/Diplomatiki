@@ -37,14 +37,6 @@ public class PeriActivity extends MainActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Button button = (Button) findViewById(R.id.btnDevel);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shop();
-            }
-        });
-
         Button button2 = (Button) findViewById(R.id.btnMail);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,16 +77,6 @@ public class PeriActivity extends MainActivity {
         return true;
     }
 
-    private void shop() {
-        try {
-            String url = "https://play.google.com/store/apps/developer?id=%CE%9A%CF%8E%CF%83%CF%84%CE%B1%CF%82%20%CE%91%CE%BD%CE%B1%CE%B3%CE%BD%CF%8E%CF%83%CF%84%CE%BF%CF%85\n";
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(url));
-            startActivity(i);
-        } catch (ActivityNotFoundException activityException) {
-            Log.e("navigate Site", "Site failed", activityException);
-        }
-    }
 
     private void mail() {
         Intent i = new Intent(Intent.ACTION_SEND);

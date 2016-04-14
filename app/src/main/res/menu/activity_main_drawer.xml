@@ -5,27 +5,27 @@
         <menu>
             <item
                 android:id="@+id/nav_vouli"
-                android:icon="@drawable/ic_account_balance_black_24dp"
+                android:icon="@drawable/thesmos"
                 android:title="@string/thesmos" />
             <item
                 android:id="@+id/nav_organosi"
-                android:icon="@drawable/ic_group_work_black_24dp"
+                android:icon="@drawable/organosi"
                 android:title="@string/organosi" />
             <item
                 android:id="@+id/nav_kommata"
-                android:icon="@drawable/ic_domain_black_24dp"
+                android:icon="@drawable/kommata"
                 android:title="@string/komma" />
             <item
                 android:id="@+id/nav_vouleutes"
-                android:icon="@drawable/ic_account_circle_black_24dp"
+                android:icon="@drawable/mps"
                 android:title="@string/mps" />
             <item
                 android:id="@+id/nav_simera"
-                android:icon="@drawable/ic_event_note_black_24dp"
+                android:icon="@drawable/programm"
                 android:title="@string/simera" />
             <item
                 android:id="@+id/nav_sindesmoi"
-                android:icon="@drawable/ic_insert_link_black_24dp"
+                android:icon="@drawable/links"
                 android:title="@string/links" />
         </menu>
     </item>
@@ -33,23 +33,23 @@
         <menu>
             <item
                 android:id="@+id/nav_ekdoseis"
-                android:icon="@drawable/ic_import_contacts_black_24dp"
+                android:icon="@drawable/ekdoseis"
                 android:title="@string/ekdoseis" />
             <item
                 android:id="@+id/nav_photo"
-                android:icon="@drawable/ic_filter_black_24dp"
+                android:icon="@drawable/photos"
                 android:title="@string/photos" />
             <item
                 android:id="@+id/nav_kanali"
-                android:icon="@drawable/ic_ondemand_video_black_24dp"
+                android:icon="@drawable/youtube"
                 android:title="@string/tv" />
             <item
                 android:id="@+id/nav_live_ena"
-                android:icon="@drawable/ic_live_tv_black_24dp"
+                android:icon="@drawable/web_tv"
                 android:title="@string/nav_live_ena" />
             <item
                 android:id="@+id/nav_live_dio"
-                android:icon="@drawable/ic_live_tv_black_24dp"
+                android:icon="@drawable/web_tv"
                 android:title="@string/nav_live_dio" />
         </menu>
     </item>
@@ -57,15 +57,15 @@
         <menu>
             <item
                 android:id="@+id/nav_nea"
-                android:icon="@mipmap/ic_rss_feed_black_24dp"
+                android:icon="@drawable/ic_rss_feed_black_24dp"
                 android:title="@string/deltia" />
             <item
                 android:id="@+id/nav_praktika"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/ekdoseis"
                 android:title="@string/praktika_olom" />
             <item
                 android:id="@+id/nav_eleghos"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/enimerosi"
                 android:title="@string/eleghos" />
         </menu>
     </item>
@@ -73,11 +73,11 @@
         <menu>
             <item
                 android:id="@+id/nav_katatethenta"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/enimerosi"
                 android:title="@string/katatethenta" />
             <item
                 android:id="@+id/nav_psifisthenta"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/enimerosi"
                 android:title="@string/psifisthenta" />
         </menu>
     </item>
@@ -85,15 +85,15 @@
         <menu>
             <item
                 android:id="@+id/nav_sinedriaseis_epitropon"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/enimerosi"
                 android:title="@string/sinedriaseis_epitropon" />
             <item
                 android:id="@+id/nav_ektheseis"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/enimerosi"
                 android:title="@string/ektheseis" />
             <item
                 android:id="@+id/nav_drastiriotites"
-                android:icon="@drawable/ic_library_books_24dp"
+                android:icon="@drawable/enimerosi"
                 android:title="@string/drastiriotites" />
 
         </menu>

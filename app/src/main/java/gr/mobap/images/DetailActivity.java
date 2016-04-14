@@ -1,5 +1,6 @@
 package gr.mobap.images;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -155,7 +156,6 @@ public class DetailActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_image_dtls, container, false);
 
             final ImageView imageView = (ImageView) rootView.findViewById(R.id.detail_image);
-
             Glide.with(getActivity()).load(url).thumbnail(0.1f).into(imageView);
 
             return rootView;

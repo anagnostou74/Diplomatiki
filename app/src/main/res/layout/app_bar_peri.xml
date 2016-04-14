@@ -44,22 +44,15 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <Button
-                android:id="@+id/btnDevel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="left|center_vertical"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/devel"
-                android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/btnVathm"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center|center_vertical"
+                android:layout_gravity="left|center_vertical"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/favorite"
                 android:gravity="center"
                 android:text="@string/vathm"
                 android:textColor="@color/colorWhite" />
@@ -69,7 +62,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="right|center_vertical"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/mail"
                 android:gravity="center"
                 android:text="@string/emailP"
                 android:textColor="@color/colorWhite" />
@@ -94,8 +89,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
-                android:drawableBottom="@mipmap/ic_splash"
-                android:drawableTop="@mipmap/ic_eap"
+                android:drawableBottom="@drawable/ic_splash"
+                android:drawableTop="@drawable/ic_eap"
                 android:text="@string/sxetikaKeim" />
         </ScrollView>
 

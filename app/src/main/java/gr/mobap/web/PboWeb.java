@@ -40,7 +40,7 @@ public class PboWeb extends Fragment {
                 container, false);
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
-            webView = (WebView) ll.findViewById(R.id.webView);
+            webView = (WebView) ll.findViewById(R.id.webViewfr);
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setBuiltInZoomControls(true);
             webView.getSettings().supportZoom();
