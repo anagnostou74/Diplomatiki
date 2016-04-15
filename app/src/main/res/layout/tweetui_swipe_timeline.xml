@@ -25,14 +25,15 @@
                 style="@style/AppTheme.AppBarOverlay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/action_bar"
                 android:theme="@style/AppTheme.AppBarOverlay">
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@drawable/action_bar"
-                    android:theme="@style/AppTheme.PopupOverlay" />
+                    android:theme="@style/AppTheme.PopupOverlay"
+                    app:logo="@mipmap/ic_launcher" />
 
             </android.support.design.widget.AppBarLayout>
 
