@@ -18,17 +18,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/AppTheme.PopupOverlay">
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:baselineAlignBottom="true"
-                android:cropToPadding="true"
-                android:src="@mipmap/ic_launcher" />
-
-        </android.support.v7.widget.Toolbar>
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:logo="@mipmap/ic_launcher" />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
