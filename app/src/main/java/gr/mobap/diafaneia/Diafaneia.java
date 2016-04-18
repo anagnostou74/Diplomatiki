@@ -19,6 +19,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,6 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 
@@ -129,21 +131,26 @@ public class Diafaneia extends MainActivity {
         dataList = new ArrayList<HashMap<String, String>>();
         ListView lv = (ListView) findViewById(android.R.id.list);
 
-        // Listview on item click listener
-        lv.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // getting values from selected ListItem
-                String file = ((TextView) view.findViewById(R.id.file)).getText().toString();
-                String diafUrl = "http://diafaneia.hellenicparliament.gr/" + file;
-                Intent in = new Intent(Intent.ACTION_VIEW);
-                in.putExtra(TAG_Att_FilePath, diafUrl);
-                in.setDataAndType(Uri.parse(diafUrl), "application/pdf");
-                startActivity(in);
-            }
-        });
-        // Calling async task to get json
-        new GetData().execute();
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(this)) {
+            // Listview on item click listener
+            lv.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    // getting values from selected ListItem
+                    String file = ((TextView) view.findViewById(R.id.file)).getText().toString();
+                    String diafUrl = "http://diafaneia.hellenicparliament.gr/" + file;
+                    Intent in = new Intent(Intent.ACTION_VIEW);
+                    in.putExtra(TAG_Att_FilePath, diafUrl);
+                    in.setDataAndType(Uri.parse(diafUrl), "application/pdf");
+                    startActivity(in);
+                }
+            });
+            // Calling async task to get json
+            new GetData().execute();
+        } else {
+            Toast.makeText(this, getString(R.string.aneu_diktiou), Toast.LENGTH_LONG).show();
+        }
     }
 
 
