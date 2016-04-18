@@ -1,12 +1,17 @@
 package gr.mobap.diafaneia;
 
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -22,9 +27,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import gr.mobap.MainActivity;
 import gr.mobap.R;
 
-public class Diafaneia extends ListActivity {
+public class Diafaneia extends MainActivity {
 
     private ProgressDialog pDialog;
 
@@ -107,13 +113,22 @@ public class Diafaneia extends ListActivity {
     ArrayList<HashMap<String, String>> dataList;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diafaneia_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         dataList = new ArrayList<HashMap<String, String>>();
+        ListView lv = (ListView) findViewById(android.R.id.list);
 
-        ListView lv = getListView();
         // Listview on item click listener
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -129,6 +144,24 @@ public class Diafaneia extends ListActivity {
         });
         // Calling async task to get json
         new GetData().execute();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
     /**
@@ -306,8 +339,9 @@ public class Diafaneia extends ListActivity {
                     R.layout.diafaneia_list_item,
                     new String[]{TAG_Subject, TAG_Att_FilePath, TAG_SEC_TITLE, TAG_FSIGNER_INFO, TAG_FSIGNER_FULLNAME},
                     new int[]{R.id.subject, R.id.file, R.id.sec_title, R.id.sinfo, R.id.signer});
-
-            setListAdapter(adapter);
+            //dataList.setAdapter(adapter);
+            ListView lv = (ListView) findViewById(android.R.id.list);
+            lv.setAdapter(adapter);
         }
 
     }
