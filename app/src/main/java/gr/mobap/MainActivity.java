@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -317,7 +316,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_vouli) {
-            Intent i = new Intent(MainActivity.this, Diafaneia.class);
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
@@ -354,6 +353,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.nav_praktika) {
             Intent i = new Intent(MainActivity.this, DownloadPraktikaActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_diafaneia) {
+            Intent i = new Intent(MainActivity.this, Diafaneia.class);
             startActivity(i);
         } else if (id == R.id.nav_eleghos) {
             Intent i = new Intent(MainActivity.this, EleghosActivity.class);

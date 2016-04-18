@@ -46,9 +46,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bd2ce0ed-b71f-40a4-8ab3-346023a712cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gr/mobap/diafaneia/Diafaneia.java" afterPath="$PROJECT_DIR$/app/src/main/java/gr/mobap/diafaneia/Diafaneia.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/diafaneia_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/diafaneia_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/diafaneia_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/diafaneia_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
     </list>
     <ignored path="Parliament.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2001,7 +2001,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/Play.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_autorenew_24dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_rss.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/Splash.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/splash.xml" />
@@ -2037,15 +2036,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/SingleItemView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/mps/MpsImageLoader.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_mps.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/diafaneia/ServiceHandler.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/diafaneia/SingleDiafaneia.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/ekdoseis/DownloadPraktikaActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/diafaneia/Diafaneia.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/diafaneia_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/diafaneia_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
       </list>
     </option>
   </component>
@@ -2306,24 +2306,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parliament" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
@@ -2342,26 +2324,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobap" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="organosi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parliament" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2935,7 +2899,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461009196363</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="diafaneia Layout ready">
+      <created>1461012363261</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1461012363261</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3025,7 +2995,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Twitter login guest OK" />
     <MESSAGE value="CardView for rss, mps &amp; bio" />
     <MESSAGE value="CardView for books &amp; youtube" />
     <MESSAGE value="Οργάνωση, προσθήκη Κοινοβουλευτικών Εκπροσώπων" />
@@ -3050,33 +3019,14 @@
     <MESSAGE value="image in title" />
     <MESSAGE value="image in title_v2" />
     <MESSAGE value="diafaneia Json activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="diafaneia Json activity" />
+    <MESSAGE value="diafaneia Layout ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="diafaneia Layout ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_images.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4265233">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mps.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30824372">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/map/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3278,14 +3228,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31408775">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../SDK/sources/android-23/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33295965">
@@ -3313,14 +3255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.77482677">
           <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.514574">
-          <caret line="211" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3494,6 +3428,68 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35399285">
+          <caret line="508" column="18" selection-start-line="508" selection-start-column="18" selection-end-line="508" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54849887">
+          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+          <folding>
+            <element signature="e#2917#2936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#130#148#0" expanded="true" />
+            <element signature="e#306#323#0" expanded="true" />
+            <element signature="e#472#490#0" expanded="true" />
+            <element signature="e#637#652#0" expanded="true" />
+            <element signature="e#797#810#0" expanded="true" />
+            <element signature="e#957#973#0" expanded="true" />
+            <element signature="e#1120#1135#0" expanded="true" />
+            <element signature="e#1191#1209#0" expanded="true" />
+            <element signature="e#1371#1389#0" expanded="true" />
+            <element signature="e#1533#1549#0" expanded="true" />
+            <element signature="e#1695#1707#0" expanded="true" />
+            <element signature="e#1854#1876#0" expanded="true" />
+            <element signature="e#2023#2045#0" expanded="true" />
+            <element signature="e#2101#2120#0" expanded="true" />
+            <element signature="e#2291#2307#0" expanded="true" />
+            <element signature="e#2471#2490#0" expanded="true" />
+            <element signature="e#2639#2662#0" expanded="true" />
+            <element signature="e#2811#2828#0" expanded="true" />
+            <element signature="e#2884#2896#0" expanded="true" />
+            <element signature="e#3063#3085#0" expanded="true" />
+            <element signature="e#3239#3261#0" expanded="true" />
+            <element signature="e#3317#3341#0" expanded="true" />
+            <element signature="e#3518#3550#0" expanded="true" />
+            <element signature="e#3701#3720#0" expanded="true" />
+            <element signature="e#3876#3900#0" expanded="true" />
+            <element signature="e#3957#3973#0" expanded="true" />
+            <element signature="e#4136#4153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/gr/mobap/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09529148">
+          <caret line="318" column="65" selection-start-line="318" selection-start-column="65" selection-end-line="318" selection-end-column="65" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
