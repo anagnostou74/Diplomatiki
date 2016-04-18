@@ -43,6 +43,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import gr.mobap.diafaneia.Diafaneia;
 import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
 import gr.mobap.ekdoseis.DownloadPraktikaActivity;
 import gr.mobap.images.Image;
@@ -316,7 +317,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_vouli) {
-            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            Intent i = new Intent(MainActivity.this, Diafaneia.class);
             startActivity(i);
         } else if (id == R.id.nav_organosi) {
             Intent i = new Intent(MainActivity.this, OrganosiActivity.class);
