@@ -29,7 +29,7 @@ public class Share extends MainActivity {
                 .setAction("Share")
                 .build());
         // [END custom_event]
-        String urlToShare = "https://play.google.com/store"; //TODO αλλαγή διεύθυνσης
+        String urlToShare = "https://play.google.com/store/apps/details?id=gr.mobap";
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         // intent.putExtra(Intent.EXTRA_SUBJECT, "Foo bar"); // NB: has no effect!
