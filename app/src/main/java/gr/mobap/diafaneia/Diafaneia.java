@@ -34,7 +34,7 @@ import gr.mobap.R;
 
 public class Diafaneia extends MainActivity {
 
-    private ProgressDialog pDialog;
+    private ProgressDialog progress;
 
     // URL to get data JSON
     private static String url = "http://diafaneia.hellenicparliament.gr/api.ashx?q=documents&pageSize=100";
@@ -180,10 +180,10 @@ public class Diafaneia extends MainActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(Diafaneia.this);
-            pDialog.setMessage("Please wait...");
-            pDialog.setCancelable(false);
-            pDialog.show();
+            progress = ProgressDialog.show(Diafaneia.this, "Παρακαλώ περιμένετε...",
+                    "Φορτώνει η σελίδα", true);
+            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+
 
         }
 
@@ -335,8 +335,8 @@ public class Diafaneia extends MainActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
-            if (pDialog.isShowing())
-                pDialog.dismiss();
+            if (progress.isShowing())
+                progress.dismiss();
             /**
              * Updating parsed JSON data into ListView
              * */

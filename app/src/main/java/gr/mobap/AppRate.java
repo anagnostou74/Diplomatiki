@@ -66,7 +66,7 @@ public class AppRate extends Activity {
         tv.setPadding(4, 0, 4, 10);
         ll.addView(tv);
 
-        Button b1 = new Button(mContext);
+        Button b1 = new Button(mContext, null, R.style.ButtonStyle);
         b1.setText("Βαθμολογήστε την εφαρμογή για τη " + APP_TITLE);
         b1.setPadding(4, 0, 4, 4);
         b1.setOnClickListener(new OnClickListener() {
@@ -78,8 +78,9 @@ public class AppRate extends Activity {
         });
         ll.addView(b1);
 
-        Button b2 = new Button(mContext);
+        Button b2 = new Button(mContext, null, R.style.ButtonStyle);
         b2.setText("Θύμισε το μου αργότερα!");
+
         b2.setPadding(4, 4, 4, 4);
         b2.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -88,7 +89,7 @@ public class AppRate extends Activity {
         });
         ll.addView(b2);
 
-        Button b3 = new Button(mContext);
+        Button b3 = new Button(mContext, null, R.style.ButtonStyle);
         b3.setText("Όχι, ευχαριστώ!");
         b3.setPadding(4, 4, 4, 4);
         b3.setOnClickListener(new OnClickListener() {
