@@ -42,13 +42,7 @@ public class OlomeleiaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            //your codes here
-        }
+
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
         webView = (WebView) ll.findViewById(R.id.webViewfr);
