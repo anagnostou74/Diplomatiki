@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -193,7 +194,12 @@ public class Diafaneia extends MainActivity {
             ServiceHandler sh = new ServiceHandler();
 
             // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+            String jsonStr = null;
+            try {
+                jsonStr = sh.run(url);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             Log.d("Response: ", "> " + jsonStr);
 

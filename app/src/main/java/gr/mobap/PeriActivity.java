@@ -9,9 +9,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.Tracker;
@@ -37,20 +40,32 @@ public class PeriActivity extends MainActivity {
         navigationView.setNavigationItemSelectedListener(this);
 
         Button button2 = (Button) findViewById(R.id.btnMail);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mail();
-            }
-        });
+        if (button2 != null) {
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mail();
+                }
+            });
+        }
 
         Button button3 = (Button) findViewById(R.id.btnVathm);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchMarket();
-            }
-        });
+        if (button3 != null) {
+            button3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    launchMarket();
+                }
+            });
+        }
+
+        final String htmlText = getResources().getString(R.string.sxetikaKeim);
+        TextView tv = (TextView) findViewById(R.id.sxetikaKeim2);
+        if (tv != null) {
+            tv.setMovementMethod(LinkMovementMethod.getInstance());
+            tv.setText(Html.fromHtml(htmlText));
+        }
+
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
