@@ -19,28 +19,30 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/AppTheme.PopupOverlay"
-            app:logo="@mipmap/ic_launcher" />
+            app:logo="@mipmap/ic_launcher"/>
 
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".web.MailWeb"
-        tools:showIn="@layout/app_bar_web">
+        tools:context=".web.MailWeb">
 
         <View
+            android:id="@+id/shadow"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="@drawable/shadow" />
 
         <WebView
             android:id="@+id/webView"
+            android:layout_below="@+id/shadow"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
