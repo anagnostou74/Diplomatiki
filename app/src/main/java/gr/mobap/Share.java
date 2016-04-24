@@ -29,7 +29,8 @@ public class Share extends MainActivity {
                 .setAction("Share")
                 .build());
         // [END custom_event]
-        String urlToShare = "https://play.google.com/store/apps/details?id=gr.mobap";
+        String url = "https://play.google.com/store/apps/details?id=gr.mobap";
+        String urlToShare = "Αξίζει να κατεβάσεις την εφαρμογή για να βλέπεις εργασίες που επηρεάζουν το δικό σου σήμερα " + url;
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         // intent.putExtra(Intent.EXTRA_SUBJECT, "Foo bar"); // NB: has no effect!
@@ -46,7 +47,7 @@ public class Share extends MainActivity {
         }
         // As fallback, launch sharer.php in a browser
         if (!facebookAppFound) {
-            String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlToShare;
+            String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
         }
         startActivity(intent);

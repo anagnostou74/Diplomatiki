@@ -17,14 +17,14 @@
         android:title="@string/title_activity_maps"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/menu_share"
-        android:icon="@drawable/ic_share_24dp"
-        android:title="@string/menu_share"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/menu_refresh"
         android:icon="@drawable/autorenew"
         android:title="@string/menu_refresh"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_share_24dp"
+        android:title="@string/menu_share"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_fb"

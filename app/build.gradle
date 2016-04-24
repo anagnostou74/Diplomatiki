@@ -30,8 +30,8 @@ android {
         applicationId 'gr.mobap'
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 3
-        versionName "1.2-alpha"
+        versionCode 7
+        versionName "1.6-alpha"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {

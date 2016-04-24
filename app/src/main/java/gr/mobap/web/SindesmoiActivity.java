@@ -73,10 +73,9 @@ public class SindesmoiActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DiafaneiaWeb(), getString(R.string.diafaneia));
+        adapter.addFrag(new IdrymaWeb(), getString(R.string.idryma));
         adapter.addFrag(new DiasporaWeb(), getString(R.string.diaspora));
         adapter.addFrag(new EfivoiWeb(), getString(R.string.efivoi));
-        adapter.addFrag(new IdrymaWeb(), getString(R.string.idryma));
         adapter.addFrag(new PboWeb(), getString(R.string.gpk));
         adapter.addFrag(new YeepWeb(), getString(R.string.yeep));
         viewPager.setAdapter(adapter);
