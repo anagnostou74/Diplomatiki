@@ -68,7 +68,7 @@ public class KoinOmPrFragment extends Fragment {
             // Set progressdialog title
             mProgressDialog.setTitle("Παρακαλώ, περιμένετε...");
             // Set progressdialog message
-            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setMessage("Φορτώνει η σελίδα");
             mProgressDialog.setIndeterminate(true);
             // Show progressdialog
             mProgressDialog.show();

@@ -69,7 +69,7 @@ public class XaFragment extends Fragment {
             // Set progressdialog title
             mProgressDialog.setTitle("Παρακαλώ, περιμένετε...");
             // Set progressdialog message
-            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setMessage("Φορτώνει η σελίδα");
             mProgressDialog.setIndeterminate(false);
             // Show progressdialog
             mProgressDialog.show();
