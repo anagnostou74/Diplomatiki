@@ -19,8 +19,8 @@ public class AppRate extends Activity {
     private final static String APP_TITLE = "Βουλή των Ελλήνων";
     private final static String APP_PNAME = "gr.mobap";
 
-    private final static int DAYS_UNTIL_PROMPT = 0;
-    private final static int LAUNCHES_UNTIL_PROMPT = 0;
+    private final static int DAYS_UNTIL_PROMPT = 3;
+    private final static int LAUNCHES_UNTIL_PROMPT = 7;
 
     public static void app_launched(Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
