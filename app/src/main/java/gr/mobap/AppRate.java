@@ -5,7 +5,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,11 +16,11 @@ import android.widget.TextView;
 
 public class AppRate extends Activity {
 
-    private final static String APP_TITLE = "εφαρμογή";
+    private final static String APP_TITLE = "Βουλή των Ελλήνων";
     private final static String APP_PNAME = "gr.mobap";
 
-    private final static int DAYS_UNTIL_PROMPT = 3;
-    private final static int LAUNCHES_UNTIL_PROMPT = 5;
+    private final static int DAYS_UNTIL_PROMPT = 0;
+    private final static int LAUNCHES_UNTIL_PROMPT = 0;
 
     public static void app_launched(Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
@@ -53,22 +55,30 @@ public class AppRate extends Activity {
     public static void showRateDialog(final Context mContext,
                                       final SharedPreferences.Editor editor) {
         final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle("Βαθμολογήστε την" + APP_TITLE);
-
+        dialog.setTitle("Βαθμολογήστε την εφαρμογή!");
         LinearLayout ll = new LinearLayout(mContext);
         ll.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(2, 2, 2, 2);
+
 
         TextView tv = new TextView(mContext);
-        tv.setText("Παρακαλώ βαθμολογήστε την εφαρμογή για τη "
-                + APP_TITLE
+        tv.setText("Παρακαλώ βαθμολογήστε την εφαρμογή για τη\n"
+                + APP_TITLE + "\n"
                 + "Ευχαριστώ για την συμπαράσταση σας!");
         tv.setWidth(240);
-        tv.setPadding(4, 0, 4, 10);
+        tv.setGravity(Gravity.CENTER);
+        tv.setPadding(14, 14, 14, 14);
         ll.addView(tv);
 
         Button b1 = new Button(mContext, null, R.style.ButtonStyle);
-        b1.setText("Βαθμολογήστε την εφαρμογή για τη " + APP_TITLE);
-        b1.setPadding(4, 0, 4, 4);
+        b1.setText("Πάμε στο Google Play");
+        b1.setBackgroundResource(R.drawable.action_bar);
+        b1.setTextColor(Color.rgb(255, 255, 255));
+        b1.setLayoutParams(params);
+        b1.setPadding(12, 12, 12, 12);
         b1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri
@@ -80,8 +90,10 @@ public class AppRate extends Activity {
 
         Button b2 = new Button(mContext, null, R.style.ButtonStyle);
         b2.setText("Θύμισε το μου αργότερα!");
-
-        b2.setPadding(4, 4, 4, 4);
+        b2.setBackgroundResource(R.drawable.action_bar);
+        b2.setTextColor(Color.rgb(255, 255, 255));
+        b2.setLayoutParams(params);
+        b2.setPadding(12, 12, 12, 12);
         b2.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 dialog.dismiss();
@@ -91,7 +103,10 @@ public class AppRate extends Activity {
 
         Button b3 = new Button(mContext, null, R.style.ButtonStyle);
         b3.setText("Όχι, ευχαριστώ!");
-        b3.setPadding(4, 4, 4, 4);
+        b3.setBackgroundResource(R.drawable.action_bar);
+        b3.setTextColor(Color.rgb(255, 255, 255));
+        b3.setLayoutParams(params);
+        b3.setPadding(12, 12, 12, 12);
         b3.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (editor != null) {
