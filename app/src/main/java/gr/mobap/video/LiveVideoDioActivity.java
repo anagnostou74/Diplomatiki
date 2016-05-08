@@ -31,7 +31,6 @@ public class LiveVideoDioActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.content_video);
@@ -44,7 +43,8 @@ public class LiveVideoDioActivity extends AppCompatActivity {
         if (androidNetworkUtility.isConnected(this)) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             EMVideoView emVideoView = (EMVideoView) findViewById(R.id.video_play_activity_video_view);
-            emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv2.m3u8"));
+            assert emVideoView != null;
+            emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv2_640_640x360/index.m3u8"));
             emVideoView.setDefaultControlsEnabled(true);
             emVideoView.start();
         } else {
