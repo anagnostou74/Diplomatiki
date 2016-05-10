@@ -22,6 +22,7 @@ public class Share extends MainActivity {
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
         // [START custom_event]
         mTracker.send(new HitBuilders.EventBuilder()

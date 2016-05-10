@@ -28,6 +28,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.youtube.player.YouTubeIntents;
 
@@ -88,8 +89,8 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-
         intentItems = new ArrayList<TvListViewItem>();
         intentItems.add(new IntentItem("Κοινοβουλευτικό έργο", IntentType.KOINOVOULEUTIKO_ERGO));
         intentItems.add(new IntentItem("Συνάντηση", IntentType.SINANTISI));

@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.devbrackets.android.exomedia.EMVideoView;
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import gr.mobap.AnalyticsApplication;
@@ -35,8 +36,8 @@ public class LiveVideoActivity extends Activity {
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_video);
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();

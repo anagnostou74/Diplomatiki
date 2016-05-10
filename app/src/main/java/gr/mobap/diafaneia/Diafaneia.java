@@ -21,6 +21,9 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +32,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
@@ -114,6 +118,7 @@ public class Diafaneia extends MainActivity {
 
     // Hashmap for ListView
     ArrayList<HashMap<String, String>> dataList;
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +133,12 @@ public class Diafaneia extends MainActivity {
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        // [END shared_tracker]
 
         dataList = new ArrayList<HashMap<String, String>>();
         ListView lv = (ListView) findViewById(android.R.id.list);

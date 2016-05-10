@@ -25,7 +25,7 @@
         android:id="@+id/menu_share"
         android:icon="@drawable/ic_share_24dp"
         android:title="@string/menu_share"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/menu_fb"
         android:title="@string/menu_fb"
@@ -39,12 +39,17 @@
         android:id="@+id/action_peri"
         android:icon="@drawable/info"
         android:title="@string/peri"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_mobap"
+        android:icon="@drawable/ic_bookmark_border_24dp"
+        android:title="@string/mobap"
+        app:showAsAction="never" />
     <item
         android:id="@+id/menu_play"
-        android:icon="@drawable/ic_bookmark_border_24dp"
+        android:icon="@drawable/ic_store_24dp"
         android:title="@string/play"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
 </menu>
 

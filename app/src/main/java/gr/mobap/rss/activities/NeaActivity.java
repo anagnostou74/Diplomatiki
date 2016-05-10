@@ -12,15 +12,20 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import gr.mobap.AnalyticsApplication;
 import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
 import gr.mobap.rss.fragments.NeaFragment;
 
 public class NeaActivity extends MainActivity {
+    private Tracker mTracker;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,12 @@ public class NeaActivity extends MainActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        // [START shared_tracker]
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        // [END shared_tracker]
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
