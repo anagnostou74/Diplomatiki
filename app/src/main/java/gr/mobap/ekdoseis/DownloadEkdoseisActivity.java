@@ -67,9 +67,11 @@ public class DownloadEkdoseisActivity extends MainActivity {
             "Σύνταγμα του 1864",
             "Σύνταγμα του 1911",
             "Σύνταγμα του 1927",
-            "Σύνταγμα του 1952"
+            "Σύνταγμα του 1952",
+            "Κώδικας Δεοντολογίας των µελών του Ελληνικού Κοινοβουλίου"
     };
     public static final String[] descriptions = new String[]{
+            "pdf",
             "pdf",
             "pdf",
             "pdf",
@@ -103,6 +105,7 @@ public class DownloadEkdoseisActivity extends MainActivity {
             "pdf"
     };
     public static final Integer[] images = {
+            R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
@@ -289,6 +292,9 @@ public class DownloadEkdoseisActivity extends MainActivity {
                         break;
                     case 30:
                         pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn16.pdf";
+                        break;
+                    case 31:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kodikas-deonto.pdf";
                         break;
                     default:
                 }
