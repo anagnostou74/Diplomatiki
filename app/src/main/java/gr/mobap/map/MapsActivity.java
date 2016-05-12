@@ -1,5 +1,7 @@
 package gr.mobap.map;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -33,6 +35,9 @@ public class MapsActivity extends MainActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_maps);
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data = intent.getData();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -1,6 +1,7 @@
 package gr.mobap.rss.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -31,7 +32,9 @@ public class EktheseisEpActivity extends MainActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rss);
-
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data = intent.getData();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // [START shared_tracker]

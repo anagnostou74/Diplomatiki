@@ -49,6 +49,9 @@ public class SingleItemView extends MainActivity {
         super.onCreate(savedInstanceState);
         // Get the view from item_mps
         setContentView(R.layout.item_mps);
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data = intent.getData();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

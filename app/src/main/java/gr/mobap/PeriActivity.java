@@ -27,6 +27,9 @@ public class PeriActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_peri);
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data = intent.getData();
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();

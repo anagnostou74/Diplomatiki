@@ -1,6 +1,7 @@
 package gr.mobap.rss.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -40,6 +41,9 @@ public class NeaActivity extends MainActivity {
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data = intent.getData();
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {

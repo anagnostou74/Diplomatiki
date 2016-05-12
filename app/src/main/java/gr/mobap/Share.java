@@ -30,6 +30,9 @@ public class Share extends MainActivity {
                 .setAction("Share")
                 .build());
         // [END custom_event]
+        Intent intentb = getIntent();
+        String action = intentb.getAction();
+        Uri data = intentb.getData();
         String url = "https://play.google.com/store/apps/details?id=gr.mobap";
         String urlToShare = "Αξίζει να κατεβάσεις την εφαρμογή για να βλέπεις εργασίες που επηρεάζουν το δικό σου σήμερα " + url;
         Intent intent = new Intent(Intent.ACTION_SEND);

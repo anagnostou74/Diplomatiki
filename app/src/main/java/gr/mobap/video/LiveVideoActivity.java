@@ -6,8 +6,10 @@ package gr.mobap.video;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -40,6 +42,13 @@ public class LiveVideoActivity extends Activity {
         // [END shared_tracker]
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_video);
+
+        Uri data = this.getIntent().getData();
+        if (data != null && data.isHierarchical()) {
+            String uri = this.getIntent().getDataString();
+            Log.i("MyApp", "Deep link clicked " + uri);
+        }
+
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

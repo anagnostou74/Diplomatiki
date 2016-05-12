@@ -1,6 +1,7 @@
 package gr.mobap.images;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -126,6 +127,7 @@ public class Image extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_images);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -143,6 +145,10 @@ public class Image extends MainActivity {
         // [END shared_tracker]
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        Uri data2 = intent.getData();
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
