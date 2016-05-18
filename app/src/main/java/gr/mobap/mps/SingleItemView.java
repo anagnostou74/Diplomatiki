@@ -130,8 +130,8 @@ public class SingleItemView extends MainActivity {
                 i.putExtra(Intent.EXTRA_EMAIL,
                         new String[]{to});
                 i.putExtra(Intent.EXTRA_SUBJECT,
-                        getString(R.string.sxetika_mail));
-                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_me));
+                        getString(R.string.mps_mail));
+                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_mps));
                 try {
                     startActivity(Intent.createChooser(i,
                             getString(R.string.apostoli)));
