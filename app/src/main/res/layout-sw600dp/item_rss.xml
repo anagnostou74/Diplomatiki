@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
-            android:background="@mipmap/ic_splash"
+            android:background="@mipmap/ic_splash_xxxhdpi"
             android:contentDescription="@string/photos"
             android:scaleType="centerCrop" />
 
