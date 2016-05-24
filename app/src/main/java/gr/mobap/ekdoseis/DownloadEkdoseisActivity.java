@@ -26,6 +26,10 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,6 +72,12 @@ public class DownloadEkdoseisActivity extends MainActivity {
             "Σύνταγμα του 1911",
             "Σύνταγμα του 1927",
             "Σύνταγμα του 1952",
+            "Κανονισμός της Βουλής, Μέρος Α'",
+            "Ρυθμίσεις 2011 του Κανονισμού της Βουλής, Μέρος Α'",
+            "Κανονισμός της Βουλής, Μέρος Β'",
+            "Ρυθμίσεις 2014 του Κανονισμού της Βουλής, Μέρος Β'",
+            "Ρυθμίσεις 2015 του Κανονισμού της Βουλής, Μέρος Β'",
+            "Ρυθμίσεις 2016 του Κανονισμού της Βουλής, Μέρος Β'",
             "Κώδικας Δεοντολογίας των µελών του Ελληνικού Κοινοβουλίου"
     };
     public static final String[] descriptions = new String[]{
@@ -102,9 +112,21 @@ public class DownloadEkdoseisActivity extends MainActivity {
             "pdf",
             "pdf",
             "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
+            "pdf",
             "pdf"
     };
     public static final Integer[] images = {
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
@@ -261,7 +283,7 @@ public class DownloadEkdoseisActivity extends MainActivity {
                         pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Kasimatis.pdf";
                         break;
                     case 20:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/%CE%A0%CF%81%CE%BF%CE%AD%CE%B4%CF%81%CE%BF%CE%B9.pdf";
+                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Προέδροι.pdf";
                         break;
                     case 21:
                         pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn04a.pdf";
@@ -294,6 +316,24 @@ public class DownloadEkdoseisActivity extends MainActivity {
                         pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn16.pdf";
                         break;
                     case 31:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kanonismos-Thematiko-syntagma-2010.pdf";
+                        break;
+                    case 32:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/Kanonismos-Prosthiki.pdf";
+                        break;
+                    case 33:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/20140121ktv_pB_v11.pdf";
+                        break;
+                    case 34:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2014-12-24_267-A.pdf";
+                        break;
+                    case 35:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2015-11-09_144-A.pdf";
+                        break;
+                    case 36:
+                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2016-04-18_67_A.pdf";
+                        break;
+                    case 37:
                         pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kodikas-deonto.pdf";
                         break;
                     default:
@@ -331,8 +371,9 @@ public class DownloadEkdoseisActivity extends MainActivity {
     public void downloadAndOpenPDF(final Context context, final String pdfUrl) {
 // Get filename
         final String filename = pdfUrl.substring(pdfUrl.lastIndexOf("/") + 1);
+        final String decoded = Uri.decode(filename); //handles spaces at filename
 // The place where the downloaded PDF file will be put
-        final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
+        final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), decoded);
         // If we have downloaded the file before, just go ahead and show it(if its cached)
         if (tempFile.exists()) {
             openPDF(context, Uri.fromFile(tempFile));
@@ -344,7 +385,7 @@ public class DownloadEkdoseisActivity extends MainActivity {
 
         // Create the download request
         DownloadManager.Request r = new DownloadManager.Request(Uri.parse(pdfUrl));
-        r.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, filename);
+        r.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, decoded);
         final DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         //Broadcast receiver for when downloading the PDF is complete
         BroadcastReceiver onComplete = new BroadcastReceiver() {
