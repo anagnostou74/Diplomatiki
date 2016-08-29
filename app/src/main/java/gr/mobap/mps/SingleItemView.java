@@ -42,6 +42,7 @@ public class SingleItemView extends MainActivity {
     String address;
     String site;
     String email;
+    String phone;
     MpsImageLoader mpsImageLoader = new MpsImageLoader(this);
 
     @Override
@@ -91,6 +92,7 @@ public class SingleItemView extends MainActivity {
         address = i.getStringExtra("address");
         site = i.getStringExtra("site");
         email = i.getStringExtra("email");
+        phone = i.getStringExtra("phone");
 
         // Locate the ImageView in item_mps
         ImageView imgflag = (ImageView) findViewById(R.id.flag);
@@ -141,6 +143,23 @@ public class SingleItemView extends MainActivity {
             }
         });
 
+        final TextView txtphone = (TextView) findViewById(R.id.phone);
+        txtphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // [START custom_event]
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("CallMps")
+                        .build());
+                // [END custom_event]
+                String po = txtphone.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", po, null));
+                startActivity(intent);
+            }
+        });
+
+
         // Set results to the TextViews
         //txtrank.setText(rank);
         txtepitheto.setText(epitheto);
@@ -160,6 +179,7 @@ public class SingleItemView extends MainActivity {
         txtaddress.setText(address);
         txtsite.setText(site);
         txtemail.setText(email);
+        txtphone.setText(phone);
 
         // Capture position and set results to the ImageView
         // Passes flag images URL into MpsImageLoader.class

@@ -53,6 +53,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView address;
         TextView site;
         TextView email;
+        TextView phone;
         ImageView flag;
     }
 
@@ -94,6 +95,7 @@ public class ListViewAdapter extends BaseAdapter {
             holder.address = (TextView) view.findViewById(R.id.address);
             holder.site = (TextView) view.findViewById(R.id.site);
             holder.email = (TextView) view.findViewById(R.id.email);
+            holder.phone = (TextView) view.findViewById(R.id.phone);
             // Locate the ImageView in listview_mps_item.xml.xml
             holder.flag = (ImageView) view.findViewById(R.id.flag);
             view.setTag(holder);
@@ -147,6 +149,7 @@ public class ListViewAdapter extends BaseAdapter {
                 intent.putExtra("address", (worldpopulationlist.get(position).getAddress()));
                 intent.putExtra("site", (worldpopulationlist.get(position).getSite()));
                 intent.putExtra("email", (worldpopulationlist.get(position).getEmail()));
+                intent.putExtra("phone", (worldpopulationlist.get(position).getPhone()));
                 intent.putExtra("flag", (worldpopulationlist.get(position).getFlag()));
 
                 // Start SingleItemView Class

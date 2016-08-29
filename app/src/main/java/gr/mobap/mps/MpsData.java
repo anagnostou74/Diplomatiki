@@ -20,6 +20,7 @@ public class MpsData {
 	private String address;
 	private String site;
 	private String email;
+	private String phone;
 
 	public String getFlag() {
 		return flag;
@@ -96,6 +97,10 @@ public class MpsData {
 		return email;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
 
 	public void setRank(String rank) {
 		this.rank = rank;
@@ -167,6 +172,9 @@ public class MpsData {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public void setFlag(String flag) {
 		this.flag = flag;
