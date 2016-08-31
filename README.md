@@ -1,11 +1,14 @@
 # Parliament
+
+<a href='https://play.google.com/store/apps/details?id=gr.mobap&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='undefined' src='https://play.google.com/intl/en_us/badges/images/generic/el_badge_web_generic.png'/></a>
+
 <b>«Πολυμεσική εφαρμογή για το Ελληνικό Κοινοβούλιο σε κινητές συσκευές»</b>
 
 <b>© ΕΑΠ, 2015</b>
 
 An android app for Hellenic Parliament 
 
-  by Anagnostou Konstantinos.
+  <a href='http://www.mobap.gr/employees/anagnostou'by Anagnostou Konstantinos.></a>
   
 A thesis for Hellenic Open University. School of Applied Arts / Graphic Arts - Multimedia MA
 
@@ -34,10 +37,6 @@ Supervisor Β’: Modestos Stavrakis, Researcher/Lecturer, Department of Product
 <b>Αλληλεπιδράστε με Tweets από επίσημους λογαριασμούς φορέων και πολιτικών στο Twitter, και πολλά άλλα!</b>
 
 Η παρούσα εφαρμογή αποτελεί κομμάτι διατριβής, η οποία εκπονήθηκε στα πλαίσια της ΘΕ ΠΛΗ40, και τα λοιπά αποτελέσματα της αντίστοιχης Διπλωματικής Εργασίας (ΔΕ) αποτελούν συνιδιοκτησία του ΕΑΠ και του φοιτητή, ο καθένας από τους οποίους έχει το δικαίωμα ανεξάρτητης χρήσης και αναπαραγωγής τους (στο σύνολο ή τμηματικά) για διδακτικούς και ερευνητικούς σκοπούς, σε κάθε περίπτωση αναφέροντας τον τίτλο και το συγγραφέα και το ΕΑΠ όπου εκπονήθηκε η ΔΕ καθώς και τον επιβλέποντα και την επιτροπή κρίσης.
-
-Αναγνώστου Κωνσταντίνος, δημιουργός, μεταπτυχιακός φοιτητής
-Επιβλέπων Α’, Στυλιαράς Γεώργιος, Αναπληρωτής Καθηγητής, Τμήμα Διαχείρισης Πολιτισμικού Περιβάλλοντος και Νέων Τεχνολογιών Πανεπιστήμιο Πατρών
-Επιβλέπων Β’, Μοδέστος Σταυράκης, Ερευνητής / Λέκτορας, Τμήμα Μηχανικών Σχεδίασης Προϊόντων και Συστημάτων Πανεπιστήμιο Αιγαίου
 
 Η ποικιλία των τηλεφώνων με λειτουργικό Android και η διασπορά των εκδόσεων του συγκεκριμένου λειτουργικού μπορεί να επιφέρει αλλαγές στο περιβάλλον της εφαρμογής. Για οποιοδήποτε πρόβλημα, παρακαλώ, στείλε μου μήνυμα.
 
