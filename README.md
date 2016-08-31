@@ -65,3 +65,9 @@ Supervisor Β’: Modestos Stavrakis, Researcher/Lecturer, Department of Product
   *Heroku
   
   *CleverTap Notifications
+  
+  
+ <i><b> Για λόγους ασφαλείας ορισμένα αρχεία έχουν σταματήσει να ενημερώνονται στο GitHub. Είμαι στη διάθεση κάθε ενδιαφερόμενου που θέλει να δουλέψει με τον κώδικα και να τρέξει την εφαρμογή.</i></b>
+  
+  
+  
