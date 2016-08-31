@@ -1,9 +1,12 @@
 # Parliament
 <b>«Πολυμεσική εφαρμογή για το Ελληνικό Κοινοβούλιο σε κινητές συσκευές»</b>
+
 <b>© ΕΑΠ, 2015</b>
 
 An android app for Hellenic Parliament 
+
   by Anagnostou Konstantinos.
+  
 A thesis for Hellenic Open University.
 School of Applied Arts /
 Graphic Arts - Multimedia MA
