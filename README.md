@@ -1,6 +1,6 @@
 # Περί Βουλής
 
-<a href='https://play.google.com/store/apps/details?id=gr.mobap&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target='_blank'><img alt='undefined' src='https://play.google.com/intl/en_us/badges/images/generic/el_badge_web_generic.png'/></a>
+<a href='https://play.google.com/store/apps/details?id=gr.mobap&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='undefined' src='https://play.google.com/intl/en_us/badges/images/generic/el_badge_web_generic.png'/></a>
 
 <b>«Πολυμεσική εφαρμογή για το Ελληνικό Κοινοβούλιο σε κινητές συσκευές»</b>
 
@@ -8,7 +8,7 @@
 
 An android app for Hellenic Parliament 
 
-  <a href='http://www.mobap.gr/employees/anagnostou' target='_blank'>by Anagnostou Konstantinos.</a>
+  <a href='http://www.mobap.gr/employees/anagnostou' target="_blank">by Anagnostou Konstantinos.</a>
   
 A thesis for Hellenic Open University. School of Applied Arts / Graphic Arts - Multimedia MA
 
