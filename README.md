@@ -8,7 +8,7 @@
 
 An android app for Hellenic Parliament 
 
-  <a href='http://www.mobap.gr/employees/anagnostou'by Anagnostou Konstantinos.></a>
+  <a href='http://www.mobap.gr/employees/anagnostou'>by Anagnostou Konstantinos.</a>
   
 A thesis for Hellenic Open University. School of Applied Arts / Graphic Arts - Multimedia MA
 
