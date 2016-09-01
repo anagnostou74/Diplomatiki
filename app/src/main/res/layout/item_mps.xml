@@ -220,7 +220,9 @@
                         android:id="@+id/address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="3dp" />
+                        android:layout_margin="3dp"
+                        android:drawableLeft="@drawable/address"
+                        android:drawablePadding="3dp" />
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
@@ -237,6 +239,7 @@
                         android:clickable="true"
                         android:drawableLeft="@drawable/web"
                         android:drawablePadding="3dp"
+                        android:gravity="center"
                         android:textStyle="bold|italic" />
                 </android.support.v7.widget.CardView>
 
@@ -254,6 +257,7 @@
                         android:clickable="true"
                         android:drawableLeft="@drawable/mail_mp"
                         android:drawablePadding="3dp"
+                        android:gravity="center"
                         android:textStyle="bold|italic" />
                 </android.support.v7.widget.CardView>
 
@@ -271,6 +275,7 @@
                         android:clickable="true"
                         android:drawableLeft="@drawable/phone"
                         android:drawablePadding="3dp"
+                        android:gravity="center"
                         android:textStyle="bold|italic" />
                 </android.support.v7.widget.CardView>
             </LinearLayout>

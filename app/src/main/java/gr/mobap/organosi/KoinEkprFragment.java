@@ -107,6 +107,7 @@ public class KoinEkprFragment extends Fragment {
                     map.setAddress((String) mps.get("Address"));
                     map.setSite((String) mps.get("Site"));
                     map.setEmail((String) mps.get("Email"));
+                    map.setPhone((String) mps.get("Phone"));
                     map.setFlag(imageLoader.getUrl());
                     worldpopulationlist.add(map);
                 }
