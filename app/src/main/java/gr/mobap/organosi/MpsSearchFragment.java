@@ -106,7 +106,7 @@ public class MpsSearchFragment extends Fragment {
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("mps");
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
-                query.orderByAscending("Rank");
+                query.orderByAscending("Epitheto");
                 query.whereContains("Perifereia", s);
                 ob = query.find();
                 for (ParseObject mps : ob) {
