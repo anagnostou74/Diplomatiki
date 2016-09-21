@@ -48,14 +48,16 @@
                     android:layout_height="10dp"
                     android:background="@drawable/shadow" />
 
-
                 <ListView
                     android:id="@id/android:list"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:divider="@color/divider_gray"
-                    android:dividerHeight="@dimen/divider_height" />
+                    android:clipToPadding="false"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="16dp"
+                    android:padding="15dp"
+                    android:scrollbarStyle="outsideOverlay" />
 
                 <ScrollView
                     android:id="@id/android:empty"

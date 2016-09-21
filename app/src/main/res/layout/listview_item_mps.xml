@@ -13,14 +13,16 @@
             android:id="@+id/epitheto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/flag" />
+            android:layout_toRightOf="@+id/flag"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/onoma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/epitheto"
-            android:paddingLeft="2dp" />
+            android:paddingLeft="2dp"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/titlos"

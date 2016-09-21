@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     tools:context=".youtube.IntentsTvActivity">
 
@@ -16,10 +16,10 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            app:logo="@mipmap/ic_launcher"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/AppTheme.PopupOverlay" />
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:logo="@mipmap/ic_launcher" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -50,7 +50,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="22dp" />
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="16dp"
+            android:padding="22dp"
+            android:paddingBottom="8dp"
+            android:scrollbarStyle="outsideOverlay" />
 
         <TextView
             android:id="@+id/youtube_version_text"

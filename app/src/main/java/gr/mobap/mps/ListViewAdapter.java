@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,8 +122,8 @@ public class ListViewAdapter extends BaseAdapter {
 //        holder.site.setText(worldpopulationlist.get(position).getSite());
 //        holder.email.setText(worldpopulationlist.get(position).getEmail());
         // Set the results into ImageView
-        mpsImageLoader.DisplayImage(worldpopulationlist.get(position).getFlag(), holder.flag);
-        //Glide.with(context.getApplicationContext()).load(worldpopulationlist.get(position).getFlag()).dontAnimate().into(holder.flag);
+        //mpsImageLoader.DisplayImage(worldpopulationlist.get(position).getFlag(), holder.flag);
+        Glide.with(context.getApplicationContext()).load(worldpopulationlist.get(position).getFlag()).dontAnimate().into(holder.flag);
 
         // Listen for ListView Item Click
         view.setOnClickListener(new OnClickListener() {

@@ -98,6 +98,12 @@ public class TwitterCoreMainActivity extends MainActivity {
     //}
 
     @Override
+    public void onBackPressed() {
+        Intent i = new Intent(TwitterCoreMainActivity.this, TimelineActivity.class);
+        startActivity(i);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Pass the activity result to the saveSession button.
