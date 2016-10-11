@@ -4,7 +4,11 @@
     <item android:title="@string/app_name">
         <menu>
             <item
-                android:id="@+id/nav_vouli"
+                android:id="@+id/nav_home"
+                android:icon="@drawable/nav_home"
+                android:title="@string/nav_home" />
+            <item
+                android:id="@+id/nav_thesmos"
                 android:icon="@drawable/thesmos"
                 android:title="@string/thesmos" />
             <item

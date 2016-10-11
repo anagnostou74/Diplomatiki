@@ -1,7 +1,5 @@
-package gr.mobap.organosi;
+package gr.mobap;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -21,41 +19,49 @@ import com.google.android.gms.analytics.Tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-import gr.mobap.AnalyticsApplication;
-import gr.mobap.MainActivity;
-import gr.mobap.R;
+import gr.mobap.vouli.ElegxosFragment;
+import gr.mobap.vouli.EpitropesFragment;
+import gr.mobap.vouli.KtirioFragment;
+import gr.mobap.vouli.NomoFragment;
+import gr.mobap.vouli.SyntagmaFragment;
+import gr.mobap.vouli.ThesmosFragment;
 
-public class OrganosiActivity extends MainActivity {
+public class Thesmos extends MainActivity {
+
     private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thesmos);
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        Uri data = intent.getData();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        // When the visible image changes, send a screen view hit.
         setupViewPager(viewPager);
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        // [START screen_view_hit]
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        // [END screen_view_hit]
     }
-
 
     @Override
     public void onBackPressed() {
@@ -76,14 +82,16 @@ public class OrganosiActivity extends MainActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ProedrosFragment(), getString(R.string.proedros));
-        adapter.addFrag(new AntiProedroiFragment(), getString(R.string.antiproedroi));
-        adapter.addFrag(new GrammateisFragment(), getString(R.string.grammateis));
-        adapter.addFrag(new KosmitoresFragment(), getString(R.string.kosmitores));
+        adapter.addFrag(new ThesmosFragment(), getString(R.string.thesmos));
+        adapter.addFrag(new NomoFragment(), getString(R.string.nomo));
+        adapter.addFrag(new ElegxosFragment(), getString(R.string.elegxos));
+        adapter.addFrag(new KtirioFragment(), getString(R.string.ktirio));
+        adapter.addFrag(new SyntagmaFragment(), getString(R.string.syntagma));
+        adapter.addFrag(new EpitropesFragment(), getString(R.string.epitropes));
         viewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -111,4 +119,5 @@ public class OrganosiActivity extends MainActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
 }

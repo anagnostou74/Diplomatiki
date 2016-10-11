@@ -52,13 +52,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/title"
@@ -70,7 +68,7 @@
                     android:text="@string/organosi"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
             </android.support.v7.widget.CardView>
@@ -80,13 +78,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView"
@@ -98,8 +94,8 @@
                     android:text="@string/komma"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -107,13 +103,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -125,8 +119,8 @@
                     android:text="@string/simera"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -134,13 +128,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -152,23 +144,21 @@
                     android:text="@string/ekdoseis"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/main9"
+                app:layout_columnSpan="2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
-                app:layout_columnSpan="2"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView8"
@@ -180,8 +170,8 @@
                     android:text="@string/diafaneia"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -190,10 +180,10 @@
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -205,8 +195,8 @@
                     android:text="@string/photos"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -214,13 +204,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView5"
@@ -231,10 +219,10 @@
                     android:gravity="center_vertical"
                     android:text="@string/nav_live_ena"
                     android:textAlignment="center"
-                    android:textAllCaps="false"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textSize="22dp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -242,13 +230,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView6"
@@ -260,8 +246,8 @@
                     android:text="@string/deltia"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -269,13 +255,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/card_margin"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/textView7"
@@ -287,8 +271,8 @@
                     android:text="@string/twitter"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="22sp" />
             </android.support.v7.widget.CardView>
 
         </android.support.v7.widget.GridLayout>

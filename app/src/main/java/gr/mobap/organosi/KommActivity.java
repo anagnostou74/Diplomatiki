@@ -34,7 +34,7 @@ public class KommActivity extends MainActivity {
         Intent intent = getIntent();
         String action = intent.getAction();
         Uri data = intent.getData();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_thesmos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);

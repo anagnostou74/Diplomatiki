@@ -106,12 +106,14 @@ public class Diafaneia extends MainActivity {
     private static final String TAG_SEC_HP_TITLE = "Title";
     private static final String TAG_FinalSigner = "FinalSigner";
     private static final String TAG_FSIGNER_ID = "ID";
+    private static final String TAG_SINFO = "FinalSigner";
     private static final String TAG_FSIGNER_FULLNAME = "Fullname";
     private static final String TAG_FSIGNER_INFO = "Info";
     private static final String TAG_FSIGNER_CleanUrl = "CleanUrl";
     private static final String TAG_ProtocolService = "ProtocolService";
     private static final String TAG_PROT_ID = "ID";
     private static final String TAG_PROT_TITLE = "Title";
+    private static final String TAG_IPI = "Sector";
 
     // data JSONArray
     JSONArray data = null;
@@ -144,7 +146,7 @@ public class Diafaneia extends MainActivity {
         // [END shared_tracker]
 
         dataList = new ArrayList<HashMap<String, String>>();
-        ListView lv = (ListView) findViewById(android.R.id.list);
+        ListView lv = (ListView) findViewById(R.id.listdiaf);
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
@@ -202,7 +204,6 @@ public class Diafaneia extends MainActivity {
 
         }
 
-        @Override
         protected Void doInBackground(Void... arg0) {
             // Creating service handler class instance
             ServiceHandler sh = new ServiceHandler();
@@ -227,7 +228,6 @@ public class Diafaneia extends MainActivity {
                     // looping through All Data
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject c = data.getJSONObject(i);
-
                         String id = c.getString(TAG_ID);
                         String clean_url = c.getString(TAG_CLEAN_URL);
                         String ada = c.getString(TAG_ADA);
@@ -296,19 +296,25 @@ public class Diafaneia extends MainActivity {
                             String docHpTitle = docHp.getJSONObject(j).optString(TAG_DOC_HP_TITLE);
                         }
 
-                        // TAG_Sector node is JSON Object
-                        JSONObject sector = c.getJSONObject(TAG_Sector);
-                        String secId = sector.getString(TAG_SEC_ID);
-                        String secTitle = sector.getString(TAG_SEC_TITLE);
-                        String secPar = sector.getString(TAG_SEC_PARSECTOR);
-                        String securl = sector.getString(TAG_SEC_CleanUrl);
+                        String secId;
+                        String secTitle;
+                        String secPar;
+                        String securl;
+                        try {
+                            secId = c.getJSONObject(TAG_Sector).getString(TAG_SEC_ID);
+                            secTitle = c.getJSONObject(TAG_Sector).getString(TAG_SEC_TITLE);
+                            secPar = c.getJSONObject(TAG_Sector).getString(TAG_SEC_PARSECTOR);
+                            securl = c.getJSONObject(TAG_Sector).getString(TAG_SEC_CleanUrl);
 
-                        JSONArray secHp = new JSONArray(data.getJSONObject(i).getJSONObject(TAG_Sector).optString(TAG_SEC_HierarchyPath));
-                        for (int j = 0; j < secHp.length(); j++) {
-                            String secHpId = secHp.getJSONObject(j).optString(TAG_SEC_HP_ID);
-                            String secHptitle = secHp.getJSONObject(j).optString(TAG_SEC_HP_TITLE);
+                            //JSONArray secHp = new JSONArray(data.getJSONObject(i).getJSONObject(TAG_Sector).optString(TAG_SEC_HierarchyPath));
+                            //for (int j = 0; j < secHp.length(); j++) {
+                            //    String secHpId = secHp.getJSONObject(j).optString(TAG_SEC_HP_ID);
+                            //    String secHptitle = secHp.getJSONObject(j).optString(TAG_SEC_HP_TITLE);
+
+
+                        } catch (Exception e) {
+                            secTitle = "Δεν ορίστηκε";
                         }
-
                         // TAG_FinalSigner node is JSON Object
                         JSONObject fsigner = c.getJSONObject(TAG_FinalSigner);
                         String fsignerId = fsigner.getString(TAG_FSIGNER_ID);
@@ -328,14 +334,16 @@ public class Diafaneia extends MainActivity {
                             String protocolSerTitle = prot.getString(TAG_PROT_TITLE);
                         }
 
+                        String ipi = getString(R.string.ipiresia);
+                        String sinfo = getString(R.string.sinfo);
                         // tmp hashmap for single data
                         HashMap<String, String> data = new HashMap<String, String>();
-
-                        // adding each child node to HashMap key => value
-                        data.put(TAG_Subject, "Τίτλος: " + subject);
+                        data.put(TAG_Subject, subject);
                         data.put(TAG_Att_FilePath, attFile);
-                        data.put(TAG_SEC_TITLE, "Υπηρεσία / Φορέας\n" + secTitle);
-                        data.put(TAG_FSIGNER_INFO, "Τελικός Υπογράφων\n" + fsignerInfo);
+                        data.put(TAG_IPI, ipi);
+                        data.put(TAG_SEC_TITLE, secTitle);
+                        data.put(TAG_FSIGNER_INFO, sinfo);
+                        data.put(TAG_SINFO, fsignerInfo);
                         data.put(TAG_FSIGNER_FULLNAME, fsignerName);
 
                         // adding data to data list
@@ -364,10 +372,10 @@ public class Diafaneia extends MainActivity {
                     Diafaneia.this,
                     dataList,
                     R.layout.diafaneia_list_item,
-                    new String[]{TAG_Subject, TAG_Att_FilePath, TAG_SEC_TITLE, TAG_FSIGNER_INFO, TAG_FSIGNER_FULLNAME},
-                    new int[]{R.id.subject, R.id.file, R.id.sec_title, R.id.sinfo, R.id.signer});
+                    new String[]{TAG_Subject, TAG_Att_FilePath, TAG_IPI, TAG_SEC_TITLE, TAG_FSIGNER_INFO, TAG_SINFO, TAG_FSIGNER_FULLNAME},
+                    new int[]{R.id.subject, R.id.file, R.id.ipiresia, R.id.sec_title, R.id.sinfo, R.id.signer, R.id.signer_full});
             //dataList.setAdapter(adapter);
-            ListView lv = (ListView) findViewById(android.R.id.list);
+            ListView lv = (ListView) findViewById(R.id.listdiaf);
             lv.setAdapter(adapter);
         }
 
