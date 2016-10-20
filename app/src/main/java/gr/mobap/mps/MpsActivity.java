@@ -13,15 +13,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
-import gr.mobap.MainActivity;
+import gr.mobap.Base;
 import gr.mobap.R;
 import gr.mobap.mps.fragments.AnelFragment;
 import gr.mobap.mps.fragments.AnexFragment;
@@ -33,11 +40,11 @@ import gr.mobap.mps.fragments.PotamiFragment;
 import gr.mobap.mps.fragments.SyrizaFragment;
 import gr.mobap.mps.fragments.XaFragment;
 
-public class MpsActivity extends MainActivity {
+public class MpsActivity extends Base {
     private Tracker mTracker;
     Integer actionBarHeight = null;
     private TabLayout tabLayout;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     private int[] tabIcons = {
             R.drawable.syriza,
             R.drawable.nd,
@@ -49,10 +56,20 @@ public class MpsActivity extends MainActivity {
             R.drawable.enosi,
             R.drawable.anex
     };
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_mps);
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -87,6 +104,9 @@ public class MpsActivity extends MainActivity {
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     private void setupTabIcons() {
@@ -100,6 +120,7 @@ public class MpsActivity extends MainActivity {
         tabLayout.getTabAt(7).setIcon(tabIcons[7]);
         tabLayout.getTabAt(8).setIcon(tabIcons[8]);
     }
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new SyrizaFragment(), getString(R.string.syriza));
@@ -112,6 +133,42 @@ public class MpsActivity extends MainActivity {
         adapter.addFrag(new EnosiFragment(), getString(R.string.enke));
         adapter.addFrag(new AnexFragment(), getString(R.string.aneksartitoi));
         viewPager.setAdapter(adapter);
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Mps Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://www.mobap.gr/mpsactivity"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {

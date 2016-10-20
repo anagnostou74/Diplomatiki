@@ -13,8 +13,9 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.util.List;
 
-public class Share extends MainActivity {
+public class Share extends Base {
     private Tracker mTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

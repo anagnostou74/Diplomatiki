@@ -8,6 +8,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,14 +17,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import gr.mobap.AnalyticsApplication;
-import gr.mobap.MainActivity;
+import gr.mobap.Base;
 import gr.mobap.R;
 
-public class SingleItemView extends MainActivity {
-    private Tracker mTracker;
-    // Declare Variables
+public class SingleItemView extends Base {
     String rank;
     String flag;
     String position;
@@ -45,11 +46,17 @@ public class SingleItemView extends MainActivity {
     String email;
     String phone;
     MpsImageLoader mpsImageLoader = new MpsImageLoader(this);
+    private Tracker mTracker;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
-        // Get the view from item_mps
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.item_mps);
         Intent intent = getIntent();
         String action = intent.getAction();

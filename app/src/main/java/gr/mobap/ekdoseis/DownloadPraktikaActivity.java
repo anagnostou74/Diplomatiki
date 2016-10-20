@@ -18,23 +18,31 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
-import gr.mobap.MainActivity;
+import gr.mobap.Base;
 import gr.mobap.R;
 
 
-public class DownloadPraktikaActivity extends MainActivity {
+public class DownloadPraktikaActivity extends Base {
+    private FirebaseAnalytics mFirebaseAnalytics;
     // Defined Array values to show in ListView
     public static final String[] titles = new String[]{
             "Ι ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
@@ -83,6 +91,11 @@ public class DownloadPraktikaActivity extends MainActivity {
     List<RowItem> rowItems;
     private String TAG = "RegsActivity", pdfURL;
     private Tracker mTracker;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     /**
      * functoin to open the PDF using an Intent
@@ -98,7 +111,12 @@ public class DownloadPraktikaActivity extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Intent intent = getIntent();
         String action = intent.getAction();
         Uri data = intent.getData();
@@ -196,6 +214,9 @@ public class DownloadPraktikaActivity extends MainActivity {
             }
         });
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     //method to write the PDFs file to sd card under a PDF directory.
@@ -255,5 +276,41 @@ public class DownloadPraktikaActivity extends MainActivity {
 
         // Enqueue the request
         dm.enqueue(r);
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("DownloadPraktika Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://www.mobap.gr/downloadpraktikaactivity"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 }

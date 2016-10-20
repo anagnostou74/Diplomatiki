@@ -24,6 +24,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -31,21 +33,27 @@ import android.widget.TextView;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.youtube.player.YouTubeIntents;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
-import gr.mobap.MainActivity;
+import gr.mobap.Base;
 import gr.mobap.R;
 
 /**
  * A sample activity which shows how to use the {@link YouTubeIntents} static methods to create
  * Intents that navigate the user to Activities within the main YouTube application.
  */
-public final class IntentsTvActivity extends MainActivity implements OnItemClickListener {
+public final class IntentsTvActivity extends Base implements OnItemClickListener {
     private Tracker mTracker;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     private static final String KOINOVOULEUTIKO_ERGO = "PLlLw1tG9H3CWmGoCIlvgCmD9zbRITix4V";
     private static final String SINANTISI = "PLlLw1tG9H3CWeAtiRC7qnZlfmyAYf3FOT";
@@ -69,10 +77,20 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
     private static final int SELECT_VIDEO_REQUEST = 1000;
 
     private List<TvListViewItem> intentItems;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        //fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_youtube);
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -129,6 +147,9 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
         } else {
             youTubeVersionText.setText(getString(R.string.youtube_not_installed));
         }
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public boolean isIntentTypeEnabled(IntentType type) {
@@ -262,7 +283,7 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent returnedIntent) {
+    public void onActivityResult(int requestCode, int resultCode, Intent returnedIntent) {
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case SELECT_VIDEO_REQUEST:
@@ -272,6 +293,42 @@ public final class IntentsTvActivity extends MainActivity implements OnItemClick
             }
         }
         super.onActivityResult(requestCode, resultCode, returnedIntent);
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("IntentsTv Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://www.mobap.gr/intentstvactivity"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 
     private enum IntentType {
