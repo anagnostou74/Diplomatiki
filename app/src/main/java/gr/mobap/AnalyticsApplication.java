@@ -2,10 +2,9 @@ package gr.mobap;
 
 import android.app.Application;
 import android.os.Environment;
-
-import com.clevertap.android.sdk.ActivityLifecycleCallback;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.onesignal.OneSignal;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseUser;
@@ -23,9 +22,8 @@ public class AnalyticsApplication extends Application {
 
     @Override
     public void onCreate() {
-        ActivityLifecycleCallback.register(this);
         super.onCreate();
-
+        OneSignal.startInit(this).init();
         Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
                 .applicationId("JQLmtUO2gtFqtsTqFg6otK8KCZ0lXE") //TODO αλλαγή κωδικών
                 .clientKey(null).server("http://hellenicparliament.herokuapp.com/parse/") // The trailing slash is important.
@@ -91,8 +89,9 @@ public class AnalyticsApplication extends Application {
         if (mTracker == null) {
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
             // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
-            mTracker = analytics.newTracker(R.xml.global_tracker);
+            mTracker = analytics.newTracker(R.xml.app_tracker);
         }
         return mTracker;
     }
 }
+

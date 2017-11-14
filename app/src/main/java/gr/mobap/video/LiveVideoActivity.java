@@ -4,7 +4,6 @@ package gr.mobap.video;
 // http://streamer-cache.grnet.gr/parliament/hls/webtv2.m3u8
 // http://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,11 +17,11 @@ import android.widget.Toast;
 import com.devbrackets.android.exomedia.EMVideoView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.appindexing.Action;
+import com.google.firebase.appindexing.FirebaseAppIndex;
+import com.google.firebase.appindexing.FirebaseUserActions;
+import com.google.firebase.appindexing.builders.Actions;
 
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.AndroidNetworkUtility;
@@ -34,11 +33,6 @@ public class LiveVideoActivity extends AppCompatActivity {
     protected boolean pausedInOnStop = false;
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,38 +74,31 @@ public class LiveVideoActivity extends AppCompatActivity {
                 }
             }, 1000); // wait for 1 second
         }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public Action getAction() {
+        return Actions.newView("LiveVideo Page", "http://www.mobap.gr/livevideoactivity");
     }
 
     @Override
     protected void onStop() {
-        super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        FirebaseUserActions.getInstance().end(getAction());
+        super.onStop();
         if (emVideoView.isPlaying()) {
             pausedInOnStop = true;
             emVideoView.pause();
         }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.disconnect();
     }
 
     @Override
     protected void onStart() {
-        super.onStart();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-
+        super.onStart();
         if (pausedInOnStop) {
             emVideoView.start();
             pausedInOnStop = false;
         }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+        FirebaseAppIndex.getInstance().update();
+        FirebaseUserActions.getInstance().start(getAction());
     }
 
     @Override
@@ -128,21 +115,5 @@ public class LiveVideoActivity extends AppCompatActivity {
         emVideoView.getCurrentPosition();
         emVideoView.startProgressPoll();
         emVideoView.start();
-    }
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("LiveVideo Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
     }
 }

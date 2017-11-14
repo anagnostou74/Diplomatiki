@@ -8,64 +8,34 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.appindexing.Action;
+import com.google.firebase.appindexing.FirebaseAppIndex;
+import com.google.firebase.appindexing.FirebaseUserActions;
+import com.google.firebase.appindexing.builders.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
-import gr.mobap.MainActivity;
 import gr.mobap.R;
-import gr.mobap.diafaneia.Diafaneia;
-import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
-import gr.mobap.ekdoseis.DownloadPraktikaActivity;
-import gr.mobap.images.Image;
-import gr.mobap.mps.MpsActivity;
-import gr.mobap.organosi.KommActivity;
-import gr.mobap.organosi.OrganosiActivity;
-import gr.mobap.rss.activities.DrastActivity;
-import gr.mobap.rss.activities.EktheseisEpActivity;
-import gr.mobap.rss.activities.EleghosActivity;
-import gr.mobap.rss.activities.NeaActivity;
-import gr.mobap.rss.activities.NsKatActivity;
-import gr.mobap.rss.activities.NsPsActivity;
-import gr.mobap.rss.activities.SinEpActivity;
-import gr.mobap.twitter.TimelineActivity;
-import gr.mobap.video.LiveVideoActivity;
-import gr.mobap.video.LiveVideoDioActivity;
-import gr.mobap.vouli.Thesmos;
-import gr.mobap.web.SindesmoiActivity;
-import gr.mobap.youtube.IntentsTvActivity;
 
-public class HmerolActivity extends Base{
+public class HmerolActivity extends Base {
     /**
      * The {@link Tracker} used to record screen views.
      */
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +75,6 @@ public class HmerolActivity extends Base{
         // [END shared_tracker]
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -117,40 +86,26 @@ public class HmerolActivity extends Base{
         viewPager.setAdapter(adapter);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Hmerol Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://www.mobap.gr/hmerolactivity"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
+    // After
+    public Action getAction() {
+        return Actions.newView("Hmerol Page", "http://www.mobap.gr/hmerolactivity");
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+   /* If you’re logging an action on an item that has already been added to the index,
+   you don’t have to add the following update line. See
+   https://firebase.google.com/docs/app-indexing/android/personal-content#update-the-index for
+   adding content to the index */
+        FirebaseAppIndex.getInstance().update();
+        FirebaseUserActions.getInstance().start(getAction());
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
+        FirebaseUserActions.getInstance().end(getAction());
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
     }
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {

@@ -24,8 +24,10 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterAuthException;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.models.Tweet;
@@ -40,6 +42,7 @@ import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.Base;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * TimelineActivity shows a full screen timeline which is useful for screenshots.
@@ -53,10 +56,16 @@ public class TimelineActivity extends Base {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "pHre1Ar1d0jMbkWgjwImROvXP"; // TODO change code
+    private static final String TWITTER_SECRET = "DriCEI0mFguzzkgFXODXJYsjv3IS9GWQefmGJjAttGcQkBa2nd"; // TODO change code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //fullscreen
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
+
+//fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);

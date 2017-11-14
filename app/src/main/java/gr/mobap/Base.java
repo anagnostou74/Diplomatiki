@@ -94,18 +94,22 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     private void klisi() {
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
         // [START custom_event]
+        String phone = "+302103707000";
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+        startActivity(intent);
         mTracker.send(new HitBuilders.EventBuilder()
                 .setCategory("Action")
                 .setAction("Call")
                 .build());
         // [END custom_event]
-        String phone = "+302103707000";
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
-        startActivity(intent);
     }
 
     private void mail() {
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
         // [START custom_event]
         mTracker.send(new HitBuilders.EventBuilder()
                 .setCategory("Action")
@@ -276,6 +280,8 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     private void shareSocial() {
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
         CharSequence subject = "Δες τι βρήκα!";
         CharSequence text = "Αξίζει να κατεβάσεις αυτή την εφαρμογή για να βλέπεις εργασίες, που επηρεάζουν το δικό σου σήμερα " +
                 "https://play.google.com/store/apps/details?id=gr.mobap";
