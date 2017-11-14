@@ -25,3 +25,4 @@ proguard/
 
 # Log Files
 *.log
+.idea/libraries/android_arch_core_common_1_0_0_jar.xml
