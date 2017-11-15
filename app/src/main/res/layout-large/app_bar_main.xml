@@ -296,20 +296,26 @@
                         android:id="@+id/google_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/image_profile_picture" />
+                        android:layout_toRightOf="@+id/image_profile_picture"
+                        android:visibility="visible"
+                        tools:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/image_profile_picture"
                         android:layout_width="164dp"
                         android:layout_height="match_parent"
-                        android:contentDescription="@string/photos" />
+                        android:contentDescription="@string/photos"
+                        android:visibility="visible"
+                        tools:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/image_empty_picture"
                         android:layout_width="164dp"
                         android:layout_height="match_parent"
                         android:background="@drawable/ic_account"
-                        android:contentDescription="@string/photos" />
+                        android:contentDescription="@string/photos"
+                        android:visibility="visible"
+                        tools:visibility="gone" />
 
                     <Button
                         android:id="@+id/status"
