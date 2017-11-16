@@ -10,9 +10,11 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -100,6 +102,9 @@ public class DownloadPraktikaActivity extends Base {
      */
     public static final void openPDF(Context context, Uri localUri) {
         Intent i = new Intent(Intent.ACTION_VIEW);
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         i.setDataAndType(localUri, "application/pdf");
         context.startActivity(i);
     }
@@ -229,44 +234,67 @@ public class DownloadPraktikaActivity extends Base {
         final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
         // If we have downloaded the file before, just go ahead and show it(if its cached)
         if (tempFile.exists()) {
-            openPDF(context, Uri.fromFile(tempFile));
-            return;
-        }
+            if (tempFile.exists()) {
+                Uri contentUri;
+                if (Build.VERSION.SDK_INT == 24) {
+                    contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
+                            getApplicationContext().getPackageName() + ".provider",
+                            tempFile);
+                    openPDF(context, contentUri);
+                } else {
+                    contentUri = Uri.fromFile(tempFile);
+                    openPDF(context, contentUri);
+                }
+                return;
+            }
 
 // Show progress dialog while downloading
-        final ProgressDialog progress = ProgressDialog.show(context, "Λήψη έκδοσης", "Περιμένετε να κατέβει το pdf.", true);
+            final ProgressDialog progress = ProgressDialog.show(context, "Λήψη έκδοσης", "Περιμένετε να κατέβει το pdf.", true);
 
-        // Create the download request
-        DownloadManager.Request r = new DownloadManager.Request(Uri.parse(pdfUrl));
-        r.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, filename);
-        final DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-        //Broadcast receiver for when downloading the PDF is complete
-        BroadcastReceiver onComplete = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (!progress.isShowing()) {
-                    return;
-                }
-                context.unregisterReceiver(this);
-                //Dismiss the progressDialog
-                progress.dismiss();
-                long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                Cursor c = dm.query(new DownloadManager.Query().setFilterById(downloadId));
-                //if download was successful attempt to open the PDF
-                if (c.moveToFirst()) {
-                    int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                    if (status == DownloadManager.STATUS_SUCCESSFUL) {
-                        openPDF(context, Uri.fromFile(tempFile));
+            // Create the download request
+            DownloadManager.Request r = new DownloadManager.Request(Uri.parse(pdfUrl));
+            r.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, filename);
+            final DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+            //Broadcast receiver for when downloading the PDF is complete
+            BroadcastReceiver onComplete = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    if (!progress.isShowing()) {
+                        return;
                     }
+                    context.unregisterReceiver(this);
+                    //Dismiss the progressDialog
+                    progress.dismiss();
+                    long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    Cursor c = dm.query(new DownloadManager.Query().setFilterById(downloadId));
+                    //if download was successful attempt to open the PDF
+                    if (c.moveToFirst()) {
+                        int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                        if (status == DownloadManager.STATUS_SUCCESSFUL) {
+                            if (tempFile.exists()) {
+                                Uri contentUri;
+                                if (Build.VERSION.SDK_INT == 24) {
+                                    contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
+                                            getApplicationContext().getPackageName() + ".provider",
+                                            tempFile);
+                                    openPDF(context, contentUri);
+                                } else {
+                                    contentUri = Uri.fromFile(tempFile);
+                                    openPDF(context, contentUri);
+                                }
+                                return;
+                            }
+                        }
+                    }
+                    c.close();
                 }
-                c.close();
-            }
-        };
-        //Resister the receiver
-        context.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+            };
+            //Resister the receiver
+            context.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
-        // Enqueue the request
-        dm.enqueue(r);
+            // Enqueue the request
+            dm.enqueue(r);
+        }
     }
 
     public Action getAction() {
