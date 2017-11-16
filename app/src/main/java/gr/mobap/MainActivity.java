@@ -1,4 +1,8 @@
 package gr.mobap;
+//Κώστας Αναγνώστου
+//Περί Βουλής
+//Costas Anagnostou
+//Peri Voulis
 
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;

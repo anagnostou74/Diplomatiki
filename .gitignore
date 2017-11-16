@@ -26,3 +26,10 @@ proguard/
 # Log Files
 *.log
 .idea/libraries/android_arch_core_common_1_0_0_jar.xml
+.idea/
+app/google-services.json
+app/src/main/AndroidManifest.xml
+app/src/main/res/drawable/ic_account.xml
+app_bar_main.xml
+mps.json
+strings.xml
