@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        style="@style/AppTheme.AppBarOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/action_bar"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppTheme.PopupOverlay"
+            app:logo="@mipmap/ic_launcher" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/shadow" />
+
+
+        <android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/choice_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:alignmentMode="alignBounds"
+            app:columnCount="2"
+            app:rowCount="4"
+            app:rowOrderPreserved="false">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_purple"
+                    android:gravity="center_vertical"
+                    android:text="@string/organosi"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_blue"
+                    android:gravity="center_vertical"
+                    android:text="@string/komma"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_red"
+                    android:gravity="center_vertical"
+                    android:text="@string/simera"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_deep_purple"
+                    android:gravity="center_vertical"
+                    android:text="@string/ekdoseis"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnSpan="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_yellow"
+                    android:gravity="center_vertical"
+                    android:text="@string/diafaneia"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_indigo"
+                    android:gravity="center_vertical"
+                    android:text="@string/photos"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_teal"
+                    android:gravity="center_vertical"
+                    android:text="@string/nav_live_ena"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_blue_grey"
+                    android:gravity="center_vertical"
+                    android:text="@string/deltia"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/icon"
+                    android:background="@color/material_deep_orange"
+                    android:gravity="center_vertical"
+                    android:text="@string/twitter"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_margin"
+                android:gravity="center"
+                app:cardElevation="4dp"
+                app:layout_columnSpan="2"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal"
+                app:layout_rowWeight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/material_lime">
+
+                    <ImageView
+                        android:id="@+id/google_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/image_profile_picture" />
+
+                    <ImageView
+                        android:id="@+id/image_empty_picture"
+                        android:layout_width="125dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ic_account"
+                        android:contentDescription="@string/photos"
+                        android:visibility="visible"
+                        tools:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/image_profile_picture"
+                        android:layout_width="88dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/photos" />
+
+                    <TextView
+                        android:id="@+id/title_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/google_icon"
+                        android:layout_toRightOf="@+id/image_profile_picture" />
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/image_empty_picture"
+                        android:padding="2dp"
+                        android:text="@string/signed_out"
+                        android:textStyle="normal|bold" />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/image_profile_picture"
+                        android:padding="2dp"
+                        android:visibility="visible"
+                        tools:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/status"
+                        android:layout_toRightOf="@+id/image_profile_picture"
+                        android:padding="2dp"
+                        tools:text="Firebase User ID: 123456789abc" />
+
+                    <com.google.android.gms.common.SignInButton
+                        android:id="@+id/sign_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/status"
+                        android:layout_toRightOf="@+id/image_empty_picture"
+                        android:visibility="visible"
+                        tools:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/sign_out_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/detail"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="6dp"
+                        android:layout_toRightOf="@+id/image_profile_picture"
+                        android:background="@color/divider_gray"
+                        android:padding="6dp"
+                        android:text="@string/sign_out"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <Button
+                        android:id="@+id/disconnect_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/detail"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="6dp"
+                        android:layout_toRightOf="@+id/sign_out_button"
+                        android:background="@color/divider_gray"
+                        android:padding="6dp"
+                        android:text="@string/disconnect"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </android.support.v7.widget.GridLayout>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

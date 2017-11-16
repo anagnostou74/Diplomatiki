@@ -29,7 +29,5 @@ proguard/
 .idea/
 app/google-services.json
 app/src/main/AndroidManifest.xml
-app/src/main/res/drawable/ic_account.xml
-app_bar_main.xml
 mps.json
 strings.xml

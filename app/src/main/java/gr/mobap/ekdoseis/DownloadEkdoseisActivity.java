@@ -10,9 +10,11 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -182,6 +184,9 @@ public class DownloadEkdoseisActivity extends Base {
      */
     public static final void openPDF(Context context, Uri localUri) {
         Intent i = new Intent(Intent.ACTION_VIEW);
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         i.setDataAndType(localUri, "application/pdf");
         context.startActivity(i);
     }
@@ -392,8 +397,18 @@ public class DownloadEkdoseisActivity extends Base {
 // The place where the downloaded PDF file will be put
         final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), decoded);
         // If we have downloaded the file before, just go ahead and show it(if its cached)
+
         if (tempFile.exists()) {
-            openPDF(context, Uri.fromFile(tempFile));
+            Uri contentUri;
+            if (Build.VERSION.SDK_INT == 24) {
+                contentUri = FileProvider.getUriForFile(DownloadEkdoseisActivity.this,
+                        getApplicationContext().getPackageName() + ".provider",
+                        tempFile);
+                openPDF(context, contentUri);
+            } else {
+                contentUri = Uri.fromFile(tempFile);
+                openPDF(context, contentUri);
+            }
             return;
         }
 
@@ -420,7 +435,19 @@ public class DownloadEkdoseisActivity extends Base {
                 if (c.moveToFirst()) {
                     int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
                     if (status == DownloadManager.STATUS_SUCCESSFUL) {
-                        openPDF(context, Uri.fromFile(tempFile));
+                        if (tempFile.exists()) {
+                            Uri contentUri;
+                            if (Build.VERSION.SDK_INT == 24) {
+                                contentUri = FileProvider.getUriForFile(DownloadEkdoseisActivity.this,
+                                        getApplicationContext().getPackageName() + ".provider",
+                                        tempFile);
+                                openPDF(context, contentUri);
+                            } else {
+                                contentUri = Uri.fromFile(tempFile);
+                                openPDF(context, contentUri);
+                            }
+                            return;
+                        }
                     }
                 }
                 c.close();
