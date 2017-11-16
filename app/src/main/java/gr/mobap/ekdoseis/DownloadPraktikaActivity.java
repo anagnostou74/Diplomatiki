@@ -230,72 +230,73 @@ public class DownloadPraktikaActivity extends Base {
     public void downloadAndOpenPDF(final Context context, final String pdfUrl) {
 // Get filename
         final String filename = pdfUrl.substring(pdfUrl.lastIndexOf("/") + 1);
+        final String decoded = Uri.decode(filename); //handles spaces at filename
 // The place where the downloaded PDF file will be put
-        final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
+        final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), decoded);
         // If we have downloaded the file before, just go ahead and show it(if its cached)
+
         if (tempFile.exists()) {
-            if (tempFile.exists()) {
-                Uri contentUri;
-                if (Build.VERSION.SDK_INT == 24) {
-                    contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
-                            getApplicationContext().getPackageName() + ".provider",
-                            tempFile);
-                    openPDF(context, contentUri);
-                } else {
-                    contentUri = Uri.fromFile(tempFile);
-                    openPDF(context, contentUri);
-                }
-                return;
+            Uri contentUri;
+            if (Build.VERSION.SDK_INT == 24) {
+                contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
+                        getApplicationContext().getPackageName() + ".provider",
+                        tempFile);
+                openPDF(context, contentUri);
+            } else {
+                contentUri = Uri.fromFile(tempFile);
+                openPDF(context, contentUri);
             }
+            return;
+        }
 
-// Show progress dialog while downloading
-            final ProgressDialog progress = ProgressDialog.show(context, "Λήψη έκδοσης", "Περιμένετε να κατέβει το pdf.", true);
+        // Show progress dialog while downloading
+        final ProgressDialog progress = ProgressDialog.show(context, "Λήψη έκδοσης", "Περιμένετε να κατέβει το pdf.", true);
 
-            // Create the download request
-            DownloadManager.Request r = new DownloadManager.Request(Uri.parse(pdfUrl));
-            r.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, filename);
-            final DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-            //Broadcast receiver for when downloading the PDF is complete
-            BroadcastReceiver onComplete = new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    if (!progress.isShowing()) {
-                        return;
-                    }
-                    context.unregisterReceiver(this);
-                    //Dismiss the progressDialog
-                    progress.dismiss();
-                    long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                    Cursor c = dm.query(new DownloadManager.Query().setFilterById(downloadId));
-                    //if download was successful attempt to open the PDF
-                    if (c.moveToFirst()) {
-                        int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                        if (status == DownloadManager.STATUS_SUCCESSFUL) {
-                            if (tempFile.exists()) {
-                                Uri contentUri;
-                                if (Build.VERSION.SDK_INT == 24) {
-                                    contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
-                                            getApplicationContext().getPackageName() + ".provider",
-                                            tempFile);
-                                    openPDF(context, contentUri);
-                                } else {
-                                    contentUri = Uri.fromFile(tempFile);
-                                    openPDF(context, contentUri);
-                                }
-                                return;
+        // Create the download request
+        DownloadManager.Request r = new DownloadManager.Request(Uri.parse(pdfUrl));
+        r.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, filename);
+        final DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        //Broadcast receiver for when downloading the PDF is complete
+        BroadcastReceiver onComplete = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (!progress.isShowing()) {
+                    return;
+                }
+                context.unregisterReceiver(this);
+                //Dismiss the progressDialog
+                progress.dismiss();
+                long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                Cursor c = dm.query(new DownloadManager.Query().setFilterById(downloadId));
+                //if download was successful attempt to open the PDF
+                if (c.moveToFirst()) {
+                    int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                    if (status == DownloadManager.STATUS_SUCCESSFUL) {
+                        if (tempFile.exists()) {
+                            Uri contentUri;
+                            if (Build.VERSION.SDK_INT == 24) {
+                                contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
+                                        getApplicationContext().getPackageName() + ".provider",
+                                        tempFile);
+                                openPDF(context, contentUri);
+                            } else {
+                                contentUri = Uri.fromFile(tempFile);
+                                openPDF(context, contentUri);
                             }
+                            return;
                         }
                     }
-                    c.close();
                 }
-            };
-            //Resister the receiver
-            context.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+                c.close();
+            }
+        };
+        //Resister the receiver
+        context.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
-            // Enqueue the request
-            dm.enqueue(r);
-        }
+        // Enqueue the request
+        dm.enqueue(r);
     }
+
 
     public Action getAction() {
         return Actions.newView("DownloadPraktika Page", "http://www.mobap.gr/downloadpraktikaactivity");
