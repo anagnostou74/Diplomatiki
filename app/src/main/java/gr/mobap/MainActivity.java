@@ -100,8 +100,8 @@ public class MainActivity extends Base
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private static final String TWITTER_KEY = "xxxxxxxxxxxxxxx"; // TODO change code
-    private static final String TWITTER_SECRET = "xxxxxxxxxxxxxxxxxxxxxx"; // TODO change code
+    private static final String TWITTER_KEY = "pHre1Ar1d0jMbkWgjwImROvXP"; // TODO change code
+    private static final String TWITTER_SECRET = "DriCEI0mFguzzkgFXODXJYsjv3IS9GWQefmGJjAttGcQkBa2nd"; // TODO change code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

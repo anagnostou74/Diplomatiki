@@ -84,7 +84,7 @@ public class KosmitoresFragment extends Fragment {
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("mps");
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
-                query.orderByAscending("Epitheto");
+                query.orderByAscending("Rank");
                 query.whereContains("Titlos", "ΚΟΣΜΗΤΟΡΑΣ");
                 ob = query.find();
                 for (ParseObject mps : ob) {

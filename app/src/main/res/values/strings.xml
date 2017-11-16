@@ -1,6 +1,17 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name"><b>Βουλή των Ελλήνων</b></string>
+    <string name="app_name"><b>Περί Βουλής</b></string>
+    <string name="ipiresia"><b>Υπηρεσία - Φορέας: </b></string>
+    <string name="sinfo"><b>Τελικός Υπογράφων: </b></string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="firebase_status_fmt">%s</string>
+    <string name="google_status_fmt">Καλώς ήρθες, %s!</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="loading">Loading…</string>
+    <string name="nav_home">Αρχική</string>
     <string name="perifereia"><b>Επιλέγω την Περιφέρεια:</b></string>
     <string name="epikrateias">ΕΠΙΚΡΑΤΕΙΑΣ</string>
     <string name="athinon">Α\' ΑΘΗΝΩΝ</string>
@@ -69,23 +80,86 @@
     <string name="vathm" translatable="false">Βαθμολόγησε\nτην εφαρμογή</string>
     <string name="adeies" translatable="false">Άδειες χρήσης</string>
     <!-- Description here -->
-    <string name="sxetikaKeim" translatable="false">***ΧΡΗΣΙΜΕΣ ΠΛΗΡΟΦΟΡΙΕΣ***\n\n
-        Η ποικιλία των τηλεφώνων με λειτουργικό Android και η διασπορά των εκδόσεων του συγκεκριμένου λειτουργικού μπορεί να επιφέρει αλλαγές στο περιβάλλον της εφαρμογής.
-        Για οποιοδήποτε πρόβλημα παρακαλώ στείλε μου μήνυμα.\n\n
-        Το ήξερες ότι ........;\n\n\n
-        Οι πληροφορίες που αναφέρονται στην εφαρμογή προέρχονται από ιστοσελίδες της Βουλής των Ελλήνων. Οι πληροφορίες που αναφέρονται στα βιογραφικά των Βουλευτών έχουν αντληθεί από το επίσημο portal της Βουλής,
-        αλλά θα ενημερώνονται κατά τακτικά χρονικά διαστήματα με προσωπική εργασία, που θα περιλαμβάνει άντληση των πληροφοριών από την επίσημη πηγή τους και παροχή τους εκ νέου.\n\n
-    ***********ΒΙΒΛΙΟΘΗΚΕΣ*********\n
-        Glide\n
-YouTube Android Player API\n
-Google Maps API\n
-Analytics API\n
-Twitter (Fabric)\n
-Exomedia\n
-Parse\n
-CleverTap Notifications\n\n
-    ***********ΑΔΕΙΕΣ ΧΡΗΣΗΣ*********
+    <string name="sxetikaKeim" translatable="false"><![CDATA[
+<h2>&nbsp&nbsp&nbsp&nbsp***Σχετικά***</h2>
+<h6>«Πολυμεσική εφαρμογή για το Ελληνικό Κοινοβούλιο σε κινητές συσκευές»</h6>
+<h6>© ΕΑΠ, 2015</h6>
+<p>Η παρούσα διατριβή, η οποία εκπονήθηκε στα πλαίσια της ΘΕ ΠΛΗ40, και τα λοιπά αποτελέσματα της αντίστοιχης Διπλωματικής Εργασίας (ΔΕ) αποτελούν συνιδιοκτησία του ΕΑΠ και του φοιτητή, ο καθένας από τους οποίους έχει το δικαίωμα ανεξάρτητης χρήσης και αναπαραγωγής τους (στο σύνολο ή τμηματικά) για διδακτικούς και ερευνητικούς σκοπούς, σε κάθε περίπτωση αναφέροντας τον τίτλο και το συγγραφέα και το ΕΑΠ όπου εκπονήθηκε η ΔΕ καθώς και τον επιβλέποντα και την επιτροπή κρίσης.</p>
+<h6>Αναγνώστου Κωνσταντίνος, Φοιτητής</h6>
+<h6>Επιβλέπων Α’, Στυλιαράς Γεώργιος, Επίκουρος Καθηγητής, Τμήμα Διαχείρισης Πολιτισμικού Περιβάλλοντος και Νέων Τεχνολογιών Πανεπιστήμιο Πατρών</h6>
+<h6>Επιβλέπων Β’, Μοδέστος Σταυράκης, Ερευνητής / Λέκτορας, Τμήμα Μηχανικών Σχεδίασης Προϊόντων και Συστημάτων Πανεπιστήμιο Αιγαίου</h6>
+        <p>Η ποικιλία των τηλεφώνων με λειτουργικό Android και η διασπορά των εκδόσεων του συγκεκριμένου λειτουργικού μπορεί να επιφέρει αλλαγές στο περιβάλλον της εφαρμογής.
+        Για οποιοδήποτε πρόβλημα, παρακαλώ, στείλε μου μήνυμα.<br />
+        Οι πληροφορίες που αναφέρονται στην εφαρμογή προέρχονται από ιστοσελίδες της Βουλής των Ελλήνων.<br />Οι πληροφορίες που αναφέρονται στα βιογραφικά των Βουλευτών έχουν αντληθεί από το επίσημο portal της Βουλής,
+        αλλά θα ενημερώνονται κατά τακτικά χρονικά διαστήματα με προσωπική εργασία, που θα περιλαμβάνει άντληση των πληροφοριών από την επίσημη πηγή τους και παροχή τους εκ νέου.</p>
+    <h2>&nbsp&nbsp&nbsp&nbsp***Βιβλιοθήκες & Άδειες χρήσης***</h2>
+<h6>*YouTube Android Player API</h6>
+<p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+<h6>*Glide</h6>
+        <p>BSD, part MIT and Apache 2.0. See the <a href="https://github.com/bumptech/glide/blob/master/LICENSE">LICENSE</a> file for details.</p><br />
+<h6>*Exomedia</h6>
+<p>Copyright 2016 Brian Wernick
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</p>
+<h6>*Google Maps API</h6>
+<p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+<h6>*Analytics API</h6>
+<p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>.</p>
+<h6>*jsoup</h6>
+<p>The MIT License
+
+© 2009-2016, Jonathan Hedley <jonathan@hedley.net>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+<h6>*Twitter (Fabric)</h6>
+<p><a href="https://www.fabric.io/terms">Fabric Software and Services Agreement</a></p>
+<h6>*okhttp3</h6>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</p>
+<h6>*Parse</h6>
+<p><a href="https://github.com/ParsePlatform/parse-server/blob/master/LICENSE">Parse server LICENSE</a></p>
+<h6>*Heroku</h6>
+<p><a href="https://www.heroku.com/policy/privacy">Heroku Privacy Statement</a></p>
+<h6>*CleverTap Notifications</h6>
+<p>© 2013 onwards. All Rights Reserved. CleverTap is brought to you by WizRocket, Inc. <a href="http://clevertap.com/privacy-policy">Privacy Policy</a> and <a href="http://clevertap.com/terms-service">Terms of Service</a></p>
+]]>
     </string>
     <!-- Description here -->
     <string name="devel" translatable="false">Google Play</string>
@@ -103,7 +177,9 @@ CleverTap Notifications\n\n
 
     <string name="sxetika_mail" translatable="false">Σχετικά με το πρόγραμμα για Android</string>
     <string name="epikoinonia_mail" translatable="false">Σχόλια ή παρατηρήσεις</string>
-    <string name="main_epikoinonia" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θέλω…</string>
+    <string name="main_epikoinonia" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων για το Android και θέλω…</string>
+    <string name="mps_mail" translatable="false">Σχετικά με ....</string>
+    <string name="main_mps" translatable="false">Σας στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων για το Android και θέλω…</string>
 
     <string name="image">Thumbnail</string>
 
@@ -508,7 +584,9 @@ CleverTap Notifications\n\n
     <string name="diafaneia">Διαφάνεια</string>
     <string name="diaspora">Διασπορά</string>
     <string name="efivoi">Έφηβοι</string>
-    <string name="idryma">Ίδρυμα</string>
+    <string name="press">Γραφείο Τύπου</string>
+    <string name="idryma">Ίδρυμα της Βουλής</string>
+    <string name="vivlio">Βιβλιοθήκη</string>
     <string name="gpk">Γ.Π.Κ</string>
     <string name="yeep">Υ.Ε.Ε.Π</string>
     <string name="collaboration">Συνεργατικό Περιβάλλον</string>
@@ -532,6 +610,7 @@ CleverTap Notifications\n\n
     <string name="koin_epitropes">Κοινοβουλευτικές Επιτροπές</string>
     <string name="diktio">Κοινωνική Δικτύωση</string>
     <string name="entos">Email χρηστών</string>
+    <string name="mobap">MobAp.gr</string>
     <string name="play">Play Store</string>
     <string name="epikoinonia">Επικοινωνία</string>
     <string name="peri">Περί</string>
@@ -549,7 +628,7 @@ CleverTap Notifications\n\n
 
     <string name="intent_select"><b>Παρακολουθείστε επιλεγμένες συνεδριάσεις της Ολομέλειας της Βουλής, ενημερωτικές εκπομπές και παραγωγές του Τηλεοπτικού Σταθμού της Βουλής των Ελλήνων
         καθώς και αφιερώματα σε εκθέσεις και εκδηλώσεις της Βιβλιοθήκης της Βουλής και του Ιδρύματος της Βουλής των Ελλήνων για τον Κοινοβουλευτισμό και τη Δημοκρατία. \n\n
-        Παρακαλώ επιλέξτε μια ενέργεια:</b></string>
+        Παρακαλώ επιλέξτε μια εκπομπή:</b></string>
     <string name="intent_disabled">Δεν υποστηρίζεται η τρέχουσα εγκατεστημένη έκδοση του YouTube.</string>
     <string name="youtube_currently_installed">Σε αυτή τη συσκευή είναι εγκατεστημένη η έκδοση: <xliff:g id="youtube_version">%1$s</xliff:g> του YouTube.</string>
     <string name="youtube_not_installed">Το YouTube δεν είναι εγκατεστημένο σε αυτή τη συσκευή.</string>
@@ -609,7 +688,7 @@ CleverTap Notifications\n\n
     <!-- TweetComposer strings -->
     <string name="twitter_composer">Twitter Composer</string>
     <string name="twitter_kit_composer">TwitterKit Composer</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD-z4ErQp0AbhDwxZ-VD0EyrRGa5JCtwUE</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBDwDDAktYtazCLMwiCBjjWmUNe_wwu_x4</string>
 
     <string name="perif_label">Περιφέρεια: </string>
     <string name="on_patros_label">του </string>
@@ -626,4 +705,8 @@ CleverTap Notifications\n\n
 
     <string name="bio">Βιογραφικό</string>
     <string name="tweet">Πολιτικά tweets</string>
+
+    <string name="facebook_app_id">211751919211374</string>
+    <string name="google_sign_in_id">190314798172-7p2nmv6lqdrsb26il8at0u7usci5bbs6.apps.googleusercontent.com</string>
+
 </resources>

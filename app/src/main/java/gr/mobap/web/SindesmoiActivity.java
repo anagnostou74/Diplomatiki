@@ -92,6 +92,7 @@ public class SindesmoiActivity extends Base {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new InstaWeb(), getString(R.string.press));
         adapter.addFrag(new VivlioWeb(), getString(R.string.vivlio));
         adapter.addFrag(new DiasporaWeb(), getString(R.string.diaspora));
         adapter.addFrag(new EfivoiWeb(), getString(R.string.efivoi));

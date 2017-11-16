@@ -72,8 +72,8 @@ public class OrganosiActivity extends Base {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new ProedrosFragment(), getString(R.string.proedros));
         adapter.addFrag(new AntiProedroiFragment(), getString(R.string.antiproedroi));
-        adapter.addFrag(new GrammateisFragment(), getString(R.string.grammateis));
         adapter.addFrag(new KosmitoresFragment(), getString(R.string.kosmitores));
+        adapter.addFrag(new GrammateisFragment(), getString(R.string.grammateis));
         viewPager.setAdapter(adapter);
     }
 
