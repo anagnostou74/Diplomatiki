@@ -53,7 +53,7 @@ public class LiveVideoDioActivity extends AppCompatActivity {
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            EMVideoView emVideoView = (EMVideoView) findViewById(R.id.video_play_activity_video_view);
+            EMVideoView emVideoView = findViewById(R.id.video_play_activity_video_view);
             assert emVideoView != null;
             emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv2_640_640x360/index.m3u8"));
             emVideoView.setDefaultControlsEnabled(true);

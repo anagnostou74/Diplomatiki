@@ -79,26 +79,26 @@ public class ListViewAdapter extends BaseAdapter {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item_mps, null);
             // Locate the TextViews in listview_mps_item.xml.xml
-            holder.epitheto = (TextView) view.findViewById(R.id.epitheto);
-            holder.onoma = (TextView) view.findViewById(R.id.onoma);
-            holder.onomaPatros = (TextView) view.findViewById(R.id.onomaPatros);
-            holder.titlos = (TextView) view.findViewById(R.id.titlos);
-            holder.govPosition = (TextView) view.findViewById(R.id.govPosition);
-            holder.komma = (TextView) view.findViewById(R.id.komma);
-            holder.perifereia = (TextView) view.findViewById(R.id.perifereia);
-            holder.birth = (TextView) view.findViewById(R.id.birth);
-            holder.family = (TextView) view.findViewById(R.id.family);
-            holder.epaggelma = (TextView) view.findViewById(R.id.epaggelma);
-            holder.parliamentActivities = (TextView) view.findViewById(R.id.parliamentActivities);
-            holder.socialActivities = (TextView) view.findViewById(R.id.socialActivities);
-            holder.spoudes = (TextView) view.findViewById(R.id.spoudes);
-            holder.languages = (TextView) view.findViewById(R.id.languages);
-            holder.address = (TextView) view.findViewById(R.id.address);
-            holder.site = (TextView) view.findViewById(R.id.site);
-            holder.email = (TextView) view.findViewById(R.id.email);
-            holder.phone = (TextView) view.findViewById(R.id.phone);
+            holder.epitheto = view.findViewById(R.id.epitheto);
+            holder.onoma = view.findViewById(R.id.onoma);
+            holder.onomaPatros = view.findViewById(R.id.onomaPatros);
+            holder.titlos = view.findViewById(R.id.titlos);
+            holder.govPosition = view.findViewById(R.id.govPosition);
+            holder.komma = view.findViewById(R.id.komma);
+            holder.perifereia = view.findViewById(R.id.perifereia);
+            holder.birth = view.findViewById(R.id.birth);
+            holder.family = view.findViewById(R.id.family);
+            holder.epaggelma = view.findViewById(R.id.epaggelma);
+            holder.parliamentActivities = view.findViewById(R.id.parliamentActivities);
+            holder.socialActivities = view.findViewById(R.id.socialActivities);
+            holder.spoudes = view.findViewById(R.id.spoudes);
+            holder.languages = view.findViewById(R.id.languages);
+            holder.address = view.findViewById(R.id.address);
+            holder.site = view.findViewById(R.id.site);
+            holder.email = view.findViewById(R.id.email);
+            holder.phone = view.findViewById(R.id.phone);
             // Locate the ImageView in listview_mps_item.xml.xml
-            holder.flag = (ImageView) view.findViewById(R.id.flag);
+            holder.flag = view.findViewById(R.id.flag);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();

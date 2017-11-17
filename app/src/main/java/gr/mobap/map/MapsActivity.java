@@ -49,7 +49,7 @@ public class MapsActivity extends Base implements OnMapReadyCallback {
         String action = intent.getAction();
         Uri data = intent.getData();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
@@ -60,13 +60,13 @@ public class MapsActivity extends Base implements OnMapReadyCallback {
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END screen_view_hit]
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {

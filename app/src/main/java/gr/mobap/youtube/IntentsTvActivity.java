@@ -90,16 +90,16 @@ public final class IntentsTvActivity extends Base implements OnItemClickListener
         Intent intent = getIntent();
         String action = intent.getAction();
         Uri data = intent.getData();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
@@ -128,13 +128,13 @@ public final class IntentsTvActivity extends Base implements OnItemClickListener
         intentItems.add(new IntentItem("Σε Θέση Ετοιμότητας", IntentType.ETOIMOTITA));
         intentItems.add(new IntentItem("Βουλή Τηλεόραση", IntentType.OPEN_USER));
 
-        ListView listView = (ListView) findViewById(R.id.intent_list);
+        ListView listView = findViewById(R.id.intent_list);
         TvArrayAdapter adapter =
                 new TvArrayAdapter(this, R.layout.item_youtube, intentItems);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
-        TextView youTubeVersionText = (TextView) findViewById(R.id.youtube_version_text);
+        TextView youTubeVersionText = findViewById(R.id.youtube_version_text);
         String version = YouTubeIntents.getInstalledYouTubeVersionName(this);
         if (version != null) {
             String text = String.format(getString(R.string.youtube_currently_installed), version);

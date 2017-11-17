@@ -60,15 +60,15 @@ public class MpsSearchFragment extends Fragment {
                     Toast.LENGTH_SHORT).show();
         }
         // This will get the radiogroup
-        RadioGroup rGroup = (RadioGroup) view.findViewById(R.id.radio);
+        RadioGroup rGroup = view.findViewById(R.id.radio);
         // This will get the radiobutton in the radiogroup that is checked
-        RadioButton checkedRadioButton = (RadioButton) rGroup.findViewById(rGroup.getCheckedRadioButtonId());
+        RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
         //checkedRadioButton.setChecked(true);
         // This overrides the radiogroup onCheckListener
         rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup rGroup, int checkedId) {
                 // This will get the radiobutton that has changed in its check state
-                RadioButton checkedRadioButton = (RadioButton) rGroup.findViewById(checkedId);
+                RadioButton checkedRadioButton = rGroup.findViewById(checkedId);
                 // This puts the value (true/false) into the variable
                 boolean isChecked = checkedRadioButton.isChecked();
                 // If the radiobutton that has changed in check state is now checked...
@@ -144,7 +144,7 @@ public class MpsSearchFragment extends Fragment {
         @Override
         protected void onPostExecute(Void result) {
             // Locate the listview in listview_mpsxml
-            listview = (ListView) getView().findViewById(R.id.search);
+            listview = getView().findViewById(R.id.search);
             // Pass the results into ListViewAdapter.java
             adapter = new ListViewAdapter(getActivity(), worldpopulationlist);
             // Binds the Adapter to the ListView

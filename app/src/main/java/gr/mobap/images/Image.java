@@ -142,9 +142,9 @@ public class Image extends Base {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         setContentView(R.layout.activity_images);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -155,7 +155,7 @@ public class Image extends Base {
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         Intent intent = getIntent();
@@ -170,7 +170,7 @@ public class Image extends Base {
                 imageModel.setUrl(IMGS[i]);
                 data.add(imageModel);
             }
-            mRecyclerView = (RecyclerView) findViewById(R.id.list);
+            mRecyclerView = findViewById(R.id.list);
             mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
             mRecyclerView.setHasFixedSize(true);
             mAdapter = new GalleryAdapter(Image.this, data);

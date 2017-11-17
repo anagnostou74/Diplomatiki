@@ -30,6 +30,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.appindexing.FirebaseAppIndex;
+import com.google.firebase.appindexing.FirebaseUserActions;
+import com.google.firebase.appindexing.builders.Actions;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
@@ -66,7 +69,7 @@ public class TwitterCoreMainActivity extends Base {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         // Set up the login button by setting callback to invoke when authorization request
         // completes
-        loginButton = (TwitterLoginButton) findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.login_button);
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
@@ -124,39 +127,25 @@ public class TwitterCoreMainActivity extends Base {
         loginButton.onActivityResult(requestCode, resultCode, data);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("TwitterCoreMain Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://www.mobap.gr/twittercoremain"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
+
+    public com.google.firebase.appindexing.Action getAction() {
+        return Actions.newView("TwitterCoreMain Page", "http://www.mobap.gr/twittercoremain");
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+   /* If you’re logging an action on an item that has already been added to the index,
+   you don’t have to add the following update line. See
+   https://firebase.google.com/docs/app-indexing/android/personal-content#update-the-index for
+   adding content to the index */
+        FirebaseAppIndex.getInstance().update();
+        FirebaseUserActions.getInstance().start(getAction());
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
+        FirebaseUserActions.getInstance().end(getAction());
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
     }
 }

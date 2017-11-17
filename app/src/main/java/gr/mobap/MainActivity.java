@@ -147,16 +147,16 @@ public class MainActivity extends Base
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // [START shared_tracker]
@@ -168,17 +168,17 @@ public class MainActivity extends Base
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END screen_view_hit]
         // Views
-        mStatusTextView = (Button) findViewById(R.id.status);
-        person = (ImageView) findViewById(R.id.image_profile_picture);
-        main1 = (CardView) findViewById(R.id.main1);
-        main2 = (CardView) findViewById(R.id.main2);
-        main3 = (CardView) findViewById(R.id.main3);
-        main4 = (CardView) findViewById(R.id.main4);
-        main5 = (CardView) findViewById(R.id.main5);
-        main6 = (CardView) findViewById(R.id.main6);
-        main7 = (CardView) findViewById(R.id.main7);
-        main8 = (CardView) findViewById(R.id.main8);
-        main9 = (CardView) findViewById(R.id.main9);
+        mStatusTextView = findViewById(R.id.status);
+        person = findViewById(R.id.image_profile_picture);
+        main1 = findViewById(R.id.main1);
+        main2 = findViewById(R.id.main2);
+        main3 = findViewById(R.id.main3);
+        main4 = findViewById(R.id.main4);
+        main5 = findViewById(R.id.main5);
+        main6 = findViewById(R.id.main6);
+        main7 = findViewById(R.id.main7);
+        main8 = findViewById(R.id.main8);
+        main9 = findViewById(R.id.main9);
 // Button listeners
         findViewById(R.id.sign_in).setOnClickListener(this);
         findViewById(R.id.main1).setOnClickListener(this);

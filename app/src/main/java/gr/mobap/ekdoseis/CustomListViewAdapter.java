@@ -32,9 +32,9 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.item_books, null);
             holder = new ViewHolder();
-            holder.txtDesc = (TextView) convertView.findViewById(R.id.desc);
-            holder.txtTitle = (TextView) convertView.findViewById(R.id.title);
-            holder.imageView = (ImageView) convertView.findViewById(R.id.icon);
+            holder.txtDesc = convertView.findViewById(R.id.desc);
+            holder.txtTitle = convertView.findViewById(R.id.title);
+            holder.imageView = convertView.findViewById(R.id.icon);
             convertView.setTag(holder);
         } else
             holder = (ViewHolder) convertView.getTag();

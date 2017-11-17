@@ -32,7 +32,7 @@ public class NomoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_keimena, container, false);
 
-        TextView tv = (TextView) view.findViewById(R.id.textThesmos);
+        TextView tv = view.findViewById(R.id.textThesmos);
         tv.setMovementMethod(LinkMovementMethod.getInstance());
         tv.setText(Html.fromHtml(htmlText));
         // Inflate the layout for this fragment

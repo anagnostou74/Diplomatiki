@@ -24,6 +24,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.appindexing.FirebaseAppIndex;
+import com.google.firebase.appindexing.FirebaseUserActions;
+import com.google.firebase.appindexing.builders.Actions;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -75,16 +78,16 @@ public class TimelineActivity extends Base {
         String action = intent.getAction();
         Uri data = intent.getData();
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
@@ -110,9 +113,9 @@ public class TimelineActivity extends Base {
                 }
             };
 
-            final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+            final SwipeRefreshLayout swipeLayout = findViewById(R.id.swipe_layout);
             final View emptyView = findViewById(android.R.id.empty);
-            final ListView listView = (ListView) findViewById(android.R.id.list);
+            final ListView listView = findViewById(android.R.id.list);
             listView.setEmptyView(emptyView);
 
             // Collection "Fabric Picks"
@@ -192,45 +195,31 @@ public class TimelineActivity extends Base {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.disconnect();
+    public com.google.firebase.appindexing.Action getAction() {
+        return Actions.newView("TimeLineActivity Page", "http://www.mobap.gr/timelineactivity");
     }
 
     @Override
-    public void onStart() {
-        super.onStart();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    protected void onStart() {
+        super.onStart();
+   /* If you’re logging an action on an item that has already been added to the index,
+   you don’t have to add the following update line. See
+   https://firebase.google.com/docs/app-indexing/android/personal-content#update-the-index for
+   adding content to the index */
+        FirebaseAppIndex.getInstance().update();
+        FirebaseUserActions.getInstance().start(getAction());
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Timeline Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://www.mobap.gr/timelineactivity"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
+    @Override
+    protected void onStop() {
+        FirebaseUserActions.getInstance().end(getAction());
+        super.onStop();
     }
-
 }

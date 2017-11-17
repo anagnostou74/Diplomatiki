@@ -49,7 +49,7 @@ public class NsPsActivity extends Base {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rss);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
@@ -64,7 +64,7 @@ public class NsPsActivity extends Base {
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
             if (savedInstanceState == null) {
-                ViewPager fragment_container = (ViewPager) findViewById(R.id.fragment_container);
+                ViewPager fragment_container = findViewById(R.id.fragment_container);
                 setupViewPager(fragment_container);
             }
         } else {
@@ -82,13 +82,13 @@ public class NsPsActivity extends Base {
             }, 1000); // wait for 1 second
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 

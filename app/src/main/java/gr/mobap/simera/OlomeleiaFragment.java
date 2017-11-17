@@ -45,7 +45,7 @@ public class OlomeleiaFragment extends Fragment {
 
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
-        webView = (WebView) ll.findViewById(R.id.webViewfr);
+        webView = ll.findViewById(R.id.webViewfr);
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {

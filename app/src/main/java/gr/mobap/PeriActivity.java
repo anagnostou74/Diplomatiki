@@ -58,19 +58,19 @@ public class PeriActivity extends Base {
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END screen_view_hit]
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Button button2 = (Button) findViewById(R.id.btnMail);
+        Button button2 = findViewById(R.id.btnMail);
         if (button2 != null) {
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,7 +80,7 @@ public class PeriActivity extends Base {
             });
         }
 
-        Button button3 = (Button) findViewById(R.id.btnVathm);
+        Button button3 = findViewById(R.id.btnVathm);
         if (button3 != null) {
             button3.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -91,7 +91,7 @@ public class PeriActivity extends Base {
         }
 
         final String htmlText = getResources().getString(R.string.sxetikaKeim);
-        TextView tv = (TextView) findViewById(R.id.sxetikaKeim2);
+        TextView tv = findViewById(R.id.sxetikaKeim2);
         if (tv != null) {
             tv.setMovementMethod(LinkMovementMethod.getInstance());
             tv.setText(Html.fromHtml(htmlText));
@@ -100,7 +100,7 @@ public class PeriActivity extends Base {
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

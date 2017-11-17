@@ -33,6 +33,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.appindexing.FirebaseAppIndex;
+import com.google.firebase.appindexing.FirebaseUserActions;
+import com.google.firebase.appindexing.builders.Actions;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -203,9 +206,9 @@ public class DownloadEkdoseisActivity extends Base {
         String action = intent.getAction();
         Uri data = intent.getData();
         setContentView(R.layout.activity_pdf);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -216,11 +219,11 @@ public class DownloadEkdoseisActivity extends Base {
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Get ListView object from xml
-        listView = (ListView) findViewById(R.id.listEkd);
+        listView = findViewById(R.id.listEkd);
 
         rowItems = new ArrayList<RowItem>();
         for (int i = 0; i < titles.length; i++) {
@@ -228,7 +231,7 @@ public class DownloadEkdoseisActivity extends Base {
             rowItems.add(item);
         }
 
-        listView = (ListView) findViewById(R.id.listEkd);
+        listView = findViewById(R.id.listEkd);
         CustomListViewAdapter adapter = new CustomListViewAdapter(this,
                 R.layout.item_books, rowItems);
         listView.setAdapter(adapter);
@@ -460,39 +463,26 @@ public class DownloadEkdoseisActivity extends Base {
         dm.enqueue(r);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("DownloadEkdoseis Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://www.mobap.gr/downloadekdoseisactivity"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
+
+
+    public com.google.firebase.appindexing.Action getAction() {
+        return Actions.newView("DownloadEkdoseisActivity Page", "http://www.mobap.gr/downloadekdoseisactivity");
     }
 
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+   /* If you’re logging an action on an item that has already been added to the index,
+   you don’t have to add the following update line. See
+   https://firebase.google.com/docs/app-indexing/android/personal-content#update-the-index for
+   adding content to the index */
+        FirebaseAppIndex.getInstance().update();
+        FirebaseUserActions.getInstance().start(getAction());
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
+        FirebaseUserActions.getInstance().end(getAction());
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
     }
 }

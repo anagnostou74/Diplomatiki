@@ -61,11 +61,11 @@ public class SingleItemView extends Base {
         Intent intent = getIntent();
         String action = intent.getAction();
         Uri data = intent.getData();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -103,24 +103,24 @@ public class SingleItemView extends Base {
         phone = i.getStringExtra("phone");
 
         // Locate the ImageView in item_mps
-        ImageView imgflag = (ImageView) findViewById(R.id.flag);
+        ImageView imgflag = findViewById(R.id.flag);
         // Locate the TextViews in item_mps.xml   //TextView txtrank = (TextView) findViewById(R.id.rank);
-        TextView txtkomma = (TextView) findViewById(R.id.komma);
-        TextView txtepitheto = (TextView) findViewById(R.id.epitheto);
-        TextView txtonoma = (TextView) findViewById(R.id.onoma);
-        TextView txtonomaPatros = (TextView) findViewById(R.id.onomaPatros);
-        TextView txttitlos = (TextView) findViewById(R.id.titlos);
-        TextView txtgovPosition = (TextView) findViewById(R.id.govPosition);
-        TextView txtperifereia = (TextView) findViewById(R.id.perifereia);
-        TextView txtbirth = (TextView) findViewById(R.id.birth);
-        TextView txtfamily = (TextView) findViewById(R.id.family);
-        TextView txtepaggelma = (TextView) findViewById(R.id.epaggelma);
-        TextView txtparliamentActivities = (TextView) findViewById(R.id.parliamentActivities);
-        TextView txtsocialActivities = (TextView) findViewById(R.id.socialActivities);
-        TextView txtspoudes = (TextView) findViewById(R.id.spoudes);
-        TextView txtlanguages = (TextView) findViewById(R.id.languages);
-        TextView txtaddress = (TextView) findViewById(R.id.address);
-        final TextView txtsite = (TextView) findViewById(R.id.site);
+        TextView txtkomma = findViewById(R.id.komma);
+        TextView txtepitheto = findViewById(R.id.epitheto);
+        TextView txtonoma = findViewById(R.id.onoma);
+        TextView txtonomaPatros = findViewById(R.id.onomaPatros);
+        TextView txttitlos = findViewById(R.id.titlos);
+        TextView txtgovPosition = findViewById(R.id.govPosition);
+        TextView txtperifereia = findViewById(R.id.perifereia);
+        TextView txtbirth = findViewById(R.id.birth);
+        TextView txtfamily = findViewById(R.id.family);
+        TextView txtepaggelma = findViewById(R.id.epaggelma);
+        TextView txtparliamentActivities = findViewById(R.id.parliamentActivities);
+        TextView txtsocialActivities = findViewById(R.id.socialActivities);
+        TextView txtspoudes = findViewById(R.id.spoudes);
+        TextView txtlanguages = findViewById(R.id.languages);
+        TextView txtaddress = findViewById(R.id.address);
+        final TextView txtsite = findViewById(R.id.site);
         txtsite.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String to = txtsite.getText().toString();
@@ -130,7 +130,7 @@ public class SingleItemView extends Base {
                 startActivity(browserIntent);
             }
         });
-        final TextView txtemail = (TextView) findViewById(R.id.email);
+        final TextView txtemail = findViewById(R.id.email);
         txtemail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +151,7 @@ public class SingleItemView extends Base {
             }
         });
 
-        final TextView txtphone = (TextView) findViewById(R.id.phone);
+        final TextView txtphone = findViewById(R.id.phone);
         txtphone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

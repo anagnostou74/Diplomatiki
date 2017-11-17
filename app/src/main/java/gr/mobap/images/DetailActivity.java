@@ -71,7 +71,7 @@ public class DetailActivity extends AppCompatActivity {
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), data);
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setPageTransformer(true, new DepthPageTransformer());
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -158,7 +158,7 @@ public class DetailActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_image_dtls, container, false);
 
-            final ImageView imageView = (ImageView) rootView.findViewById(R.id.detail_image);
+            final ImageView imageView = rootView.findViewById(R.id.detail_image);
             Glide.with(getActivity()).load(url).thumbnail(0.1f).into(imageView);
 
             return rootView;

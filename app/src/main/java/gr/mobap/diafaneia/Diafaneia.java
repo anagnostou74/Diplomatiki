@@ -141,14 +141,14 @@ public class Diafaneia extends Base {
         String action = intent.getAction();
         Uri data = intent.getData();
         setContentView(R.layout.diafaneia_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
@@ -158,7 +158,7 @@ public class Diafaneia extends Base {
         // [END shared_tracker]
 
         dataList = new ArrayList<HashMap<String, String>>();
-        ListView lv = (ListView) findViewById(R.id.listdiaf);
+        ListView lv = findViewById(R.id.listdiaf);
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
@@ -389,7 +389,7 @@ public class Diafaneia extends Base {
                     new String[]{TAG_Subject, TAG_Att_FilePath, TAG_IPI, TAG_SEC_TITLE, TAG_FSIGNER_INFO, TAG_SINFO, TAG_FSIGNER_FULLNAME},
                     new int[]{R.id.subject, R.id.file, R.id.ipiresia, R.id.sec_title, R.id.sinfo, R.id.signer, R.id.signer_full});
             //dataList.setAdapter(adapter);
-            ListView lv = (ListView) findViewById(R.id.listdiaf);
+            ListView lv = findViewById(R.id.listdiaf);
             lv.setAdapter(adapter);
         }
     }

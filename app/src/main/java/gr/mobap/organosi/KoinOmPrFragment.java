@@ -121,7 +121,7 @@ public class KoinOmPrFragment extends Fragment {
         @Override
         protected void onPostExecute(Void result) {
             // Locate the listview in listview_mpsxml
-            listview = (ListView) getView().findViewById(R.id.listview);
+            listview = getView().findViewById(R.id.listview);
             // Pass the results into ListViewAdapter.java
             adapter = new ListViewAdapter(getActivity(), worldpopulationlist);
             // Binds the Adapter to the ListView

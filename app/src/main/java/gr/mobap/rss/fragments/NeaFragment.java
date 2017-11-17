@@ -42,8 +42,8 @@ public class NeaFragment extends Fragment implements AdapterView.OnItemClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_list_rss, container, false);
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        listView = (ListView) view.findViewById(R.id.listView);
+        progressBar = view.findViewById(R.id.progressBar);
+        listView = view.findViewById(R.id.listView);
         listView.setOnItemClickListener(NeaFragment.this);
         startService();
         return view;

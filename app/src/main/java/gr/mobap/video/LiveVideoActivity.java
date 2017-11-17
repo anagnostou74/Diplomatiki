@@ -108,7 +108,7 @@ public class LiveVideoActivity extends AppCompatActivity {
 
     protected void init() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        emVideoView = (EMVideoView) findViewById(R.id.video_play_activity_video_view);
+        emVideoView = findViewById(R.id.video_play_activity_video_view);
         emVideoView.setVideoPath("http://streamer-cache.grnet.gr/parliament/hls/webtv_640_640x360/index.m3u8");
         emVideoView.setDefaultControlsEnabled(true);
         emVideoView.getBufferPercentage();

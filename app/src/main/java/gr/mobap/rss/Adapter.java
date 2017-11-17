@@ -42,8 +42,8 @@ public class Adapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = View.inflate(context, R.layout.item_rss, null);
 			holder = new ViewHolder();
-			holder.itemTitle = (TextView) convertView.findViewById(R.id.itemTitle);
-			holder.itemDescription = (TextView) convertView.findViewById(R.id.itemDescription);
+			holder.itemTitle = convertView.findViewById(R.id.itemTitle);
+			holder.itemDescription = convertView.findViewById(R.id.itemDescription);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();

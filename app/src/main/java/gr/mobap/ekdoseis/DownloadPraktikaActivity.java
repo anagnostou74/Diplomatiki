@@ -121,9 +121,9 @@ public class DownloadPraktikaActivity extends Base {
         String action = intent.getAction();
         Uri data = intent.getData();
         setContentView(R.layout.activity_pdf);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -135,11 +135,11 @@ public class DownloadPraktikaActivity extends Base {
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Get ListView object from xml
-        listView = (ListView) findViewById(R.id.listEkd);
+        listView = findViewById(R.id.listEkd);
 
         rowItems = new ArrayList<RowItem>();
         for (int i = 0; i < titles.length; i++) {
@@ -147,7 +147,7 @@ public class DownloadPraktikaActivity extends Base {
             rowItems.add(item);
         }
 
-        listView = (ListView) findViewById(R.id.listEkd);
+        listView = findViewById(R.id.listEkd);
         CustomListViewAdapter adapter = new CustomListViewAdapter(this,
                 R.layout.item_books, rowItems);
         listView.setAdapter(adapter);
@@ -296,7 +296,6 @@ public class DownloadPraktikaActivity extends Base {
         // Enqueue the request
         dm.enqueue(r);
     }
-
 
     public Action getAction() {
         return Actions.newView("DownloadPraktika Page", "http://www.mobap.gr/downloadpraktikaactivity");

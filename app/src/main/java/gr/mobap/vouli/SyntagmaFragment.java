@@ -29,7 +29,7 @@ public class SyntagmaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_keimena, container, false);
 
         final String htmlText = getResources().getString(R.string.syntagmaKeim);
-        TextView tv = (TextView) view.findViewById(R.id.textThesmos);
+        TextView tv = view.findViewById(R.id.textThesmos);
         tv.setMovementMethod(LinkMovementMethod.getInstance());
         tv.setText(Html.fromHtml(htmlText));
         // Inflate the layout for this fragment
