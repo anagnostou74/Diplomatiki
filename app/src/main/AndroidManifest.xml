@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="gr.mobap">
+    <!-- Required to retrieve a unique identifier for the device, see note below -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- USE_CREDENTIALS is necessary for Google+ login -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <!-- GET_ACCOUNTS is necessary to display email address of logged in user. This permission is optional -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Required to retrieve diafaneia JSON -->
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".AnalyticsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="gr.mobap.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity
+            android:name=".Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="gr.mobap.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/mainactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="mainactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".diafaneia.Diafaneia"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/diafaneia">
+            <intent-filter android:label="@string/diafaneia">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/diafaneia"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="diafaneia"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".vouli.Thesmos"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/thesmos">
+            <intent-filter android:label="@string/thesmos">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/thesmos"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="thesmos"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".simera.HmerolActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/simera">
+            <intent-filter android:label="@string/simera">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/hmerolactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="hmerolactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ekdoseis.DownloadEkdoseisActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/ekdoseis">
+            <intent-filter android:label="@string/ekdoseis">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/downloadekdoseisactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="downloadekdoseisactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ekdoseis.DownloadPraktikaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/praktika_olom">
+            <intent-filter android:label="@string/praktika_olom">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/downloadpraktikaactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="downloadpraktikaactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".organosi.OrganosiActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/organosi">
+            <intent-filter android:label="@string/organosi">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/organosiactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="organosiactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".organosi.KommActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/komma">
+            <intent-filter android:label="@string/komma">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/kommactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="kommactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".web.SindesmoiActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/links">
+            <intent-filter android:label="@string/links">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/sindesmoiactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="sindesmoiactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PeriActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/peri">
+            <intent-filter android:label="@string/peri">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/periactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="periactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".images.Image"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/photos">
+            <intent-filter android:label="@string/photos">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/image"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="image"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".images.DetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/photos" />
+        <activity
+            android:name=".video.LiveVideoActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/nav_live_ena"
+            android:screenOrientation="landscape">
+            <intent-filter android:label="@string/nav_live_ena">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/livevideoactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="livevideoactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".video.LiveVideoDioActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/nav_live_dio"
+            android:screenOrientation="landscape">
+            <intent-filter android:label="@string/nav_live_dio">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/livevideodioactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="livevideodioactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".youtube.IntentsTvActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:finishOnTaskLaunch="true"
+            android:label="@string/tv">
+            <intent-filter android:label="@string/tv">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/intentstvactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="intentstvactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".map.MapsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter android:label="@string/title_activity_maps">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/mapsactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="mapsactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.NeaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/nea">
+            <intent-filter android:label="@string/nea">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/neaactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="neaactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.NsKatActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/katatethenta">
+            <intent-filter android:label="@string/katatethenta">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/nskatactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="nskatactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.NsPsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/psifisthenta">
+            <intent-filter android:label="@string/psifisthenta">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/nspsactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="nspsactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.EleghosActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/eleghos">
+            <intent-filter android:label="@string/eleghos">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/eleghosactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="eleghosactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.SinEpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/sinedriaseis_epitropon">
+            <intent-filter android:label="@string/sinedriaseis_epitropon">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/sinepactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="sinepactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.EktheseisEpActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/ektheseis">
+            <intent-filter android:label="@string/ektheseis">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/ektheseisepactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="ektheseisepactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".web.MailWeb"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/entos">
+            <intent-filter android:label="@string/entos">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/mailweb"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="mailweb"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".web.MobapWeb"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/mobap">
+            <intent-filter android:label="@string/mobap">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/mobapweb"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="mobapweb"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rss.activities.DrastActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/drastiriotites">
+            <intent-filter android:label="@string/drastiriotites">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/drastactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="drastactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".twitter.TimelineActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/tweet">
+            <intent-filter android:label="@string/tweet">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/timelineactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="timelineactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".twitter.TwitterCoreMainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/tweet" />
+        <activity
+            android:name=".AndroidNetworkUtility"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".mps.MpsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/mps">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/mpsactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="mpsactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".mps.SingleItemView"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/bio" />
+        <activity
+            android:name=".AppRate"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".Share"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/menu_share" />
+        <activity android:name=".Base" />
+
+        <service android:name=".rss.services.NeaService" />
+        <service android:name=".rss.services.NsKatService" />
+        <service android:name=".rss.services.NsPsService" />
+        <service android:name=".rss.services.EleghosService" />
+        <service android:name=".rss.services.SinEpService" />
+        <service android:name=".rss.services.EktheseisEpService" />
+        <service android:name=".rss.services.DrastService" />
+
+        <!--
+             Optionally, register AnalyticsReceiver and AnalyticsService to support background
+             dispatching on non-Google Play devices
+        -->
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!--
+             Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable
+             installation campaign reporting
+        -->
+        <receiver
+            android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- replace below value with your GCM project number. Separate multiple sender IDs with a comma -->
+        <meta-data
+            android:name="GCM_SENDER_ID"
+            android:value="id:190314798172" />
+
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
