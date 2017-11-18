@@ -24,7 +24,10 @@ public class AnalyticsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        OneSignal.startInit(this).init();
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
         Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
                 .applicationId("JQLmtUO2gtFqtsTqFg6otK8KCZ0lXE") //TODO αλλαγή κωδικών
                 .clientKey(null).server("http://hellenicparliament.herokuapp.com/parse/") // The trailing slash is important.
