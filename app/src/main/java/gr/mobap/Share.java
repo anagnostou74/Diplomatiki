@@ -1,5 +1,6 @@
 package gr.mobap;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
@@ -13,7 +14,7 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.util.List;
 
-public class Share extends Base {
+public class Share extends Activity {
     private Tracker mTracker;
 
     @Override
@@ -60,12 +61,11 @@ public class Share extends Base {
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        Intent intent = new Intent(Share.this, MainActivity.class);
+        intent.putExtra("result", "Back Press");
+        setResult(Activity.RESULT_CANCELED, intent);
+        finish();
+        super.onBackPressed();
     }
 
     @Override

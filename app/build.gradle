@@ -38,13 +38,13 @@ android {
         applicationId 'gr.mobap'
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 26
-        versionName "3.4"
+        versionCode 27
+        versionName "3.5"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
 
         manifestPlaceholders = [onesignal_app_id: "4f70842e-dc41-436e-8010-f0d711945203",
-                                // Project number pulled from dashboard, local value is ignored.
+                                // TODO: Αλλαγή κωδικών Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "REMOTE"]
     }
     buildTypes {
