@@ -19,18 +19,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
-import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterAuthException;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.models.Tweet;
@@ -45,7 +41,6 @@ import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.Base;
 import gr.mobap.MainActivity;
 import gr.mobap.R;
-import io.fabric.sdk.android.Fabric;
 
 /**
  * TimelineActivity shows a full screen timeline which is useful for screenshots.
@@ -53,20 +48,15 @@ import io.fabric.sdk.android.Fabric;
 public class TimelineActivity extends Base {
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
-    final WeakReference<Activity> activityRef = new WeakReference<Activity>(TimelineActivity.this);
+    final WeakReference<Activity> activityRef = new WeakReference<>(TimelineActivity.this);
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "pHre1Ar1d0jMbkWgjwImROvXP"; // TODO change code
-    private static final String TWITTER_SECRET = "DriCEI0mFguzzkgFXODXJYsjv3IS9GWQefmGJjAttGcQkBa2nd"; // TODO change code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
 
 //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -118,7 +108,7 @@ public class TimelineActivity extends Base {
             final ListView listView = findViewById(android.R.id.list);
             listView.setEmptyView(emptyView);
 
-            // Collection "Fabric Picks"
+            // Collection "Vouli from user anagnostou74"
             final TwitterListTimeline timeline = new TwitterListTimeline.Builder()
                     .slugWithOwnerScreenName("vouli", "anagnostou74")
                     .build();
@@ -154,47 +144,40 @@ public class TimelineActivity extends Base {
             });
 
             // specify action to take on swipe refresh
-            swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    swipeLayout.setRefreshing(true);
-                    adapter.refresh(new Callback<TimelineResult<Tweet>>() {
-                        @Override
-                        public void success(Result<TimelineResult<Tweet>> result) {
-                            swipeLayout.setRefreshing(false);
-                        }
+            swipeLayout.setOnRefreshListener(() -> {
+                swipeLayout.setRefreshing(true);
+                adapter.refresh(new Callback<TimelineResult<Tweet>>() {
+                    @Override
+                    public void success(Result<TimelineResult<Tweet>> result) {
+                        swipeLayout.setRefreshing(false);
+                    }
 
-                        @Override
-                        public void failure(TwitterException exception) {
-                            swipeLayout.setRefreshing(false);
-                            final Activity activity = activityRef.get();
-                            if (activity != null && !activity.isFinishing()) {
-                                Toast.makeText(activity, exception.getMessage(),
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                    @Override
+                    public void failure(TwitterException exception) {
+                        swipeLayout.setRefreshing(false);
+                        final Activity activity = activityRef.get();
+                        if (activity != null && !activity.isFinishing()) {
+                            Toast.makeText(activity, exception.getMessage(),
+                                    Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
             });
         } else {
             // display error
             Toast.makeText(this, getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(TimelineActivity.this, MainActivity.class);
-                    startActivity(i);
-                    // close this activity
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent i = new Intent(TimelineActivity.this, MainActivity.class);
+                startActivity(i);
+                // close this activity
+                finish();
             }, 1000); // wait for 1 second
         }
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-
 
 
     @Override

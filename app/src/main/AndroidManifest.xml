@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="gr.mobap">
     <!-- Required to retrieve a unique identifier for the device, see note below -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -14,7 +13,6 @@
     <!-- GET_ACCOUNTS is necessary to display email address of logged in user. This permission is optional -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <!-- Required to retrieve diafaneia JSON -->
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <!--
@@ -29,6 +27,7 @@
     <application
         android:name=".AnalyticsApplication"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -41,8 +40,9 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
+
         <activity
             android:name=".Splash"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -644,6 +644,8 @@
             android:label="@string/menu_share" />
         <activity android:name=".Base" />
 
+        <activity android:name="com.twitter.sdk.android.core.identity.OAuthActivity" />
+
         <service android:name=".rss.services.NeaService" />
         <service android:name=".rss.services.NsKatService" />
         <service android:name=".rss.services.NsPsService" />
@@ -701,6 +703,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
     </application>
 
 </manifest>

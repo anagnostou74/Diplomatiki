@@ -18,7 +18,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:theme="@style/AppTheme.PopupOverlay"
             app:logo="@mipmap/ic_launcher" />
 
@@ -53,12 +53,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/title"
@@ -81,12 +82,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView"
@@ -108,12 +110,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -135,12 +138,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -162,13 +166,14 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnSpan="2"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView8"
@@ -215,12 +220,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView5"
@@ -243,12 +249,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView6"
@@ -270,12 +277,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1">
+                app:layout_rowWeight="1"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/textView7"
@@ -314,7 +322,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/image_profile_picture"
                         android:visibility="visible"
-                        tools:visibility="gone" />
+                        tools:visibility="gone"
+                        android:contentDescription="@string/login_with_google" />
 
                     <ImageView
                         android:id="@+id/image_profile_picture"

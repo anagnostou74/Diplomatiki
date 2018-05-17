@@ -69,14 +69,11 @@ public class DrastActivity extends Base {
             // display error
             Toast.makeText(this, getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(DrastActivity.this, MainActivity.class);
-                    startActivity(i);
-                    // close this activity
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent i = new Intent(DrastActivity.this, MainActivity.class);
+                startActivity(i);
+                // close this activity
+                finish();
             }, 1000); // wait for 1 second
         }
 

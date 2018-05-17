@@ -7,13 +7,11 @@ package gr.mobap;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -38,6 +36,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -47,19 +46,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserInfo;
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
 
 import java.io.File;
 
@@ -72,7 +64,6 @@ import gr.mobap.rss.activities.NeaActivity;
 import gr.mobap.simera.HmerolActivity;
 import gr.mobap.twitter.TimelineActivity;
 import gr.mobap.video.LiveVideoActivity;
-import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends Base
         implements GoogleApiClient.OnConnectionFailedListener,
@@ -104,15 +95,12 @@ public class MainActivity extends Base
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private static final String TWITTER_KEY = "pHre1Ar1d0jMbkWgjwImROvXP"; // TODO change code
-    private static final String TWITTER_SECRET = "DriCEI0mFguzzkgFXODXJYsjv3IS9GWQefmGJjAttGcQkBa2nd"; // TODO change code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
 
         //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -124,8 +112,6 @@ public class MainActivity extends Base
         String data = intent.getDataString();
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
         AppRate.app_launched(this);
 
         // If a notification message is tapped, any data accompanying the notification
@@ -208,32 +194,29 @@ public class MainActivity extends Base
         // [END initialize_auth]
 
         // [START auth_state_listener]
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user != null) {
-                    for (UserInfo profile : user.getProviderData()) {
-                        // Id of the provider (ex: google.com)
-                        String providerId = profile.getProviderId();
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                for (UserInfo profile : user.getProviderData()) {
+                    // Id of the provider (ex: google.com)
+                    String providerId = profile.getProviderId();
 
-                        // UID specific to the provider
-                        String uid = profile.getUid();
+                    // UID specific to the provider
+                    String uid = profile.getUid();
 
-                        // Name, email address, and profile photo Url
-                        String name = profile.getDisplayName();
-                        String email = profile.getEmail();
-                        Uri photoUrl = profile.getPhotoUrl();
-                    }
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                    // Name, email address, and profile photo Url
+                    String name = profile.getDisplayName();
+                    String email = profile.getEmail();
+                    Uri photoUrl = profile.getPhotoUrl();
                 }
-                // [START_EXCLUDE]
-                updateUI(user);
-                // [END_EXCLUDE]
+                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+            } else {
+                // User is signed out
+                Log.d(TAG, "onAuthStateChanged:signed_out");
             }
+            // [START_EXCLUDE]
+            updateUI(user);
+            // [END_EXCLUDE]
         };
         // [END auth_state_listener]
 
@@ -330,23 +313,20 @@ public class MainActivity extends Base
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+                .addOnCompleteListener(MainActivity.this, task -> {
+                    Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithCredential", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        // [START_EXCLUDE]
-                        hideProgressDialog();
-                        // [END_EXCLUDE]
+                    // If sign in fails, display a message to the user. If sign in succeeds
+                    // the auth state listener will be notified and logic to handle the
+                    // signed in user can be handled in the listener.
+                    if (!task.isSuccessful()) {
+                        Log.w(TAG, "signInWithCredential", task.getException());
+                        Toast.makeText(MainActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
                     }
+                    // [START_EXCLUDE]
+                    hideProgressDialog();
+                    // [END_EXCLUDE]
                 });
     }
     // [END auth_with_google]
@@ -376,12 +356,7 @@ public class MainActivity extends Base
             mAuth.signOut();
             // Google sign out
             Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                    new ResultCallback<Status>() {
-                        @Override
-                        public void onResult(@NonNull Status status) {
-                            updateUI(null);
-                        }
-                    });
+                    status -> updateUI(null));
         } else {
             // display error
             Toast.makeText(MainActivity.this, getString(R.string.aneu_diktiou),
@@ -398,12 +373,7 @@ public class MainActivity extends Base
             mAuth.signOut();
             // Google revoke access
             Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                    new ResultCallback<Status>() {
-                        @Override
-                        public void onResult(@NonNull Status status) {
-                            updateUI(null);
-                        }
-                    });
+                    status -> updateUI(null));
         } else {
             // display error
             Toast.makeText(MainActivity.this, getString(R.string.aneu_diktiou),
@@ -416,7 +386,8 @@ public class MainActivity extends Base
         if (user != null) {
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getDisplayName()));
             String photoUrl = getString(R.string.firebase_status_fmt, user.getPhotoUrl());
-            Glide.with(this).load(photoUrl).asBitmap().centerCrop().into(new BitmapImageViewTarget(person) {
+
+            Glide.with(this).applyDefaultRequestOptions(new RequestOptions().centerCrop()).asBitmap().load(photoUrl).into(new BitmapImageViewTarget(person) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable =
@@ -469,14 +440,15 @@ public class MainActivity extends Base
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.sign_in) {
-            signIn();
-        } else if (i == R.id.status) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setItems(new CharSequence[]
-                            {"Άκυρο", "Έξοδος", "Αποσύνδεση"},
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
+        switch (i) {
+            case R.id.sign_in:
+                signIn();
+                break;
+            case R.id.status:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setItems(new CharSequence[]
+                                {"Άκυρο", "Έξοδος", "Αποσύνδεση"},
+                        (dialog, which) -> {
                             // The 'which' argument contains the index position
                             // of the selected item
                             switch (which) {
@@ -491,36 +463,45 @@ public class MainActivity extends Base
                                     revokeAccess();
                                     break;
                             }
-                        }
-                    });
-            builder.create().show();
-        } else if (i == R.id.main1) {
-            Intent a = new Intent(MainActivity.this, OrganosiActivity.class);
-            startActivity(a);
-        } else if (i == R.id.main2) {
-            Intent b = new Intent(MainActivity.this, KommActivity.class);
-            startActivity(b);
-        } else if (i == R.id.main3) {
-            Intent c = new Intent(MainActivity.this, HmerolActivity.class);
-            startActivity(c);
-        } else if (i == R.id.main4) {
-            Intent d = new Intent(MainActivity.this, DownloadEkdoseisActivity.class);
-            startActivity(d);
-        } else if (i == R.id.main5) {
-            Intent e = new Intent(MainActivity.this, Image.class);
-            startActivity(e);
-        } else if (i == R.id.main6) {
-            Intent f = new Intent(MainActivity.this, LiveVideoActivity.class);
-            startActivity(f);
-        } else if (i == R.id.main7) {
-            Intent g = new Intent(MainActivity.this, NeaActivity.class);
-            startActivity(g);
-        } else if (i == R.id.main8) {
-            Intent h = new Intent(MainActivity.this, TimelineActivity.class);
-            startActivity(h);
-        } else if (i == R.id.main9) {
-            Intent j = new Intent(MainActivity.this, Diafaneia.class);
-            startActivity(j);
+                        });
+                builder.create().show();
+                break;
+            case R.id.main1:
+                Intent a = new Intent(MainActivity.this, OrganosiActivity.class);
+                startActivity(a);
+                break;
+            case R.id.main2:
+                Intent b = new Intent(MainActivity.this, KommActivity.class);
+                startActivity(b);
+                break;
+            case R.id.main3:
+                Intent c = new Intent(MainActivity.this, HmerolActivity.class);
+                startActivity(c);
+                break;
+            case R.id.main4:
+                Intent d = new Intent(MainActivity.this, DownloadEkdoseisActivity.class);
+                startActivity(d);
+                break;
+            case R.id.main5:
+                Intent e = new Intent(MainActivity.this, Image.class);
+                startActivity(e);
+                break;
+            case R.id.main6:
+                Intent f = new Intent(MainActivity.this, LiveVideoActivity.class);
+                startActivity(f);
+                break;
+            case R.id.main7:
+                Intent g = new Intent(MainActivity.this, NeaActivity.class);
+                startActivity(g);
+                break;
+            case R.id.main8:
+                Intent h = new Intent(MainActivity.this, TimelineActivity.class);
+                startActivity(h);
+                break;
+            case R.id.main9:
+                Intent j = new Intent(MainActivity.this, Diafaneia.class);
+                startActivity(j);
+                break;
         }
     }
 

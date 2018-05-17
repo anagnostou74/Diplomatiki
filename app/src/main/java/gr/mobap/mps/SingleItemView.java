@@ -7,7 +7,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -121,50 +120,42 @@ public class SingleItemView extends Base {
         TextView txtlanguages = findViewById(R.id.languages);
         TextView txtaddress = findViewById(R.id.address);
         final TextView txtsite = findViewById(R.id.site);
-        txtsite.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String to = txtsite.getText().toString();
-                Intent browserIntent = new Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse(to));
-                startActivity(browserIntent);
-            }
+        txtsite.setOnClickListener(v -> {
+            String to = txtsite.getText().toString();
+            Intent browserIntent = new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(to));
+            startActivity(browserIntent);
         });
         final TextView txtemail = findViewById(R.id.email);
-        txtemail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String to = txtemail.getText().toString();
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL,
-                        new String[]{to});
-                i.putExtra(Intent.EXTRA_SUBJECT,
-                        getString(R.string.mps_mail));
-                i.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_mps));
-                try {
-                    startActivity(Intent.createChooser(i,
-                            getString(R.string.apostoli)));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(SingleItemView.this, getString(R.string.aneu), Toast.LENGTH_SHORT).show();
-                }
+        txtemail.setOnClickListener(v -> {
+            String to = txtemail.getText().toString();
+            Intent i1 = new Intent(Intent.ACTION_SEND);
+            i1.setType("message/rfc822");
+            i1.putExtra(Intent.EXTRA_EMAIL,
+                    new String[]{to});
+            i1.putExtra(Intent.EXTRA_SUBJECT,
+                    getString(R.string.mps_mail));
+            i1.putExtra(Intent.EXTRA_TEXT, getString(R.string.main_mps));
+            try {
+                startActivity(Intent.createChooser(i1,
+                        getString(R.string.apostoli)));
+            } catch (android.content.ActivityNotFoundException ex) {
+                Toast.makeText(SingleItemView.this, getString(R.string.aneu), Toast.LENGTH_SHORT).show();
             }
         });
 
         final TextView txtphone = findViewById(R.id.phone);
-        txtphone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // [START custom_event]
-                mTracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Action")
-                        .setAction("CallMps")
-                        .build());
-                // [END custom_event]
-                String po = txtphone.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", po, null));
-                startActivity(intent);
-            }
+        txtphone.setOnClickListener(v -> {
+            // [START custom_event]
+            mTracker.send(new HitBuilders.EventBuilder()
+                    .setCategory("Action")
+                    .setAction("CallMps")
+                    .build());
+            // [END custom_event]
+            String po = txtphone.getText().toString();
+            Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", po, null));
+            startActivity(intent1);
         });
 
 

@@ -20,7 +20,7 @@ import gr.mobap.rss.Parser;
 
 public class NsKatService extends IntentService {
 
-	public static final String RSS_LINK = "http://www.hellenicparliament.gr/rssfeed/RssSubmittedBills.aspx";
+	public static final String RSS_LINK = "https://www.hellenicparliament.gr/rssfeed/RssSubmittedBills.aspx";
 	public static final String ITEMS = "items";
 	public static final String RECEIVER = "receiver";
 

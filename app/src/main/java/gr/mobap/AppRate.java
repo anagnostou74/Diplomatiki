@@ -8,8 +8,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.view.Gravity;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -79,12 +77,10 @@ public class AppRate extends Activity {
         b1.setTextColor(Color.rgb(255, 255, 255));
         b1.setLayoutParams(params);
         b1.setPadding(12, 12, 12, 12);
-        b1.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("market://details?id=" + APP_PNAME)));
-                dialog.dismiss();
-            }
+        b1.setOnClickListener(v -> {
+            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+                    .parse("market://details?id=" + APP_PNAME)));
+            dialog.dismiss();
         });
         ll.addView(b1);
 
@@ -94,11 +90,7 @@ public class AppRate extends Activity {
         b2.setTextColor(Color.rgb(255, 255, 255));
         b2.setLayoutParams(params);
         b2.setPadding(12, 12, 12, 12);
-        b2.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        b2.setOnClickListener(v -> dialog.dismiss());
         ll.addView(b2);
 
         Button b3 = new Button(mContext, null, R.style.ButtonStyle);
@@ -107,14 +99,12 @@ public class AppRate extends Activity {
         b3.setTextColor(Color.rgb(255, 255, 255));
         b3.setLayoutParams(params);
         b3.setPadding(12, 12, 12, 12);
-        b3.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                if (editor != null) {
-                    editor.putBoolean("dontshowagain", true);
-                    editor.commit();
-                }
-                dialog.dismiss();
+        b3.setOnClickListener(v -> {
+            if (editor != null) {
+                editor.putBoolean("dontshowagain", true);
+                editor.commit();
             }
+            dialog.dismiss();
         });
         ll.addView(b3);
 

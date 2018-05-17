@@ -19,18 +19,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.appindexing.FirebaseAppIndex;
@@ -179,12 +175,7 @@ public class DownloadEkdoseisActivity extends Base {
      */
     private GoogleApiClient client;
 
-    /**
-     * functoin to open the PDF using an Intent
-     *
-     * @param context
-     * @param localUri
-     */
+
     public static final void openPDF(Context context, Uri localUri) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -225,7 +216,7 @@ public class DownloadEkdoseisActivity extends Base {
         // Get ListView object from xml
         listView = findViewById(R.id.listEkd);
 
-        rowItems = new ArrayList<RowItem>();
+        rowItems = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
             RowItem item = new RowItem(images[i], titles[i], descriptions[i]);
             rowItems.add(item);
@@ -237,142 +228,137 @@ public class DownloadEkdoseisActivity extends Base {
         listView.setAdapter(adapter);
 
         // ListView Item Click Listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener((parent, view, position, id) -> {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            switch (position) {
+                case 0:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/SYNTAGMA1_1.pdf";
+                    break;
+                case 1:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/Proedroi.pdf";
+                    break;
+                case 2:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/vouli_efivon_low.pdf";
+                    break;
+                case 3:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/vouli_site_version.pdf";
+                    break;
+                case 4:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/BOOK.pdf";
+                    break;
+                case 5:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/epigr_2.pdf";
+                    break;
+                case 6:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/EuroParl50.pdf";
+                    break;
+                case 7:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/democracy.pdf";
+                    break;
+                case 8:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/EUROMED.pdf";
+                    break;
+                case 9:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/kolokotronis.pdf";
+                    break;
+                case 10:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/soma_low.pdf";
+                    break;
+                case 11:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/ploritisB-low.pdf";
+                    break;
+                case 12:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/ploritisA-low.pdf";
+                    break;
+                case 13:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Kaltchas%20book.pdf";
+                    break;
+                case 14:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Orosima%20book.pdf";
+                    break;
+                case 15:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/soma_germ_1.pdf";
+                    break;
+                case 16:
+                    pdfURL = "http://foundation.parliament.gr/contentData/%CF%80%CF%81%CE%B1%CE%BA%CF%84%CE%B9%CE%BA%CE%AC%20%CF%83%CF%85%CE%BD%CE%B5%CE%B4%CF%81%CE%AF%CE%BF%CF%85.pdf";
+                    break;
+                case 17:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Gynaikes.pdf";
+                    break;
+                case 18:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/epitaphios.pdf";
+                    break;
+                case 19:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Kasimatis.pdf";
+                    break;
+                case 20:
+                    pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Προέδροι.pdf";
+                    break;
+                case 21:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn04a.pdf";
+                    break;
+                case 22:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn08.pdf";
+                    break;
+                case 23:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn07.pdf";
+                    break;
+                case 24:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn09.pdf";
+                    break;
+                case 25:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn11.pdf";
+                    break;
+                case 26:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn12.pdf";
+                    break;
+                case 27:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn13.pdf";
+                    break;
+                case 28:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn14.pdf";
+                    break;
+                case 29:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn15.pdf";
+                    break;
+                case 30:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn16.pdf";
+                    break;
+                case 31:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kanonismos-Thematiko-syntagma-2010.pdf";
+                    break;
+                case 32:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/Kanonismos-Prosthiki.pdf";
+                    break;
+                case 33:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/20140121ktv_pB_v11.pdf";
+                    break;
+                case 34:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2014-12-24_267-A.pdf";
+                    break;
+                case 35:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2015-11-09_144-A.pdf";
+                    break;
+                case 36:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2016-04-18_67_A.pdf";
+                    break;
+                case 37:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kodikas-deonto.pdf";
+                    break;
+                default:
+            }
 
-                switch (position) {
-                    case 0:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/SYNTAGMA1_1.pdf";
-                        break;
-                    case 1:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/Proedroi.pdf";
-                        break;
-                    case 2:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/vouli_efivon_low.pdf";
-                        break;
-                    case 3:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/vouli_site_version.pdf";
-                        break;
-                    case 4:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/BOOK.pdf";
-                        break;
-                    case 5:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/epigr_2.pdf";
-                        break;
-                    case 6:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/EuroParl50.pdf";
-                        break;
-                    case 7:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/democracy.pdf";
-                        break;
-                    case 8:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/EUROMED.pdf";
-                        break;
-                    case 9:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/8c3e9046-78fb-48f4-bd82-bbba28ca1ef5/kolokotronis.pdf";
-                        break;
-                    case 10:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/soma_low.pdf";
-                        break;
-                    case 11:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/ploritisB-low.pdf";
-                        break;
-                    case 12:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/ploritisA-low.pdf";
-                        break;
-                    case 13:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Kaltchas%20book.pdf";
-                        break;
-                    case 14:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Orosima%20book.pdf";
-                        break;
-                    case 15:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/soma_germ_1.pdf";
-                        break;
-                    case 16:
-                        pdfURL = "http://foundation.parliament.gr/contentData/%CF%80%CF%81%CE%B1%CE%BA%CF%84%CE%B9%CE%BA%CE%AC%20%CF%83%CF%85%CE%BD%CE%B5%CE%B4%CF%81%CE%AF%CE%BF%CF%85.pdf";
-                        break;
-                    case 17:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Gynaikes.pdf";
-                        break;
-                    case 18:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/epitaphios.pdf";
-                        break;
-                    case 19:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Kasimatis.pdf";
-                        break;
-                    case 20:
-                        pdfURL = "http://foundation.parliament.gr/VoulhFoundation/VoulhFoundationPortal/images/site_content/voulhFoundation/file/Books/Προέδροι.pdf";
-                        break;
-                    case 21:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn04a.pdf";
-                        break;
-                    case 22:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn08.pdf";
-                        break;
-                    case 23:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn07.pdf";
-                        break;
-                    case 24:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn09.pdf";
-                        break;
-                    case 25:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn11.pdf";
-                        break;
-                    case 26:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn12.pdf";
-                        break;
-                    case 27:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn13.pdf";
-                        break;
-                    case 28:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn14.pdf";
-                        break;
-                    case 29:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn15.pdf";
-                        break;
-                    case 30:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/syn16.pdf";
-                        break;
-                    case 31:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kanonismos-Thematiko-syntagma-2010.pdf";
-                        break;
-                    case 32:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/Kanonismos-Prosthiki.pdf";
-                        break;
-                    case 33:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/20140121ktv_pB_v11.pdf";
-                        break;
-                    case 34:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2014-12-24_267-A.pdf";
-                        break;
-                    case 35:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2015-11-09_144-A.pdf";
-                        break;
-                    case 36:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/2016-04-18_67_A.pdf";
-                        break;
-                    case 37:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/kodikas-deonto.pdf";
-                        break;
-                    default:
-                }
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+                // fetch data
+                CopyPDF();
 
-                ConnectivityManager connMgr = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    // fetch data
-                    CopyPDF();
-
-                } else {
-                    // display error
-                    Toast.makeText(DownloadEkdoseisActivity.this, getString(R.string.aneu_diktiou),
-                            Toast.LENGTH_SHORT).show();
-                }
+            } else {
+                // display error
+                Toast.makeText(DownloadEkdoseisActivity.this, getString(R.string.aneu_diktiou),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 

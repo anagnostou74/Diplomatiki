@@ -32,18 +32,22 @@ public class Parser {
 		String title = null;
         String link = null;
         String description = null;
-		List<Item> items = new ArrayList<Item>();
+		List<Item> items = new ArrayList<>();
 		while (parser.next() != XmlPullParser.END_DOCUMENT) {
 			if (parser.getEventType() != XmlPullParser.START_TAG) {
 				continue;
 			}
 			String name = parser.getName();
-			if (name.equals("title")) {
-				title = readTitle(parser);
-			} else if (name.equals("link")) {
-				link = readLink(parser);
-			} else if (name.equals("description")) {
-				description = readDescription(parser);
+			switch (name) {
+				case "title":
+					title = readTitle(parser);
+					break;
+				case "link":
+					link = readLink(parser);
+					break;
+				case "description":
+					description = readDescription(parser);
+					break;
 			}
 			if (title != null && link != null && description != null) {
 				Item item = new Item(title, link, description);

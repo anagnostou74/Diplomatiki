@@ -10,7 +10,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -177,29 +176,22 @@ public class Image extends Base {
             mRecyclerView.setAdapter(mAdapter);
 
             mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this,
-                    new RecyclerItemClickListener.OnItemClickListener() {
+                    (view, position) -> {
 
-                        @Override
-                        public void onItemClick(View view, int position) {
+                        Intent intent1 = new Intent(Image.this, DetailActivity.class);
+                        intent1.putParcelableArrayListExtra("data", data);
+                        intent1.putExtra("pos", position);
+                        startActivity(intent1);
 
-                            Intent intent = new Intent(Image.this, DetailActivity.class);
-                            intent.putParcelableArrayListExtra("data", data);
-                            intent.putExtra("pos", position);
-                            startActivity(intent);
-
-                        }
                     }));
         } else {
             // display error
             Toast.makeText(this, getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(Image.this, MainActivity.class);
-                    // close this activity
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent i = new Intent(Image.this, MainActivity.class);
+                // close this activity
+                finish();
             }, 1000); // wait for 1 second
         }
     }

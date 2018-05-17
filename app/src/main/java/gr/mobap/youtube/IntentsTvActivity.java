@@ -107,7 +107,7 @@ public final class IntentsTvActivity extends Base implements OnItemClickListener
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-        intentItems = new ArrayList<TvListViewItem>();
+        intentItems = new ArrayList<>();
         intentItems.add(new IntentItem("Κοινοβουλευτικό έργο", IntentType.KOINOVOULEUTIKO_ERGO));
         intentItems.add(new IntentItem("Συνάντηση", IntentType.SINANTISI));
         intentItems.add(new IntentItem("Εκπομπές επικαιρότητας", IntentType.EPIKAIROTITA));

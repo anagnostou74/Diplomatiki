@@ -33,6 +33,7 @@
             android:layout_below="@+id/title"
             android:layout_toRightOf="@+id/icon"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/colorAccent" />
     </RelativeLayout>

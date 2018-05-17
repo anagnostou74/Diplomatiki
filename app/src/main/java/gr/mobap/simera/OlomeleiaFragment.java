@@ -2,7 +2,7 @@ package gr.mobap.simera;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +40,7 @@ public class OlomeleiaFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,

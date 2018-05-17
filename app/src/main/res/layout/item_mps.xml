@@ -25,7 +25,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@drawable/action_bar"
                 android:theme="@style/AppTheme.PopupOverlay"
                 app:logo="@mipmap/ic_launcher" />
@@ -89,6 +89,7 @@
                             android:layout_below="@+id/komma"
                             android:layout_toRightOf="@+id/epitheto"
                             android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -104,7 +105,8 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/onoma"
                             android:layout_toRightOf="@+id/on_patros_label"
-                            android:paddingLeft="2dp" />
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp" />
 
                         <TextView
                             android:id="@+id/titlos"
@@ -239,6 +241,7 @@
                         android:clickable="true"
                         android:drawableLeft="@drawable/web"
                         android:drawablePadding="3dp"
+                        android:focusable="true"
                         android:gravity="center"
                         android:textStyle="bold|italic" />
                 </android.support.v7.widget.CardView>
@@ -257,6 +260,7 @@
                         android:clickable="true"
                         android:drawableLeft="@drawable/mail_mp"
                         android:drawablePadding="3dp"
+                        android:focusable="true"
                         android:gravity="center"
                         android:textStyle="bold|italic" />
                 </android.support.v7.widget.CardView>
@@ -275,6 +279,7 @@
                         android:clickable="true"
                         android:drawableLeft="@drawable/phone"
                         android:drawablePadding="3dp"
+                        android:focusable="true"
                         android:gravity="center"
                         android:textStyle="bold|italic" />
                 </android.support.v7.widget.CardView>

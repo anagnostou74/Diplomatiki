@@ -14,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.devbrackets.android.exomedia.EMVideoView;
+import com.devbrackets.android.exomedia.ui.widget.VideoView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -29,7 +29,7 @@ import gr.mobap.MainActivity;
 import gr.mobap.R;
 
 public class LiveVideoActivity extends AppCompatActivity {
-    protected EMVideoView emVideoView;
+    protected VideoView emVideoView;
     protected boolean pausedInOnStop = false;
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -64,14 +64,11 @@ public class LiveVideoActivity extends AppCompatActivity {
             // display error
             Toast.makeText(this, getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(LiveVideoActivity.this, MainActivity.class);
-                    startActivity(i);
-                    // close this activity
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent i = new Intent(LiveVideoActivity.this, MainActivity.class);
+                startActivity(i);
+                // close this activity
+                finish();
             }, 1000); // wait for 1 second
         }
     }
@@ -110,10 +107,8 @@ public class LiveVideoActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         emVideoView = findViewById(R.id.video_play_activity_video_view);
         emVideoView.setVideoPath("http://streamer-cache.grnet.gr/parliament/hls/webtv_640_640x360/index.m3u8");
-        emVideoView.setDefaultControlsEnabled(true);
         emVideoView.getBufferPercentage();
         emVideoView.getCurrentPosition();
-        emVideoView.startProgressPoll();
         emVideoView.start();
     }
 }

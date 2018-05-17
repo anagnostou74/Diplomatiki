@@ -10,11 +10,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -23,11 +20,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Thing;
 import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
-import com.google.firebase.appindexing.Indexable;
 import com.google.firebase.appindexing.builders.Actions;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -157,23 +152,20 @@ public class Diafaneia extends Base {
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
 
-        dataList = new ArrayList<HashMap<String, String>>();
+        dataList = new ArrayList<>();
         ListView lv = findViewById(R.id.listdiaf);
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
             // Listview on item click listener
-            lv.setOnItemClickListener(new OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    // getting values from selected ListItem
-                    String file = ((TextView) view.findViewById(R.id.file)).getText().toString();
-                    String diafUrl = "http://diafaneia.hellenicparliament.gr/" + file;
-                    Intent in = new Intent(Intent.ACTION_VIEW);
-                    in.putExtra(TAG_Att_FilePath, diafUrl);
-                    in.setDataAndType(Uri.parse(diafUrl), "application/pdf");
-                    startActivity(in);
-                }
+            lv.setOnItemClickListener((parent, view, position, id) -> {
+                // getting values from selected ListItem
+                String file = ((TextView) view.findViewById(R.id.file)).getText().toString();
+                String diafUrl = "http://diafaneia.hellenicparliament.gr/" + file;
+                Intent in = new Intent(Intent.ACTION_VIEW);
+                in.putExtra(TAG_Att_FilePath, diafUrl);
+                in.setDataAndType(Uri.parse(diafUrl), "application/pdf");
+                startActivity(in);
             });
             // Calling async task to get json
             new GetData().execute();
@@ -351,7 +343,7 @@ public class Diafaneia extends Base {
                         String ipi = getString(R.string.ipiresia);
                         String sinfo = getString(R.string.sinfo);
                         // tmp hashmap for single data
-                        HashMap<String, String> data = new HashMap<String, String>();
+                        HashMap<String, String> data = new HashMap<>();
                         data.put(TAG_Subject, subject);
                         data.put(TAG_Att_FilePath, attFile);
                         data.put(TAG_IPI, ipi);
@@ -379,9 +371,6 @@ public class Diafaneia extends Base {
             // Dismiss the progress dialog
             if (progress.isShowing())
                 progress.dismiss();
-            /**
-             * Updating parsed JSON data into ListView
-             * */
             ListAdapter adapter = new SimpleAdapter(
                     Diafaneia.this,
                     dataList,

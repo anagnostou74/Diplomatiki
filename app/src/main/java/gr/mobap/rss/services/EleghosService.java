@@ -20,7 +20,7 @@ import gr.mobap.rss.Parser;
 
 public class EleghosService extends IntentService {
 
-	public static final String RSS_LINK = "http://www.hellenicparliament.gr/rssfeed/RssMeansofParliamentaryControl.aspx";
+	public static final String RSS_LINK = "https://www.hellenicparliament.gr/rssfeed/RssMeansofParliamentaryControl.aspx";
 	public static final String ITEMS = "items";
 	public static final String RECEIVER = "receiver";
 

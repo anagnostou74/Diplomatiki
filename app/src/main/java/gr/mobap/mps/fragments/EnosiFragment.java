@@ -3,6 +3,7 @@ package gr.mobap.mps.fragments;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,7 +45,7 @@ public class EnosiFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
@@ -77,10 +78,10 @@ public class EnosiFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             // Create the array
-            worldpopulationlist = new ArrayList<MpsData>();
+            worldpopulationlist = new ArrayList<>();
             try {
                 // Locate the class table named "Country" in Parse.com
-                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("mps");
+                ParseQuery<ParseObject> query = new ParseQuery<>("mps");
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
                 query.orderByAscending("Epitheto");

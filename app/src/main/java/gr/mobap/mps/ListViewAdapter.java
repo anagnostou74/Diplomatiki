@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -29,7 +28,7 @@ public class ListViewAdapter extends BaseAdapter {
         this.context = context;
         this.worldpopulationlist = worldpopulationlist;
         inflater = LayoutInflater.from(context);
-        this.arraylist = new ArrayList<MpsData>();
+        this.arraylist = new ArrayList<>();
         this.arraylist.addAll(worldpopulationlist);
         mpsImageLoader = new MpsImageLoader(context);
     }
@@ -123,39 +122,35 @@ public class ListViewAdapter extends BaseAdapter {
 //        holder.email.setText(worldpopulationlist.get(position).getEmail());
         // Set the results into ImageView
         //mpsImageLoader.DisplayImage(worldpopulationlist.get(position).getFlag(), holder.flag);
-        Glide.with(context.getApplicationContext()).load(worldpopulationlist.get(position).getFlag()).dontAnimate().into(holder.flag);
+        Glide.with(context.getApplicationContext()).load(worldpopulationlist.get(position).getFlag()).into(holder.flag);
 
         // Listen for ListView Item Click
-        view.setOnClickListener(new OnClickListener() {
+        view.setOnClickListener(arg0 -> {
+            // Send single item click data to SingleItemView Class
+            Intent intent = new Intent(context, SingleItemView.class);
+            // Pass all data epitheto
+            intent.putExtra("epitheto", (worldpopulationlist.get(position).getEpitheto()));
+            intent.putExtra("onoma", (worldpopulationlist.get(position).getOnoma()));
+            intent.putExtra("onomaPatros", (worldpopulationlist.get(position).getOnomaPatros()));
+            intent.putExtra("titlos", (worldpopulationlist.get(position).getTitlos()));
+            intent.putExtra("govPosition", (worldpopulationlist.get(position).getGovPosition()));
+            intent.putExtra("komma", (worldpopulationlist.get(position).getKomma()));
+            intent.putExtra("perifereia", (worldpopulationlist.get(position).getPerifereia()));
+            intent.putExtra("birth", (worldpopulationlist.get(position).getBirth()));
+            intent.putExtra("family", (worldpopulationlist.get(position).getFamily()));
+            intent.putExtra("epaggelma", (worldpopulationlist.get(position).getEpaggelma()));
+            intent.putExtra("parliamentActivities", (worldpopulationlist.get(position).getParliamentActivities()));
+            intent.putExtra("socialActivities", (worldpopulationlist.get(position).getSocialActivities()));
+            intent.putExtra("spoudes", (worldpopulationlist.get(position).getSpoudes()));
+            intent.putExtra("languages", (worldpopulationlist.get(position).getLanguages()));
+            intent.putExtra("address", (worldpopulationlist.get(position).getAddress()));
+            intent.putExtra("site", (worldpopulationlist.get(position).getSite()));
+            intent.putExtra("email", (worldpopulationlist.get(position).getEmail()));
+            intent.putExtra("phone", (worldpopulationlist.get(position).getPhone()));
+            intent.putExtra("flag", (worldpopulationlist.get(position).getFlag()));
 
-            @Override
-            public void onClick(View arg0) {
-                // Send single item click data to SingleItemView Class
-                Intent intent = new Intent(context, SingleItemView.class);
-                // Pass all data epitheto
-                intent.putExtra("epitheto", (worldpopulationlist.get(position).getEpitheto()));
-                intent.putExtra("onoma", (worldpopulationlist.get(position).getOnoma()));
-                intent.putExtra("onomaPatros", (worldpopulationlist.get(position).getOnomaPatros()));
-                intent.putExtra("titlos", (worldpopulationlist.get(position).getTitlos()));
-                intent.putExtra("govPosition", (worldpopulationlist.get(position).getGovPosition()));
-                intent.putExtra("komma", (worldpopulationlist.get(position).getKomma()));
-                intent.putExtra("perifereia", (worldpopulationlist.get(position).getPerifereia()));
-                intent.putExtra("birth", (worldpopulationlist.get(position).getBirth()));
-                intent.putExtra("family", (worldpopulationlist.get(position).getFamily()));
-                intent.putExtra("epaggelma", (worldpopulationlist.get(position).getEpaggelma()));
-                intent.putExtra("parliamentActivities", (worldpopulationlist.get(position).getParliamentActivities()));
-                intent.putExtra("socialActivities", (worldpopulationlist.get(position).getSocialActivities()));
-                intent.putExtra("spoudes", (worldpopulationlist.get(position).getSpoudes()));
-                intent.putExtra("languages", (worldpopulationlist.get(position).getLanguages()));
-                intent.putExtra("address", (worldpopulationlist.get(position).getAddress()));
-                intent.putExtra("site", (worldpopulationlist.get(position).getSite()));
-                intent.putExtra("email", (worldpopulationlist.get(position).getEmail()));
-                intent.putExtra("phone", (worldpopulationlist.get(position).getPhone()));
-                intent.putExtra("flag", (worldpopulationlist.get(position).getFlag()));
-
-                // Start SingleItemView Class
-                context.startActivity(intent);
-            }
+            // Start SingleItemView Class
+            context.startActivity(intent);
         });
         return view;
     }

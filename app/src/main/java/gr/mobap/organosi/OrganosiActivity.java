@@ -17,12 +17,10 @@ import android.view.WindowManager;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Thing;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
-import com.google.firebase.appindexing.Indexable;
 import com.google.firebase.appindexing.builders.Actions;
 import java.util.ArrayList;
 import java.util.List;

@@ -2,6 +2,7 @@ package gr.mobap.ekdoseis;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,8 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
         this.context = context;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    @NonNull
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ViewHolder holder = null;
         RowItem rowItem = getItem(position);
 

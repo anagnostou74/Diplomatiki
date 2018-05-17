@@ -13,7 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.devbrackets.android.exomedia.EMVideoView;
+import com.devbrackets.android.exomedia.ui.widget.VideoView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -53,23 +53,19 @@ public class LiveVideoDioActivity extends AppCompatActivity {
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(this)) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            EMVideoView emVideoView = findViewById(R.id.video_play_activity_video_view);
+            VideoView emVideoView = findViewById(R.id.video_play_activity_video_view);
             assert emVideoView != null;
             emVideoView.setVideoURI(Uri.parse("http://streamer-cache.grnet.gr/parliament/hls/webtv2_640_640x360/index.m3u8"));
-            emVideoView.setDefaultControlsEnabled(true);
             emVideoView.start();
         } else {
             // display error
             Toast.makeText(this, getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(LiveVideoDioActivity.this, MainActivity.class);
-                    startActivity(i);
-                    // close this activity
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent i = new Intent(LiveVideoDioActivity.this, MainActivity.class);
+                startActivity(i);
+                // close this activity
+                finish();
             }, 1000); // wait for 1 second
         }
     }

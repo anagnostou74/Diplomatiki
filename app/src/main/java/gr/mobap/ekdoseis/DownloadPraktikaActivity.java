@@ -19,10 +19,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -94,12 +92,7 @@ public class DownloadPraktikaActivity extends Base {
     private String TAG = "RegsActivity", pdfURL;
     private Tracker mTracker;
 
-    /**
-     * functoin to open the PDF using an Intent
-     *
-     * @param context
-     * @param localUri
-     */
+
     public static final void openPDF(Context context, Uri localUri) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -141,7 +134,7 @@ public class DownloadPraktikaActivity extends Base {
         // Get ListView object from xml
         listView = findViewById(R.id.listEkd);
 
-        rowItems = new ArrayList<RowItem>();
+        rowItems = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
             RowItem item = new RowItem(images[i], titles[i], descriptions[i]);
             rowItems.add(item);
@@ -153,64 +146,59 @@ public class DownloadPraktikaActivity extends Base {
         listView.setAdapter(adapter);
 
         // ListView Item Click Listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener((parent, view, position, id) -> {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            switch (position) {
+                case 0:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_a_sin_gen.pdf";
+                    break;
+                case 1:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_b_sin_gen.pdf";
+                    break;
+                case 2:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_c_sin_gen.pdf";
+                    break;
+                case 3:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_d_sin_gen.pdf";
+                    break;
+                case 4:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_a_sin_gen.pdf";
+                    break;
+                case 5:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_b_sin_gen.pdf.pdf";
+                    break;
+                case 6:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_c_sin_gen.pdf";
+                    break;
+                case 7:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_a_sin_gen.pdf";
+                    break;
+                case 8:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_b_sin_gen.pdf";
+                    break;
+                case 9:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_a_sin_gen.pdf.pdf";
+                    break;
+                case 10:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_b_sin_gen.pdf";
+                    break;
+                case 11:
+                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ie_per_a_sin_gen.pdf";
+                    break;
+                default:
+            }
 
-                switch (position) {
-                    case 0:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_a_sin_gen.pdf";
-                        break;
-                    case 1:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_b_sin_gen.pdf";
-                        break;
-                    case 2:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_c_sin_gen.pdf";
-                        break;
-                    case 3:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_d_sin_gen.pdf";
-                        break;
-                    case 4:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_a_sin_gen.pdf";
-                        break;
-                    case 5:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_b_sin_gen.pdf.pdf";
-                        break;
-                    case 6:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_c_sin_gen.pdf";
-                        break;
-                    case 7:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_a_sin_gen.pdf";
-                        break;
-                    case 8:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_b_sin_gen.pdf";
-                        break;
-                    case 9:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_a_sin_gen.pdf.pdf";
-                        break;
-                    case 10:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_b_sin_gen.pdf";
-                        break;
-                    case 11:
-                        pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ie_per_a_sin_gen.pdf";
-                        break;
-                    default:
-                }
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+                // fetch data
+                CopyPDF();
 
-                ConnectivityManager connMgr = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    // fetch data
-                    CopyPDF();
-
-                } else {
-                    // display error
-                    Toast.makeText(DownloadPraktikaActivity.this, getString(R.string.aneu_diktiou),
-                            Toast.LENGTH_SHORT).show();
-                }
+            } else {
+                // display error
+                Toast.makeText(DownloadPraktikaActivity.this, getString(R.string.aneu_diktiou),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

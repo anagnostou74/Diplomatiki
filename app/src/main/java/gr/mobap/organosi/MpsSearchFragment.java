@@ -3,6 +3,7 @@ package gr.mobap.organosi;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,7 +47,7 @@ public class MpsSearchFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list_search_mps, container, false);
@@ -65,17 +66,15 @@ public class MpsSearchFragment extends Fragment {
         RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
         //checkedRadioButton.setChecked(true);
         // This overrides the radiogroup onCheckListener
-        rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            public void onCheckedChanged(RadioGroup rGroup, int checkedId) {
-                // This will get the radiobutton that has changed in its check state
-                RadioButton checkedRadioButton = rGroup.findViewById(checkedId);
-                // This puts the value (true/false) into the variable
-                boolean isChecked = checkedRadioButton.isChecked();
-                // If the radiobutton that has changed in check state is now checked...
-                if (isChecked) {
-                    String radiovalue = ((RadioButton) getView().findViewById(rGroup.getCheckedRadioButtonId())).getText().toString();
-                    new RemoteDataTask().execute(radiovalue);
-                }
+        rGroup.setOnCheckedChangeListener((rGroup1, checkedId) -> {
+            // This will get the radiobutton that has changed in its check state
+            RadioButton checkedRadioButton1 = rGroup1.findViewById(checkedId);
+            // This puts the value (true/false) into the variable
+            boolean isChecked = checkedRadioButton1.isChecked();
+            // If the radiobutton that has changed in check state is now checked...
+            if (isChecked) {
+                String radiovalue = ((RadioButton) getView().findViewById(rGroup1.getCheckedRadioButtonId())).getText().toString();
+                new RemoteDataTask().execute(radiovalue);
             }
         });
         return view;
@@ -100,10 +99,10 @@ public class MpsSearchFragment extends Fragment {
         @Override
         protected Void doInBackground(String... params) {
             String s = params[0]; // here's youre string
-            worldpopulationlist = new ArrayList<MpsData>();
+            worldpopulationlist = new ArrayList<>();
             try {
                 // Locate the class table named "Country" in Parse.com
-                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("mps");
+                ParseQuery<ParseObject> query = new ParseQuery<>("mps");
                 // Locate the column named "ranknum" in Parse.com and order list
                 // by ascending
                 query.orderByAscending("Epitheto");

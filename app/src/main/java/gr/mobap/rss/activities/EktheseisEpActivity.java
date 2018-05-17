@@ -18,11 +18,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.Thing;
 import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
-import com.google.firebase.appindexing.Indexable;
 import com.google.firebase.appindexing.builders.Actions;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -70,14 +68,11 @@ public class EktheseisEpActivity extends Base {
             // display error
             Toast.makeText(this, getString(R.string.aneu_diktiou),
                     Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent i = new Intent(EktheseisEpActivity.this, MainActivity.class);
-                    startActivity(i);
-                    // close this activity
-                    finish();
-                }
+            new Handler().postDelayed(() -> {
+                Intent i = new Intent(EktheseisEpActivity.this, MainActivity.class);
+                startActivity(i);
+                // close this activity
+                finish();
             }, 1000); // wait for 1 second
         }
 

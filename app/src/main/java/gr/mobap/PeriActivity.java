@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -72,22 +71,12 @@ public class PeriActivity extends Base {
 
         Button button2 = findViewById(R.id.btnMail);
         if (button2 != null) {
-            button2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mail();
-                }
-            });
+            button2.setOnClickListener(v -> mail());
         }
 
         Button button3 = findViewById(R.id.btnVathm);
         if (button3 != null) {
-            button3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    launchMarket();
-                }
-            });
+            button3.setOnClickListener(v -> launchMarket());
         }
 
         final String htmlText = getResources().getString(R.string.sxetikaKeim);

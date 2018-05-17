@@ -18,7 +18,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:theme="@style/AppTheme.PopupOverlay"
             app:logo="@mipmap/ic_launcher" />
 
@@ -31,7 +31,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginTop="?android:attr/actionBarSize"
         map:cameraBearing="112.5"
         map:cameraTilt="20"
         map:uiCompass="true"
