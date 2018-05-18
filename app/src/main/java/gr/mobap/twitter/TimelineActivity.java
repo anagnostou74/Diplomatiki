@@ -58,7 +58,7 @@ public class TimelineActivity extends Base {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//fullscreen
+        //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -109,10 +109,10 @@ public class TimelineActivity extends Base {
             listView.setEmptyView(emptyView);
 
             // Collection "Vouli from user anagnostou74"
-            final TwitterListTimeline timeline = new TwitterListTimeline.Builder()
+            TwitterListTimeline timeline = new TwitterListTimeline.Builder()
                     .slugWithOwnerScreenName("vouli", "anagnostou74")
                     .build();
-            final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(this)
+            TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(this)
                     .setTimeline(timeline)
                     .setViewStyle(R.style.tw__TweetLightWithActionsStyle)
                     .setOnActionCallback(actionCallback)

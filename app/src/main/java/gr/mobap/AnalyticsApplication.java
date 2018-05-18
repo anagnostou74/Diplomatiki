@@ -17,7 +17,10 @@ import com.twitter.sdk.android.tweetui.TweetUi;
 
 import java.io.File;
 
+import static gr.mobap.BuildConfig.CONSUMER_SECRET;
 import static gr.mobap.BuildConfig.PARSE_KEY;
+import static gr.mobap.BuildConfig.CONSUMER_KEY;
+import static gr.mobap.BuildConfig.CONSUMER_KEY;
 
 /**
  * This is a subclass of {@link Application} used to provide shared objects for this app, such as
@@ -35,7 +38,7 @@ public class AnalyticsApplication extends Application {
         //Twitter sdk initialization
         TwitterConfig config = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))
-                .twitterAuthConfig(new TwitterAuthConfig("CONSUMER_KEY", "CONSUMER_SECRET"))
+                .twitterAuthConfig(new TwitterAuthConfig(CONSUMER_KEY, CONSUMER_SECRET))
                 .debug(true)
                 .build();
         Twitter.initialize(config);

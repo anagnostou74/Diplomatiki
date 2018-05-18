@@ -31,10 +31,17 @@ import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
 import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.DefaultLogger;
 import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterAuthToken;
+import com.twitter.sdk.android.core.TwitterConfig;
+import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+import com.twitter.sdk.android.tweetui.TweetUi;
 
 import gr.mobap.Base;
 import gr.mobap.R;
@@ -64,18 +71,25 @@ public class TwitterCoreMainActivity extends Base {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.twittercore_activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         // Set up the login button by setting callback to invoke when authorization request
         // completes
-        loginButton = findViewById(R.id.login_button);
+        loginButton = (TwitterLoginButton) findViewById(R.id.login_button);
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
                 //requestEmailAddress(getApplicationContext(), result.data);
                 // The TwitterSession is also available through:
                 // Twitter.getInstance().core.getSessionManager().getActiveSession()
-                TwitterSession session = result.data;
+                //TwitterSession session = result.data;
                 // Remove toast and use the TwitterSession's userID
                 // with your app's user model
+
+                TwitterSession session = TwitterCore.getInstance().getSessionManager().getActiveSession();
+                TwitterAuthToken authToken = session.getAuthToken();
+                String token = authToken.token;
+                String secret = authToken.secret;
+
                 String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
                 Intent i = new Intent(TwitterCoreMainActivity.this, TimelineActivity.class);
