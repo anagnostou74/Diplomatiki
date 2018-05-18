@@ -2,6 +2,8 @@
 
 package gr.mobap.youtube;
 
+import static gr.mobap.BuildConfig.YOUTUBE_KEY;
+
 /**
  * Static container class for holding a reference to your YouTube Developer Key.
  */
@@ -13,6 +15,6 @@ public class DeveloperKey {
    * <a href="https://console.developers.google.com/">Google Developers Console</a>
    * to register a new developer key.
    */
-  public static final String DEVELOPER_KEY = "AIzaSyD-z4ErQp0AbhDwxZ-VD0EyrRGa5JCtwUE"; //TODO αλλαγή κωδικών
+  public static final String DEVELOPER_KEY = YOUTUBE_KEY; //TODO: αλλαγή κωδικών
 
 }

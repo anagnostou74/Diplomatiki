@@ -2,15 +2,22 @@ package gr.mobap;
 
 import android.app.Application;
 import android.os.Environment;
+import android.util.Log;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
-import com.onesignal.OneSignal;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseUser;
+import com.twitter.sdk.android.core.DefaultLogger;
+import com.twitter.sdk.android.core.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterConfig;
+import com.twitter.sdk.android.tweetui.TweetUi;
 
 import java.io.File;
+
+import static gr.mobap.BuildConfig.PARSE_KEY;
 
 /**
  * This is a subclass of {@link Application} used to provide shared objects for this app, such as
@@ -24,12 +31,18 @@ public class AnalyticsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
+
+        //Twitter sdk initialization
+        TwitterConfig config = new TwitterConfig.Builder(this)
+                .logger(new DefaultLogger(Log.DEBUG))
+                .twitterAuthConfig(new TwitterAuthConfig("CONSUMER_KEY", "CONSUMER_SECRET"))
+                .debug(true)
+                .build();
+        Twitter.initialize(config);
+        new Thread(() -> TweetUi.getInstance()).start();
+
         Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
-                .applicationId("JQLmtUO2gtFqtsTqFg6otK8KCZ0lXE") //TODO αλλαγή κωδικών
+                .applicationId(PARSE_KEY) //TODO: αλλαγή κωδικών
                 .clientKey(null).server("http://hellenicparliament.herokuapp.com/parse/") // The trailing slash is important.
                 .build()
         );

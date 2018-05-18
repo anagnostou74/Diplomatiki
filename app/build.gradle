@@ -5,9 +5,9 @@ android {
     signingConfigs {
         release {
             keyAlias 'hellenicParliamentKeyEAPThesis'
-            keyPassword '74781016'
+            keyPassword ANDROID_STORE_PASSWORD
             storeFile file('C:/Dev/parlkey.jks')
-            storePassword '74781016'
+            storePassword ANDROID_KEY_PASSWORD
         }
         config {
             storeFile file('C:/Users/kanag/.android/debug.keystore')
@@ -26,9 +26,17 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
 
-
+        resValue 'string', 'FACEBOOK_APP_ID', FACEBOOK_APP_ID
+        resValue 'string', 'GOOGLE_SIGN_IN_ID', GOOGLE_SIGN_IN_ID
+        resValue 'string', 'google_maps_key', GOOGLE_MAPS_KEY
+        resValue 'string', 'com.twitter.sdk.android.CONSUMER_KEY', CONSUMER_KEY
+        resValue 'string', 'com.twitter.sdk.android.CONSUMER_SECRET', CONSUMER_SECRET
     }
     buildTypes {
+        buildTypes.each {
+            it.buildConfigField 'String', 'PARSE_KEY', ParseKey
+            it.buildConfigField 'String', 'YOUTUBE_KEY', YoutubeKey
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -58,7 +66,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
 
-    implementation 'com.twitter.sdk.android:twitter:3.1.1'
+    implementation 'com.twitter.sdk.android:twitter:3.0.0'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:cardview-v7:27.1.1'

@@ -29,3 +29,4 @@ proguard/
 .idea/
 app/google-services.json
 mps.json
+/app/app.iml

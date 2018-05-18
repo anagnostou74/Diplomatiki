@@ -688,7 +688,6 @@ limitations under the License.
     <!-- TweetComposer strings -->
     <string name="twitter_composer">Twitter Composer</string>
     <string name="twitter_kit_composer">TwitterKit Composer</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBDwDDAktYtazCLMwiCBjjWmUNe_wwu_x4</string>
 
     <string name="perif_label">Περιφέρεια: </string>
     <string name="on_patros_label">του </string>
@@ -705,8 +704,5 @@ limitations under the License.
 
     <string name="bio">Βιογραφικό</string>
     <string name="tweet">Πολιτικά tweets</string>
-
-    <string name="facebook_app_id">211751919211374</string>
-    <string name="google_sign_in_id">190314798172-7p2nmv6lqdrsb26il8at0u7usci5bbs6.apps.googleusercontent.com</string>
 
 </resources>

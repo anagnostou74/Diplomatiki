@@ -180,7 +180,7 @@ public class MainActivity extends Base
         // [START config_signin]
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.google_sign_in_id))
+                .requestIdToken(getString(R.string.GOOGLE_SIGN_IN_ID))
                 .requestEmail()
                 .build();
         // [END config_signin]
