@@ -26,9 +26,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
@@ -170,11 +170,7 @@ public class DownloadEkdoseisActivity extends Base {
     List<RowItem> rowItems;
     private String TAG = "RegsActivity", pdfURL;
     private Tracker mTracker;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
 
     public static final void openPDF(Context context, Uri localUri) {
@@ -363,9 +359,6 @@ public class DownloadEkdoseisActivity extends Base {
             }
         });
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     //method to write the PDFs file to sd card under a PDF directory.
@@ -450,12 +443,6 @@ public class DownloadEkdoseisActivity extends Base {
         dm.enqueue(r);
     }
 
-
-
-    public com.google.firebase.appindexing.Action getAction() {
-        return Actions.newView("DownloadEkdoseisActivity Page", "http://www.mobap.gr/downloadekdoseisactivity");
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -465,6 +452,10 @@ public class DownloadEkdoseisActivity extends Base {
    adding content to the index */
         FirebaseAppIndex.getInstance().update();
         FirebaseUserActions.getInstance().start(getAction());
+    }
+
+    public Action getAction() {
+        return Actions.newView("Ekdoseis", "pdfURL");
     }
 
     @Override
