@@ -18,11 +18,11 @@ import android.view.WindowManager;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +30,11 @@ import java.util.List;
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
 import gr.mobap.R;
-import gr.mobap.mps.fragments.AnelFragment;
 import gr.mobap.mps.fragments.AnexFragment;
 import gr.mobap.mps.fragments.DhsyFragment;
 import gr.mobap.mps.fragments.EnosiFragment;
 import gr.mobap.mps.fragments.KkeFragment;
 import gr.mobap.mps.fragments.NdFragment;
-import gr.mobap.mps.fragments.PotamiFragment;
 import gr.mobap.mps.fragments.SyrizaFragment;
 import gr.mobap.mps.fragments.XaFragment;
 
@@ -51,8 +49,6 @@ public class MpsActivity extends Base {
             R.drawable.xa,
             R.drawable.symparataksh,
             R.drawable.kkelogosm,
-            R.drawable.topotami,
-            R.drawable.anell,
             R.drawable.enosi,
             R.drawable.anex
     };
@@ -109,8 +105,6 @@ public class MpsActivity extends Base {
         tabLayout.getTabAt(4).setIcon(tabIcons[4]);
         tabLayout.getTabAt(5).setIcon(tabIcons[5]);
         tabLayout.getTabAt(6).setIcon(tabIcons[6]);
-        tabLayout.getTabAt(7).setIcon(tabIcons[7]);
-        tabLayout.getTabAt(8).setIcon(tabIcons[8]);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -120,8 +114,6 @@ public class MpsActivity extends Base {
         adapter.addFrag(new XaFragment(), getString(R.string.xa));
         adapter.addFrag(new DhsyFragment(), getString(R.string.simparataksi));
         adapter.addFrag(new KkeFragment(), getString(R.string.kke));
-        adapter.addFrag(new PotamiFragment(), getString(R.string.potami));
-        adapter.addFrag(new AnelFragment(), getString(R.string.anel));
         adapter.addFrag(new EnosiFragment(), getString(R.string.enke));
         adapter.addFrag(new AnexFragment(), getString(R.string.aneksartitoi));
         viewPager.setAdapter(adapter);
@@ -130,6 +122,7 @@ public class MpsActivity extends Base {
     public Action getAction() {
         return Actions.newView("Mps Page", "http://www.mobap.gr/mpsactivity");
     }
+
     @Override
     protected void onStart() {
         super.onStart();
