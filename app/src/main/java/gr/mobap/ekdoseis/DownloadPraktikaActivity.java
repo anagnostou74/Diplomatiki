@@ -225,7 +225,7 @@ public class DownloadPraktikaActivity extends Base {
 
         if (tempFile.exists()) {
             Uri contentUri;
-            if (Build.VERSION.SDK_INT == 24) {
+            if (Build.VERSION.SDK_INT >= 24) {
                 contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
                         getApplicationContext().getPackageName() + ".provider",
                         tempFile);
@@ -262,7 +262,7 @@ public class DownloadPraktikaActivity extends Base {
                     if (status == DownloadManager.STATUS_SUCCESSFUL) {
                         if (tempFile.exists()) {
                             Uri contentUri;
-                            if (Build.VERSION.SDK_INT == 24) {
+                            if (Build.VERSION.SDK_INT >= 24) {
                                 contentUri = FileProvider.getUriForFile(DownloadPraktikaActivity.this,
                                         getApplicationContext().getPackageName() + ".provider",
                                         tempFile);

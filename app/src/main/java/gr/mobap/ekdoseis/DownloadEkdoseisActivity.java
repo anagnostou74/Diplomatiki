@@ -39,6 +39,7 @@ import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
+import gr.mobap.BuildConfig;
 import gr.mobap.R;
 
 
@@ -391,7 +392,7 @@ public class DownloadEkdoseisActivity extends Base {
             Uri contentUri;
             if (Build.VERSION.SDK_INT == 24) {
                 contentUri = FileProvider.getUriForFile(DownloadEkdoseisActivity.this,
-                        getApplicationContext().getPackageName() + ".provider",
+                        BuildConfig.APPLICATION_ID + ".provider",
                         tempFile);
                 openPDF(context, contentUri);
             } else {
@@ -426,7 +427,7 @@ public class DownloadEkdoseisActivity extends Base {
                     if (status == DownloadManager.STATUS_SUCCESSFUL) {
                         if (tempFile.exists()) {
                             Uri contentUri;
-                            if (Build.VERSION.SDK_INT == 24) {
+                            if (Build.VERSION.SDK_INT >= 24) {
                                 contentUri = FileProvider.getUriForFile(DownloadEkdoseisActivity.this,
                                         getApplicationContext().getPackageName() + ".provider",
                                         tempFile);
