@@ -1,16 +1,20 @@
 package gr.mobap.simera;
 
 import android.app.ProgressDialog;
+import android.net.http.SslError;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.analytics.Tracker;
 
@@ -23,12 +27,14 @@ import java.io.IOException;
 import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.R;
 
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
+
 public class SimeraFragment extends Fragment {
     private Tracker mTracker;
     private WebView webView;
     private Bundle webViewBundle;
     private ProgressDialog progress;
-    String url = "http://www.hellenicparliament.gr/Koinovouleftikos-Elenchos/Evdomadiaio-Deltio";
+    String url = "https://www.hellenicparliament.gr/Koinovouleftikos-Elenchos/Evdomadiaio-Deltio";
 
     public SimeraFragment() {
         // Required empty public constructor
@@ -45,6 +51,12 @@ public class SimeraFragment extends Fragment {
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
         webView = ll.findViewById(R.id.webViewfr);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+        });
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
@@ -60,12 +72,13 @@ public class SimeraFragment extends Fragment {
         try {
             Document doc = Jsoup.connect(url).ignoreContentType(true).get();
             doc.select("#ctl00_ContentPlaceHolder1_pcrd1_lnkBack").remove();
-            doc.outputSettings().charset("Windows-1252");
+            doc.outputSettings().charset("UTF-8");
             Elements ele = doc.select("div#middlecolumnwide");
             String html = ele.toString();
             String mime = "text/html";
-            String encoding = "Windows-1252";
+            String encoding = "UTF-8";
             webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setDefaultTextEncodingName("utf-8");
             webView.getSettings().setBuiltInZoomControls(true);
             webView.getSettings().supportZoom();
             webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
@@ -78,6 +91,7 @@ public class SimeraFragment extends Fragment {
                 public boolean shouldOverrideUrlLoading(WebView webView, String url) {
                     return false;
                 }
+
                 public void onPageFinished(WebView view, String url) {
                     if (progress != null)
                         progress.dismiss();

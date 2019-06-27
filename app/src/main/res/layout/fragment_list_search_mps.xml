@@ -41,13 +41,13 @@
             android:text="@string/perifereia"
             android:textColor="@color/colorWhite" />
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/text"
             android:scrollbars="vertical">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -400,8 +400,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/xiou" />
                 </RadioGroup>
-            </android.support.v7.widget.CardView>
-        </android.support.v4.widget.NestedScrollView>
+            </androidx.cardview.widget.CardView>
+        </androidx.core.widget.NestedScrollView>
     </RelativeLayout>
 </LinearLayout>
 

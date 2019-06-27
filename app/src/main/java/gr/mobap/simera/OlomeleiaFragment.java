@@ -1,16 +1,19 @@
 package gr.mobap.simera;
 
 import android.app.ProgressDialog;
+import android.net.http.SslError;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.analytics.Tracker;
 
@@ -28,7 +31,7 @@ public class OlomeleiaFragment extends Fragment {
     private WebView webView;
     private Bundle webViewBundle;
     private ProgressDialog progress;
-    String url = "http://www.hellenicparliament.gr/Nomothetiko-Ergo/dailyplan";
+    String url = "https://www.hellenicparliament.gr/Nomothetiko-Ergo/dailyplan";
 
     public OlomeleiaFragment() {
         // Required empty public constructor
@@ -46,7 +49,12 @@ public class OlomeleiaFragment extends Fragment {
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
         webView = ll.findViewById(R.id.webViewfr);
-
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+        });
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {
             web();
@@ -61,12 +69,13 @@ public class OlomeleiaFragment extends Fragment {
         try {
             Document doc = Jsoup.connect(url).ignoreContentType(true).get();
             doc.select("#ctl00_ContentPlaceHolder1_dlpd_lnkBackToList").remove();
-            doc.outputSettings().charset("Windows-1252");
+            doc.outputSettings().charset("UTF-8");
             Elements ele = doc.select("div#middlecolumnwide");
             String html = ele.toString();
             String mime = "text/html";
             String encoding = "Windows-1252";
             webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setDefaultTextEncodingName("utf-8");
             webView.getSettings().setBuiltInZoomControls(true);
             webView.getSettings().supportZoom();
             webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
