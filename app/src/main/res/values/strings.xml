@@ -705,4 +705,7 @@ limitations under the License.
     <string name="bio">Βιογραφικό</string>
     <string name="tweet">Πολιτικά tweets</string>
 
+    <string name="search">Αναζήτηση</string>
+    <string name="clear">Εκκαθάριση</string>
+
 </resources>

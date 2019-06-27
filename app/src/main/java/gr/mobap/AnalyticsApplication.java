@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.FirebaseDatabase;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseUser;
@@ -17,10 +19,9 @@ import com.twitter.sdk.android.tweetui.TweetUi;
 
 import java.io.File;
 
+import static gr.mobap.BuildConfig.CONSUMER_KEY;
 import static gr.mobap.BuildConfig.CONSUMER_SECRET;
 import static gr.mobap.BuildConfig.PARSE_KEY;
-import static gr.mobap.BuildConfig.CONSUMER_KEY;
-import static gr.mobap.BuildConfig.CONSUMER_KEY;
 
 /**
  * This is a subclass of {@link Application} used to provide shared objects for this app, such as
@@ -34,6 +35,11 @@ public class AnalyticsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // Obtain the FirebaseAnalytics instance.
+        FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        // initialize firebase database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.setPersistenceEnabled(true);
 
         //Twitter sdk initialization
         TwitterConfig config = new TwitterConfig.Builder(this)

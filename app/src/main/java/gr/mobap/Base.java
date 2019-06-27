@@ -37,6 +37,7 @@ import gr.mobap.ekdoseis.DownloadPraktikaActivity;
 import gr.mobap.images.Image;
 import gr.mobap.map.MapsActivity;
 import gr.mobap.mps.MpsActivity;
+import gr.mobap.mps.SearchMps;
 import gr.mobap.organosi.KommActivity;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.activities.DrastActivity;
@@ -140,7 +141,7 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_home: {
-                Intent i = new Intent(Base.this, MainActivity.class);
+                Intent i = new Intent(Base.this, SearchMps.class);
                 startActivity(i);
                 break;
             }
