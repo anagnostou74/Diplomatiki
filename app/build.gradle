@@ -24,6 +24,7 @@ android {
         versionName "3.8"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
 
         resValue 'string', 'FACEBOOK_APP_ID', FACEBOOK_APP_ID
         resValue 'string', 'GOOGLE_SIGN_IN_ID', GOOGLE_SIGN_IN_ID

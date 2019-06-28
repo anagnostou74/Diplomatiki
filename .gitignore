@@ -30,3 +30,5 @@ proguard/
 app/google-services.json
 mps.json
 /app/app.iml
+/gradle.properties
+app/gradle.properties
