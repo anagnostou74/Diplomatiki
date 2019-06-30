@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -31,4 +32,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
         android:text="@string/clear" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mpsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:clipToPadding="false"
+        android:padding="5dp"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_mps" />
+
 </LinearLayout>

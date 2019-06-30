@@ -202,7 +202,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".organosi.KommActivity"
+            android:name=".komma.KommActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/komma">
             <intent-filter android:label="@string/komma">
@@ -643,10 +643,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/menu_share" />
         <activity android:name=".Base" />
-        <activity
-            android:name=".mps.SearchMps"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name" />
 
         <activity android:name="com.twitter.sdk.android.core.identity.OAuthActivity" />
 

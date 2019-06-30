@@ -63,7 +63,7 @@ import java.io.File;
 import gr.mobap.diafaneia.Diafaneia;
 import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
 import gr.mobap.images.Image;
-import gr.mobap.organosi.KommActivity;
+import gr.mobap.komma.KommActivity;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.activities.NeaActivity;
 import gr.mobap.simera.HmerolActivity;

@@ -576,10 +576,14 @@ limitations under the License.
 <br />    ]]></string>
     <string name="proedros">Πρόεδρος</string>
     <string name="antiproedroi">Αντιπρόεδροι</string>
+    <string name="antiproedros">ΑΝΤΙΠΡΟΕΔΡΟΣ ΤΗΣ ΒΟΥΛΗΣ</string>
     <string name="grammateis">Γραμματείς</string>
+    <string name="grammateas">ΓΡΑΜΜΑΤΕΑΣ ΤΗΣ ΒΟΥΛΗΣ</string>
     <string name="kosmitores">Κοσμήτορες</string>
+    <string name="kosmitoras">ΚΟΣΜΗΤΟΡΑΣ ΤΗΣ ΒΟΥΛΗΣ</string>
     <string name="diaskepsi">Διάσκεψη</string>
     <string name="koin_ekpr">Κοινοβουλευτικοί Εκπρόσωποι</string>
+    <string name="ekprosopos">Κοινοβουλευτικός Εκπρόσωπος</string>
     <string name="koin_omades">Πρόεδροι Κοιν. Ομάδων</string>
     <string name="diafaneia">Διαφάνεια</string>
     <string name="diaspora">Διασπορά</string>

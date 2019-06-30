@@ -11,7 +11,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -24,16 +23,18 @@ import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
-import java.util.ArrayList;
-import java.util.List;
 
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
 import gr.mobap.R;
+import gr.mobap.komma.ProedrosFragment;
 
 public class OrganosiActivity extends Base {
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
+
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +44,15 @@ public class OrganosiActivity extends Base {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        setContentView(R.layout.activity_thesmos);
+        setContentView(R.layout.activity_mps);
+
         Intent intent = getIntent();
         String action = intent.getAction();
         Uri data = intent.getData();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ViewPager viewPager = findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-        TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -64,17 +64,43 @@ public class OrganosiActivity extends Base {
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ProedrosFragment(), getString(R.string.proedros));
-        adapter.addFrag(new AntiProedroiFragment(), getString(R.string.antiproedroi));
-        adapter.addFrag(new KosmitoresFragment(), getString(R.string.kosmitores));
-        adapter.addFrag(new GrammateisFragment(), getString(R.string.grammateis));
-        viewPager.setAdapter(adapter);
+        // Create the adapter that will return a fragment for each section
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+                    new ProedrosFragment(),
+                    new AntiProedroiFragment(),
+                    new GrammateisFragment(),
+                    new KosmitoresFragment(),
+            };
+            private final String[] mFragmentNames = new String[] {
+                    getString(R.string.proedros),
+                    getString(R.string.antiproedroi),
+                    getString(R.string.grammateis),
+                    getString(R.string.kosmitores)
+            };
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
+            }
+        };
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = findViewById(R.id.viewpager);
+        mViewPager.setAdapter(mPagerAdapter);
+
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
     }
 
     public Action getAction() {
@@ -97,32 +123,4 @@ public class OrganosiActivity extends Base {
         super.onStop();
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFrag(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-    }
 }

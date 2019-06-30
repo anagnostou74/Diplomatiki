@@ -12,7 +12,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -26,34 +25,18 @@ import com.google.firebase.appindexing.FirebaseAppIndex;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
 import gr.mobap.R;
-import gr.mobap.mps.fragments.AnexFragment;
-import gr.mobap.mps.fragments.DhsyFragment;
-import gr.mobap.mps.fragments.EnosiFragment;
-import gr.mobap.mps.fragments.KkeFragment;
-import gr.mobap.mps.fragments.NdFragment;
-import gr.mobap.mps.fragments.SyrizaFragment;
-import gr.mobap.mps.fragments.XaFragment;
 
 public class MpsActivity extends Base {
     private Tracker mTracker;
     Integer actionBarHeight = null;
-    private TabLayout tabLayout;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private int[] tabIcons = {
-            R.drawable.syriza,
-            R.drawable.nd,
-            R.drawable.xa,
-            R.drawable.symparataksh,
-            R.drawable.kkelogosm,
-            R.drawable.enosi,
-            R.drawable.anex
-    };
+    public String TAG = getClass().getSimpleName();
+
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,17 +53,11 @@ public class MpsActivity extends Base {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ViewPager viewPager = findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -97,28 +74,37 @@ public class MpsActivity extends Base {
         mTracker = application.getDefaultTracker();
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
         // [END shared_tracker]
-    }
 
-    private void setupTabIcons() {
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
-        tabLayout.getTabAt(4).setIcon(tabIcons[4]);
-        tabLayout.getTabAt(5).setIcon(tabIcons[5]);
-        tabLayout.getTabAt(6).setIcon(tabIcons[6]);
-    }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new SyrizaFragment(), getString(R.string.syriza));
-        adapter.addFrag(new NdFragment(), getString(R.string.nd));
-        adapter.addFrag(new XaFragment(), getString(R.string.xa));
-        adapter.addFrag(new DhsyFragment(), getString(R.string.simparataksi));
-        adapter.addFrag(new KkeFragment(), getString(R.string.kke));
-        adapter.addFrag(new EnosiFragment(), getString(R.string.enke));
-        adapter.addFrag(new AnexFragment(), getString(R.string.aneksartitoi));
-        viewPager.setAdapter(adapter);
+        // Create the adapter that will return a fragment for each section
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+                    new AllMpsFragment(),
+                    new SearchMps(),
+            };
+            private final String[] mFragmentNames = new String[] {
+                    getString(R.string.mps),
+                    getString(R.string.search)
+            };
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
+            }
+        };
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = findViewById(R.id.viewpager);
+        mViewPager.setAdapter(mPagerAdapter);
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
     }
 
     public Action getAction() {
@@ -133,7 +119,6 @@ public class MpsActivity extends Base {
    https://firebase.google.com/docs/app-indexing/android/personal-content#update-the-index for
    adding content to the index */
         FirebaseAppIndex.getInstance().update();
-        FirebaseUserActions.getInstance().start(getAction());
     }
 
     @Override
@@ -142,33 +127,4 @@ public class MpsActivity extends Base {
         super.onStop();
     }
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFrag(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            //return mFragmentTitleList.get(position);
-            return null;
-        }
-    }
 }
