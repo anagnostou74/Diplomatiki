@@ -69,7 +69,7 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
     private TextView mInformationTextView;
     private boolean isReceiverRegistered;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    private static final String TAG = "Base";
+    public String TAG = getClass().getSimpleName();
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;

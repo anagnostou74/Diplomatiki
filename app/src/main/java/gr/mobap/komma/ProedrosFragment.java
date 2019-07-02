@@ -14,6 +14,6 @@ public class ProedrosFragment extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("search_mps").orderByChild("titlos").equalTo("ΠΡΟΕΔΡΟΣ ΤΗΣ ΒΟΥΛΗΣ");
+        return dbReference.child("mps").orderByChild("titlos").equalTo("ΠΡΟΕΔΡΟΣ ΤΗΣ ΒΟΥΛΗΣ");
     }
 }

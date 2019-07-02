@@ -80,7 +80,7 @@ public class MpsActivity extends Base {
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[] {
                     new AllMpsFragment(),
-                    new SearchMps(),
+                    new SearchMps()
             };
             private final String[] mFragmentNames = new String[] {
                     getString(R.string.mps),

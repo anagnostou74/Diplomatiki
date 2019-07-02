@@ -12,6 +12,6 @@ public class AllMpsFragment extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("search_mps");
+        return dbReference.child("mps");
     }
 }

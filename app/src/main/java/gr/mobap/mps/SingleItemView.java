@@ -31,6 +31,7 @@ import gr.mobap.R;
 
 public class SingleItemView extends Base {
 
+    public String TAG = getClass().getSimpleName();
     private String mPostKey;
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -43,7 +44,6 @@ public class SingleItemView extends Base {
     private TextView txtonomaPatros;
     private TextView txttitlos;
     private TextView txtgovPosition;
-    private TextView mps_image;
     private TextView txtkomma;
     private TextView txtperifereia;
     private TextView txtbirth;
@@ -95,7 +95,7 @@ public class SingleItemView extends Base {
         }
         // Initialize Database
         mMpsReference = FirebaseDatabase.getInstance().getReference()
-                .child("search_mps").child(mPostKey);
+                .child("mps").child(mPostKey);
         Log.d("Single", "Value is: " + mMpsReference);
 
         // Locate the ImageView in singleview_mps
@@ -208,7 +208,7 @@ public class SingleItemView extends Base {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
-                Log.w("SingleItemView", "loadPost:onCancelled", databaseError.toException());
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
                 // [START_EXCLUDE]
                 Toast.makeText(SingleItemView.this, "Failed to load post.",
                         Toast.LENGTH_SHORT).show();

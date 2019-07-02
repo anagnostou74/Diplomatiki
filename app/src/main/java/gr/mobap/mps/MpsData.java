@@ -21,6 +21,7 @@ public class MpsData {
     public String site;
     public String email;
     public String phone;
+    public String perifereia_komma;
 
     public MpsData() {
 
@@ -45,7 +46,8 @@ public class MpsData {
                    String address,
                    String site,
                    String email,
-                   String phone) {
+                   String phone,
+                   String perifereiaKomma) {
 
 
         this.epitheto = epitheto;
@@ -67,5 +69,6 @@ public class MpsData {
         this.site = site;
         this.email = email;
         this.phone = phone;
+        this.perifereia_komma = perifereiaKomma;
     }
 }

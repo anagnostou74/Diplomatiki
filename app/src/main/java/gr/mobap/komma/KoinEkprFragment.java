@@ -15,6 +15,6 @@ public class KoinEkprFragment extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("search_mps").orderByChild("titlos").equalTo("Κοινοβουλευτικός Εκπρόσωπος");
+        return dbReference.child("mps").orderByChild("titlos").equalTo("Κοινοβουλευτικός Εκπρόσωπος");
     }
 }
