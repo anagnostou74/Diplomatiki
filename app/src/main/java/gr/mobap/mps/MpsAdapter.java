@@ -48,6 +48,7 @@ public class MpsAdapter extends FirebaseRecyclerAdapter<MpsData, MpsViewHolder> 
 
         mpsViewHolder.epitheto.setText(mpsData.epitheto);
         mpsViewHolder.onoma.setText(mpsData.onoma);
+        mpsViewHolder.komma.setText(mpsData.komma);
         if (mpsData.titlos != null) {
             mpsViewHolder.titlos.setText(mpsData.titlos);
         } else {

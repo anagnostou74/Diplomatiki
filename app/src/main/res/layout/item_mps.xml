@@ -4,15 +4,17 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/card_margin">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="5dp">
+        android:layout_margin="@dimen/text">
 
         <TextView
             android:id="@+id/epitheto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text"
+            android:layout_toEndOf="@+id/mps_image"
             android:layout_toRightOf="@+id/mps_image"
             android:textStyle="normal|bold" />
 
@@ -20,45 +22,57 @@
             android:id="@+id/onoma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text"
+            android:layout_toEndOf="@+id/epitheto"
             android:layout_toRightOf="@+id/epitheto"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
             android:textStyle="normal|bold" />
 
         <TextView
-            android:id="@+id/titlos"
+            android:id="@+id/komma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/epitheto"
+            android:layout_margin="@dimen/text"
+            android:layout_toEndOf="@+id/mps_image"
             android:layout_toRightOf="@+id/mps_image" />
+
+        <TextView
+            android:id="@+id/perifereia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/komma"
+            android:layout_margin="@dimen/text"
+            android:layout_toEndOf="@+id/mps_image"
+            android:layout_toRightOf="@+id/mps_image" />
+
+        <TextView
+            android:id="@+id/titlos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/perifereia"
+            android:layout_margin="@dimen/text"
+            android:layout_toEndOf="@+id/mps_image"
+            android:layout_toRightOf="@+id/mps_image"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/govPosition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titlos"
+            android:layout_margin="@dimen/text"
+            android:layout_toEndOf="@+id/mps_image"
             android:layout_toRightOf="@+id/mps_image"
-            android:singleLine="false" />
-
-        <TextView
-            android:id="@+id/perif_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/govPosition"
-            android:layout_toRightOf="@+id/mps_image"
-            android:text="@string/perif_label" />
-
-        <TextView
-            android:id="@+id/perifereia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/govPosition"
-            android:layout_toRightOf="@+id/perif_label" />
+            android:singleLine="false"
+            android:textStyle="normal|bold" />
 
         <ImageView
             android:id="@+id/mps_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
