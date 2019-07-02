@@ -172,6 +172,7 @@ limitations under the License.
     <string name="main_me" translatable="false">Σου στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θέλω…</string>
     <string name="apostoli" translatable="false">Αποστολή email</string>
     <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας</string>
+    <string name="aneu_log" translatable="false">Δεν εμφανίζεται να έχει λογαριασμό ο Βουλευτής</string>
     <string name="aneu_diktiou" translatable="false">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
     <string name="failed2" translatable="false">Δεν μπόρεσα να επικοινωνήσω με το Google Play! Ελέγξτε τη σύνδεση σας στο διαδίκτυο.</string>
 

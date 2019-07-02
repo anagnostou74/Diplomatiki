@@ -29,6 +29,8 @@ public class MpsViewHolder extends RecyclerView.ViewHolder {
     public TextView address;
     public TextView site;
     public TextView email;
+    public TextView facebook;
+    public TextView twitter;
     public TextView phone;
 
 
@@ -54,6 +56,8 @@ public class MpsViewHolder extends RecyclerView.ViewHolder {
         address = itemView.findViewById(R.id.address);
         site = itemView.findViewById(R.id.site);
         email = itemView.findViewById(R.id.email);
+        facebook = itemView.findViewById(R.id.fb);
+        twitter = itemView.findViewById(R.id.tw);
         phone = itemView.findViewById(R.id.phone);
 
     }

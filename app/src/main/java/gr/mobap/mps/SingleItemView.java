@@ -57,7 +57,17 @@ public class SingleItemView extends Base {
     private TextView txtsite;
     private TextView txtemail;
     private TextView txtphone;
+    private TextView txtfacebook;
+    private TextView txttwitter;
     private ImageView mpsImage;
+
+    private ImageView phoneImage;
+    private ImageView fbImage;
+    private ImageView webImage;
+    private ImageView twitterImage;
+    private ImageView emailImage;
+    private ImageView mapsImage;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +110,14 @@ public class SingleItemView extends Base {
 
         // Locate the ImageView in singleview_mps
         mpsImage = findViewById(R.id.mps_image);
+
+        phoneImage = findViewById(R.id.phone_img);
+        fbImage = findViewById(R.id.fb_img);
+        webImage = findViewById(R.id.web_img);
+        twitterImage = findViewById(R.id.twitter_img);
+        emailImage = findViewById(R.id.email_img);
+        mapsImage = findViewById(R.id.maps_img);
+
         // Locate the TextViews in singleview_mpsew_mps.xml
         // TextView txtrank = (TextView) findViewById(R.id.rank);
         txtkomma = findViewById(R.id.komma);
@@ -118,10 +136,10 @@ public class SingleItemView extends Base {
         txtlanguages = findViewById(R.id.languages);
         txtaddress = findViewById(R.id.address);
         txtsite = findViewById(R.id.site);
+        txtfacebook = findViewById(R.id.fb);
+        txttwitter = findViewById(R.id.tw);
         txtemail = findViewById(R.id.email);
         txtphone = findViewById(R.id.phone);
-
-
     }
 
     @Override
@@ -165,8 +183,10 @@ public class SingleItemView extends Base {
                 txtsite.setText(mps.site);
                 txtemail.setText(mps.email);
                 txtphone.setText(mps.phone);
+                txtfacebook.setText(mps.facebook);
+                txttwitter.setText(mps.twitter);
                 // [END_EXCLUDE]
-                txtphone.setOnClickListener(v -> {
+                phoneImage.setOnClickListener(v -> {
                     // [START custom_event]
                     mTracker.send(new HitBuilders.EventBuilder()
                             .setCategory("Action")
@@ -177,7 +197,7 @@ public class SingleItemView extends Base {
                     Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", po, null));
                     startActivity(intent1);
                 });
-                txtemail.setOnClickListener(v -> {
+                emailImage.setOnClickListener(v -> {
                     String to = txtemail.getText().toString();
                     Intent i1 = new Intent(Intent.ACTION_SEND);
                     i1.setType("message/rfc822");
@@ -193,15 +213,75 @@ public class SingleItemView extends Base {
                         Toast.makeText(SingleItemView.this, getString(R.string.aneu), Toast.LENGTH_SHORT).show();
                     }
                 });
-                txtsite.setOnClickListener(v -> {
+                webImage.setOnClickListener(v -> {
                     String to = txtsite.getText().toString();
-                    Intent browserIntent = new Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse(to));
-                    startActivity(browserIntent);
-                });
+                    Log.d(TAG, "txtsite: " + to);
+                    if (to.length() > 2){
+                        Intent browserIntent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse(to));
+                        startActivity(browserIntent);
+                    } else {
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
 
-                Log.d("Single", "Value is: " + mps.epitheto);
+                    }
+                });
+                fbImage.setOnClickListener(v -> {
+                    String to = txtfacebook.getText().toString();
+                    Log.d(TAG, "txtfacebook: " + to);
+                    if (to.length() > 2){
+                        Intent intent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://www.facebook.com/" + to));
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+
+                    }
+
+                });
+                twitterImage.setOnClickListener(v -> {
+                    String to = txttwitter.getText().toString();
+                    Log.d(TAG, "txttwitter: " + to);
+                    if (to.length() > 2){
+                        try {
+                            getApplicationContext().getPackageManager().getPackageInfo("com.twitter.android", 0);
+                            Intent intent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("twitter://" + to));
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            Log.d(TAG, "Twitter: " + "twitter://" + to);
+                        } catch (Exception e) {
+                            Intent intent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("https://twitter.com/" + to));
+                            startActivity(intent);
+                        }
+                    } else {
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                mapsImage.setOnClickListener(v -> {
+                    String to = txtaddress.getText().toString();
+                    Log.d(TAG, "Maps: " + to);
+                    if (to.length() > 2){
+                        try {
+                            getApplicationContext().getPackageManager().getPackageInfo("com.google.android.apps.maps", 0);
+                            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + to);
+                            Intent mapIntent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    gmmIntentUri);
+                            startActivity(mapIntent);
+                            Log.d(TAG, "Maps: " + "geo:0,0?q=" + to);
+                        } catch (Exception e) {
+                            Log.d(TAG, "Maps : " + "exception");
+
+                        }
+                    } else{
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
 
