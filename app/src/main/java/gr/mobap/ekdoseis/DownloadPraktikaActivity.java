@@ -59,6 +59,10 @@ public class DownloadPraktikaActivity extends Base {
             "ΙΓ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
             "ΙΓ ΠΕΡΙΟΔΟΣ, Σύνοδος Β",
             "ΙΕ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
+            "ΙΕ ΠΕΡΙΟΔΟΣ, Σύνοδος Β",
+            "ΙΕ ΠΕΡΙΟΔΟΣ, Σύνοδος Γ",
+            "ΙΣΤ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
+            "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
     };
     public static final String[] descriptions = new String[]{
             "20/4/2000-27/9/2001, pdf",
@@ -72,9 +76,17 @@ public class DownloadPraktikaActivity extends Base {
             "6/10/2008-3/9/2009, pdf",
             "14/10/2009-1/10/2010, pdf",
             "4/10/2010-30/9/2011, pdf",
-            "28/06/2012-03/10/2013, pdf"
+            "28/06/2012-03/10/2013, pdf",
+            "07/10/2013 - 03/10/2014, pdf",
+            "06/10/2014 - 29/12/2014, pdf",
+            "05/02/2015 - 26/08/2015, pdf",
+            "03/10/2015 - 30/09/2016, pdf"
     };
     public static final Integer[] images = {
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
@@ -152,41 +164,54 @@ public class DownloadPraktikaActivity extends Base {
 
             switch (position) {
                 case 0:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_a_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_a_sin_gen.pdf";
                     break;
                 case 1:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_b_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_b_sin_gen.pdf";
                     break;
                 case 2:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_c_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_c_sin_gen.pdf";
                     break;
                 case 3:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_d_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/i_per_d_sin_gen.pdf";
                     break;
                 case 4:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_a_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_a_sin_gen.pdf";
                     break;
                 case 5:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_b_sin_gen.pdf.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_b_sin_gen.pdf.pdf";
                     break;
                 case 6:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_c_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ia_per_c_sin_gen.pdf";
                     break;
                 case 7:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_a_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_a_sin_gen.pdf";
                     break;
                 case 8:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_b_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ib_per_b_sin_gen.pdf";
                     break;
                 case 9:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_a_sin_gen.pdf.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_a_sin_gen.pdf.pdf";
                     break;
                 case 10:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_b_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ic_per_b_sin_gen.pdf";
                     break;
                 case 11:
-                    pdfURL = "http://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ie_per_a_sin_gen.pdf";
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/ie_per_a_sin_gen.pdf";
                     break;
+                case 12:
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/evretirio_I%CE%95_%CE%92.pdf";
+                    break;
+                case 13:
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/perIZ-sunG.pdf";
+                    break;
+                case 14:
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/evretirio_ist_a.pdf";
+                    break;
+                case 15:
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/evretirio_IZ_A.pdf";
+                    break;
+
                 default:
             }
 
