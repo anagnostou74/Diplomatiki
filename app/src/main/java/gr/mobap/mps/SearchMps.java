@@ -17,9 +17,15 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import gr.mobap.R;
 
@@ -74,119 +80,104 @@ public class SearchMps extends MpsListFragment {
     }
 
     private void perifereiaChoiceDialog(View view) {
-        builder = new AlertDialog.Builder(getContext());
-        builder.setIcon(R.mipmap.ic_launcher);
-        builder.setTitle(R.string.perif_label);
-
-        final String[] items = {"Α΄ ΑΘΗΝΩΝ",
-                "Α΄ ΑΝΑΤΟΛΙΚΗΣ ΑΤΤΙΚΗΣ",
-                "Α΄ ΘΕΣΣΑΛΟΝΙΚΗΣ",
-                "Α΄ ΠΕΙΡΑΙΩΣ",
-                "ΑΙΤΩΛΟΑΚΑΡΝΑΝΙΑΣ",
-                "ΑΡΓΟΛΙΔΟΣ",
-                "ΑΡΚΑΔΙΑΣ",
-                "ΑΡΤΗΣ",
-                "ΑΧΑΪΑΣ",
-                "Β΄ ΔΥΤΙΚΗΣ ΑΤΤΙΚΗΣ",
-                "Β΄ ΘΕΣΣΑΛΟΝΙΚΗΣ",
-                "Β΄ ΠΕΙΡΑΙΩΣ",
-                "Β1΄ΒΟΡΕΙΟΥ ΤΟΜΕΑ ΑΘΗΝΩΝ",
-                "Β2΄ ΔΥΤΙΚΟΥ ΤΟΜΕΑ ΑΘΗΝΩΝ",
-                "Β3΄ ΝΟΤΙΟΥ ΤΟΜΕΑ ΑΘΗΝΩΝ",
-                "ΒΟΙΩΤΙΑΣ",
-                "ΓΡΕΒΕΝΩΝ",
-                "ΔΡΑΜΑΣ",
-                "ΔΩΔΕΚΑΝΗΣΟΥ",
-                "ΕΒΡΟΥ",
-                "ΕΠΙΚΡΑΤΕΙΑΣ",
-                "ΕΥΒΟΙΑΣ",
-                "ΕΥΡΥΤΑΝΙΑΣ",
-                "ΖΑΚΥΝΘΟΥ",
-                "ΗΛΕΙΑΣ",
-                "ΗΜΑΘΙΑΣ",
-                "ΗΡΑΚΛΕΙΟΥ",
-                "ΘΕΣΠΡΩΤΙΑΣ",
-                "ΙΩΑΝΝΙΝΩΝ",
-                "ΚΑΒΑΛΑΣ",
-                "ΚΑΡΔΙΤΣΗΣ",
-                "ΚΑΣΤΟΡΙΑΣ",
-                "ΚΕΡΚΥΡΑΣ",
-                "ΚΕΦΑΛΛΗΝΙΑΣ",
-                "ΚΙΛΚΙΣ",
-                "ΚΟΖΑΝΗΣ",
-                "ΚΟΡΙΝΘΙΑΣ",
-                "ΚΥΚΛΑΔΩΝ",
-                "ΛΑΚΩΝΙΑΣ",
-                "ΛΑΡΙΣΗΣ",
-                "ΛΑΣΙΘΙΟΥ",
-                "ΛΕΣΒΟΥ",
-                "ΛΕΥΚΑΔΟΣ",
-                "ΜΑΓΝΗΣΙΑΣ",
-                "ΜΕΣΣΗΝΙΑΣ",
-                "ΞΑΝΘΗΣ",
-                "ΠΕΛΛΗΣ",
-                "ΠΙΕΡΙΑΣ",
-                "ΠΡΕΒΕΖΗΣ",
-                "ΡΕΘΥΜΝΗΣ",
-                "ΡΟΔΟΠΗΣ",
-                "ΣΑΜΟΥ",
-                "ΣΕΡΡΩΝ",
-                "ΤΡΙΚΑΛΩΝ",
-                "ΦΘΙΩΤΙΔΟΣ",
-                "ΦΛΩΡΙΝΗΣ",
-                "ΦΩΚΙΔΟΣ",
-                "ΧΑΛΚΙΔΙΚΗΣ",
-                "ΧΑΝΙΩΝ",
-                "ΧΙΟΥ"
-
-        };
-        builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("perifereies");
+        Log.d(TAG, "myRef: " + myRef);
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                perifereiaButton.setText(items[i]);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<String> perifereies = new ArrayList<String>();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String perifereia = String.valueOf(ds.child("perifereia").getValue());
+                    perifereies.add(perifereia);
+                }
+                Log.d(TAG, "perifereia: " + perifereies);
+                String[] txt = {String.valueOf(perifereies)};
+                Log.d(TAG, "txt: " + Arrays.toString(txt));
+                String[] perifereia = perifereies.toArray(new String[0]);
+                builder = new AlertDialog.Builder(getContext());
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle(R.string.perif_label);
+                builder.setSingleChoiceItems(perifereia, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        perifereiaButton.setText(perifereia[i]);
+                    }
+                });
+                builder.setCancelable(true);
+                AlertDialog dialog = builder
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .create();
+                dialog.show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
 
-        builder.setCancelable(true);
-        AlertDialog dialog = builder
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, null)
-                .create();
-        dialog.show();
     }
 
     private void kommaChoiceDialog(View view) {
-        builder = new AlertDialog.Builder(getContext());
-        builder.setIcon(R.mipmap.ic_launcher);
-        builder.setTitle(R.string.komma);
 
-        final String[] items = {"ΝΕΑ ΔΗΜΟΚΡΑΤΙΑ",
-                "ΣΥΝΑΣΠΙΣΜΟΣ ΡΙΖΟΣΠΑΣΤΙΚΗΣ ΑΡΙΣΤΕΡΑΣ",
-                "ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΠΑΡΑΤΑΞΗ",
-                "ΚΟΜΜΟΥΝΙΣΤΙΚΟ ΚΟΜΜΑ ΕΛΛΑΔΑΣ",
-        };
-
-        builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("kommata");
+        Log.d(TAG, "myRef: " + myRef);
+        //Query kommaQuery = myRef.orderByChild("komma");
+        //Log.d(TAG, "Value is: " + kommaQuery);
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                kommaButton.setText(items[i]);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {};
+                //List messages = dataSnapshot.child("komma").getValue(t);
+
+                ArrayList<String> kommata = new ArrayList<String>();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String komma = String.valueOf(ds.child("komma").getValue());
+                    kommata.add(komma);
+                }
+                Log.d(TAG, "kommata: " + kommata);
+                String[] txt = {String.valueOf(kommata)};
+                Log.d(TAG, "txt: " + Arrays.toString(txt));
+
+                String[] komma = kommata.toArray(new String[0]);
+
+                builder = new AlertDialog.Builder(getContext());
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle(R.string.komma);
+                builder.setSingleChoiceItems(komma, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        kommaButton.setText(komma[i]);
+                    }
+                });
+                builder.setCancelable(true);
+                AlertDialog dialog = builder
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .create();
+                dialog.show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-
-        builder.setCancelable(true);
-        AlertDialog dialog = builder
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, null)
-                .create();
-        dialog.show();
     }
 
     private void searchMps(View view) {
