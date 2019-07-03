@@ -4,8 +4,7 @@
     android:orientation="horizontal"
     android:background="@color/black">
 
-    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ImageView xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/detail_image"
         android:contentDescription="@string/photos"
         android:layout_width="match_parent"

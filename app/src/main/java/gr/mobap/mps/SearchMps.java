@@ -98,19 +98,10 @@ public class SearchMps extends MpsListFragment {
                 builder = new AlertDialog.Builder(getContext());
                 builder.setIcon(R.mipmap.ic_launcher);
                 builder.setTitle(R.string.perif_label);
-                builder.setSingleChoiceItems(perifereia, 0, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        perifereiaButton.setText(perifereia[i]);
-                    }
-                });
+                builder.setSingleChoiceItems(perifereia, 0, (dialogInterface, i) -> perifereiaButton.setText(perifereia[i]));
                 builder.setCancelable(true);
                 AlertDialog dialog = builder
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
+                        .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> dialogInterface.dismiss())
                         .setNegativeButton(android.R.string.no, null)
                         .create();
                 dialog.show();
@@ -154,19 +145,10 @@ public class SearchMps extends MpsListFragment {
                 builder = new AlertDialog.Builder(getContext());
                 builder.setIcon(R.mipmap.ic_launcher);
                 builder.setTitle(R.string.komma);
-                builder.setSingleChoiceItems(komma, 0, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        kommaButton.setText(komma[i]);
-                    }
-                });
+                builder.setSingleChoiceItems(komma, 0, (dialogInterface, i) -> kommaButton.setText(komma[i]));
                 builder.setCancelable(true);
                 AlertDialog dialog = builder
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
+                        .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> dialogInterface.dismiss())
                         .setNegativeButton(android.R.string.no, null)
                         .create();
                 dialog.show();

@@ -1,12 +1,10 @@
 package gr.mobap.simera;
 
 import android.app.ProgressDialog;
-import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -50,10 +48,7 @@ public class OlomeleiaFragment extends Fragment {
                 container, false);
         webView = ll.findViewById(R.id.webViewfr);
         webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                handler.proceed();
-            }
+
         });
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
         if (androidNetworkUtility.isConnected(getActivity())) {

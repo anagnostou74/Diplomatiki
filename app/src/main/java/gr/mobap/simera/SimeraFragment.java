@@ -1,13 +1,10 @@
 package gr.mobap.simera;
 
 import android.app.ProgressDialog;
-import android.net.http.SslError;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -26,8 +23,6 @@ import java.io.IOException;
 
 import gr.mobap.AndroidNetworkUtility;
 import gr.mobap.R;
-
-import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 public class SimeraFragment extends Fragment {
     private Tracker mTracker;
@@ -52,10 +47,6 @@ public class SimeraFragment extends Fragment {
                 container, false);
         webView = ll.findViewById(R.id.webViewfr);
         webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                handler.proceed();
-            }
         });
 
         AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();

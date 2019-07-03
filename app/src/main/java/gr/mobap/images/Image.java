@@ -34,7 +34,7 @@ import gr.mobap.R;
 public class Image extends Base {
     public static final String[] titles = new String[]{"Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος",
             "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος", "Τίτλος"};
-    public static String IMGS[] = {
+    public static String[] IMGS = {
             "https://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/IMG_2009_03_04_9_39.jpg",
             "https://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_29_9_72%20copy.JPG",
             "https://www.hellenicparliament.gr/UserThumbs/130dd656-40e0-4140-baf7-ff5d9eaa975d/thumbs_737x410/2010_04_29_9_88%20copy.JPG",

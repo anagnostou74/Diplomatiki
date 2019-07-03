@@ -3,82 +3,16 @@
     <string name="app_name"><b>Περί Βουλής</b></string>
     <string name="ipiresia"><b>Υπηρεσία - Φορέας: </b></string>
     <string name="sinfo"><b>Τελικός Υπογράφων: </b></string>
-    <string name="sign_in">Sign In</string>
-    <string name="create_account">Create Account</string>
-    <string name="sign_out">Sign Out</string>
-    <string name="disconnect">Disconnect</string>
     <string name="firebase_status_fmt">%s</string>
     <string name="google_status_fmt">Καλώς ήρθες, %s!</string>
-    <string name="signed_out">Signed Out</string>
     <string name="loading">Loading…</string>
     <string name="nav_home">Αρχική</string>
-    <string name="perifereia"><b>Επιλέγω την Περιφέρεια:</b></string>
-    <string name="epikrateias">ΕΠΙΚΡΑΤΕΙΑΣ</string>
-    <string name="athinon">Α\' ΑΘΗΝΩΝ</string>
-    <string name="bathinon">Β\' ΑΘΗΝΩΝ</string>
-    <string name="aiotolias">ΑΙΤΩΛΙΑΣ ΚΑΙ AΚΑΡΝΑΝΙΑΣ</string>
-    <string name="argolidas">ΑΡΓΟΛΙΔΟΣ</string>
-    <string name="arkadias">ΑΡΚΑΔΙΑΣ</string>
-    <string name="artis">ΑΡΤΗΣ</string>
-    <string name="attikis">ΑΤΤΙΚΗΣ</string>
-    <string name="axaias">ΑΧΑΪΑΣ</string>
-    <string name="voiotias">ΒΟΙΩΤΙΑΣ</string>
-    <string name="grevenon">ΓΡΕΒΕΝΩΝ</string>
-    <string name="dramas">ΔΡΑΜΑΣ</string>
-    <string name="dodekanisa">ΔΩΔΕΚΑΝΗΣΟΥ</string>
-    <string name="evrou">ΕΒΡΟΥ</string>
-    <string name="evias">ΕΥΒΟΙΑΣ</string>
-    <string name="evritanias">ΕΥΡΥΤΑΝΙΑΣ</string>
-    <string name="zakinthos">ΖΑΚΥΝΘΟΥ</string>
-    <string name="ilias">ΗΛΕΙΑΣ</string>
-    <string name="imathias">ΗΜΑΘΙΑΣ</string>
-    <string name="irakliou">ΗΡΑΚΛΕΙΟΥ</string>
-    <string name="thesprotias">ΘΕΣΠΡΩΤΙΑΣ</string>
-    <string name="thess">Α\' ΘΕΣΣΑΛΟΝΙΚΗΣ</string>
-    <string name="bthess">Β\' ΘΕΣΣΑΛΟΝΙΚΗΣ</string>
-    <string name="ioannina">ΙΩΑΝΝΙΝΩΝ</string>
-    <string name="kavalas">ΚΑΒΑΛΑΣ</string>
-    <string name="karditsas">ΚΑΡΔΙΤΣΗΣ</string>
-    <string name="kastorias">ΚΑΣΤΟΡΙΑΣ</string>
-    <string name="kerkiras">ΚΕΡΚΥΡΑΣ</string>
-    <string name="kefallinias">ΚΕΦΑΛΛΗΝΙΑΣ</string>
-    <string name="kilkis">ΚΙΛΚΙΣ</string>
-    <string name="kozanis">ΚΟΖΑΝΗΣ</string>
-    <string name="korinthias">ΚΟΡΙΝΘΙΑΣ</string>
-    <string name="kikladon">ΚΥΚΛΑΔΩΝ</string>
-    <string name="lakonias">ΛΑΚΩΝΙΑΣ</string>
-    <string name="larisas">ΛΑΡΙΣΗΣ</string>
-    <string name="lasithi">ΛΑΣΙΘΙΟΥ</string>
-    <string name="lesvou">ΛΕΣΒΟΥ</string>
-    <string name="leukados">ΛΕΥΚΑΔΟΣ</string>
-    <string name="magnisias">ΜΑΓΝΗΣΙΑΣ</string>
-    <string name="messinias">ΜΕΣΣΗΝΙΑΣ</string>
-    <string name="ksanthis">ΞΑΝΘΗΣ</string>
-    <string name="piraias">Α\' ΠΕΙΡΑΙΩΣ</string>
-    <string name="bpirea">Β\' ΠΕΙΡΑΙΩΣ</string>
-    <string name="pellas">ΠΕΛΛΗΣ</string>
-    <string name="pierias">ΠΙΕΡΙΑΣ</string>
-    <string name="prevezis">ΠΡΕΒΕΖΗΣ</string>
-    <string name="rethimnis">ΡΕΘΥΜΝΗΣ</string>
-    <string name="rodopis">ΡΟΔΟΠΗΣ</string>
-    <string name="samou">ΣΑΜΟΥ</string>
-    <string name="serron">ΣΕΡΡΩΝ</string>
-    <string name="trikalon">ΤΡΙΚΑΛΩΝ</string>
-    <string name="fthiotidas">ΦΘΙΩΤΙΔΑΣ</string>
-    <string name="florinas">ΦΛΩΡΙΝΗΣ</string>
-    <string name="fokidas">ΦΩΚΙΔΟΣ</string>
-    <string name="xalkidikis">ΧΑΛΚΙΔΙΚΗΣ</string>
-    <string name="xanion">ΧΑΝΙΩΝ</string>
-    <string name="xiou">ΧΙΟΥ</string>
     <!-- Description here -->
-    <string name="imgdesc" translatable="false">περιγραφή φωτογραφίας</string>
     <!-- Description here -->
     <string name="emailP" translatable="false">Email για\nτεχνικά θέματα</string>
     <!-- Description here -->
-    <string name="emailParl" translatable="false"><b>Στείλε Email και\nπαρατηρήσεις στη Βουλή</b></string>
     <!-- Description here -->
     <string name="vathm" translatable="false">Βαθμολόγησε\nτην εφαρμογή</string>
-    <string name="adeies" translatable="false">Άδειες χρήσης</string>
     <!-- Description here -->
     <string name="sxetikaKeim" translatable="false"><![CDATA[
 <h2>&nbsp&nbsp&nbsp&nbsp***Σχετικά***</h2>
@@ -152,20 +86,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 </p>
-<h6>*Heroku</h6>
-<p><a href="https://www.heroku.com/policy/privacy">Heroku Privacy Statement</a></p>
-<h6>*CleverTap Notifications</h6>
-<p>© 2013 onwards. All Rights Reserved. CleverTap is brought to you by WizRocket, Inc. <a href="http://clevertap.com/privacy-policy">Privacy Policy</a> and <a href="http://clevertap.com/terms-service">Terms of Service</a></p>
 ]]>
     </string>
     <!-- Description here -->
-    <string name="devel" translatable="false">Google Play</string>
     <!-- Description here -->
     <string name="klisi" translatable="false"><b>Κλήση</b></string>
     <!-- Description here -->
-    <string name="klisi_java" translatable="false">Καλείται τη Βουλή</string>
     <!-- Description here -->
-    <string name="failed" translatable="false">Η κλήση απέτυχε</string>
     <string name="main_me" translatable="false">Σου στέλνω αυτό το μήνυμα μέσω του προγράμματος της Βουλής των Ελλήνων και θέλω…</string>
     <string name="apostoli" translatable="false">Αποστολή email</string>
     <string name="aneu" translatable="false">Δεν υπάρχουν εγκατεστημένα προγράμματα αλληλογραφίας</string>
@@ -183,8 +110,6 @@ limitations under the License.
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
 
     <string name="koin_eleghos">Κοινοβουλευτικός Έλεγχος</string>
     <string name="today_olom">Ημερήσια Διάταξη Ολομέλειας</string>
@@ -430,7 +355,6 @@ limitations under the License.
 Συμπερασματικώς, το ισχύον Σύνταγμα θα μπορούσε να χαρακτηρισθεί ως Σύνταγμα με πολιτική και ιστορική νομιμοποίηση, σύγχρονο και προσαρμοσμένο στις διεθνείς εξελίξεις και παρέχον ένα πλήρες θεσμικό πλαίσιο για την Ελλάδα του 21ου αιώνα.</div>
  \n
     ]]></string>
-    <string name="kanonismos">Κανονισμός</string>
     <string name="ktirio">Κτίριο</string>
     <string name="ktirioKeim"><![CDATA[
 <div><b>Η ιστορία του Κτηρίου</b></div>
@@ -472,7 +396,6 @@ limitations under the License.
 <div>Μέσα από αρχειακά τεκμήρια και επιστημονική έρευνα, αναδύεται η εικόνα ενός κτηρίου με σταθερή εξωτερικά όψη, το οποίο απέδειξε απεριόριστες δυνατότητες ευελιξίας στις ανάγκες μίας πολύπλοκης οργάνωσης.</div>
 \n
 ]]></string>
-    <string name="book">Βιβλιοθήκη</string>
     <string name="epitropes">Επιτροπές</string>
     <string name="epitropesKeim"><![CDATA[                                 <h1>Κατηγορίες</h1>
 <p><strong><i>(<a href="https://www.hellenicparliament.gr/Vouli-ton-Ellinon/To-Politevma/Syntagma/article-70/">άρθρα 68 του Σ</a> και <a href="https://www.hellenicparliament.gr/Vouli-ton-Ellinon/Kanonismos-tis-Voulis/Arthra-31-48-Kanonismou-VtE">31-48</a> και&nbsp; </i></strong><a href="https://www.hellenicparliament.gr/Vouli-ton-Ellinon/Kanonismos-tis-Voulis/Arthra-89-91-Kanonismou-VtE"><strong><i>89-91</i></strong></a><strong><i> του ΚτΒ)</i></strong></p>
@@ -539,7 +462,6 @@ limitations under the License.
 <br />
 \n
    ]]> </string>
-    <string name="proedreio">Προεδρείο</string>
     <string name="proedreioKeim"><![CDATA[ Το Προεδρείο της Βουλής των Ελλήνων<br />
 <div >(<a href="https://www.hellenicparliament.gr/Vouli-ton-Ellinon/Kanonismos-tis-Voulis/Arthra-6-12-Kanonismou-VtE">άρθρα 6 &ndash; 12 του ΚτΒ</a>)<br />
 <br />
@@ -575,14 +497,9 @@ limitations under the License.
 <br />    ]]></string>
     <string name="proedros">Πρόεδρος</string>
     <string name="antiproedroi">Αντιπρόεδροι</string>
-    <string name="antiproedros">ΑΝΤΙΠΡΟΕΔΡΟΣ ΤΗΣ ΒΟΥΛΗΣ</string>
     <string name="grammateis">Γραμματείς</string>
-    <string name="grammateas">ΓΡΑΜΜΑΤΕΑΣ ΤΗΣ ΒΟΥΛΗΣ</string>
     <string name="kosmitores">Κοσμήτορες</string>
-    <string name="kosmitoras">ΚΟΣΜΗΤΟΡΑΣ ΤΗΣ ΒΟΥΛΗΣ</string>
-    <string name="diaskepsi">Διάσκεψη</string>
     <string name="koin_ekpr">Κοινοβουλευτικοί Εκπρόσωποι</string>
-    <string name="ekprosopos">Κοινοβουλευτικός Εκπρόσωπος</string>
     <string name="koin_omades">Πρόεδροι Κοιν. Ομάδων</string>
     <string name="diafaneia">Διαφάνεια</string>
     <string name="diaspora">Διασπορά</string>
@@ -592,30 +509,23 @@ limitations under the License.
     <string name="vivlio">Βιβλιοθήκη</string>
     <string name="gpk">Γ.Π.Κ</string>
     <string name="yeep">Υ.Ε.Ε.Π</string>
-    <string name="collaboration">Συνεργατικό Περιβάλλον</string>
-    <string name="email">eMail</string>
-    <string name="praktika">Πρακτικά</string>
     <string name="organosi">Οργάνωση</string>
     <string name="komma">Κόμματα</string>
     <string name="mps">Βουλευτές</string>
-    <string name="mps_peri">Βουλευτές ανά περιφέρεια</string>
     <string name="links">Σύνδεσμοι</string>
     <string name="polimesa">Πολυμέσα</string>
     <string name="ekdoseis">Εκδόσεις</string>
     <string name="photos">Φωτογραφίες</string>
-    <string name="tv_all">Βουλή Τηλεόραση</string>
     <string name="tv">Τηλεόραση</string>
     <string name="nav_live_ena">WebTv1</string>
     <string name="nav_live_dio">WebTv2</string>
     <string name="enimerosi">Ενημέρωση</string>
     <string name="deltia">Δελτία τύπου</string>
-    <string name="nomosxedia">Νομοσχέδια</string>
     <string name="koin_epitropes">Κοινοβουλευτικές Επιτροπές</string>
     <string name="diktio">Κοινωνική Δικτύωση</string>
     <string name="entos">Email χρηστών</string>
     <string name="mobap">MobAp.gr</string>
     <string name="play">Play Store</string>
-    <string name="epikoinonia">Επικοινωνία</string>
     <string name="peri">Περί</string>
     <string name="menu_refresh">Ανανέωση</string>
     <string name="nea">Νέα &amp; Ανακοινώσεις</string>
@@ -638,72 +548,20 @@ limitations under the License.
     <string name="title_activity_maps">Χάρτης</string>
     <string name="map_epikoinonia">Μέγαρο Βουλής,100 21, Αθήνα</string>
 
-    <string name="action_logout">Logout</string>
     <string name="login_with_google">Login with Google+</string>
-    <string name="login_with_twitter">Login with Twitter</string>
-    <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="signed_in_fmt">Signed in as: %s</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
 
     <string name="menu_share">Κοινοποίηση</string>
     <string name="menu_fb">Facebook</string>
-    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to send downstream messages to this app.</string>
-    <string name="registering_message">Generating InstanceID token…</string>
-    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
-        sending the fetched token to the server or subscribing to the PubSub topic. Please try
-        running the sample again.</string>
 
-    <string name="preview_tweet">Preview</string>
-    <string name="xml_tweets_activity">XML Tweets</string>
-    <string name="tweets_activity">Single Tweets</string>
-    <string name="unqiue_tweets">Unique Tweets</string>
-    <string name="button_timelines_activity">Timelines</string>
-    <string name="search_timeline_title">Search Timeline</string>
-    <string name="user_timeline_title">User Timeline</string>
-    <string name="collection_timeline_title">Collection Timeline</string>
-    <string name="list_timeline_title">List Timeline</string>
-    <string name="fixed_timeline">Fixed Timeline</string>
-    <string name="refresh_timeline">Refresh Timeline</string>
-    <string name="refresh_timeline_title">Search: #twitter</string>
-    <string name="button_show_light">Light</string>
-    <string name="button_show_dark">Dark</string>
-    <string name="selector_input_hint">Tweet id</string>
-    <string name="tweet_load_error">Failed to load Tweet</string>
-    <string name="multi_tweet_view_error">Failed to load tweets</string>
     <string name="timeline_empty">Έρχονται τα Tweets :)</string>
-    <string name="kit_twittercore">Twitter Core</string>
-    <string name="kit_tweetcomposer">Tweet Composer</string>
-    <string name="kit_tweetui">Tweet Ui</string>
     <string name="twitter">Twitter</string>
 
     <!-- TweetComposer strings -->
-    <string name="twitter_composer">Twitter Composer</string>
-    <string name="twitter_kit_composer">TwitterKit Composer</string>
 
     <string name="perif_label">Περιφέρεια: </string>
     <string name="on_patros_label">του </string>
-
-    <string name="syriza">ΣΥΝΑΣΠΙΣΜΟΣ ΡΙΖΟΣΠΑΣΤΙΚΗΣ ΑΡΙΣΤΕΡΑΣ</string>
-    <string name="nd">ΝΕΑ ΔΗΜΟΚΡΑΤΙΑ</string>
-    <string name="xa">ΛΑΪΚΟΣ ΣΥΝΔΕΣΜΟΣ - ΧΡΥΣΗ ΑΥΓΗ</string>
-    <string name="simparataksi">ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΠΑΡΑΤΑΞΗ (ΠΑΝΕΛΛΗΝΙΟ ΣΟΣΙΑΛΙΣΤΙΚΟ ΚΙΝΗΜΑ - ΔΗΜΟΚΡΑΤΙΚΗ ΑΡΙΣΤΕΡΑ)</string>
-    <string name="kke">ΚΟΜΜΟΥΝΙΣΤΙΚΟ ΚΟΜΜΑ ΕΛΛΑΔΑΣ</string>
-    <string name="potami">ΤΟ ΠΟΤΑΜΙ</string>
-    <string name="anel">ΑΝΕΞΑΡΤΗΤΟΙ ΕΛΛΗΝΕΣ ΕΘΝΙΚΗ ΠΑΤΡΙΩΤΙΚΗ ΔΗΜΟΚΡΑΤΙΚΗ ΣΥΜΜΑΧΙΑ</string>
-    <string name="enke">ΕΝΩΣΗ ΚΕΝΤΡΩΩΝ</string>
-    <string name="aneksartitoi">ΑΝΕΞΑΡΤΗΤΟΙ</string>
 
     <string name="bio">Βιογραφικό</string>
     <string name="tweet">Πολιτικά tweets</string>

@@ -2,7 +2,6 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/arxiki"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -24,9 +23,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -37,9 +34,7 @@
             android:background="@drawable/shadow" />
 
 
-        <androidx.gridlayout.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/choice_grid"
+        <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:alignmentMode="alignBounds"
@@ -91,7 +86,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -119,7 +113,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -147,7 +140,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -176,7 +168,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -201,7 +192,6 @@
                 app:layout_rowWeight="1">
 
                 <TextView
-                    android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -229,7 +219,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -258,7 +247,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -286,7 +274,6 @@
                 android:focusable="true">
 
                 <TextView
-                    android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
@@ -300,7 +287,6 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/main10"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
@@ -317,7 +303,6 @@
                     android:background="@color/material_lime">
 
                     <ImageView
-                        android:id="@+id/google_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/image_profile_picture"

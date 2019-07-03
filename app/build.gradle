@@ -21,13 +21,12 @@ android {
         applicationId 'gr.mobap'
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 31
-        versionName "3.8"
+        versionCode 34
+        versionName "Νέα Βουλή"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
 
-        resValue 'string', 'FACEBOOK_APP_ID', FACEBOOK_APP_ID
         resValue 'string', 'GOOGLE_SIGN_IN_ID', GOOGLE_SIGN_IN_ID
         resValue 'string', 'google_maps_key', GOOGLE_MAPS_KEY
         resValue 'string', 'com.twitter.sdk.android.CONSUMER_KEY', CONSUMER_KEY
@@ -42,6 +41,7 @@ android {
         }
         release {
             minifyEnabled false
+            multiDexKeepFile file('multidex-config.txt')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -68,6 +68,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.android.support:multidex:1.0.3'
 
     implementation 'com.twitter.sdk.android:twitter-core:3.3.0'
     implementation 'com.twitter.sdk.android:tweet-ui:3.3.0'

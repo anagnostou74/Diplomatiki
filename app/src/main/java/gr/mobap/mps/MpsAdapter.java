@@ -1,6 +1,5 @@
 package gr.mobap.mps;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -68,14 +67,11 @@ public class MpsAdapter extends FirebaseRecyclerAdapter<MpsData, MpsViewHolder> 
 
         // Set click listener for the whole post view
         final String postKey = postRef.getKey();
-        mpsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Launch PostDetailActivity
-                Intent intent = new Intent(context, SingleItemView.class);
-                intent.putExtra(SingleItemView.EXTRA_POST_KEY, postKey);
-                context.startActivity(intent);
-            }
+        mpsViewHolder.itemView.setOnClickListener(v -> {
+            // Launch PostDetailActivity
+            Intent intent = new Intent(context, SingleItemView.class);
+            intent.putExtra(SingleItemView.EXTRA_POST_KEY, postKey);
+            context.startActivity(intent);
         });
     }
 
