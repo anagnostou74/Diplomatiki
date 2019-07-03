@@ -36,7 +36,7 @@ public class MpsAdapter extends FirebaseRecyclerAdapter<MpsData, MpsViewHolder> 
     protected void onBindViewHolder(@NonNull MpsViewHolder mpsViewHolder, int position, @NonNull MpsData mpsData) {
         final DatabaseReference postRef = getRef(position);
 
-        String url = "https://photoshellas.s3.amazonaws.com/" + mpsData.image;
+        String url = mpsData.image;
         ImageView imageView = mpsViewHolder.mpsImage;
 
         Glide

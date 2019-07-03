@@ -23,6 +23,10 @@ public class MpsData {
     public String phone;
     public String facebook;
     public String twitter;
+    public String youtube;
+    public String pr_ko_rank;
+    public String antipr_rank;
+    public String antipr;
     public String perifereia_komma;
 
     public MpsData() {
@@ -51,6 +55,10 @@ public class MpsData {
                    String phone,
                    String facebook,
                    String twitter,
+                   String youtube,
+                   String pr_ko_rank,
+                   String antipr_rank,
+                   String antipr,
                    String perifereiaKomma) {
 
 
@@ -75,6 +83,10 @@ public class MpsData {
         this.phone = phone;
         this.facebook = facebook;
         this.twitter = twitter;
+        this.youtube = youtube;
+        this.pr_ko_rank = pr_ko_rank;
+        this.antipr_rank = antipr_rank;
+        this.antipr = antipr;
         this.perifereia_komma = perifereiaKomma;
     }
 }

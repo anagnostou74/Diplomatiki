@@ -31,6 +31,7 @@ public class MpsViewHolder extends RecyclerView.ViewHolder {
     public TextView email;
     public TextView facebook;
     public TextView twitter;
+    public TextView youtube;
     public TextView phone;
 
 
@@ -58,6 +59,7 @@ public class MpsViewHolder extends RecyclerView.ViewHolder {
         email = itemView.findViewById(R.id.email);
         facebook = itemView.findViewById(R.id.fb);
         twitter = itemView.findViewById(R.id.tw);
+        youtube = itemView.findViewById(R.id.youtube);
         phone = itemView.findViewById(R.id.phone);
 
     }

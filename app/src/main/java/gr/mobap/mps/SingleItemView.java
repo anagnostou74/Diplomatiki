@@ -59,6 +59,7 @@ public class SingleItemView extends Base {
     private TextView txtphone;
     private TextView txtfacebook;
     private TextView txttwitter;
+    private TextView txtyt;
     private ImageView mpsImage;
 
     private ImageView phoneImage;
@@ -67,6 +68,7 @@ public class SingleItemView extends Base {
     private ImageView twitterImage;
     private ImageView emailImage;
     private ImageView mapsImage;
+    private ImageView ytImage;
 
 
     @Override
@@ -117,6 +119,7 @@ public class SingleItemView extends Base {
         twitterImage = findViewById(R.id.twitter_img);
         emailImage = findViewById(R.id.email_img);
         mapsImage = findViewById(R.id.maps_img);
+        ytImage = findViewById(R.id.yt_img);
 
         // Locate the TextViews in singleview_mpsew_mps.xml
         // TextView txtrank = (TextView) findViewById(R.id.rank);
@@ -138,6 +141,7 @@ public class SingleItemView extends Base {
         txtsite = findViewById(R.id.site);
         txtfacebook = findViewById(R.id.fb);
         txttwitter = findViewById(R.id.tw);
+        txtyt = findViewById(R.id.youtube);
         txtemail = findViewById(R.id.email);
         txtphone = findViewById(R.id.phone);
     }
@@ -155,7 +159,7 @@ public class SingleItemView extends Base {
                 MpsData mps = dataSnapshot.getValue(MpsData.class);
                 // [START_EXCLUDE]
 
-                String url = "https://photoshellas.s3.amazonaws.com/" + mps.image;
+                String url = mps.image;
 
                 Glide
                         .with(SingleItemView.this)
@@ -185,6 +189,7 @@ public class SingleItemView extends Base {
                 txtphone.setText(mps.phone);
                 txtfacebook.setText(mps.facebook);
                 txttwitter.setText(mps.twitter);
+                txtyt.setText(mps.youtube);
                 // [END_EXCLUDE]
                 phoneImage.setOnClickListener(v -> {
                     // [START custom_event]
@@ -280,6 +285,19 @@ public class SingleItemView extends Base {
                         }
                     } else{
                         Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                ytImage.setOnClickListener(v -> {
+                    String to = txtyt.getText().toString();
+                    Log.d(TAG, "ytImage: " + to);
+                    if (to.length() > 2){
+                        Intent browserIntent = new Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse(to));
+                        startActivity(browserIntent);
+                    } else {
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
