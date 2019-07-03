@@ -27,7 +27,6 @@ import com.google.firebase.appindexing.builders.Actions;
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
 import gr.mobap.R;
-import gr.mobap.komma.ProedrosFragment;
 
 public class OrganosiActivity extends Base {
     private Tracker mTracker;

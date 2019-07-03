@@ -1,4 +1,4 @@
-package gr.mobap.komma;
+package gr.mobap.organosi;
 
 import android.os.Build;
 import android.os.Bundle;

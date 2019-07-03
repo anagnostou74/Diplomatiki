@@ -15,6 +15,6 @@ public class AntiProedroiFragment extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("mps").child("antipr").equalTo("ΑΝΤΙΠΡΟΕΔΡΟΣ").orderByChild("antipr_rank");
+        return dbReference.child("mps").orderByChild("antipr_rank").startAt("1");
     }
 }

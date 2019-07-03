@@ -26,7 +26,6 @@ import com.google.firebase.appindexing.builders.Actions;
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
 import gr.mobap.R;
-import gr.mobap.organosi.KoinOmPrFragment;
 
 public class KommActivity extends Base {
     private Tracker mTracker;

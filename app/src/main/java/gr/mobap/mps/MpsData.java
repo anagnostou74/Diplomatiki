@@ -26,7 +26,6 @@ public class MpsData {
     public String youtube;
     public String pr_ko_rank;
     public String antipr_rank;
-    public String antipr;
     public String perifereia_komma;
 
     public MpsData() {
@@ -58,7 +57,6 @@ public class MpsData {
                    String youtube,
                    String pr_ko_rank,
                    String antipr_rank,
-                   String antipr,
                    String perifereiaKomma) {
 
 
@@ -86,7 +84,6 @@ public class MpsData {
         this.youtube = youtube;
         this.pr_ko_rank = pr_ko_rank;
         this.antipr_rank = antipr_rank;
-        this.antipr = antipr;
         this.perifereia_komma = perifereiaKomma;
     }
 }

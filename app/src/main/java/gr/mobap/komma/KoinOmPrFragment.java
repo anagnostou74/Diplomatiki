@@ -1,4 +1,4 @@
-package gr.mobap.organosi;
+package gr.mobap.komma;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
@@ -14,6 +14,6 @@ public class KoinOmPrFragment extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("mps").orderByChild("titlos").equalTo("Κ.Ο.");
+        return dbReference.child("mps").orderByChild("pr_ko_rank").startAt("1");
     }
 }
