@@ -1,37 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <Button
         android:id="@+id/perifereiaButton"
+        style="@style/SearchButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
         android:text="@string/perif_label" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow" />
+
     <Button
         android:id="@+id/kommaButton"
+        style="@style/SearchButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
-        android:text="@string/komma" />
+        android:text="@string/kommatxt" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow" />
 
     <Button
         android:id="@+id/searchButton"
-        android:layout_width="match_parent"
+        style="@style/SearchButtonStyle"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
         android:layout_margin="@dimen/card_margin"
-        android:text="@string/search" />
+        android:gravity="end"
+        android:text="@string/search"
+        android:textAlignment="textEnd" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow" />
 
     <Button
         android:id="@+id/clearButton"
-        android:layout_width="match_parent"
+        style="@style/SearchButtonStyle"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
-        android:text="@string/clear" />
+        android:gravity="end"
+        android:text="@string/clear"
+        android:textAlignment="textEnd" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/shadow" />
 
 
     <androidx.recyclerview.widget.RecyclerView
