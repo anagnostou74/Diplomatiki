@@ -41,7 +41,7 @@ public class MpsAdapter extends FirebaseRecyclerAdapter<MpsData, MpsViewHolder> 
         Glide
                 .with(context)
                 .load(url)
-                .centerCrop()
+                .fitCenter()
                 .placeholder(R.drawable.mps)
                 .into(imageView);
 

@@ -165,7 +165,7 @@ public class SingleItemView extends Base {
                 Glide
                         .with(SingleItemView.this)
                         .load(url)
-                        .centerCrop()
+                        .fitCenter()
                         .placeholder(R.drawable.mps)
                         .into(mpsImage);
 
