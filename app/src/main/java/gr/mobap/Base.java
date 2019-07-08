@@ -34,6 +34,7 @@ import java.util.List;
 import gr.mobap.diafaneia.Diafaneia;
 import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
 import gr.mobap.ekdoseis.DownloadPraktikaActivity;
+import gr.mobap.goverment.GovActivity;
 import gr.mobap.images.Image;
 import gr.mobap.map.MapsActivity;
 import gr.mobap.mps.MpsActivity;
@@ -171,6 +172,11 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
             }
             case R.id.nav_sindesmoi: {
                 Intent i = new Intent(Base.this, SindesmoiActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.nav_gov: {
+                Intent i = new Intent(Base.this, GovActivity.class);
                 startActivity(i);
                 break;
             }

@@ -569,4 +569,10 @@ limitations under the License.
     <string name="search">Αναζήτηση</string>
     <string name="clear">Εκκαθάριση</string>
 
+    <string name="prothipourgos">Πρωθυπουργός</string>
+    <string name="kyvernisi">Κυβέρνηση</string>
+    <string name="ypourgoi">Υπουργοί</string>
+    <string name="ektelestiki">Εκτελεστική Εξουσία</string>
+
+
 </resources>
