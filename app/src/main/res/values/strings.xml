@@ -511,6 +511,7 @@ limitations under the License.
     <string name="yeep">Υ.Ε.Ε.Π</string>
     <string name="organosi">Οργάνωση</string>
     <string name="komma">Κόμματα</string>
+    <string name="kommatxt">Κόμμα:</string>
     <string name="mps">Βουλευτές</string>
     <string name="links">Σύνδεσμοι</string>
     <string name="polimesa">Πολυμέσα</string>
