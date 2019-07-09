@@ -14,6 +14,6 @@ public class Kyvernisi extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("goverment").orderByChild("rank");
+        return dbReference.child("goverment").orderByChild("govRank");
     }
 }

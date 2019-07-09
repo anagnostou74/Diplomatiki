@@ -102,6 +102,6 @@ public class Pm extends MpsListFragment {
     @Override
     public Query getQuery(DatabaseReference dbReference) {
 
-        return dbReference.child("goverment").orderByChild("titlos").equalTo("Πρωθυπουργός");
+        return dbReference.child("goverment").orderByChild("govPosition").equalTo("ΠΡΩΘΥΠΟΥΡΓΟΣ");
     }
 }
