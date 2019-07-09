@@ -21,7 +21,7 @@ android {
         applicationId 'gr.mobap'
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 38
+        versionCode 39
         versionName "Νέο, Αυτοδύναμο Περί Βουλής! Κυβερνητική έκδοση."
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
