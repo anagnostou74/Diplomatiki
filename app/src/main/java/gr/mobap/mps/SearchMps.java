@@ -57,6 +57,7 @@ public class SearchMps extends MpsListFragment {
         mRecycler.setHasFixedSize(true);
         // Initialize Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
 
         perifereiaButton = (Button) rootView.findViewById(R.id.perifereiaButton);
         perifereiaButton.setOnClickListener(this::perifereiaChoiceDialog);
@@ -82,6 +83,7 @@ public class SearchMps extends MpsListFragment {
     private void perifereiaChoiceDialog(View view) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("perifereies");
+        myRef.keepSynced(true);
         Log.d(TAG, "myRef: " + myRef);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -170,10 +172,12 @@ public class SearchMps extends MpsListFragment {
         kommaButton = (Button) getView().findViewById(R.id.kommaButton);
         String kommaText = kommaButton.getText().toString();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
 
         if (!perifereia.equals(perifereiaText) && (komma.equals(kommaText))) {
 
             mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.keepSynced(true);
             // Set up Layout Manager, reverse layout
             mManager = new LinearLayoutManager(getActivity());
             mRecycler.setLayoutManager(mManager);
@@ -191,6 +195,7 @@ public class SearchMps extends MpsListFragment {
         } else if (perifereia.equals(perifereiaText) && !komma.equals(kommaText)) {
 
             mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.keepSynced(true);
             // Set up Layout Manager, reverse layout
             mManager = new LinearLayoutManager(getActivity());
             mRecycler.setLayoutManager(mManager);
@@ -209,6 +214,7 @@ public class SearchMps extends MpsListFragment {
 
             mDatabase = FirebaseDatabase.getInstance().getReference();
             // Set up Layout Manager, reverse layout
+            mDatabase.keepSynced(true);
             mManager = new LinearLayoutManager(getActivity());
             mRecycler.setLayoutManager(mManager);
             Log.d(TAG, "Value is: " + perifereiaText + kommaText);
@@ -239,6 +245,7 @@ public class SearchMps extends MpsListFragment {
 
         // [START create_database_reference]
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
         // [END create_database_reference]
 
         // Set up Layout Manager, reverse layout

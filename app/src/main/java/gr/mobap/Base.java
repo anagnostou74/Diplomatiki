@@ -6,18 +6,17 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Parcelable;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -34,10 +33,11 @@ import java.util.List;
 import gr.mobap.diafaneia.Diafaneia;
 import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
 import gr.mobap.ekdoseis.DownloadPraktikaActivity;
+import gr.mobap.goverment.GovActivity;
 import gr.mobap.images.Image;
+import gr.mobap.komma.KommActivity;
 import gr.mobap.map.MapsActivity;
 import gr.mobap.mps.MpsActivity;
-import gr.mobap.komma.KommActivity;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.activities.DrastActivity;
 import gr.mobap.rss.activities.EktheseisEpActivity;
@@ -171,6 +171,11 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
             }
             case R.id.nav_sindesmoi: {
                 Intent i = new Intent(Base.this, SindesmoiActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.nav_gov: {
+                Intent i = new Intent(Base.this, GovActivity.class);
                 startActivity(i);
                 break;
             }

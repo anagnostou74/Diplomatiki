@@ -109,6 +109,8 @@ public class SingleItemView extends Base {
         // Initialize Database
         mMpsReference = FirebaseDatabase.getInstance().getReference()
                 .child("mps").child(mPostKey);
+        mMpsReference.keepSynced(true);
+
         Log.d("Single", "Value is: " + mMpsReference);
 
         // Locate the ImageView in singleview_mps

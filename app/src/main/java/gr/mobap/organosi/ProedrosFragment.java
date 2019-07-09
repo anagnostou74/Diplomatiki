@@ -45,6 +45,7 @@ public class ProedrosFragment extends MpsListFragment {
         mRecycler.setHasFixedSize(true);
         // Initialize Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
         president = rootView.findViewById(R.id.president);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             president.setText(Html.fromHtml(getString(R.string.proedreioKeim), Html.FROM_HTML_MODE_COMPACT));
@@ -61,6 +62,7 @@ public class ProedrosFragment extends MpsListFragment {
 
         // [START create_database_reference]
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
         // [END create_database_reference]
 
         // Set up Layout Manager
