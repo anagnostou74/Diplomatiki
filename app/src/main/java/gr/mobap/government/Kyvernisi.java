@@ -66,7 +66,7 @@ public class Kyvernisi extends Fragment {
         mRecycler.setLayoutManager(mManager);
 
         // Set up FirebaseRecyclerAdapter with the Query
-        Query mpsQuery = mDatabase.orderByChild("govRank").startAt("1");
+        Query mpsQuery = mDatabase.orderByChild("govRank").startAt("00");
         Log.d(TAG, "Value is: " + mpsQuery);
 
         FirebaseRecyclerOptions<MpsData> options = new FirebaseRecyclerOptions.Builder<MpsData>()
