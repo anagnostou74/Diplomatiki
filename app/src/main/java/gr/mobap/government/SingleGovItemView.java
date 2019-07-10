@@ -1,4 +1,4 @@
-package gr.mobap.mps;
+package gr.mobap.government;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -29,9 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 import gr.mobap.AnalyticsApplication;
 import gr.mobap.Base;
 import gr.mobap.R;
-import gr.mobap.organosi.OrganosiActivity;
+import gr.mobap.mps.MpsData;
 
-public class SingleItemView extends Base {
+public class SingleGovItemView extends Base {
 
     public String TAG = getClass().getSimpleName();
     private String mPostKey;
@@ -109,8 +109,7 @@ public class SingleItemView extends Base {
         }
         // Initialize Database
         mMpsReference = FirebaseDatabase.getInstance().getReference()
-                .child("mps").child(mPostKey);
-
+                .child("government").child(mPostKey);
         Log.d(TAG, "Value is: " + mMpsReference);
 
         // Locate the ImageView in singleview_mps
@@ -165,7 +164,7 @@ public class SingleItemView extends Base {
                 String url = mps.image;
 
                 Glide
-                        .with(SingleItemView.this)
+                        .with(SingleGovItemView.this)
                         .load(url)
                         .fitCenter()
                         .placeholder(R.drawable.mps)
@@ -218,7 +217,7 @@ public class SingleItemView extends Base {
                         startActivity(Intent.createChooser(i1,
                                 getString(R.string.apostoli)));
                     } catch (android.content.ActivityNotFoundException ex) {
-                        Toast.makeText(SingleItemView.this, getString(R.string.aneu), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu), Toast.LENGTH_SHORT).show();
                     }
                 });
                 webImage.setOnClickListener(v -> {
@@ -230,7 +229,7 @@ public class SingleItemView extends Base {
                                 Uri.parse(to));
                         startActivity(browserIntent);
                     } else {
-                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -243,7 +242,7 @@ public class SingleItemView extends Base {
                                 Uri.parse("https://www.facebook.com/" + to));
                         startActivity(intent);
                     } else {
-                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -267,7 +266,7 @@ public class SingleItemView extends Base {
                             startActivity(intent);
                         }
                     } else {
-                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
                     }
                 });
                 mapsImage.setOnClickListener(v -> {
@@ -287,7 +286,7 @@ public class SingleItemView extends Base {
 
                         }
                     } else {
-                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
                     }
                 });
                 ytImage.setOnClickListener(v -> {
@@ -299,7 +298,7 @@ public class SingleItemView extends Base {
                                 Uri.parse(to));
                         startActivity(browserIntent);
                     } else {
-                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -311,7 +310,7 @@ public class SingleItemView extends Base {
                 // Getting Post failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
                 // [START_EXCLUDE]
-                Toast.makeText(SingleItemView.this, "Failed to load post.",
+                Toast.makeText(SingleGovItemView.this, "Failed to load post.",
                         Toast.LENGTH_SHORT).show();
                 // [END_EXCLUDE]
             }
@@ -328,13 +327,13 @@ public class SingleItemView extends Base {
     @Override
     public void onStop() {
         super.onStop();
-
         // Remove post value event listener
         if (mMpsReference != null) {
             mMpsReference.removeEventListener(mMpsListener);
         }
 
     }
+
 }
 
 

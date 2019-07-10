@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
+        android:padding="@dimen/text"
         android:text="@string/perif_label" />
 
     <View
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
+        android:padding="@dimen/text"
         android:text="@string/kommatxt" />
 
     <View
@@ -39,6 +41,7 @@
         android:layout_gravity="left|center_vertical"
         android:layout_margin="@dimen/card_margin"
         android:gravity="end"
+        android:padding="@dimen/text"
         android:text="@string/search"
         android:textAlignment="textEnd" />
 
@@ -54,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
         android:gravity="end"
+        android:padding="@dimen/text"
         android:text="@string/clear"
         android:textAlignment="textEnd" />
 

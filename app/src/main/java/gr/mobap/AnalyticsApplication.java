@@ -31,6 +31,7 @@ public class AnalyticsApplication extends Application {
     private Tracker mTracker;
     protected File extStorageAppBasePath;
     protected File extStorageAppCachePath;
+    FirebaseDatabase database;
 
     @Override
     public void onCreate() {
@@ -38,9 +39,10 @@ public class AnalyticsApplication extends Application {
         // Obtain the FirebaseAnalytics instance.
         FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         // initialize firebase database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        database.setPersistenceEnabled(true);
-
+        if (database == null) {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            database.setPersistenceEnabled(true);
+        }
         //Twitter sdk initialization
         TwitterConfig config = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))

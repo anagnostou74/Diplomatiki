@@ -1,4 +1,4 @@
-package gr.mobap.organosi;
+package gr.mobap.government;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,20 +23,24 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import gr.mobap.R;
-import gr.mobap.mps.MpsAdapter;
 import gr.mobap.mps.MpsData;
 import gr.mobap.mps.MpsViewHolder;
 
-public class ProedrosFragment extends Fragment {
+public class PrMin extends Fragment {
     public String TAG = getClass().getSimpleName();
+
+    // [START define_database_reference]
     private DatabaseReference mDatabase;
+    // [END define_database_reference]
+    private ValueEventListener mMpsListener;
+    private FirebaseRecyclerAdapter<MpsData, MpsViewHolder> mAdapter;
+
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
-    private FirebaseRecyclerAdapter<MpsData, MpsViewHolder> mAdapter;
-    private TextView president;
-    private ValueEventListener mMpsListener;
 
-    public ProedrosFragment() {
+    private TextView president;
+
+    public PrMin() {
     }
 
     @Override
@@ -46,7 +52,7 @@ public class ProedrosFragment extends Fragment {
         mRecycler = rootView.findViewById(R.id.prList);
         mRecycler.setHasFixedSize(true);
         // Initialize Database
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("mps");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("government");
         president = rootView.findViewById(R.id.president);
 
         return rootView;
@@ -57,7 +63,7 @@ public class ProedrosFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         // [START create_database_reference]
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("mps");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("government");
         // [END create_database_reference]
 
         // Set up Layout Manager
@@ -65,20 +71,20 @@ public class ProedrosFragment extends Fragment {
         mRecycler.setLayoutManager(mManager);
 
         // Set up FirebaseRecyclerAdapter with the Query
-        Query mpsQuery = mDatabase.orderByChild("titlos").equalTo("ΠΡΟΕΔΡΟΣ ΤΗΣ ΒΟΥΛΗΣ");
-        Log.d(TAG, "Value is: " + mpsQuery);
+        Query govQuery = mDatabase.orderByChild("govPosition").equalTo("ΠΡΩΘΥΠΟΥΡΓΟΣ");
+        Log.d(TAG, "Value is: " + govQuery);
 
         FirebaseRecyclerOptions<MpsData> options = new FirebaseRecyclerOptions.Builder<MpsData>()
-                .setQuery(mpsQuery, MpsData.class)
+                .setQuery(govQuery, MpsData.class)
                 .build();
 
-        mAdapter = new MpsAdapter(options, getContext());
+        mAdapter = new GovAdapter(options, getContext());
         mRecycler.setAdapter(mAdapter);
         mAdapter.startListening();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            president.setText(Html.fromHtml(getString(R.string.proedreioKeim), Html.FROM_HTML_MODE_COMPACT));
+            president.setText(Html.fromHtml(getString(R.string.pm_aksioma), Html.FROM_HTML_MODE_COMPACT));
         } else {
-            president.setText(Html.fromHtml(getString(R.string.proedreioKeim)));
+            president.setText(Html.fromHtml(getString(R.string.pm_aksioma)));
         }
     }
 
@@ -97,5 +103,4 @@ public class ProedrosFragment extends Fragment {
             mAdapter.stopListening();
         }
     }
-
 }

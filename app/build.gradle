@@ -9,8 +9,8 @@ android {
             storePassword ANDROID_KEY_PASSWORD
         }
         config {
-            storeFile file('C:/Dev/android/.android/debug.keystore')
-            //storeFile file('C:/Users/kanag/.android/debug.keystore')
+            //storeFile file('C:/Dev/android/.android/debug.keystore')
+            storeFile file('C:/Users/kanag/.android/debug.keystore')
             keyAlias 'androiddebugkey'
             keyPassword 'android'
             storePassword 'android'
@@ -21,7 +21,7 @@ android {
         applicationId 'gr.mobap'
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 39
+        versionCode 40
         versionName "Νέο, Αυτοδύναμο Περί Βουλής! Κυβερνητική έκδοση."
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true

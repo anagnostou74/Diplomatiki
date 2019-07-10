@@ -644,11 +644,32 @@
             android:label="@string/menu_share" />
         <activity android:name=".Base" />
         <activity
-            android:name=".goverment.GovActivity"
+            android:name=".government.GovActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name" />
 
         <activity android:name="com.twitter.sdk.android.core.identity.OAuthActivity" />
+        <activity
+            android:name=".government.SingleGovItemView"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/bio">
+            <intent-filter android:label="@string/bio">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/singlegovitemactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="singlegovitemactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".rss.services.NeaService" />
         <service android:name=".rss.services.NsKatService" />

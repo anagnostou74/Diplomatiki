@@ -3,7 +3,6 @@ package gr.mobap.mps;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.util.TypedValue;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -35,7 +35,7 @@ public class MpsActivity extends Base {
     private FirebaseAnalytics mFirebaseAnalytics;
     public String TAG = getClass().getSimpleName();
 
-    private FragmentPagerAdapter mPagerAdapter;
+    private FragmentStatePagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
@@ -77,23 +77,26 @@ public class MpsActivity extends Base {
 
 
         // Create the adapter that will return a fragment for each section
-        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            private final Fragment[] mFragments = new Fragment[] {
+        mPagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[]{
                     new AllMpsFragment(),
                     new SearchMps()
             };
-            private final String[] mFragmentNames = new String[] {
+            private final String[] mFragmentNames = new String[]{
                     getString(R.string.mps),
                     getString(R.string.search)
             };
+
             @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
             }
+
             @Override
             public int getCount() {
                 return mFragments.length;
             }
+
             @Override
             public CharSequence getPageTitle(int position) {
                 return mFragmentNames[position];
@@ -101,6 +104,7 @@ public class MpsActivity extends Base {
         };
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.viewpager);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.setAdapter(mPagerAdapter);
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);

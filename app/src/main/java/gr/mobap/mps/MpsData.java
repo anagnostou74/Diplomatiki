@@ -2,6 +2,7 @@ package gr.mobap.mps;
 
 public class MpsData {
     public String rank;
+    public String govRank;
     public String epitheto;
     public String onoma;
     public String onomaPatros;
@@ -33,6 +34,7 @@ public class MpsData {
     }
 
     public MpsData(String rank,
+                   String govRank,
                    String epitheto,
                    String onoma,
                    String onomaPatros,

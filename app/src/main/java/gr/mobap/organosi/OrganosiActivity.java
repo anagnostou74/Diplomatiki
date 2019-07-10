@@ -3,7 +3,6 @@ package gr.mobap.organosi;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -11,7 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -32,7 +31,7 @@ public class OrganosiActivity extends Base {
     private Tracker mTracker;
     private FirebaseAnalytics mFirebaseAnalytics;
 
-    private FragmentPagerAdapter mPagerAdapter;
+    private FragmentStatePagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
@@ -68,27 +67,30 @@ public class OrganosiActivity extends Base {
         navigationView.setNavigationItemSelectedListener(this);
 
         // Create the adapter that will return a fragment for each section
-        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            private final Fragment[] mFragments = new Fragment[] {
+        mPagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[]{
                     new ProedrosFragment(),
                     new AntiProedroiFragment(),
                     new GrammateisFragment(),
                     new KosmitoresFragment(),
             };
-            private final String[] mFragmentNames = new String[] {
+            private final String[] mFragmentNames = new String[]{
                     getString(R.string.proedros),
                     getString(R.string.antiproedroi),
                     getString(R.string.grammateis),
                     getString(R.string.kosmitores)
             };
+
             @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
             }
+
             @Override
             public int getCount() {
                 return mFragments.length;
             }
+
             @Override
             public CharSequence getPageTitle(int position) {
                 return mFragmentNames[position];
@@ -96,6 +98,7 @@ public class OrganosiActivity extends Base {
         };
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.viewpager);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.setAdapter(mPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
@@ -105,6 +108,7 @@ public class OrganosiActivity extends Base {
     public Action getAction() {
         return Actions.newView("Organosi Page", "http://www.mobap.gr/organosiactivity");
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -121,5 +125,4 @@ public class OrganosiActivity extends Base {
         FirebaseUserActions.getInstance().end(getAction());
         super.onStop();
     }
-
 }

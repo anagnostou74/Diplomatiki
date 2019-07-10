@@ -1,4 +1,4 @@
-package gr.mobap.goverment;
+package gr.mobap.government;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -34,7 +34,7 @@ public class GovActivity extends Base {
     private FirebaseAnalytics mFirebaseAnalytics;
     public String TAG = getClass().getSimpleName();
 
-    private FragmentPagerAdapter mPagerAdapter;
+    private FragmentStatePagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
@@ -76,24 +76,27 @@ public class GovActivity extends Base {
 
 
         // Create the adapter that will return a fragment for each section
-        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-            private final Fragment[] mFragments = new Fragment[] {
-                    new Pm(),
+        mPagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[]{
+                    new PrMin(),
                     new Kyvernisi()
 
             };
-            private final String[] mFragmentNames = new String[] {
+            private final String[] mFragmentNames = new String[]{
                     getString(R.string.prothipourgos),
                     getString(R.string.ypourgoi)
             };
+
             @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
             }
+
             @Override
             public int getCount() {
                 return mFragments.length;
             }
+
             @Override
             public CharSequence getPageTitle(int position) {
                 return mFragmentNames[position];
@@ -102,13 +105,14 @@ public class GovActivity extends Base {
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.viewpager);
         mViewPager.setAdapter(mPagerAdapter);
+
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
     }
 
     public Action getAction() {
-        return Actions.newView("Mps Page", "http://www.mobap.gr/mpsactivity");
+        return Actions.newView("Gov Page", "http://www.mobap.gr/govactivity");
     }
 
     @Override
