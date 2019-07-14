@@ -48,13 +48,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:id="@+id/title"
@@ -66,8 +66,9 @@
                     android:text="@string/organosi"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
             </androidx.cardview.widget.CardView>
 
@@ -77,13 +78,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -94,8 +95,9 @@
                     android:text="@string/komma"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -104,25 +106,30 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
                     android:background="@color/material_red"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:lines="2"
+                    android:maxLines="3"
+                    android:singleLine="false"
                     android:text="@string/simera"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -131,13 +138,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -148,8 +155,9 @@
                     android:text="@string/ekdoseis"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -158,14 +166,14 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnSpan="2"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -176,8 +184,9 @@
                     android:text="@string/diafaneia"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -210,13 +219,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -228,8 +237,9 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -238,25 +248,30 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/icon"
                     android:background="@color/material_blue_grey"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:lines="2"
+                    android:maxLines="3"
+                    android:singleLine="false"
                     android:text="@string/deltia"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -265,13 +280,13 @@
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 app:cardElevation="4dp"
                 app:layout_columnWeight="1"
                 app:layout_gravity="fill_horizontal"
-                app:layout_rowWeight="1"
-                android:focusable="true">
+                app:layout_rowWeight="1">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -282,8 +297,9 @@
                     android:text="@string/twitter"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -306,9 +322,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/image_profile_picture"
+                        android:contentDescription="@string/login_with_google"
                         android:visibility="visible"
-                        tools:visibility="gone"
-                        android:contentDescription="@string/login_with_google" />
+                        tools:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/image_profile_picture"

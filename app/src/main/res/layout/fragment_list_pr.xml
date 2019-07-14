@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -26,7 +27,10 @@
                 android:id="@+id/president"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp" />
+                android:linksClickable="true"
+                android:padding="12dp"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </ScrollView>

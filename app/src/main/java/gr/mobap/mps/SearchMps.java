@@ -1,5 +1,6 @@
 package gr.mobap.mps;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -95,11 +96,11 @@ public class SearchMps extends Fragment {
                 builder = new AlertDialog.Builder(getContext());
                 builder.setIcon(R.mipmap.ic_launcher);
                 builder.setTitle(R.string.perif_label);
-                builder.setSingleChoiceItems(perifereia, 0, (dialogInterface, i) -> perifereiaButton.setText(perifereia[i]));
-                builder.setCancelable(true);
+                builder.setSingleChoiceItems(perifereia, 0, (dialogInterface, i) -> {
+                    perifereiaButton.setText(perifereia[i]);
+                    dialogInterface.dismiss();
+                });
                 AlertDialog dialog = builder
-                        .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> dialogInterface.dismiss())
-                        .setNegativeButton(android.R.string.no, null)
                         .create();
                 dialog.show();
             }
@@ -123,10 +124,6 @@ public class SearchMps extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                //GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {};
-                //List messages = dataSnapshot.child("komma").getValue(t);
 
                 ArrayList<String> kommata = new ArrayList<String>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -142,11 +139,11 @@ public class SearchMps extends Fragment {
                     builder = new AlertDialog.Builder(getContext());
                     builder.setIcon(R.mipmap.ic_launcher);
                     builder.setTitle(R.string.komma);
-                    builder.setSingleChoiceItems(komma, 0, (dialogInterface, i) -> kommaButton.setText(komma[i]));
-                    builder.setCancelable(true);
+                    builder.setSingleChoiceItems(komma, 0, (dialogInterface, i) -> {
+                        kommaButton.setText(komma[i]);
+                        dialogInterface.dismiss();
+                    });
                     AlertDialog dialog = builder
-                            .setPositiveButton(android.R.string.yes, (dialogInterface, i) -> dialogInterface.dismiss())
-                            .setNegativeButton(android.R.string.no, null)
                             .create();
                     dialog.show();
                 }

@@ -45,7 +45,7 @@ public class Diafaneia extends Base {
     private ProgressDialog progress;
 
     // URL to get data JSON
-    private static String url = "http://diafaneia.hellenicparliament.gr/api.ashx?q=documents&pageSize=100";
+    private static String url = "https://diafaneia.hellenicparliament.gr/api.ashx?q=documents&pageSize=100";
     private FirebaseAnalytics mFirebaseAnalytics;
     // JSON Node names
     private static final String TAG_Data = "Data";

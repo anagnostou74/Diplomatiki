@@ -27,7 +27,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mps_image"
                 android:layout_centerInParent="true"
-                android:textStyle="bold" />
+                android:linksClickable="true"
+                android:textStyle="bold"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/mps_image"
@@ -43,7 +46,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/komma"
-                android:textStyle="bold" />
+                android:linksClickable="true"
+                android:textStyle="bold"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/onoma"
@@ -51,16 +57,22 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/komma"
                 android:layout_toRightOf="@+id/epitheto"
+                android:linksClickable="true"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/on_patros_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/epitheto"
-                android:text="@string/on_patros_label" />
+                android:linksClickable="true"
+                android:text="@string/on_patros_label"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/onomaPatros"
@@ -68,23 +80,32 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/onoma"
                 android:layout_toRightOf="@+id/on_patros_label"
+                android:linksClickable="true"
                 android:paddingLeft="2dp"
-                android:paddingRight="2dp" />
+                android:paddingRight="2dp"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/titlos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/onomaPatros"
-                android:textStyle="bold" />
+                android:linksClickable="true"
+                android:textStyle="bold"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/govPosition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/titlos"
+                android:linksClickable="true"
                 android:singleLine="false"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/perif_label"
@@ -92,7 +113,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/govPosition"
                 android:layout_margin="3dp"
-                android:text="@string/perif_label" />
+                android:linksClickable="true"
+                android:text="@string/perif_label"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/perifereia"
@@ -101,7 +125,10 @@
                 android:layout_below="@+id/govPosition"
                 android:layout_margin="3dp"
                 android:layout_toRightOf="@+id/perif_label"
-                android:textStyle="bold" />
+                android:linksClickable="true"
+                android:textStyle="bold"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -120,19 +147,28 @@
             <TextView
                 android:id="@+id/birth"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/family"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/birth" />
+                android:layout_below="@+id/birth"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/epaggelma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/family" />
+                android:layout_below="@+id/family"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -152,25 +188,37 @@
             <TextView
                 android:id="@+id/parliamentActivities"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/socialActivities"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/parliamentActivities" />
+                android:layout_below="@+id/parliamentActivities"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/spoudes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/socialActivities" />
+                android:layout_below="@+id/socialActivities"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/languages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spoudes" />
+                android:layout_below="@+id/spoudes"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -193,7 +241,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:drawableLeft="@drawable/address"
-                android:drawablePadding="3dp" />
+                android:drawablePadding="3dp"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/site"
@@ -203,7 +254,10 @@
                 android:drawablePadding="3dp"
                 android:focusable="true"
                 android:gravity="center"
-                android:textStyle="bold|italic" />
+                android:linksClickable="true"
+                android:textStyle="bold|italic"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/email"
@@ -213,7 +267,10 @@
                 android:drawablePadding="3dp"
                 android:focusable="true"
                 android:gravity="center"
-                android:textStyle="bold|italic" />
+                android:linksClickable="true"
+                android:textStyle="bold|italic"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/phone"
@@ -223,7 +280,10 @@
                 android:drawablePadding="3dp"
                 android:focusable="true"
                 android:gravity="center"
-                android:textStyle="bold|italic" />
+                android:linksClickable="true"
+                android:textStyle="bold|italic"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/fb"
@@ -232,7 +292,10 @@
                 android:drawableStart="@drawable/facebook_48"
                 android:drawableLeft="@drawable/facebook_48"
                 android:drawablePadding="3dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/tw"
@@ -241,7 +304,10 @@
                 android:drawableStart="@drawable/twitter_48"
                 android:drawableLeft="@drawable/twitter_48"
                 android:drawablePadding="3dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/youtube"
@@ -250,7 +316,10 @@
                 android:drawableStart="@drawable/youtube_48"
                 android:drawableLeft="@drawable/youtube_48"
                 android:drawablePadding="3dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:linksClickable="true"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
 
         </LinearLayout>
 
