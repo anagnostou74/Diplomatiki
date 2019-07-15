@@ -2,6 +2,7 @@ package gr.mobap.mps;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -182,11 +183,25 @@ public class SingleItemView extends Base {
                 txtbirth.setText(mps.birth);
                 txtfamily.setText(mps.family);
                 txtepaggelma.setText(mps.epaggelma);
-                txtparliamentActivities.setText(Html.fromHtml(mps.parliamentActivities));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    txtparliamentActivities.setText(Html.fromHtml(mps.parliamentActivities, Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    txtparliamentActivities.setText(Html.fromHtml(mps.parliamentActivities));
+                }
                 txtsocialActivities.setText(Html.fromHtml(mps.socialActivities));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    txtsocialActivities.setText(Html.fromHtml(mps.socialActivities, Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    txtsocialActivities.setText(Html.fromHtml(mps.socialActivities));
+                }
                 txtspoudes.setText(mps.spoudes);
                 txtlanguages.setText(mps.languages);
                 txtaddress.setText(Html.fromHtml(mps.address));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    txtaddress.setText(Html.fromHtml(mps.address, Html.FROM_HTML_MODE_COMPACT));
+                } else {
+                    txtaddress.setText(Html.fromHtml(mps.address));
+                }
                 txtsite.setText(mps.site);
                 txtemail.setText(mps.email);
                 txtphone.setText(mps.phone);

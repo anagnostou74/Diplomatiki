@@ -1,5 +1,6 @@
 package gr.mobap.vouli;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -34,7 +35,12 @@ public class SyntagmaFragment extends Fragment {
         final String htmlB = getResources().getString(R.string.syntagmaKeimB);
         TextView tv = view.findViewById(R.id.textThesmos);
         tv.setMovementMethod(LinkMovementMethod.getInstance());
-        tv.setText(Html.fromHtml(htmlA + htmlB));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            tv.setText(Html.fromHtml(htmlA + htmlB, Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            tv.setText(Html.fromHtml(htmlA + htmlB));
+        }
+
         // Inflate the layout for this fragment
         return view;
     }

@@ -1,31 +1,31 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@drawable/shadow" />
-
         <include
             layout="@layout/president_info"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".15" />
+            android:layout_height="200dp" />
 
-        <TextView
-            android:id="@+id/president"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/card_margin"
-            android:layout_marginRight="@dimen/card_margin"
-            android:layout_weight=".75"
-            android:linksClickable="true"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/card_margin">
+
+            <TextView
+                android:id="@+id/president"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:linksClickable="true"
+                android:padding="12dp"
+                app:autoSizePresetSizes="@array/autosize_text_sizes"
+                app:autoSizeTextType="uniform" />
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </ScrollView>

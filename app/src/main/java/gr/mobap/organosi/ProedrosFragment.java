@@ -3,6 +3,7 @@ package gr.mobap.organosi;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,15 @@ public class ProedrosFragment extends Fragment {
         // Initialize Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("mps");
         president = rootView.findViewById(R.id.president);
+        final String htmlA = getResources().getString(R.string.proedreioKeim);
+        final String htmlB = getResources().getString(R.string.proedreioKeimB);
+        president.setMovementMethod(LinkMovementMethod.getInstance());
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            president.setText(Html.fromHtml(htmlA + htmlB, Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            president.setText(Html.fromHtml(htmlA + htmlB));
+        }
         return rootView;
     }
 
@@ -75,11 +84,7 @@ public class ProedrosFragment extends Fragment {
         mAdapter = new MpsAdapter(options, getContext());
         mRecycler.setAdapter(mAdapter);
         mAdapter.startListening();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            president.setText(Html.fromHtml(getString(R.string.proedreioKeim), Html.FROM_HTML_MODE_COMPACT));
-        } else {
-            president.setText(Html.fromHtml(getString(R.string.proedreioKeim)));
-        }
+
     }
 
     @Override

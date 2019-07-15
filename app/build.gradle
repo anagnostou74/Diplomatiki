@@ -9,8 +9,8 @@ android {
             storePassword ANDROID_KEY_PASSWORD
         }
         config {
-            storeFile file('C:/Dev/android/.android/debug.keystore')
-            //storeFile file('C:/Users/kanag/.android/debug.keystore')
+            //storeFile file('C:/Dev/android/.android/debug.keystore')
+            storeFile file('C:/Users/kanag/.android/debug.keystore')
             keyAlias 'androiddebugkey'
             keyPassword 'android'
             storePassword 'android'
@@ -72,6 +72,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.twitter.sdk.android:twitter-core:3.3.0'
     implementation 'com.twitter.sdk.android:tweet-ui:3.3.0'
+    implementation 'androidx.core:core:1.0.1'
 
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.cardview:cardview:1.0.0'
