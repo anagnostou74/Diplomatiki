@@ -229,7 +229,7 @@ public class SingleGovItemView extends Base {
                                 Uri.parse(to));
                         startActivity(browserIntent);
                     } else {
-                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log_gov), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -242,7 +242,7 @@ public class SingleGovItemView extends Base {
                                 Uri.parse("https://www.facebook.com/" + to));
                         startActivity(intent);
                     } else {
-                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log_gov), Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -266,7 +266,7 @@ public class SingleGovItemView extends Base {
                             startActivity(intent);
                         }
                     } else {
-                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log_gov), Toast.LENGTH_SHORT).show();
                     }
                 });
                 mapsImage.setOnClickListener(v -> {
@@ -286,7 +286,7 @@ public class SingleGovItemView extends Base {
 
                         }
                     } else {
-                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log_gov), Toast.LENGTH_SHORT).show();
                     }
                 });
                 ytImage.setOnClickListener(v -> {
@@ -298,7 +298,7 @@ public class SingleGovItemView extends Base {
                                 Uri.parse(to));
                         startActivity(browserIntent);
                     } else {
-                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SingleGovItemView.this, getString(R.string.aneu_log_gov), Toast.LENGTH_SHORT).show();
 
                     }
                 });

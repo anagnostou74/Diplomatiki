@@ -1,422 +1,547 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/shadow" />
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/card_margin">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/shadow" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:layout_margin="@dimen/card_margin">
 
-            <TextView
-                android:id="@+id/komma"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/mps_image"
-                android:layout_centerInParent="true"
-                android:linksClickable="true"
-                android:textStyle="bold"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                android:padding="15dp">
 
-            <ImageView
-                android:id="@+id/mps_image"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerInParent="true"
-                android:contentDescription="@string/photos"
-                android:scaleType="fitCenter" />
+                <ImageView
+                    android:id="@+id/mps_image"
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/photos"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/komma"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.461"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/epitheto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/komma"
-                android:linksClickable="true"
-                android:textStyle="bold"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/komma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mps_image"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/onoma"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mps_image" />
 
-            <TextView
-                android:id="@+id/onoma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/komma"
-                android:layout_toRightOf="@+id/epitheto"
-                android:linksClickable="true"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:textStyle="bold"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/epitheto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/komma"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/on_patros_label"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/komma" />
 
-            <TextView
-                android:id="@+id/on_patros_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/epitheto"
-                android:linksClickable="true"
-                android:text="@string/on_patros_label"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/onoma"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/komma"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/onomaPatros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/komma" />
 
-            <TextView
-                android:id="@+id/onomaPatros"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/onoma"
-                android:layout_toRightOf="@+id/on_patros_label"
-                android:linksClickable="true"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/on_patros_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/epitheto"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:linksClickable="true"
+                    android:text="@string/on_patros_label"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/perif_label"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/epitheto" />
 
-            <TextView
-                android:id="@+id/titlos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/onomaPatros"
-                android:linksClickable="true"
-                android:textStyle="bold"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.31" />
 
-            <TextView
-                android:id="@+id/govPosition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/titlos"
-                android:linksClickable="true"
-                android:singleLine="false"
-                android:textStyle="italic"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/onomaPatros"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/onoma"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toRightOf="@+id/on_patros_label"
+                    android:linksClickable="true"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/perifereia"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/onoma" />
 
-            <TextView
-                android:id="@+id/perif_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/govPosition"
-                android:layout_margin="3dp"
-                android:linksClickable="true"
-                android:text="@string/perif_label"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/perif_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/govPosition"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:linksClickable="true"
+                    android:text="@string/perif_label"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/titlos"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/on_patros_label" />
 
-            <TextView
-                android:id="@+id/perifereia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/govPosition"
-                android:layout_margin="3dp"
-                android:layout_toRightOf="@+id/perif_label"
-                android:linksClickable="true"
-                android:textStyle="bold"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/perifereia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/govPosition"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toRightOf="@+id/perif_label"
+                    android:linksClickable="true"
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/titlos"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/onomaPatros" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/card_margin"
-        android:layout_marginRight="@dimen/card_margin"
-        android:layout_marginBottom="@dimen/card_margin">
+                <TextView
+                    android:id="@+id/titlos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/onomaPatros"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/material_lighter_blue"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:textStyle="bold"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/govPosition"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.517"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/perifereia" />
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
+                <TextView
+                    android:id="@+id/govPosition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titlos"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/material_yellow"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:singleLine="false"
+                    android:textStyle="bold|italic"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.724"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titlos" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.50" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:layout_marginLeft="@dimen/card_margin"
+            android:layout_marginRight="@dimen/card_margin"
+            android:layout_marginBottom="@dimen/card_margin">
 
-            <TextView
-                android:id="@+id/birth"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                android:padding="15dp">
 
-            <TextView
-                android:id="@+id/family"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/birth"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-            <TextView
-                android:id="@+id/epaggelma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/family"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/family"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/birth"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/epaggelma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/family"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/card_margin"
-        android:layout_marginRight="@dimen/card_margin"
-        android:layout_marginBottom="@dimen/card_margin">
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:layout_marginLeft="@dimen/card_margin"
+            android:layout_marginRight="@dimen/card_margin"
+            android:layout_marginBottom="@dimen/card_margin">
 
-            <TextView
-                android:id="@+id/parliamentActivities"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                android:padding="15dp">
 
-            <TextView
-                android:id="@+id/socialActivities"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/parliamentActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/socialActivities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/parliamentActivities"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/spoudes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/socialActivities"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/languages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spoudes"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/card_margin"
+            android:layout_marginRight="@dimen/card_margin"
+            android:layout_marginBottom="@dimen/card_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/parliamentActivities"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                android:orientation="vertical"
+                android:padding="15dp">
 
-            <TextView
-                android:id="@+id/spoudes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/socialActivities"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:drawableLeft="@drawable/address"
+                    android:drawablePadding="3dp"
+                    android:linksClickable="true"
+                    android:maxLines="10"
+                    android:minLines="2"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-            <TextView
-                android:id="@+id/languages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/spoudes"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/site"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/web"
+                    android:drawablePadding="3dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:textStyle="bold|italic"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/card_margin"
-        android:layout_marginRight="@dimen/card_margin"
-        android:layout_marginBottom="@dimen/card_margin">
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/mail_mp"
+                    android:drawablePadding="3dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:textStyle="bold|italic"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/phone"
+                    android:drawablePadding="3dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    android:textStyle="bold|italic"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/fb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/facebook_48"
+                    android:drawableLeft="@drawable/facebook_48"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/tw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/twitter_48"
+                    android:drawableLeft="@drawable/twitter_48"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/youtube"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/youtube_48"
+                    android:drawableLeft="@drawable/youtube_48"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:linksClickable="true"
+                    app:autoSizePresetSizes="@array/autosize_text_sizes"
+                    app:autoSizeTextType="uniform" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="15dp">
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:drawableLeft="@drawable/address"
-                android:drawablePadding="3dp"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+            <ImageView
+                android:id="@+id/yt_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/youtube_48"
+                app:layout_gravity="center" />
 
-            <TextView
-                android:id="@+id/site"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/web"
-                android:drawablePadding="3dp"
-                android:focusable="true"
-                android:gravity="center"
-                android:linksClickable="true"
-                android:textStyle="bold|italic"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+            <ImageView
+                android:id="@+id/fb_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                app:layout_gravity="center"
+                app:srcCompat="@drawable/facebook_48" />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/mail_mp"
-                android:drawablePadding="3dp"
-                android:focusable="true"
-                android:gravity="center"
-                android:linksClickable="true"
-                android:textStyle="bold|italic"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+            <ImageView
+                android:id="@+id/web_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/web"
+                app:layout_gravity="center" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/phone"
-                android:drawablePadding="3dp"
-                android:focusable="true"
-                android:gravity="center"
-                android:linksClickable="true"
-                android:textStyle="bold|italic"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/fb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/facebook_48"
-                android:drawableLeft="@drawable/facebook_48"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+            <ImageView
+                android:id="@+id/twitter_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                app:layout_gravity="center"
+                app:srcCompat="@drawable/twitter_48" />
 
-            <TextView
-                android:id="@+id/tw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/twitter_48"
-                android:drawableLeft="@drawable/twitter_48"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+            <ImageView
+                android:id="@+id/email_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mail_mp"
+                app:layout_gravity="center" />
 
-            <TextView
-                android:id="@+id/youtube"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/youtube_48"
-                android:drawableLeft="@drawable/youtube_48"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:linksClickable="true"
-                app:autoSizePresetSizes="@array/autosize_text_sizes"
-                app:autoSizeTextType="uniform" />
+            <ImageView
+                android:id="@+id/maps_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/address"
+                app:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/phone_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="@dimen/card_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/phone"
+                app:layout_gravity="center" />
+
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/yt_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            android:src="@drawable/youtube_48"
-            app:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/fb_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            app:layout_gravity="center"
-            app:srcCompat="@drawable/facebook_48" />
-
-        <ImageView
-            android:id="@+id/web_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            android:src="@drawable/web"
-            app:layout_gravity="center" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/twitter_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            app:layout_gravity="center"
-            app:srcCompat="@drawable/twitter_48" />
-
-        <ImageView
-            android:id="@+id/email_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            android:src="@drawable/mail_mp"
-            app:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/maps_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            android:src="@drawable/address"
-            app:layout_gravity="center" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-
-        <ImageView
-            android:id="@+id/phone_img"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="@dimen/card_margin"
-            android:contentDescription="@string/photos"
-            android:scaleType="fitCenter"
-            android:src="@drawable/phone"
-            app:layout_gravity="center" />
-
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
