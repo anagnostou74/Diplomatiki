@@ -63,6 +63,7 @@ public class DownloadPraktikaActivity extends Base {
             "ΙΕ ΠΕΡΙΟΔΟΣ, Σύνοδος Γ",
             "ΙΣΤ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
             "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
+            "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος B",
     };
     public static final String[] descriptions = new String[]{
             "20/4/2000-27/9/2001, pdf",
@@ -80,9 +81,11 @@ public class DownloadPraktikaActivity extends Base {
             "07/10/2013 - 03/10/2014, pdf",
             "06/10/2014 - 29/12/2014, pdf",
             "05/02/2015 - 26/08/2015, pdf",
-            "03/10/2015 - 30/09/2016, pdf"
+            "03/10/2015 - 30/09/2016, pdf",
+            "03/10/2016 - 29/09/2017, pdf"
     };
     public static final Integer[] images = {
+            R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
@@ -210,6 +213,9 @@ public class DownloadPraktikaActivity extends Base {
                     break;
                 case 15:
                     pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/evretirio_IZ_A.pdf";
+                    break;
+                case 16:
+                    pdfURL = "https://www.hellenicparliament.gr/UserFiles/f3c70a23-7696-49db-9148-f24dce6a27c8/sunB-per.IZ.pdf";
                     break;
 
                 default:
