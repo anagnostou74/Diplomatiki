@@ -2,6 +2,7 @@ package gr.mobap.simera;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,12 +51,18 @@ public class OlomeleiaFragment extends Fragment {
         webView.setWebViewClient(new WebViewClient() {
 
         });
-        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
-        if (androidNetworkUtility.isConnected(getActivity())) {
-            web();
-        } else {
-            Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
-                    Toast.LENGTH_SHORT).show();
+        int SDK_INT = android.os.Build.VERSION.SDK_INT;
+        if (SDK_INT > 8) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+            if (androidNetworkUtility.isConnected(getActivity())) {
+                web();
+            } else {
+                Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
+                        Toast.LENGTH_SHORT).show();
+            }
         }
         return ll;
     }
@@ -67,8 +74,8 @@ public class OlomeleiaFragment extends Fragment {
             doc.outputSettings().charset("UTF-8");
             Elements ele = doc.select("div#middlecolumnwide");
             String html = ele.toString();
-            String mime = "text/html";
-            String encoding = "Windows-1252";
+            String mime = "text/html; charset=utf-8";
+            String encoding = "UTF-8";
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setDefaultTextEncodingName("utf-8");
             webView.getSettings().setBuiltInZoomControls(true);
@@ -83,6 +90,7 @@ public class OlomeleiaFragment extends Fragment {
                 public boolean shouldOverrideUrlLoading(WebView webView, String url) {
                     return false;
                 }
+
                 public void onPageFinished(WebView view, String url) {
                     if (progress != null)
                         progress.dismiss();
