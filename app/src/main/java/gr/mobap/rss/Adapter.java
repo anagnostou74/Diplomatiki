@@ -1,6 +1,7 @@
 package gr.mobap.rss;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,12 @@ public class Adapter extends BaseAdapter {
 		}
 		holder.itemTitle.setText(items.get(position).getTitle());
 		holder.itemDescription.setText(items.get(position).getDescription());
-		holder.itemDescription.setText(Html.fromHtml(items.get(position).getDescription()));
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			holder.itemDescription.setText(Html.fromHtml(items.get(position).getDescription(), Html.FROM_HTML_MODE_COMPACT));
+		} else {
+			holder.itemDescription.setText(Html.fromHtml(items.get(position).getDescription()));
+		}
 		return convertView;
 	}
 

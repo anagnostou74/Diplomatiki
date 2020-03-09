@@ -4,6 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/shadow" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mpsList"
         android:layout_width="match_parent"

@@ -366,7 +366,7 @@
                     android:drawablePadding="3dp"
                     android:linksClickable="true"
                     android:maxLines="10"
-                    android:minLines="2"
+                    android:minLines="4"
                     app:autoSizePresetSizes="@array/autosize_text_sizes"
                     app:autoSizeTextType="uniform" />
 
