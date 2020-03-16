@@ -3,6 +3,7 @@ package gr.mobap.simera;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class SimeraFragment extends Fragment {
     private Bundle webViewBundle;
     private ProgressDialog progress;
     String url = "https://www.hellenicparliament.gr/Koinovouleftikos-Elenchos/Evdomadiaio-Deltio";
+    private static final String TAG = "SimeraFragment";
 
     public SimeraFragment() {
         // Required empty public constructor
@@ -46,38 +48,59 @@ public class SimeraFragment extends Fragment {
                              Bundle savedInstanceState) {
         LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_web,
                 container, false);
-        webView = ll.findViewById(R.id.webViewfr);
-        webView.setWebViewClient(new WebViewClient() {
-        });
+        AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
+        if (androidNetworkUtility.isConnected(getActivity())) {
+            webView = ll.findViewById(R.id.webViewfr);
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().supportZoom();
+            webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setLoadWithOverviewMode(true);
+            progress = ProgressDialog.show(getActivity(), "Παρακαλώ περιμένετε...",
+                    "Φορτώνει η σελίδα", true);
+            progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            webView.setWebViewClient(new WebViewClient() {
 
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-            AndroidNetworkUtility androidNetworkUtility = new AndroidNetworkUtility();
-            if (androidNetworkUtility.isConnected(getActivity())) {
-                web();
+                public void onPageFinished(WebView view, String url) {
+                    if (progress != null)
+                        progress.dismiss();
+                }
+            });
+            if (webViewBundle == null) { //Κώδικας για webView save State
+                webView.loadUrl(url);
             } else {
-                Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
-                        Toast.LENGTH_SHORT).show();
+                webView.restoreState(webViewBundle);
             }
+
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.aneu_diktiou),
+                    Toast.LENGTH_SHORT).show();
         }
         return ll;
     }
 
     private void web() {
         try {
-            Document doc = Jsoup.connect(url).ignoreContentType(true).get();
-            doc.select("#ctl00_ContentPlaceHolder1_pcrd1_lnkBack").remove();
+            Document doc = Jsoup.connect(url)
+                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36")
+                    .cookie("cookiesession1", "22258D96MK6VGC4JOO9G8MUK4FAT7DE9")
+                    .get();
+            doc.select("#ctl00_ContentPlaceHolder1_pcrd1_lnkBack")
+                    .remove();
             doc.outputSettings().charset("UTF-8");
+            Log.d(TAG, "doc:" + doc);
+
             Elements ele = doc.select("div#middlecolumnwide");
             String html = ele.toString();
             String mime = "text/html; charset=utf-8";
             String encoding = "UTF-8";
+            Log.d(TAG, "html:" + html);
+
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setDefaultTextEncodingName("utf-8");
             webView.getSettings().setBuiltInZoomControls(true);
+            webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setLoadWithOverviewMode(true);
             webView.getSettings().supportZoom();
             webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
             webView.setScrollbarFadingEnabled(true);
@@ -96,7 +119,7 @@ public class SimeraFragment extends Fragment {
                 }
             });
             if (webViewBundle == null) { //Κώδικας για webView save State
-                webView.loadData(html, mime, encoding);
+                webView.loadData(url, mime, encoding);
             } else {
                 webView.restoreState(webViewBundle);
             }
