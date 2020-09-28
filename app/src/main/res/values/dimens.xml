@@ -12,6 +12,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!--list activity wants it 200-->
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="mps_margin">8dp</dimen>
 
     <dimen name="card_margin">16dp</dimen>
     <dimen name="text">4dp</dimen>

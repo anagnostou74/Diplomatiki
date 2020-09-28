@@ -27,12 +27,11 @@ public class MpsViewHolder extends RecyclerView.ViewHolder {
     public TextView spoudes;
     public TextView languages;
     public TextView address;
-    public TextView site;
     public TextView email;
-    public TextView facebook;
+    public TextView instagram;
+    public TextView linkedin;
     public TextView twitter;
     public TextView youtube;
-    public TextView phone;
 
 
     public MpsViewHolder(@NonNull View itemView) {
@@ -55,12 +54,9 @@ public class MpsViewHolder extends RecyclerView.ViewHolder {
         spoudes = itemView.findViewById(R.id.spoudes);
         languages = itemView.findViewById(R.id.languages);
         address = itemView.findViewById(R.id.address);
-        site = itemView.findViewById(R.id.site);
         email = itemView.findViewById(R.id.email);
-        facebook = itemView.findViewById(R.id.fb);
-        twitter = itemView.findViewById(R.id.tw);
-        youtube = itemView.findViewById(R.id.youtube);
-        phone = itemView.findViewById(R.id.phone);
+        instagram = itemView.findViewById(R.id.insta_img);
+        linkedin = itemView.findViewById(R.id.linkedin_img);
 
     }
 }

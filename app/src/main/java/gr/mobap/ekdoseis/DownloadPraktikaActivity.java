@@ -64,6 +64,8 @@ public class DownloadPraktikaActivity extends Base {
             "ΙΣΤ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
             "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος Α",
             "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος B",
+            "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος Γ",
+            "ΙΖ ΠΕΡΙΟΔΟΣ, Σύνοδος Δ",
     };
     public static final String[] descriptions = new String[]{
             "20/4/2000-27/9/2001, pdf",
@@ -82,9 +84,13 @@ public class DownloadPraktikaActivity extends Base {
             "06/10/2014 - 29/12/2014, pdf",
             "05/02/2015 - 26/08/2015, pdf",
             "03/10/2015 - 30/09/2016, pdf",
-            "03/10/2016 - 29/09/2017, pdf"
+            "03/10/2016 - 29/09/2017, pdf",
+            "02/10/2017 - 28/09/2018, pdf",
+            "01/10/2018 - 07/06/2019, pdf"
     };
     public static final Integer[] images = {
+            R.drawable.ekdoseis_read,
+            R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,
             R.drawable.ekdoseis_read,

@@ -57,12 +57,6 @@ public class SingleGovItemView extends Base {
     private TextView txtspoudes;
     private TextView txtlanguages;
     private TextView txtaddress;
-    private TextView txtsite;
-    private TextView txtemail;
-    private TextView txtphone;
-    private TextView txtfacebook;
-    private TextView txttwitter;
-    private TextView txtyt;
     private ImageView mpsImage;
 
     private ImageView phoneImage;
@@ -141,12 +135,6 @@ public class SingleGovItemView extends Base {
         txtspoudes = findViewById(R.id.spoudes);
         txtlanguages = findViewById(R.id.languages);
         txtaddress = findViewById(R.id.address);
-        txtsite = findViewById(R.id.site);
-        txtfacebook = findViewById(R.id.fb);
-        txttwitter = findViewById(R.id.tw);
-        txtyt = findViewById(R.id.youtube);
-        txtemail = findViewById(R.id.email);
-        txtphone = findViewById(R.id.phone);
     }
 
     @Override
@@ -199,12 +187,6 @@ public class SingleGovItemView extends Base {
                 } else {
                     txtaddress.setText(Html.fromHtml(mps.address));
                 }
-                txtsite.setText(mps.site);
-                txtemail.setText(mps.email);
-                txtphone.setText(mps.phone);
-                txtfacebook.setText(mps.facebook);
-                txttwitter.setText(mps.twitter);
-                txtyt.setText(mps.youtube);
                 // [END_EXCLUDE]
                 phoneImage.setOnClickListener(v -> {
                     // [START custom_event]
@@ -213,12 +195,12 @@ public class SingleGovItemView extends Base {
                             .setAction("CallMps")
                             .build());
                     // [END custom_event]
-                    String po = txtphone.getText().toString();
+                    String po = mps.phone;
                     Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", po, null));
                     startActivity(intent1);
                 });
                 emailImage.setOnClickListener(v -> {
-                    String to = txtemail.getText().toString();
+                    String to = mps.email;
                     Intent i1 = new Intent(Intent.ACTION_SEND);
                     i1.setType("message/rfc822");
                     i1.putExtra(Intent.EXTRA_EMAIL,
@@ -234,7 +216,7 @@ public class SingleGovItemView extends Base {
                     }
                 });
                 webImage.setOnClickListener(v -> {
-                    String to = txtsite.getText().toString();
+                    String to = mps.site;
                     Log.d(TAG, "txtsite: " + to);
                     if (to.length() > 2) {
                         Intent browserIntent = new Intent(
@@ -247,7 +229,7 @@ public class SingleGovItemView extends Base {
                     }
                 });
                 fbImage.setOnClickListener(v -> {
-                    String to = txtfacebook.getText().toString();
+                    String to = mps.facebook;
                     Log.d(TAG, "txtfacebook: " + to);
                     if (to.length() > 2) {
                         Intent intent = new Intent(
@@ -261,7 +243,7 @@ public class SingleGovItemView extends Base {
 
                 });
                 twitterImage.setOnClickListener(v -> {
-                    String to = txttwitter.getText().toString();
+                    String to = mps.twitter;
                     Log.d(TAG, "txttwitter: " + to);
                     if (to.length() > 2) {
                         try {
@@ -283,7 +265,7 @@ public class SingleGovItemView extends Base {
                     }
                 });
                 mapsImage.setOnClickListener(v -> {
-                    String to = txtaddress.getText().toString();
+                    String to = mps.address;
                     Log.d(TAG, "Maps: " + to);
                     if (to.length() > 2) {
                         try {
@@ -303,7 +285,7 @@ public class SingleGovItemView extends Base {
                     }
                 });
                 ytImage.setOnClickListener(v -> {
-                    String to = txtyt.getText().toString();
+                    String to = mps.youtube;
                     Log.d(TAG, "ytImage: " + to);
                     if (to.length() > 2) {
                         Intent browserIntent = new Intent(

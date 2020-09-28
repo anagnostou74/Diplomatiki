@@ -57,14 +57,9 @@ public class SingleItemView extends Base {
     private TextView txtspoudes;
     private TextView txtlanguages;
     private TextView txtaddress;
-    private TextView txtsite;
-    private TextView txtemail;
-    private TextView txtphone;
-    private TextView txtfacebook;
-    private TextView txttwitter;
-    private TextView txtyt;
     private ImageView mpsImage;
-
+    private ImageView instagramImage;
+    private ImageView linkedinImage;
     private ImageView phoneImage;
     private ImageView fbImage;
     private ImageView webImage;
@@ -124,6 +119,8 @@ public class SingleItemView extends Base {
         emailImage = findViewById(R.id.email_img);
         mapsImage = findViewById(R.id.maps_img);
         ytImage = findViewById(R.id.yt_img);
+        instagramImage = findViewById(R.id.insta_img);
+        linkedinImage = findViewById(R.id.linkedin_img);
 
         // Locate the TextViews in singleview_mpsew_mps.xml
         // TextView txtrank = (TextView) findViewById(R.id.rank);
@@ -142,12 +139,6 @@ public class SingleItemView extends Base {
         txtspoudes = findViewById(R.id.spoudes);
         txtlanguages = findViewById(R.id.languages);
         txtaddress = findViewById(R.id.address);
-        txtsite = findViewById(R.id.site);
-        txtfacebook = findViewById(R.id.fb);
-        txttwitter = findViewById(R.id.tw);
-        txtyt = findViewById(R.id.youtube);
-        txtemail = findViewById(R.id.email);
-        txtphone = findViewById(R.id.phone);
     }
 
     @Override
@@ -202,12 +193,6 @@ public class SingleItemView extends Base {
                 } else {
                     txtaddress.setText(Html.fromHtml(mps.address));
                 }
-                txtsite.setText(mps.site);
-                txtemail.setText(mps.email);
-                txtphone.setText(mps.phone);
-                txtfacebook.setText(mps.facebook);
-                txttwitter.setText(mps.twitter);
-                txtyt.setText(mps.youtube);
                 // [END_EXCLUDE]
                 phoneImage.setOnClickListener(v -> {
                     // [START custom_event]
@@ -216,12 +201,12 @@ public class SingleItemView extends Base {
                             .setAction("CallMps")
                             .build());
                     // [END custom_event]
-                    String po = txtphone.getText().toString();
+                    String po = mps.phone;
                     Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", po, null));
                     startActivity(intent1);
                 });
                 emailImage.setOnClickListener(v -> {
-                    String to = txtemail.getText().toString();
+                    String to = mps.email;
                     Intent i1 = new Intent(Intent.ACTION_SEND);
                     i1.setType("message/rfc822");
                     i1.putExtra(Intent.EXTRA_EMAIL,
@@ -237,7 +222,7 @@ public class SingleItemView extends Base {
                     }
                 });
                 webImage.setOnClickListener(v -> {
-                    String to = txtsite.getText().toString();
+                    String to = mps.site;
                     Log.d(TAG, "txtsite: " + to);
                     if (to.length() > 2) {
                         Intent browserIntent = new Intent(
@@ -250,7 +235,7 @@ public class SingleItemView extends Base {
                     }
                 });
                 fbImage.setOnClickListener(v -> {
-                    String to = txtfacebook.getText().toString();
+                    String to = mps.facebook;
                     Log.d(TAG, "txtfacebook: " + to);
                     if (to.length() > 2) {
                         Intent intent = new Intent(
@@ -264,7 +249,7 @@ public class SingleItemView extends Base {
 
                 });
                 twitterImage.setOnClickListener(v -> {
-                    String to = txttwitter.getText().toString();
+                    String to = mps.twitter;
                     Log.d(TAG, "txttwitter: " + to);
                     if (to.length() > 2) {
                         try {
@@ -285,8 +270,55 @@ public class SingleItemView extends Base {
                         Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                instagramImage.setOnClickListener(v -> {
+                    String to = mps.instagram;
+                    Log.d(TAG, "txtinstagram: " + to);
+                    if (to.length() > 2) {
+                        try {
+                            getApplicationContext().getPackageManager().getPackageInfo("com.instagram.android", 0);
+                            Intent intent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("instagram://" + to));
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            Log.d(TAG, "instagram: " + "instagram://" + to);
+                        } catch (Exception e) {
+                            Intent intent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("https://instagram.com/" + to));
+                            startActivity(intent);
+                        }
+                    } else {
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                linkedinImage.setOnClickListener(v -> {
+                    String to = mps.linkedin;
+                    Log.d(TAG, "txtlinkedin: " + to);
+                    if (to.length() > 2) {
+                        try {
+                            getApplicationContext().getPackageManager().getPackageInfo("com.linkedin.android", 0);
+                            Intent intent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("linkedin://" + to));
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            Log.d(TAG, "linkedin: " + "linkedin://" + to);
+                        } catch (Exception e) {
+                            Intent intent = new Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("https://linkedin.com/in/" + to));
+                            startActivity(intent);
+                        }
+                    } else {
+                        Toast.makeText(SingleItemView.this, getString(R.string.aneu_log), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
                 mapsImage.setOnClickListener(v -> {
-                    String to = txtaddress.getText().toString();
+                    String to = mps.address;
                     Log.d(TAG, "Maps: " + to);
                     if (to.length() > 2) {
                         try {
@@ -306,7 +338,7 @@ public class SingleItemView extends Base {
                     }
                 });
                 ytImage.setOnClickListener(v -> {
-                    String to = txtyt.getText().toString();
+                    String to = mps.youtube;
                     Log.d(TAG, "ytImage: " + to);
                     if (to.length() > 2) {
                         Intent browserIntent = new Intent(

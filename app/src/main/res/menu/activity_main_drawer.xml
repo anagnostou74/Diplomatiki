@@ -45,6 +45,10 @@
     <item android:title="@string/polimesa">
         <menu>
             <item
+                android:id="@+id/nav_periodiko"
+                android:icon="@drawable/ekdoseis"
+                android:title="@string/periodiko" />
+            <item
                 android:id="@+id/nav_ekdoseis"
                 android:icon="@drawable/ekdoseis"
                 android:title="@string/ekdoseis" />

@@ -370,81 +370,6 @@
                     app:autoSizePresetSizes="@array/autosize_text_sizes"
                     app:autoSizeTextType="uniform" />
 
-                <TextView
-                    android:id="@+id/site"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/web"
-                    android:drawablePadding="3dp"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    android:textStyle="bold|italic"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/mail_mp"
-                    android:drawablePadding="3dp"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    android:textStyle="bold|italic"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/phone"
-                    android:drawablePadding="3dp"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    android:textStyle="bold|italic"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/fb"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/facebook_48"
-                    android:drawableLeft="@drawable/facebook_48"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/tw"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/twitter_48"
-                    android:drawableLeft="@drawable/twitter_48"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/youtube"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/youtube_48"
-                    android:drawableLeft="@drawable/youtube_48"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    app:autoSizePresetSizes="@array/autosize_text_sizes"
-                    app:autoSizeTextType="uniform" />
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -457,9 +382,9 @@
 
             <ImageView
                 android:id="@+id/yt_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="@dimen/card_margin"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="@dimen/mps_margin"
                 android:contentDescription="@string/photos"
                 android:scaleType="fitCenter"
                 android:src="@drawable/youtube_48"
@@ -467,73 +392,87 @@
 
             <ImageView
                 android:id="@+id/fb_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="@dimen/card_margin"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="@dimen/mps_margin"
                 android:contentDescription="@string/photos"
                 android:scaleType="fitCenter"
                 app:layout_gravity="center"
-                app:srcCompat="@drawable/facebook_48" />
+                app:srcCompat="@drawable/facebook" />
+
+            <ImageView
+                android:id="@+id/twitter_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="@dimen/mps_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                app:layout_gravity="center"
+                app:srcCompat="@drawable/twitter" />
+
+            <ImageView
+                android:id="@+id/insta_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="@dimen/mps_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/instagram"
+                app:layout_gravity="center" />
+
+            <ImageView
+                android:id="@+id/linkedin_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="@dimen/mps_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/linkedin"
+                app:layout_gravity="center" />
+
+            <ImageView
+                android:id="@+id/email_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="@dimen/mps_margin"
+                android:contentDescription="@string/photos"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mail_mp"
+                app:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/web_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_margin="@dimen/card_margin"
                 android:contentDescription="@string/photos"
                 android:scaleType="fitCenter"
                 android:src="@drawable/web"
                 app:layout_gravity="center" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/twitter_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="@dimen/card_margin"
-                android:contentDescription="@string/photos"
-                android:scaleType="fitCenter"
-                app:layout_gravity="center"
-                app:srcCompat="@drawable/twitter_48" />
-
-            <ImageView
-                android:id="@+id/email_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="@dimen/card_margin"
-                android:contentDescription="@string/photos"
-                android:scaleType="fitCenter"
-                android:src="@drawable/mail_mp"
-                app:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/maps_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_margin="@dimen/card_margin"
                 android:contentDescription="@string/photos"
                 android:scaleType="fitCenter"
                 android:src="@drawable/address"
                 app:layout_gravity="center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
 
 
             <ImageView
                 android:id="@+id/phone_img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_margin="@dimen/card_margin"
                 android:contentDescription="@string/photos"
                 android:scaleType="fitCenter"

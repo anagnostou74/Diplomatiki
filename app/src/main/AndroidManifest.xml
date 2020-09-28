@@ -244,6 +244,29 @@
                     android:scheme="mobap" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ekdoseis.PeriodikoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/periodiko">
+            <intent-filter android:label="@string/periodiko">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/periodiko"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="periodiko"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".PeriActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
