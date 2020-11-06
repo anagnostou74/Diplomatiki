@@ -32,7 +32,7 @@ public class OlomeleiaEleghosFragment extends Fragment {
     private Bundle webViewBundle;
     private ProgressDialog progress;
     String url = "https://www.hellenicparliament.gr/Koinovouleftikos-Elenchos/Deltio-Epikairon-Erotiseon";
-    private static final String TAG = "OlomeleiaEleghosFragment";
+    private static final String TAG = "OlomeleiaEleghosFrag";
 
     public OlomeleiaEleghosFragment() {
         // Required empty public constructor
