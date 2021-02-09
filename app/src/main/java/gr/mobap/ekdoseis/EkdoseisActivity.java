@@ -36,7 +36,7 @@ public class EkdoseisActivity extends Base {
     public String TAG = getClass().getSimpleName();
 
     private FragmentStatePagerAdapter mPagerAdapter;
-    private ViewPager viewPager;
+    private ViewPager mViewPager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,11 +67,7 @@ public class EkdoseisActivity extends Base {
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
         }
-        ViewPager viewPager = findViewById(R.id.viewpager);
-        viewPager.setAdapter(mPagerAdapter);
 
-        TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
         // [START shared_tracker]
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
@@ -109,7 +105,12 @@ public class EkdoseisActivity extends Base {
             }
         };
 
-
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = findViewById(R.id.viewpager);
+        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setAdapter(mPagerAdapter);
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
     }
 
     public Action getAction() {
