@@ -31,9 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gr.mobap.diafaneia.Diafaneia;
-import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
-import gr.mobap.ekdoseis.DownloadPraktikaActivity;
-import gr.mobap.ekdoseis.PeriodikoActivity;
+import gr.mobap.ekdoseis.EkdoseisActivity;
 import gr.mobap.government.GovActivity;
 import gr.mobap.images.Image;
 import gr.mobap.komma.KommActivity;
@@ -47,13 +45,13 @@ import gr.mobap.rss.activities.NeaActivity;
 import gr.mobap.rss.activities.NsKatActivity;
 import gr.mobap.rss.activities.NsPsActivity;
 import gr.mobap.rss.activities.SinEpActivity;
-import gr.mobap.simera.HmerolActivity;
+import gr.mobap.simera.CalendarActivity;
 import gr.mobap.twitter.TimelineActivity;
 import gr.mobap.video.LiveVideoActivity;
 import gr.mobap.video.LiveVideoDioActivity;
+import gr.mobap.video.LiveVideoThreeeActivity;
 import gr.mobap.vouli.Thesmos;
 import gr.mobap.web.MailWeb;
-import gr.mobap.web.MobapWeb;
 import gr.mobap.web.SindesmoiActivity;
 import gr.mobap.youtube.IntentsTvActivity;
 
@@ -139,127 +137,75 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        switch (id) {
-            case R.id.nav_home: {
-                Intent i = new Intent(Base.this, MainActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_thesmos: {
-                Intent i = new Intent(Base.this, Thesmos.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_organosi: {
-                Intent i = new Intent(Base.this, OrganosiActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_kommata: {
-                Intent i = new Intent(Base.this, KommActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_vouleutes: {
-                Intent i = new Intent(Base.this, MpsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_simera: {
-                Intent i = new Intent(Base.this, HmerolActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_sindesmoi: {
-                Intent i = new Intent(Base.this, SindesmoiActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_gov: {
-                Intent i = new Intent(Base.this, GovActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_periodiko: {
-                Intent i = new Intent(Base.this, PeriodikoActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_ekdoseis: {
-                Intent i = new Intent(Base.this, DownloadEkdoseisActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_photo: {
-                Intent i = new Intent(Base.this, Image.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_kanali: {
-                Intent i = new Intent(Base.this, IntentsTvActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_live_ena: {
-                Intent i = new Intent(Base.this, LiveVideoActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_live_dio: {
-                Intent i = new Intent(Base.this, LiveVideoDioActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_nea: {
-                Intent i = new Intent(Base.this, NeaActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_praktika: {
-                Intent i = new Intent(Base.this, DownloadPraktikaActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_diafaneia: {
-                Intent i = new Intent(Base.this, Diafaneia.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_eleghos: {
-                Intent i = new Intent(Base.this, EleghosActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_katatethenta: {
-                Intent i = new Intent(Base.this, NsKatActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_psifisthenta: {
-                Intent i = new Intent(Base.this, NsPsActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_sinedriaseis_epitropon: {
-                Intent i = new Intent(Base.this, SinEpActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_ektheseis: {
-                Intent i = new Intent(Base.this, EktheseisEpActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_drastiriotites: {
-                Intent i = new Intent(Base.this, DrastActivity.class);
-                startActivity(i);
-                break;
-            }
-            case R.id.nav_twitter: {
-                Intent i = new Intent(Base.this, TimelineActivity.class);
-                startActivity(i);
-                break;
-            }
+        if (id == R.id.nav_home) {
+            Intent i = new Intent(Base.this, MainActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_thesmos) {
+            Intent i = new Intent(Base.this, Thesmos.class);
+            startActivity(i);
+        } else if (id == R.id.nav_organosi) {
+            Intent i = new Intent(Base.this, OrganosiActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_kommata) {
+            Intent i = new Intent(Base.this, KommActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_vouleutes) {
+            Intent i = new Intent(Base.this, MpsActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_simera) {
+            Intent i = new Intent(Base.this, CalendarActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_sindesmoi) {
+            Intent i = new Intent(Base.this, SindesmoiActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_gov) {
+            Intent i = new Intent(Base.this, GovActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_ekdoseis) {
+            Intent i = new Intent(Base.this, EkdoseisActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_photo) {
+            Intent i = new Intent(Base.this, Image.class);
+            startActivity(i);
+        } else if (id == R.id.nav_kanali) {
+            Intent i = new Intent(Base.this, IntentsTvActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_live_ena) {
+            Intent i = new Intent(Base.this, LiveVideoActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_live_dio) {
+            Intent i = new Intent(Base.this, LiveVideoDioActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_live_three) {
+            Intent i = new Intent(Base.this, LiveVideoThreeeActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_nea) {
+            Intent i = new Intent(Base.this, NeaActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_diafaneia) {
+            Intent i = new Intent(Base.this, Diafaneia.class);
+            startActivity(i);
+        } else if (id == R.id.nav_eleghos) {
+            Intent i = new Intent(Base.this, EleghosActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_katatethenta) {
+            Intent i = new Intent(Base.this, NsKatActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_psifisthenta) {
+            Intent i = new Intent(Base.this, NsPsActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_sinedriaseis_epitropon) {
+            Intent i = new Intent(Base.this, SinEpActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_ektheseis) {
+            Intent i = new Intent(Base.this, EktheseisEpActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_drastiriotites) {
+            Intent i = new Intent(Base.this, DrastActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_twitter) {
+            Intent i = new Intent(Base.this, TimelineActivity.class);
+            startActivity(i);
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -326,10 +272,6 @@ public class Base extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.nav_diktio:
                 Intent d = new Intent(Base.this, MailWeb.class);
                 startActivity(d);
-                return true;
-            case R.id.menu_mobap:
-                Intent m = new Intent(Base.this, MobapWeb.class);
-                startActivity(m);
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

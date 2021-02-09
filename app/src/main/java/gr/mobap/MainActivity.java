@@ -47,7 +47,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
@@ -56,17 +55,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
 
 import java.io.File;
 
 import gr.mobap.diafaneia.Diafaneia;
-import gr.mobap.ekdoseis.DownloadEkdoseisActivity;
+import gr.mobap.ekdoseis.EkdoseisActivity;
 import gr.mobap.images.Image;
 import gr.mobap.komma.KommActivity;
 import gr.mobap.organosi.OrganosiActivity;
 import gr.mobap.rss.activities.NeaActivity;
-import gr.mobap.simera.HmerolActivity;
+import gr.mobap.simera.CalendarActivity;
 import gr.mobap.twitter.TimelineActivity;
 import gr.mobap.video.LiveVideoActivity;
 
@@ -485,11 +483,11 @@ public class MainActivity extends Base
                 startActivity(b);
                 break;
             case R.id.main3:
-                Intent c = new Intent(MainActivity.this, HmerolActivity.class);
+                Intent c = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(c);
                 break;
             case R.id.main4:
-                Intent d = new Intent(MainActivity.this, DownloadEkdoseisActivity.class);
+                Intent d = new Intent(MainActivity.this, EkdoseisActivity.class);
                 startActivity(d);
                 break;
             case R.id.main5:

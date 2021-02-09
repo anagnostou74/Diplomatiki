@@ -41,11 +41,6 @@
         android:title="@string/peri"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_mobap"
-        android:icon="@drawable/ic_bookmark_border_24dp"
-        android:title="@string/mobap"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/menu_play"
         android:icon="@drawable/ic_store_24dp"
         android:title="@string/play"

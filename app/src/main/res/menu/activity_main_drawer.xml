@@ -45,10 +45,6 @@
     <item android:title="@string/polimesa">
         <menu>
             <item
-                android:id="@+id/nav_periodiko"
-                android:icon="@drawable/ekdoseis"
-                android:title="@string/periodiko" />
-            <item
                 android:id="@+id/nav_ekdoseis"
                 android:icon="@drawable/ekdoseis"
                 android:title="@string/ekdoseis" />
@@ -68,6 +64,10 @@
                 android:id="@+id/nav_live_dio"
                 android:icon="@drawable/web_tv"
                 android:title="@string/nav_live_dio" />
+            <item
+                android:id="@+id/nav_live_three"
+                android:icon="@drawable/web_tv"
+                android:title="@string/nav_live_three" />
         </menu>
     </item>
     <item android:title="@string/enimerosi">
@@ -80,10 +80,6 @@
                 android:id="@+id/nav_diafaneia"
                 android:icon="@drawable/ic_rss_feed_black_24dp"
                 android:title="@string/diafaneia" />
-            <item
-                android:id="@+id/nav_praktika"
-                android:icon="@drawable/ekdoseis"
-                android:title="@string/praktika_olom" />
             <item
                 android:id="@+id/nav_eleghos"
                 android:icon="@drawable/enimerosi"

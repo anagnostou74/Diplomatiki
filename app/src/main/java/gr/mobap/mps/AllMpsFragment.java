@@ -4,7 +4,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 public class AllMpsFragment extends MpsListFragment {
-    public String TAG = getClass().getSimpleName();
 
     public AllMpsFragment() {
     }

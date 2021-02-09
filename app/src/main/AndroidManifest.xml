@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- USE_CREDENTIALS is necessary for Google+ login -->
@@ -14,7 +13,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <!-- Required to retrieve diafaneia JSON -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -31,18 +29,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="gr.mobap.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
 
         <activity
             android:name=".Splash"
@@ -119,7 +109,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".simera.HmerolActivity"
+            android:name=".simera.CalendarActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/simera">
             <intent-filter android:label="@string/simera">
@@ -130,17 +120,17 @@
                 <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
                 <data
                     android:host="www.mobap.gr"
-                    android:pathPrefix="/hmerolactivity"
+                    android:pathPrefix="/calendaractivity"
                     android:scheme="http" />
                 <!-- note that the leading "/" is required for pathPrefix -->
                 <!-- Accepts URIs that begin with "example://gizmos” -->
                 <data
-                    android:host="hmerolactivity"
+                    android:host="calendaractivity"
                     android:scheme="mobap" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ekdoseis.DownloadEkdoseisActivity"
+            android:name=".ekdoseis.EkdoseisActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/ekdoseis">
             <intent-filter android:label="@string/ekdoseis">
@@ -151,20 +141,20 @@
                 <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
                 <data
                     android:host="www.mobap.gr"
-                    android:pathPrefix="/downloadekdoseisactivity"
+                    android:pathPrefix="/ekdoseisactivity"
                     android:scheme="http" />
                 <!-- note that the leading "/" is required for pathPrefix -->
                 <!-- Accepts URIs that begin with "example://gizmos” -->
                 <data
-                    android:host="downloadekdoseisactivity"
+                    android:host="ekdoseisactivity"
                     android:scheme="mobap" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ekdoseis.DownloadPraktikaActivity"
+            android:name=".ekdoseis.DownloadAndOpen"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/praktika_olom">
-            <intent-filter android:label="@string/praktika_olom">
+            android:label="@string/ekdoseis">
+            <intent-filter android:label="@string/ekdoseis">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -172,12 +162,12 @@
                 <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
                 <data
                     android:host="www.mobap.gr"
-                    android:pathPrefix="/downloadpraktikaactivity"
+                    android:pathPrefix="/ekdoseisactivity"
                     android:scheme="http" />
                 <!-- note that the leading "/" is required for pathPrefix -->
                 <!-- Accepts URIs that begin with "example://gizmos” -->
                 <data
-                    android:host="downloadpraktikaactivity"
+                    android:host="ekdoseisactivity"
                     android:scheme="mobap" />
             </intent-filter>
         </activity>
@@ -246,7 +236,7 @@
         </activity>
 
         <activity
-            android:name=".ekdoseis.PeriodikoActivity"
+            android:name=".periodiko.PeriodikoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/periodiko">
             <intent-filter android:label="@string/periodiko">
@@ -356,6 +346,28 @@
                 <!-- Accepts URIs that begin with "example://gizmos” -->
                 <data
                     android:host="livevideodioactivity"
+                    android:scheme="mobap" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".video.LiveVideoThreeeActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/nav_live_three"
+            android:screenOrientation="landscape">
+            <intent-filter android:label="@string/nav_live_three">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data
+                    android:host="www.mobap.gr"
+                    android:pathPrefix="/livevideothreeactivity"
+                    android:scheme="http" />
+                <!-- note that the leading "/" is required for pathPrefix -->
+                <!-- Accepts URIs that begin with "example://gizmos” -->
+                <data
+                    android:host="livevideothreeactivity"
                     android:scheme="mobap" />
             </intent-filter>
         </activity>
@@ -563,27 +575,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".web.MobapWeb"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/mobap">
-            <intent-filter android:label="@string/mobap">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
-                <data
-                    android:host="www.mobap.gr"
-                    android:pathPrefix="/mobapweb"
-                    android:scheme="http" />
-                <!-- note that the leading "/" is required for pathPrefix -->
-                <!-- Accepts URIs that begin with "example://gizmos” -->
-                <data
-                    android:host="mobapweb"
-                    android:scheme="mobap" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".rss.activities.DrastActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/drastiriotites">
@@ -748,6 +739,15 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
 
     </application>
 

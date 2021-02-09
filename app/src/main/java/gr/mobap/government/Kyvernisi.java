@@ -18,9 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import gr.mobap.R;
-import gr.mobap.mps.MpsAdapter;
 import gr.mobap.mps.MpsData;
-import gr.mobap.mps.MpsListFragment;
 import gr.mobap.mps.MpsViewHolder;
 
 public class Kyvernisi extends Fragment {

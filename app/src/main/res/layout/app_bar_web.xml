@@ -18,8 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:theme="@style/AppTheme.PopupOverlay"
-            app:logo="@mipmap/ic_launcher"/>
+            android:theme="@style/AppTheme.PopupOverlay"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

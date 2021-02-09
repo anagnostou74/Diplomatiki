@@ -512,12 +512,15 @@ limitations under the License.
     <string name="mps">Βουλευτές</string>
     <string name="links">Σύνδεσμοι</string>
     <string name="polimesa">Πολυμέσα</string>
-    <string name="periodiko">Βουλή περιοδικό</string>
+    <string name="calendar">Ημερολόγιο</string>
+    <string name="periodiko">Περιοδικό</string>
     <string name="ekdoseis">Εκδόσεις</string>
+    <string name="ekdoseisPeriodiko">Εκδόσεις / Περιοδικό / Ευρετήρια</string>
     <string name="photos">Φωτογραφίες</string>
     <string name="tv">Τηλεόραση</string>
     <string name="nav_live_ena">WebTv1</string>
     <string name="nav_live_dio">WebTv2</string>
+    <string name="nav_live_three">WebTv3</string>
     <string name="enimerosi">Ενημέρωση</string>
     <string name="deltia">Δελτία τύπου</string>
     <string name="koin_epitropes">Κοινοβουλευτικές Επιτροπές</string>
@@ -532,7 +535,8 @@ limitations under the License.
     <string name="katatethenta">Κατατεθέντα</string>
     <string name="psifisthenta">Ψηφισθέντα</string>
     <string name="eleghos">Κοινοβουλευτικός Έλεγχος</string>
-    <string name="praktika_olom">Επίσημα Πρακτικά Ολομέλειας</string>
+    <string name="praktika_olom">Ευρετήρια Επίσημων Πρακτικών Ολομέλειας</string>
+    <string name="praktika_olom_short">Ευρετήρια Πρακτικών</string>
     <string name="sinedriaseis_epitropon">Συνεδριάσεις</string>
     <string name="ektheseis">Εκθέσεις</string>
     <string name="drastiriotites">Δραστηριότητες</string>

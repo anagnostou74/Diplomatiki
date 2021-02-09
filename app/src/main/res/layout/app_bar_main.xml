@@ -18,8 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:theme="@style/AppTheme.PopupOverlay"
-            app:logo="@mipmap/ic_launcher" />
+            android:theme="@style/AppTheme.PopupOverlay"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -152,7 +151,7 @@
                     android:layout_toRightOf="@+id/icon"
                     android:background="@color/material_deep_purple"
                     android:gravity="center_vertical"
-                    android:text="@string/ekdoseis"
+                    android:text="@string/ekdoseisPeriodiko"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"

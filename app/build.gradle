@@ -5,7 +5,7 @@ android {
         release {
             keyAlias 'hellenicParliamentKeyEAPThesis'
             keyPassword ANDROID_STORE_PASSWORD
-            storeFile file('C:/Dev/parlkey.jks')
+            storeFile file('C:/OneDrive/Development/parlkey_GoogleDrive_original.jks')
             storePassword ANDROID_KEY_PASSWORD
         }
         config {
@@ -21,8 +21,8 @@ android {
         applicationId 'gr.mobap'
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 47
-        versionName "2020v.B"
+        versionCode 49
+        versionName "2021"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
@@ -74,28 +74,28 @@ dependencies {
     implementation 'com.twitter.sdk.android:tweet-ui:3.3.0'
     implementation 'androidx.core:core:1.3.2'
 
-    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
+    implementation 'androidx.appcompat:appcompat:1.3.0-beta01'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.google.android.gms:play-services-base:17.5.0'
+    implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-plus:17.0.0'
     implementation 'com.google.android.gms:play-services-analytics:17.0.0'
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
 
     implementation 'com.google.firebase:firebase-appindexing:19.1.0'
-    implementation 'com.google.firebase:firebase-core:18.0.0'
-    implementation 'com.google.firebase:firebase-messaging:21.0.0'
-    implementation 'com.google.firebase:firebase-auth:20.0.0'
+    implementation 'com.google.firebase:firebase-core:18.0.2'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'com.google.firebase:firebase-auth:20.0.2'
     // Realtime Database
-    implementation 'com.google.firebase:firebase-firestore:22.0.0'
-    implementation 'com.google.firebase:firebase-database:19.5.1'
+    implementation 'com.google.firebase:firebase-firestore:22.0.2'
+    implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.firebaseui:firebase-ui-database:4.3.2'
 
     implementation 'com.github.bumptech.glide:glide:4.9.0'
@@ -107,7 +107,9 @@ dependencies {
     implementation 'com.parse:parse-android:1.13.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     testImplementation 'junit:junit:4.12'
-
 }
 
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}

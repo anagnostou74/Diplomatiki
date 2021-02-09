@@ -2,19 +2,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@drawable/shadow" />
 
-    <WebView
-        android:id="@+id/webViewfr"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:longClickable="false"
-        android:clickable="false"
-        android:linksClickable="false" />
+        android:layout_height="match_parent">
 
+        <WebView
+            android:id="@+id/webViewfr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:clickable="false"
+            android:linksClickable="false"
+            android:longClickable="false"
+            android:scrollbars="vertical" />
+    </ScrollView>
 </LinearLayout>
